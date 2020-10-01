@@ -4,7 +4,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
  * @property string $referenceKey A key that uniquely identifies a group of products (e.g. all colors of a shirt) within the tenant's ecosystem.
- * @property SimpleAttribute[]|SimpleAttributeList[]|LocalizedAttribute[]|LocalizedAttributeList[]|AdvancedAttribute[]|AdvancedAttributeList[] $attributes 
+ * @property SimpleAttribute[]|SimpleAttributeList[]|LocalizedAttribute[]|LocalizedAttributeList[]|AdvancedAttribute[]|AdvancedAttributeList[] $attributes A list of attributes attached to the master.
  */
 class Master extends ApiObject
 {

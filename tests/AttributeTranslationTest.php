@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+
 class AttributeTranslationTest extends BaseApiTestCase
 {
     public function testUpdateOrCreate()

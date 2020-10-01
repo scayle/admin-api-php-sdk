@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+
 class ProductImageTest extends BaseApiTestCase
 {
     public function testCreate()
@@ -11,7 +13,7 @@ class ProductImageTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductImage($expectedRequestJson);
         $this->assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->productImages->Create('1', $requestEntity,  []);
+        $responseEntity = $this->api->productImages->Create(Identifier::fromId(1), $requestEntity,  []);
 
         $expectedResponseJson = $this->loadFixture('ProductImageCreateResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $responseEntity);
@@ -33,7 +35,7 @@ class ProductImageTest extends BaseApiTestCase
 
     public function testAll()
     {
-        $responseEntity = $this->api->productImages->All('1',  []);
+        $responseEntity = $this->api->productImages->All(Identifier::fromId(1),  []);
 
         $expectedResponseJson = $this->loadFixture('ProductImageAllResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImageCollection::class, $responseEntity);
@@ -63,7 +65,7 @@ class ProductImageTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductImagePosition($expectedRequestJson);
         $this->assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->productImages->UpdatePosition('1', '1', $requestEntity,  []);
+        $responseEntity = $this->api->productImages->UpdatePosition(Identifier::fromId(1), Identifier::fromId(1), $requestEntity,  []);
 
         $expectedResponseJson = $this->loadFixture('ProductImageUpdatePositionResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $responseEntity);
@@ -85,7 +87,7 @@ class ProductImageTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->productImages->Delete('1', '1',  []);
+        $responseEntity = $this->api->productImages->Delete(Identifier::fromId(1), Identifier::fromId(1),  []);
 
     }
 

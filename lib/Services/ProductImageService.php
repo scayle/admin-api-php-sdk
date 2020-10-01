@@ -12,7 +12,7 @@ class ProductImageService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
 	 * @param \AboutYou\Cloud\AdminApi\Models\ProductImage $model the model to create or update
 	 * @param array $options additional options like limit or filters
 	 *
@@ -28,7 +28,7 @@ class ProductImageService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
 	 * @param array $options additional options like limit or filters
 	 *
 	 * @return \AboutYou\Cloud\AdminApi\Models\ProductImageCollection
@@ -43,8 +43,8 @@ class ProductImageService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
-	 * @param string $imageIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
 	 * @param \AboutYou\Cloud\AdminApi\Models\ProductImagePosition $model the model to create or update
 	 * @param array $options additional options like limit or filters
 	 *
@@ -60,8 +60,8 @@ class ProductImageService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
-	 * @param string $imageIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
 	 * @param array $options additional options like limit or filters
      * @throws ClientExceptionInterface
      * @throws ApiErrorException

@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+
 class ProductVariantPriceTest extends BaseApiTestCase
 {
     public function testCreate()
@@ -11,7 +13,7 @@ class ProductVariantPriceTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice($expectedRequestJson);
         $this->assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->productVariantPrices->Create('1', '1', $requestEntity,  []);
+        $responseEntity = $this->api->productVariantPrices->Create(Identifier::fromId(1), Identifier::fromId(1), $requestEntity,  []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantPriceCreateResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class, $responseEntity);
@@ -24,7 +26,7 @@ class ProductVariantPriceTest extends BaseApiTestCase
 
     public function testAll()
     {
-        $responseEntity = $this->api->productVariantPrices->All('1', '1',  []);
+        $responseEntity = $this->api->productVariantPrices->All(Identifier::fromId(1), Identifier::fromId(1),  []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantPriceAllResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class, $responseEntity);

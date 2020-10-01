@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+
 class ProductTest extends BaseApiTestCase
 {
     public function testCreate()
@@ -37,11 +39,11 @@ class ProductTest extends BaseApiTestCase
 
     }
 
-    public function testFind()
+    public function testGet()
     {
-        $responseEntity = $this->api->products->Find('1',  []);
+        $responseEntity = $this->api->products->Get(Identifier::fromId(1),  []);
 
-        $expectedResponseJson = $this->loadFixture('ProductFindResponse.json');
+        $expectedResponseJson = $this->loadFixture('ProductGetResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Product::class, $responseEntity);
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
@@ -96,16 +98,16 @@ class ProductTest extends BaseApiTestCase
         }
     }
 
-    public function testReplace()
+    public function testUpdate()
     {
-        $expectedRequestJson = $this->loadFixture('ProductReplaceRequest.json');
+        $expectedRequestJson = $this->loadFixture('ProductUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Product($expectedRequestJson);
         $this->assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->products->Replace('1', $requestEntity,  []);
+        $responseEntity = $this->api->products->Update(Identifier::fromId(1), $requestEntity,  []);
 
-        $expectedResponseJson = $this->loadFixture('ProductReplaceResponse.json');
+        $expectedResponseJson = $this->loadFixture('ProductUpdateResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Product::class, $responseEntity);
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
@@ -131,7 +133,7 @@ class ProductTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->products->Delete('1',  []);
+        $responseEntity = $this->api->products->Delete(Identifier::fromId(1),  []);
 
     }
 

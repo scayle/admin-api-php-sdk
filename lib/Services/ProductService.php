@@ -27,14 +27,14 @@ class ProductService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
 	 * @param array $options additional options like limit or filters
 	 *
 	 * @return \AboutYou\Cloud\AdminApi\Models\Product
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
 	 */
-	 public function find($productIdentifier, $options = [])
+	 public function get($productIdentifier, $options = [])
 	 {
 		 return $this->request('get', $this->resolvePath('/products/%s', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Product::class);
      }
@@ -56,7 +56,7 @@ class ProductService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
 	 * @param \AboutYou\Cloud\AdminApi\Models\Product $model the model to create or update
 	 * @param array $options additional options like limit or filters
 	 *
@@ -64,7 +64,7 @@ class ProductService extends AbstractService
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
 	 */
-	 public function replace($productIdentifier, $model, $options = [])
+	 public function update($productIdentifier, $model, $options = [])
 	 {
 		 return $this->request('put', $this->resolvePath('/products/%s', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Product::class, $model);
      }
@@ -72,7 +72,7 @@ class ProductService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
 	 * @param array $options additional options like limit or filters
      * @throws ClientExceptionInterface
      * @throws ApiErrorException

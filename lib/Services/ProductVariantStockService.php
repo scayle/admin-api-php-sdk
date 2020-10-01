@@ -12,8 +12,8 @@ class ProductVariantStockService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
-	 * @param string $variantIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
 	 * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantStock $model the model to create or update
 	 * @param array $options additional options like limit or filters
 	 *
@@ -29,8 +29,8 @@ class ProductVariantStockService extends AbstractService
 	/**
 	 * Description
 	 *
-	 * @param string $productIdentifier
-	 * @param string $variantIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
 	 * @param array $options additional options like limit or filters
 	 *
 	 * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection
