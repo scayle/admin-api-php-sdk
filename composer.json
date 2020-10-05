@@ -1,6 +1,13 @@
 {
-    "name": "aboutyou/admin-api",
+    "name": "aboutyou-cloud/admin-api",
     "description": "AboutYou Cloud AdminAPI SDK",
+    "keywords": [
+        "aboutyou cloud",
+        "admin api",
+        "api"
+    ],
+    "homepage": "https://resources.aboutyou.cloud/",
+    "license": "MIT",
     "type": "library",
     "require": {
       "ext-json": "*",
