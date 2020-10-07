@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property array $frontendName The localized attribute group name. At least the base language that is configured in Backbone Core is mandatory.
  * @property string $type An attribute group type.
  * @property bool $isShared Defines whether an attribute value is shared beetwen the entities or every entity has its own value.
-Not applicable to advanced and advancedList types.
+It's not possible to share attributes of advanced and advancedList types, therefore isShared must be always false in this case.
 
  * @property string $level An attribute group level, which defines an entity the group is valid for.
  * @property array $structure A structure, which describes advanced attribute values.
