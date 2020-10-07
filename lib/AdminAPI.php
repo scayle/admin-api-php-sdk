@@ -13,7 +13,6 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService $productVariantPrices
  * @property \AboutYou\Cloud\AdminApi\Services\AttributeTranslationService $attributeTranslations
  * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantStockService $productVariantStocks
- * @property \AboutYou\Cloud\AdminApi\Services\ShopService $shops
  */
 class AdminAPI extends AbstractApi
 {
