@@ -1,0 +1,17 @@
+{
+    "key": "ayde",
+    "name": "About You Germany",
+    "url": "https:\/\/www.aboutyou.de",
+    "countryCode": "de",
+    "languageCode": "de_DE",
+    "priceGroupKey": "myPriceGroup",
+    "logoSource": {
+        "url": "https:\/\/example.com\/logo.png"
+    },
+    "properties": [
+        {
+            "key": "myKey",
+            "value": "myValue"
+        }
+    ]
+}
