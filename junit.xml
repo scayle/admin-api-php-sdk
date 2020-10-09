@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="AdminAPI Test Suite" tests="22" assertions="195" failures="0" errors="0" time="1.111550">
+    <testsuite name="AboutYou\Cloud\AdminApi\AttributeTranslationTest" file="/app/tests/AttributeTranslationTest.php" tests="2" assertions="5" failures="0" errors="0" time="0.524862">
+      <testcase name="testUpdateOrCreate" class="AboutYou\Cloud\AdminApi\AttributeTranslationTest" file="/app/tests/AttributeTranslationTest.php" line="9" assertions="1" time="0.359954"/>
+      <testcase name="testAll" class="AboutYou\Cloud\AdminApi\AttributeTranslationTest" file="/app/tests/AttributeTranslationTest.php" line="19" assertions="4" time="0.164908"/>
+    </testsuite>
+    <testsuite name="AboutYou\Cloud\AdminApi\ProductImageTest" file="/app/tests/ProductImageTest.php" tests="4" assertions="28" failures="0" errors="0" time="0.080172">
+      <testcase name="testCreate" class="AboutYou\Cloud\AdminApi\ProductImageTest" file="/app/tests/ProductImageTest.php" line="9" assertions="11" time="0.041791"/>
+      <testcase name="testAll" class="AboutYou\Cloud\AdminApi\ProductImageTest" file="/app/tests/ProductImageTest.php" line="36" assertions="8" time="0.018529"/>
+      <testcase name="testUpdatePosition" class="AboutYou\Cloud\AdminApi\ProductImageTest" file="/app/tests/ProductImageTest.php" line="61" assertions="9" time="0.014923"/>
+      <testcase name="testDelete" class="AboutYou\Cloud\AdminApi\ProductImageTest" file="/app/tests/ProductImageTest.php" line="88" assertions="0" time="0.004929"/>
+    </testsuite>
+    <testsuite name="AboutYou\Cloud\AdminApi\ProductTest" file="/app/tests/ProductTest.php" tests="5" assertions="61" failures="0" errors="0" time="0.213431">
+      <testcase name="testCreate" class="AboutYou\Cloud\AdminApi\ProductTest" file="/app/tests/ProductTest.php" line="9" assertions="17" time="0.104123"/>
+      <testcase name="testGet" class="AboutYou\Cloud\AdminApi\ProductTest" file="/app/tests/ProductTest.php" line="42" assertions="13" time="0.020847"/>
+      <testcase name="testAll" class="AboutYou\Cloud\AdminApi\ProductTest" file="/app/tests/ProductTest.php" line="70" assertions="14" time="0.061642"/>
+      <testcase name="testUpdate" class="AboutYou\Cloud\AdminApi\ProductTest" file="/app/tests/ProductTest.php" line="101" assertions="17" time="0.021733"/>
+      <testcase name="testDelete" class="AboutYou\Cloud\AdminApi\ProductTest" file="/app/tests/ProductTest.php" line="134" assertions="0" time="0.005086"/>
+    </testsuite>
+    <testsuite name="AboutYou\Cloud\AdminApi\ProductVariantPriceTest" file="/app/tests/ProductVariantPriceTest.php" tests="2" assertions="17" failures="0" errors="0" time="0.041513">
+      <testcase name="testCreate" class="AboutYou\Cloud\AdminApi\ProductVariantPriceTest" file="/app/tests/ProductVariantPriceTest.php" line="9" assertions="10" time="0.022074"/>
+      <testcase name="testAll" class="AboutYou\Cloud\AdminApi\ProductVariantPriceTest" file="/app/tests/ProductVariantPriceTest.php" line="27" assertions="7" time="0.019439"/>
+    </testsuite>
+    <testsuite name="AboutYou\Cloud\AdminApi\ProductVariantStockTest" file="/app/tests/ProductVariantStockTest.php" tests="2" assertions="16" failures="0" errors="0" time="0.061172">
+      <testcase name="testCreate" class="AboutYou\Cloud\AdminApi\ProductVariantStockTest" file="/app/tests/ProductVariantStockTest.php" line="9" assertions="9" time="0.034385"/>
+      <testcase name="testAll" class="AboutYou\Cloud\AdminApi\ProductVariantStockTest" file="/app/tests/ProductVariantStockTest.php" line="26" assertions="7" time="0.026787"/>
+    </testsuite>
+    <testsuite name="AboutYou\Cloud\AdminApi\ProductVariantTest" file="/app/tests/ProductVariantTest.php" tests="5" assertions="41" failures="0" errors="0" time="0.111171">
+      <testcase name="testCreate" class="AboutYou\Cloud\AdminApi\ProductVariantTest" file="/app/tests/ProductVariantTest.php" line="9" assertions="12" time="0.053357"/>
+      <testcase name="testGet" class="AboutYou\Cloud\AdminApi\ProductVariantTest" file="/app/tests/ProductVariantTest.php" line="40" assertions="8" time="0.011177"/>
+      <testcase name="testAll" class="AboutYou\Cloud\AdminApi\ProductVariantTest" file="/app/tests/ProductVariantTest.php" line="66" assertions="9" time="0.029057"/>
+      <testcase name="testUpdate" class="AboutYou\Cloud\AdminApi\ProductVariantTest" file="/app/tests/ProductVariantTest.php" line="95" assertions="12" time="0.013497"/>
+      <testcase name="testDelete" class="AboutYou\Cloud\AdminApi\ProductVariantTest" file="/app/tests/ProductVariantTest.php" line="126" assertions="0" time="0.004083"/>
+    </testsuite>
+    <testsuite name="AboutYou\Cloud\AdminApi\ShopTest" file="/app/tests/ShopTest.php" tests="2" assertions="27" failures="0" errors="0" time="0.079229">
+      <testcase name="testCreate" class="AboutYou\Cloud\AdminApi\ShopTest" file="/app/tests/ShopTest.php" line="9" assertions="10" time="0.045301"/>
+      <testcase name="testAll" class="AboutYou\Cloud\AdminApi\ShopTest" file="/app/tests/ShopTest.php" line="29" assertions="17" time="0.033928"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
