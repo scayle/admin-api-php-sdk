@@ -1,0 +1,42 @@
+{
+    "entities": [
+        {
+            "id": 1
+        },
+        {
+            "key": "ayde"
+        },
+        {
+            "name": "About You Germany"
+        },
+        {
+            "url": "https:\/\/www.aboutyou.de"
+        },
+        {
+            "logoUrl": "images\/3123adasd23asd.png"
+        },
+        {
+            "countryCode": "de"
+        },
+        {
+            "languageCode": "de_DE"
+        },
+        {
+            "priceGroupKey": "myPriceGroup"
+        },
+        {
+            "active": true
+        },
+        {
+            "deleted": false
+        },
+        {
+            "properties": [
+                {
+                    "key": "myKey",
+                    "value": "myValue"
+                }
+            ]
+        }
+    ]
+}
