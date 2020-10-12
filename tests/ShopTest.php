@@ -44,4 +44,19 @@ class ShopTest extends BaseApiTestCase
         }
     }
 
+    public function testGet()
+    {
+        $responseEntity = $this->api->shops->Get('1',  []);
+
+        $expectedResponseJson = $this->loadFixture('ShopGetResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Shop::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopProperty::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', \AboutYou\Cloud\AdminApi\Models\ShopLogoSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', \AboutYou\Cloud\AdminApi\Models\Assortment::class);
+
+
+    }
+
 }

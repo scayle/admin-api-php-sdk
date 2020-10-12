@@ -15,7 +15,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $languageCode ISO-3166 country code and ISO-639 language code.
  * @property string $priceGroupKey Key of the price group the shop is assigned to.
  * @property ShopProperty[] $properties The properties assigned to the shop.
- * @property array $assortment 
+ * @property Assortment $assortment 
  */
 class Shop extends ApiObject
 {
