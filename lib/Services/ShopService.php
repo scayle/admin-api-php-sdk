@@ -53,4 +53,20 @@ class ShopService extends AbstractService
 		 return $this->request('get', $this->resolvePath('/shops/%s', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\Shop::class);
      }
 
+	/**
+	 * Description
+	 *
+	 * @param string $shopKey
+	 * @param \AboutYou\Cloud\AdminApi\Models\Shop $model the model to create or update
+	 * @param array $options additional options like limit or filters
+	 *
+	 * @return \AboutYou\Cloud\AdminApi\Models\Shop
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function update($shopKey, $model, $options = [])
+	 {
+		 return $this->request('put', $this->resolvePath('/shops/%s', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\Shop::class, $model);
+     }
+
 }
