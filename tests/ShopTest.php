@@ -79,4 +79,24 @@ class ShopTest extends BaseApiTestCase
 
     }
 
+    public function testUpdateAssortment()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopUpdateAssortmentRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Assortment($expectedRequestJson);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->shops->UpdateAssortment('1', $requestEntity,  []);
+
+        $expectedResponseJson = $this->loadFixture('ShopUpdateAssortmentResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Assortment::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopProperty::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', \AboutYou\Cloud\AdminApi\Models\ShopLogoSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', \AboutYou\Cloud\AdminApi\Models\Assortment::class);
+
+
+    }
+
 }
