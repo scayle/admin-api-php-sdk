@@ -18,5 +18,6 @@ class ServiceFactory extends AbstractServiceFactory
         'attributeTranslations' => \AboutYou\Cloud\AdminApi\Services\AttributeTranslationService::class,
         'productVariantStocks' => \AboutYou\Cloud\AdminApi\Services\ProductVariantStockService::class,
         'shops' => \AboutYou\Cloud\AdminApi\Services\ShopService::class,
+        'attributeGroups' => \AboutYou\Cloud\AdminApi\Services\AttributeGroupService::class,
     ];
 }

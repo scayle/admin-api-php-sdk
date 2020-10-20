@@ -1,0 +1,39 @@
+{
+    "id": 1,
+    "name": "material_composition_textile",
+    "frontendName": {
+        "de_DE": "Materialzusammensetzung",
+        "en_US": "Material Composition"
+    },
+    "type": "advanced",
+    "isShared": false,
+    "level": "product",
+    "structure": {
+        "group": {
+            "type": "attributeGroup",
+            "attributeGroupName": "Obermaterial"
+        },
+        "components": {
+            "type": "array",
+            "items": {
+                "fraction": {
+                    "type": "integer"
+                },
+                "unit": {
+                    "type": "attribute",
+                    "attributeGroupName": "unit",
+                    "attributeName": "%"
+                },
+                "material": {
+                    "type": "attributeGroup",
+                    "attributeGroupName": "material"
+                }
+            }
+        }
+    },
+    "shopKeys": [
+        "acme"
+    ],
+    "isOverridablePerShop": true,
+    "isDifferentiating": false
+}
