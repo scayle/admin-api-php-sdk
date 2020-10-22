@@ -15,6 +15,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantStockService $productVariantStocks
  * @property \AboutYou\Cloud\AdminApi\Services\ShopService $shops
  * @property \AboutYou\Cloud\AdminApi\Services\AttributeGroupService $attributeGroups
+ * @property \AboutYou\Cloud\AdminApi\Services\CampaignService $campaigns
  */
 class AdminAPI extends AbstractApi
 {

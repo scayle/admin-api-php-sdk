@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "name": "My Campaign",
+    "description": "My first campaign",
+    "shopKeys": [
+        "ayou",
+        "ayat"
+    ],
+    "reduction": 14.75,
+    "startAt": "2021-01-23T11:30:58.000Z",
+    "endAt": "2021-09-23T11:30:58.000Z"
+}
