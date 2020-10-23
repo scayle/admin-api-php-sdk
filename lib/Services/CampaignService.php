@@ -24,4 +24,18 @@ class CampaignService extends AbstractService
 		 return $this->request('post', '/campaigns', $options, \AboutYou\Cloud\AdminApi\Models\Campaign::class, $model);
      }
 
+	/**
+	 * Description
+	 *
+	 * @param array $options additional options like limit or filters
+	 *
+	 * @return \AboutYou\Cloud\AdminApi\Models\CampaignCollection
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function all($options = [])
+	 {
+		 return $this->request('get', '/campaigns', $options, \AboutYou\Cloud\AdminApi\Models\CampaignCollection::class);
+     }
+
 }

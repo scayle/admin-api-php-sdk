@@ -23,4 +23,19 @@ class CampaignTest extends BaseApiTestCase
 
     }
 
+    public function testAll()
+    {
+        $responseEntity = $this->api->campaigns->All( []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignAllResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CampaignCollection::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Campaign::class, $collectionEntity);
+
+        }
+    }
+
 }
