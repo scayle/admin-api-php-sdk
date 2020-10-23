@@ -38,4 +38,39 @@ class CampaignTest extends BaseApiTestCase
         }
     }
 
+    public function testGet()
+    {
+        $responseEntity = $this->api->campaigns->Get('1',  []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignGetResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Campaign::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+    }
+
+    public function testUpdate()
+    {
+        $expectedRequestJson = $this->loadFixture('CampaignUpdateRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Campaign($expectedRequestJson);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->campaigns->Update('1', $requestEntity,  []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignUpdateResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Campaign::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+    }
+
+    public function testDelete()
+    {
+        $responseEntity = $this->api->campaigns->Delete('1',  []);
+
+    }
+
 }
