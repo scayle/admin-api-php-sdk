@@ -82,4 +82,65 @@ class ProductService extends AbstractService
 		 $this->request('delete', $this->resolvePath('/products/%s', $productIdentifier), $options, null);
      }
 
+	/**
+	 * Description
+	 *
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
+	 * @param array $options additional options like limit or filters
+	 *
+	 * @return \AboutYou\Cloud\AdminApi\Models\Attribute
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function updateOrCreateAttribute($productIdentifier, $model, $options = [])
+	 {
+		 return $this->request('post', $this->resolvePath('/products/%s/attributes', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Attribute::class, $model);
+     }
+
+	/**
+	 * Description
+	 *
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param string $attributeGroupName
+	 * @param array $options additional options like limit or filters
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function deleteAttribute($productIdentifier, $attributeGroupName, $options = [])
+	 {
+		 $this->request('delete', $this->resolvePath('/products/%s/attributes/%s', $productIdentifier, $attributeGroupName), $options, null);
+     }
+
+	/**
+	 * Description
+	 *
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param string $attributeGroupName
+	 * @param array $options additional options like limit or filters
+	 *
+	 * @return \AboutYou\Cloud\AdminApi\Models\Attribute
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function getAttribute($productIdentifier, $attributeGroupName, $options = [])
+	 {
+		 return $this->request('get', $this->resolvePath('/products/%s/attributes/%s', $productIdentifier, $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+     }
+
+	/**
+	 * Description
+	 *
+	 * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+	 * @param array $options additional options like limit or filters
+	 *
+	 * @return \AboutYou\Cloud\AdminApi\Models\AttributeCollection
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function allAttributes($productIdentifier, $options = [])
+	 {
+		 return $this->request('get', $this->resolvePath('/products/%s/attributes', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class);
+     }
+
 }

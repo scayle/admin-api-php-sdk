@@ -89,4 +89,66 @@ class ProductTest extends BaseApiTestCase
 
     }
 
+    public function testUpdateOrCreateAttribute()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductUpdateOrCreateAttributeRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Attribute($expectedRequestJson);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->products->UpdateOrCreateAttribute(Identifier::fromId(1), $requestEntity,  []);
+
+        $expectedResponseJson = $this->loadFixture('ProductUpdateOrCreateAttributeResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', \AboutYou\Cloud\AdminApi\Models\Master::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', \AboutYou\Cloud\AdminApi\Models\ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+
+
+    }
+
+    public function testDeleteAttribute()
+    {
+        $responseEntity = $this->api->products->DeleteAttribute(Identifier::fromId(1), '1',  []);
+
+    }
+
+    public function testGetAttribute()
+    {
+        $responseEntity = $this->api->products->GetAttribute(Identifier::fromId(1), '1',  []);
+
+        $expectedResponseJson = $this->loadFixture('ProductGetAttributeResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', \AboutYou\Cloud\AdminApi\Models\Master::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', \AboutYou\Cloud\AdminApi\Models\ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+
+
+    }
+
+    public function testAllAttributes()
+    {
+        $responseEntity = $this->api->products->AllAttributes(Identifier::fromId(1),  []);
+
+        $expectedResponseJson = $this->loadFixture('ProductAllAttributesResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeCollection::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'master', \AboutYou\Cloud\AdminApi\Models\Master::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'variants', \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', \AboutYou\Cloud\AdminApi\Models\ProductImage::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+
+        }
+    }
+
 }
