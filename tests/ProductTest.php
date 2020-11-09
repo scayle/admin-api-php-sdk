@@ -22,20 +22,8 @@ class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', \AboutYou\Cloud\AdminApi\Models\Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', \AboutYou\Cloud\AdminApi\Models\ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-        );
 
     }
 
@@ -50,20 +38,8 @@ class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', \AboutYou\Cloud\AdminApi\Models\Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', \AboutYou\Cloud\AdminApi\Models\ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-        );
 
     }
 
@@ -81,20 +57,8 @@ class ProductTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'master', \AboutYou\Cloud\AdminApi\Models\Master::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'variants', \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', \AboutYou\Cloud\AdminApi\Models\ProductImage::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-            $this->assertPropertyHasCorrectPolymorphicType(
-            $collectionEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-            );
         }
     }
 
@@ -114,20 +78,8 @@ class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', \AboutYou\Cloud\AdminApi\Models\Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', \AboutYou\Cloud\AdminApi\Models\ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-        );
 
     }
 

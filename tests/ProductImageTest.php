@@ -20,16 +20,8 @@ class ProductImageTest extends BaseApiTestCase
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-            ]
-        );
 
     }
 
@@ -45,16 +37,8 @@ class ProductImageTest extends BaseApiTestCase
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-            $this->assertPropertyHasCorrectPolymorphicType(
-            $collectionEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-            ]
-            );
         }
     }
 
@@ -72,16 +56,8 @@ class ProductImageTest extends BaseApiTestCase
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-            ]
-        );
 
     }
 

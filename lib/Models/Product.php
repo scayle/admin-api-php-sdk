@@ -10,7 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property Master $master The master the product is attached to.
  * @property string $state The state of the product determined by the state evaluation process.
  * @property string[][] $categories The products category path. Sorted from root to leaf.
- * @property SimpleAttribute[]|SimpleAttributeList[]|LocalizedAttribute[]|LocalizedAttributeList[]|AdvancedAttribute[]|AdvancedAttributeList[] $attributes A list of attributes attached to the product.
+ * @property Attribute[] $attributes A list of attributes attached to the product.
  * @property ProductVariant[] $variants A list of product variants attached to the product.
  * @property ProductImage[] $images A list of product images attached to the product.
  */
@@ -27,22 +27,12 @@ class Product extends ApiObject
     protected $collectionClassMap = [
         'variants' => \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
         'images' => \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
+        'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
     ];
 
     protected $polymorphic = [
     ];
 
     protected $polymorphicCollections = [
-        'attributes' => [
-            'discriminator' => 'type',
-            'mapping' => [
-                    'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                    'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                    'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                    'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                    'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                    'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-        ],
     ];
 }

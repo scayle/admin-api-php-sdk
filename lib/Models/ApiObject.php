@@ -45,7 +45,7 @@ class ApiObject implements \JsonSerializable
         $this->_attributes[$name] = $value;
     }
 
-    public function __get($name)
+    public function &__get($name)
     {
         if (array_key_exists($name, $this->_attributes)) {
             return $this->_attributes[$name];

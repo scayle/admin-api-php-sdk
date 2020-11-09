@@ -20,20 +20,8 @@ class ProductVariantTest extends BaseApiTestCase
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-        );
 
     }
 
@@ -46,20 +34,8 @@ class ProductVariantTest extends BaseApiTestCase
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-        );
 
     }
 
@@ -75,20 +51,8 @@ class ProductVariantTest extends BaseApiTestCase
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-            $this->assertPropertyHasCorrectPolymorphicType(
-            $collectionEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-            );
         }
     }
 
@@ -106,20 +70,8 @@ class ProductVariantTest extends BaseApiTestCase
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
 
-        $this->assertPropertyHasCorrectPolymorphicType(
-        $responseEntity,
-            'attributes',
-            'type',
-            [
-                'simple' => \AboutYou\Cloud\AdminApi\Models\SimpleAttribute::class,
-                'simpleList' => \AboutYou\Cloud\AdminApi\Models\SimpleAttributeList::class,
-                'localizedString' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttribute::class,
-                'localizedStringList' => \AboutYou\Cloud\AdminApi\Models\LocalizedAttributeList::class,
-                'advanced' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttribute::class,
-                'advancedList' => \AboutYou\Cloud\AdminApi\Models\AdvancedAttributeList::class,
-            ]
-        );
 
     }
 
