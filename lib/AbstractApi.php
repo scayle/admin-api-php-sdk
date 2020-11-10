@@ -69,8 +69,7 @@ abstract class AbstractApi
      */
     public function request($method, $relativePath, $options = [], $body = null)
     {
-        $url = $this->getApiUrl() . $relativePath;
-        $url .= $options ? '?' . http_build_query($options) : '';
+        $url = $this->getApiUrl() . $relativePath . $this->makeQueryString($options);
 
         $headers = $this->getAuthHeader();
         $headers['Content-Type'] = 'application/json';
@@ -86,6 +85,23 @@ abstract class AbstractApi
         return [
             self::AUTH_HEADER_NAME => $this->getAccessToken()
         ];
+    }
+
+    private function makeQueryString(array $options): string
+    {
+        if (empty($options)) {
+            return '';
+        }
+
+        foreach ($options as &$value) {
+            if (is_bool($value)) {
+                $value = $value ? 'true' : 'false';
+            }
+        }
+
+        unset($value);
+
+        return '?' . http_build_query($options);
     }
 
     /**
