@@ -99,11 +99,11 @@ class CampaignTest extends BaseApiTestCase
 
     }
 
-    public function testAllCampaignReductions()
+    public function testAllReductions()
     {
-        $responseEntity = $this->api->campaigns->AllCampaignReductions('1',  []);
+        $responseEntity = $this->api->campaigns->AllReductions('1',  []);
 
-        $expectedResponseJson = $this->loadFixture('CampaignAllCampaignReductionsResponse.json');
+        $expectedResponseJson = $this->loadFixture('CampaignAllReductionsResponse.json');
         $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class, $responseEntity);
         $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 

@@ -120,7 +120,7 @@ class CampaignService extends AbstractService
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
 	 */
-	 public function allCampaignReductions($campaignId, $options = [])
+	 public function allReductions($campaignId, $options = [])
 	 {
 		 return $this->request('get', $this->resolvePath('/campaigns/%s/reductions/variants', $campaignId), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class);
      }
