@@ -73,4 +73,45 @@ class CampaignTest extends BaseApiTestCase
 
     }
 
+    public function testUpdateOrCreateVariantReductions()
+    {
+        $expectedRequestJson = $this->loadFixture('CampaignUpdateOrCreateVariantReductionsRequest.json');
+
+        $requestEntity = [];
+        foreach ($expectedRequestJson as $entity) {
+            array_push($requestEntity, new \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction($entity));
+        }
+
+        $responseEntity = $this->api->campaigns->UpdateOrCreateVariantReductions('1', $requestEntity,  []);
+
+    }
+
+    public function testUpdateOrCreateProductReductions()
+    {
+        $expectedRequestJson = $this->loadFixture('CampaignUpdateOrCreateProductReductionsRequest.json');
+
+        $requestEntity = [];
+        foreach ($expectedRequestJson as $entity) {
+            array_push($requestEntity, new \AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction($entity));
+        }
+
+        $responseEntity = $this->api->campaigns->UpdateOrCreateProductReductions('1', $requestEntity,  []);
+
+    }
+
+    public function testAllCampaignReductions()
+    {
+        $responseEntity = $this->api->campaigns->AllCampaignReductions('1',  []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignAllCampaignReductionsResponse.json');
+        $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class, $responseEntity);
+        $this->assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            $this->assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction::class, $collectionEntity);
+
+        }
+    }
+
 }

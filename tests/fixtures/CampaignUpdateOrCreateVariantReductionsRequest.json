@@ -1,0 +1,10 @@
+[
+    {
+        "productVariantId": 123,
+        "reduction": 10
+    },
+    {
+        "productVariantReferenceKey": "myKey",
+        "reduction": 10
+    }
+]

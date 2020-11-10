@@ -82,4 +82,47 @@ class CampaignService extends AbstractService
 		 $this->request('delete', $this->resolvePath('/campaigns/%s', $campaignId), $options, null);
      }
 
+	/**
+	 * Description
+	 *
+	 * @param int $campaignId
+	 * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction[] $model the model to create or update
+	 * @param array $options additional options like limit or filters
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function updateOrCreateVariantReductions($campaignId, $model, $options = [])
+	 {
+		 $this->request('post', $this->resolvePath('/campaigns/%s/reductions/variants', $campaignId), $options, null, $model);
+     }
+
+	/**
+	 * Description
+	 *
+	 * @param int $campaignId
+	 * @param \AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction[] $model the model to create or update
+	 * @param array $options additional options like limit or filters
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function updateOrCreateProductReductions($campaignId, $model, $options = [])
+	 {
+		 $this->request('post', $this->resolvePath('/campaigns/%s/reductions/products', $campaignId), $options, null, $model);
+     }
+
+	/**
+	 * Description
+	 *
+	 * @param int $campaignId
+	 * @param array $options additional options like limit or filters
+	 *
+	 * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function allCampaignReductions($campaignId, $options = [])
+	 {
+		 return $this->request('get', $this->resolvePath('/campaigns/%s/reductions/variants', $campaignId), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class);
+     }
+
 }
