@@ -125,4 +125,17 @@ class CampaignService extends AbstractService
 		 return $this->request('get', $this->resolvePath('/campaigns/%s/reductions/variants', $campaignId), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class);
      }
 
+	/**
+	 * Description
+	 *
+	 * @param int $campaignId
+	 * @param array $options additional options like limit or filters
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+	 */
+	 public function deleteReductions($campaignId, $options = [])
+	 {
+		 $this->request('delete', $this->resolvePath('/campaigns/%s/reductions', $campaignId), $options, null);
+     }
+
 }

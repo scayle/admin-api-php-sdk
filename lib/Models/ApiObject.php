@@ -51,7 +51,8 @@ class ApiObject implements \JsonSerializable
             return $this->_attributes[$name];
         }
 
-        return null;
+        $nullRef = null;
+        return $nullRef;
     }
 
     public function __isset($name)

@@ -114,4 +114,10 @@ class CampaignTest extends BaseApiTestCase
         }
     }
 
+    public function testDeleteReductions()
+    {
+        $responseEntity = $this->api->campaigns->DeleteReductions('1',  []);
+
+    }
+
 }
