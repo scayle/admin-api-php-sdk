@@ -11,7 +11,6 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ProductVariantCampaignReduction extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [

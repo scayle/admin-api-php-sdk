@@ -3,12 +3,12 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 /**
- * Factory to create API services
+ * Factory to create API services.
  */
 class ServiceFactory extends AbstractServiceFactory
 {
-	/**
-	 * @var array<string, string>
+    /**
+     * @var array<string, string>
      */
     protected $classMap = [
         'products' => \AboutYou\Cloud\AdminApi\Services\ProductService::class,

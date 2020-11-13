@@ -8,7 +8,6 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ProductImagePosition extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [

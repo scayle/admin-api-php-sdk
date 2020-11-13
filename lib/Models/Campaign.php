@@ -14,7 +14,6 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class Campaign extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [

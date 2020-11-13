@@ -29,8 +29,11 @@ abstract class AbstractApi
 
     /**
      * AbstractAdminApi constructor.
+     *
      * @param array<string, string> $config
+     *
      * @example ['apiUrl' => 'http://cloud.aboutyou.com', 'accessToken' => 'myToken']
+     *
      * @param ClientInterface $httpClient
      */
     public function __construct($config = [], $httpClient = null)
@@ -63,9 +66,9 @@ abstract class AbstractApi
      * @param array<string, string> $options
      * @param null|string $body
      *
-     * @return ResponseInterface
-     *
      * @throws ClientExceptionInterface
+     *
+     * @return ResponseInterface
      */
     public function request($method, $relativePath, $options = [], $body = null)
     {
@@ -77,13 +80,14 @@ abstract class AbstractApi
         $headers['X-SDK'] = 'php/' . self::VERSION;
 
         $request = new Request($method, $url, $headers, $body);
+
         return $this->httpClient->sendRequest($request);
     }
 
     private function getAuthHeader()
     {
         return [
-            self::AUTH_HEADER_NAME => $this->getAccessToken()
+            self::AUTH_HEADER_NAME => $this->getAccessToken(),
         ];
     }
 
@@ -94,14 +98,14 @@ abstract class AbstractApi
         }
 
         foreach ($options as &$value) {
-            if (is_bool($value)) {
+            if (\is_bool($value)) {
                 $value = $value ? 'true' : 'false';
             }
         }
 
         unset($value);
 
-        return '?' . http_build_query($options);
+        return '?' . \http_build_query($options);
     }
 
     /**
@@ -112,12 +116,14 @@ abstract class AbstractApi
     private function validateConfig($config)
     {
         if (empty($config[self::API_URL])) {
-            $message = sprintf('%s cannot be empty', self::API_URL);
+            $message = \sprintf('%s cannot be empty', self::API_URL);
+
             throw new InvalidArgumentException($message);
         }
 
         if (empty($config[self::ACCESS_TOKEN])) {
-            $message = sprintf('%s cannot be empty', self::ACCESS_TOKEN);
+            $message = \sprintf('%s cannot be empty', self::ACCESS_TOKEN);
+
             throw new InvalidArgumentException($message);
         }
     }

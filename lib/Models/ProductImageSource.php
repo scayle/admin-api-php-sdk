@@ -9,7 +9,6 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ProductImageSource extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [

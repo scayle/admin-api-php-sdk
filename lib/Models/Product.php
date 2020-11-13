@@ -21,7 +21,7 @@ class Product extends ApiObject
     ];
 
     protected $classMap = [
-		'master' => \AboutYou\Cloud\AdminApi\Models\Master::class,
+        'master' => \AboutYou\Cloud\AdminApi\Models\Master::class,
     ];
 
     protected $collectionClassMap = [

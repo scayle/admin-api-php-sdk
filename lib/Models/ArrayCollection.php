@@ -5,8 +5,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ArrayCollection extends ApiCollection
 {
     /**
-    * @return array
-    */
+     * @return array
+     */
     public function getEntities()
     {
         return $this->entities;

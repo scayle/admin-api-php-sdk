@@ -19,14 +19,14 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  */
 class AdminAPI extends AbstractApi
 {
-	/**
-	 * @var ServiceFactory $serviceFactory
-	 */
-	private $serviceFactory;
+    /**
+     * @var ServiceFactory
+     */
+    private $serviceFactory;
 
-	public function __get($name)
-	{
-		if ($this->serviceFactory === null) {
+    public function __get($name)
+    {
+        if (null === $this->serviceFactory) {
             $this->serviceFactory = new ServiceFactory($this);
         }
 

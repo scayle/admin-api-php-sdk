@@ -3,12 +3,11 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property array[] $errors 
+ * @property array[] $errors
  */
 class ErrorResponse extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [

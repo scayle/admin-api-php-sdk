@@ -10,12 +10,11 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class Assortment extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [
-		'masterCategories' => \AboutYou\Cloud\AdminApi\Models\MasterCategoryAssortmentConfiguration::class,
-		'products' => \AboutYou\Cloud\AdminApi\Models\ProductAssortmentConfiguration::class,
+        'masterCategories' => \AboutYou\Cloud\AdminApi\Models\MasterCategoryAssortmentConfiguration::class,
+        'products' => \AboutYou\Cloud\AdminApi\Models\ProductAssortmentConfiguration::class,
     ];
 
     protected $collectionClassMap = [

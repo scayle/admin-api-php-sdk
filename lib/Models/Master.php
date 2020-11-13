@@ -9,7 +9,6 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class Master extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [

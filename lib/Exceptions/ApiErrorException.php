@@ -2,8 +2,6 @@
 
 namespace AboutYou\Cloud\AdminApi\Exceptions;
 
-use Throwable;
-
 class ApiErrorException extends \Exception
 {
     /**
@@ -24,11 +22,11 @@ class ApiErrorException extends \Exception
     {
         $this->errors = $this->parseErrors($responseErrors);
         $this->statusCode = $statusCode;
-        parent::__construct("Errors occured while handling the API request ", $statusCode);
+        parent::__construct('Errors occured while handling the API request ', $statusCode);
     }
 
     /**
-     * @return ApiError|null
+     * @return null|ApiError
      */
     public function getFirstError()
     {
@@ -45,6 +43,7 @@ class ApiErrorException extends \Exception
 
     /**
      * @param array $errors
+     *
      * @return ApiError[]
      */
     private function parseErrors($errors)

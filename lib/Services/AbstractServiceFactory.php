@@ -32,7 +32,7 @@ abstract class AbstractServiceFactory
 
     public function get($name)
     {
-        if (!array_key_exists($name, $this->services)) {
+        if (!\array_key_exists($name, $this->services)) {
             $this->services[$name] = new $this->classMap[$name]($this->client);
         }
 

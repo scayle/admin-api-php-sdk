@@ -19,11 +19,10 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ProductVariantPrice extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [
-		'unitPrice' => \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class,
+        'unitPrice' => \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class,
     ];
 
     protected $collectionClassMap = [

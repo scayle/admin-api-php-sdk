@@ -15,11 +15,10 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ProductImage extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [
-		'source' => \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class,
+        'source' => \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class,
     ];
 
     protected $collectionClassMap = [

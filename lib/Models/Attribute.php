@@ -12,7 +12,6 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class Attribute extends ApiObject
 {
     protected $defaultValues = [
-        
     ];
 
     protected $classMap = [
