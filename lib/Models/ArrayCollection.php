@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
+/**
+ * @property array $entities
+ */
 class ArrayCollection extends ApiCollection
 {
     /**

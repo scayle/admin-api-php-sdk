@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
+/**
+ * @property \AboutYou\Cloud\AdminApi\Models\Campaign[] $entities
+ */
 class CampaignCollection extends ApiCollection
 {
     protected $collectionClassMap = [

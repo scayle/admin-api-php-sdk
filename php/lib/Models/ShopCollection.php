@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
+/**
+ * @property \AboutYou\Cloud\AdminApi\Models\Shop[] $entities
+ */
 class ShopCollection extends ApiCollection
 {
     protected $collectionClassMap = [

@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
+/**
+ * @property \AboutYou\Cloud\AdminApi\Models\ProductVariantStock[] $entities
+ */
 class ProductVariantStockCollection extends ApiCollection
 {
     protected $collectionClassMap = [

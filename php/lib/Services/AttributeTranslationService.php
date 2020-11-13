@@ -11,7 +11,7 @@ class AttributeTranslationService extends AbstractService
      * Description.
      *
      * @param string $attributeName
-     * @param \array $model the model to create or update
+     * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

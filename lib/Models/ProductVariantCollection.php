@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
+/**
+ * @property \AboutYou\Cloud\AdminApi\Models\ProductVariant[] $entities
+ */
 class ProductVariantCollection extends ApiCollection
 {
     protected $collectionClassMap = [

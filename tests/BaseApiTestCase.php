@@ -9,7 +9,7 @@ use ReflectionProperty;
 abstract class BaseApiTestCase extends TestCase
 {
     /**
-     * @var
+     * @var AdminAPI
      */
     protected $api;
 

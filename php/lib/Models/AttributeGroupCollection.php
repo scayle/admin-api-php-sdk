@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
+/**
+ * @property \AboutYou\Cloud\AdminApi\Models\AttributeGroup[] $entities
+ */
 class AttributeGroupCollection extends ApiCollection
 {
     protected $collectionClassMap = [
