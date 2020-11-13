@@ -1,0 +1,10 @@
+[
+    {
+        "productId": 123,
+        "reduction": 10
+    },
+    {
+        "productReferenceKey": "myKey",
+        "reduction": 10
+    }
+]

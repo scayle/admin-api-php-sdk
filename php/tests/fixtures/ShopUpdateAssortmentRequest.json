@@ -1,0 +1,39 @@
+{
+    "masterCategories": {
+        "include": [
+            [
+                "root",
+                "leaf"
+            ]
+        ],
+        "exclude": [
+            [
+                "root",
+                "leaf"
+            ]
+        ]
+    },
+    "products": {
+        "include": [
+            1,
+            2,
+            3
+        ],
+        "exclude": [
+            4,
+            5,
+            6
+        ]
+    },
+    "attributes": [
+        {
+            "name": "color",
+            "include": [
+                "red"
+            ],
+            "exclude": [
+                "blue"
+            ]
+        }
+    ]
+}

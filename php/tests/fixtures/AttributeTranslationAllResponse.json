@@ -1,0 +1,8 @@
+{
+    "entities": [
+        {
+            "de_DE": "deutsche Zeichenkette",
+            "en_EN": "english string"
+        }
+    ]
+}

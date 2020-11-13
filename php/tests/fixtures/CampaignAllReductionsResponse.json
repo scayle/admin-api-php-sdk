@@ -1,0 +1,10 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "productVariantId": 123,
+            "productVariantReferenceKey": "myKey",
+            "reduction": 10
+        }
+    ]
+}
