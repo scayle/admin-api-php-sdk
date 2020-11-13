@@ -1,2 +1,5 @@
 parameters:
-	level: 4
+    level: 4
+    paths:
+        - lib
+        - tests
