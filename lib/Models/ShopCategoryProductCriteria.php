@@ -3,7 +3,6 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property bool $isSale
  * @property bool $isNew
  * @property ShopCategoryAttributeCriterion[] $attributes
  * @property ShopCategoryCategoryCriterion $categories
