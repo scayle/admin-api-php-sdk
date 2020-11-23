@@ -1,0 +1,48 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "path": [
+                "Women",
+                "Fashion"
+            ]
+        },
+        {
+            "id": 2,
+            "parentId": 1,
+            "path": [
+                "Women",
+                "Fashion",
+                "Shirts"
+            ]
+        },
+        {
+            "id": 3,
+            "parentId": 1,
+            "path": [
+                "Women",
+                "Fashion",
+                "Jackets"
+            ],
+            "attributes": [
+                {
+                    "name": "color",
+                    "isMandatory": true,
+                    "defaultValue": [
+                        "green",
+                        "red"
+                    ]
+                },
+                {
+                    "name": "size",
+                    "isMandatory": true,
+                    "defaultValue": 32
+                },
+                {
+                    "name": "seasoon",
+                    "isMandatory": false
+                }
+            ]
+        }
+    ]
+}
