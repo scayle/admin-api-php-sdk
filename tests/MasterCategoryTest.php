@@ -20,4 +20,15 @@ final class MasterCategoryTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
         }
     }
+
+    public function testGet()
+    {
+        $responseEntity = $this->api->masterCategories->Get('1', []);
+
+        $expectedResponseJson = $this->loadFixture('MasterCategoryGetResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+    }
 }
