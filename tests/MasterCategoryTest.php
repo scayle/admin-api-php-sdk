@@ -31,4 +31,20 @@ final class MasterCategoryTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
     }
+
+    public function testCreate()
+    {
+        $expectedRequestJson = $this->loadFixture('MasterCategoryCreateRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MasterCategory($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->masterCategories->Create($requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('MasterCategoryCreateResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+    }
 }

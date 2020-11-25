@@ -37,4 +37,20 @@ class MasterCategoryService extends AbstractService
     {
         return $this->request('get', $this->resolvePath('/master-categories/%s', $masterCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\MasterCategory::class);
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\MasterCategory $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\MasterCategory
+     */
+    public function create($model, $options = [])
+    {
+        return $this->request('post', '/master-categories', $options, \AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $model);
+    }
 }

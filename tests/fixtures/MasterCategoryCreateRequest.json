@@ -1,6 +1,4 @@
 {
-    "id": 3,
-    "parentId": 1,
     "path": [
         "Women",
         "Fashion",
@@ -9,8 +7,8 @@
     "attributes": [
         {
             "name": "color",
-            "isMandatory": true,
             "type": "simpleList",
+            "isMandatory": true,
             "defaultValue": [
                 "green",
                 "red"

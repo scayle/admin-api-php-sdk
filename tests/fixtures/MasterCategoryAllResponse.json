@@ -28,6 +28,7 @@
                 {
                     "name": "color",
                     "isMandatory": true,
+                    "type": "simpleList",
                     "defaultValue": [
                         "green",
                         "red"
@@ -35,11 +36,13 @@
                 },
                 {
                     "name": "size",
+                    "type": "simple",
                     "isMandatory": true,
                     "defaultValue": 32
                 },
                 {
                     "name": "seasoon",
+                    "type": "simple",
                     "isMandatory": false
                 }
             ]
