@@ -1,0 +1,29 @@
+{
+    "path": [
+        "Women",
+        "Fashion",
+        "Jackets"
+    ],
+    "attributes": [
+        {
+            "name": "color",
+            "type": "simpleList",
+            "isMandatory": true,
+            "defaultValue": [
+                "green",
+                "red"
+            ]
+        },
+        {
+            "name": "size",
+            "type": "simple",
+            "isMandatory": true,
+            "defaultValue": 32
+        },
+        {
+            "name": "seasoon",
+            "type": "simple",
+            "isMandatory": false
+        }
+    ]
+}
