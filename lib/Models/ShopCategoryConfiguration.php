@@ -18,6 +18,7 @@ class ShopCategoryConfiguration extends ApiObject
     ];
 
     protected $collectionClassMap = [
+        'properties' => \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class,
     ];
 
     protected $polymorphic = [

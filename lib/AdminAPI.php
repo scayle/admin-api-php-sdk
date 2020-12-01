@@ -17,6 +17,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\AttributeGroupService $attributeGroups
  * @property \AboutYou\Cloud\AdminApi\Services\CampaignService $campaigns
  * @property \AboutYou\Cloud\AdminApi\Services\MasterCategoryService $masterCategories
+ * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryService $shopCategories
  */
 class AdminAPI extends AbstractApi
 {

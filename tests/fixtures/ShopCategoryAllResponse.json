@@ -1,0 +1,66 @@
+{
+    "entities": [
+        {
+            "id": 3,
+            "parentId": 1,
+            "leftSiblingId": 2,
+            "name": "My Shop Category",
+            "stopBubbleUp": true,
+            "products": {
+                "ids": {
+                    "include": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "exclude": [
+                        4,
+                        5,
+                        6
+                    ]
+                },
+                "criteria": [
+                    {
+                        "isNew": true,
+                        "attributes": [
+                            {
+                                "name": "color",
+                                "include": [
+                                    "red"
+                                ]
+                            },
+                            {
+                                "name": "size",
+                                "exclude": [
+                                    "M"
+                                ]
+                            }
+                        ],
+                        "categories": {
+                            "include": [
+                                1,
+                                2
+                            ]
+                        }
+                    }
+                ]
+            },
+            "configuration": {
+                "name": "My Shop Category",
+                "path": "\/my-shop-category",
+                "isActive": true,
+                "isVisible": true,
+                "properties": [
+                    {
+                        "key": "myKey",
+                        "value": "myValue"
+                    }
+                ]
+            },
+            "supportedFilterGroups": [
+                "material",
+                "maker"
+            ]
+        }
+    ]
+}
