@@ -10,6 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $stopBubbleUp When the flag is set to true on a category node, the category is a self containing tree. The parent of that node will not inherit the product assortments of the node.
  * @property array $products
  * @property ShopCategoryConfiguration $configuration
+ * @property string[] $supportedFilterGroups List of supported filter groups
  */
 class ShopCategory extends ApiObject
 {
