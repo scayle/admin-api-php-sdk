@@ -1,0 +1,9 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "key": "color",
+            "isInheritable": true
+        }
+    ]
+}
