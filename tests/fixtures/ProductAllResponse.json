@@ -22,14 +22,16 @@
                 "de_DE": "Blaues Shirt",
                 "en_EN": "Blue Shirt"
             },
-            "categories": [
-                [
-                    "Fashion",
-                    "Männer",
-                    "Bekleidung",
-                    "Shirts"
+            "categories": {
+                "isLocked": false,
+                "paths": [
+                    [
+                        "Fashion",
+                        "Men",
+                        "Shirts"
+                    ]
                 ]
-            ],
+            },
             "attributes": [
                 {
                     "name": "color",

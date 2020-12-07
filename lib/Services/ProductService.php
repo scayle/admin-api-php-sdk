@@ -149,4 +149,21 @@ class ProductService extends AbstractService
     {
         return $this->request('get', $this->resolvePath('/products/%s/attributes', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class);
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories
+     */
+    public function updateMasterCategories($productIdentifier, $model, $options = [])
+    {
+        return $this->request('put', $this->resolvePath('/products/%s/master-categories', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories::class, $model);
+    }
 }

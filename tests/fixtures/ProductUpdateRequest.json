@@ -18,14 +18,15 @@
             }
         ]
     },
-    "categories": [
-        [
-            "Fashion",
-            "Männer",
-            "Bekleidung",
-            "Shirts"
+    "categories": {
+        "paths": [
+            [
+                "Fashion",
+                "Men",
+                "Shirts"
+            ]
         ]
-    ],
+    },
     "attributes": [
         {
             "name": "color",
