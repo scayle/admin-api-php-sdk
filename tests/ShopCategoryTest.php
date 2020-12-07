@@ -72,4 +72,41 @@ final class ShopCategoryTest extends BaseApiTestCase
     {
         $responseEntity = $this->api->shopCategories->Delete('1', '1', []);
     }
+
+    public function testUpdateOrCreateProperty()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateOrCreatePropertyRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->shopCategories->UpdateOrCreateProperty('1', '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryUpdateOrCreatePropertyResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'configuration', \AboutYou\Cloud\AdminApi\Models\ShopCategoryConfiguration::class);
+    }
+
+    public function testDeleteProperty()
+    {
+        $responseEntity = $this->api->shopCategories->DeleteProperty('1', '1', '1', []);
+    }
+
+    public function testAllProperties()
+    {
+        $responseEntity = $this->api->shopCategories->AllProperties('1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryAllPropertiesResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'configuration', \AboutYou\Cloud\AdminApi\Models\ShopCategoryConfiguration::class);
+        }
+    }
 }
