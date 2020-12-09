@@ -68,7 +68,7 @@ final class CampaignTest extends BaseApiTestCase
 
         $requestEntity = [];
         foreach ($expectedRequestJson as $entity) {
-            \array_push($requestEntity, new \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction($entity));
+            $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction($entity);
         }
 
         $responseEntity = $this->api->campaigns->UpdateOrCreateVariantReductions('1', $requestEntity, []);
@@ -80,7 +80,7 @@ final class CampaignTest extends BaseApiTestCase
 
         $requestEntity = [];
         foreach ($expectedRequestJson as $entity) {
-            \array_push($requestEntity, new \AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction($entity));
+            $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction($entity);
         }
 
         $responseEntity = $this->api->campaigns->UpdateOrCreateProductReductions('1', $requestEntity, []);

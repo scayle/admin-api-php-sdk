@@ -1,0 +1,17 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "name": "Edited",
+            "logoUrl": "images\/123123123123.jpg",
+            "attributes": [
+                {
+                    "name": "sustainable",
+                    "type": "simple",
+                    "value": true,
+                    "isLocked": false
+                }
+            ]
+        }
+    ]
+}
