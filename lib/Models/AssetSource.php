@@ -3,10 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $url Url of remote logo.
- * @property string $attachment Base64 encoded binary image data.
+ * @property string $url Url of remote asset.
+ * @property string $attachment Base64 encoded binary asset data.
  */
-class ShopLogoSource extends ApiObject
+class AssetSource extends ApiObject
 {
     protected $defaultValues = [
     ];

@@ -18,6 +18,7 @@ final class BrandTest extends BaseApiTestCase
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Brand::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'logoSource', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         }
     }
 
@@ -30,5 +31,23 @@ final class BrandTest extends BaseApiTestCase
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
+    }
+
+    public function testCreate()
+    {
+        $expectedRequestJson = $this->loadFixture('BrandCreateRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Brand($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->brands->Create($requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('BrandCreateResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Brand::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
     }
 }

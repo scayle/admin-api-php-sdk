@@ -37,4 +37,20 @@ class BrandService extends AbstractService
     {
         return $this->request('get', $this->resolvePath('/brands/%s', $brandId), $options, \AboutYou\Cloud\AdminApi\Models\Brand::class);
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Brand $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\Brand
+     */
+    public function create($model, $options = [])
+    {
+        return $this->request('post', '/brands', $options, \AboutYou\Cloud\AdminApi\Models\Brand::class, $model);
+    }
 }

@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $name Full name of the Shop.
  * @property string $url Url of the Shop.
  * @property string $logoUrl The Url of the logo assigned to the shop.
- * @property ShopLogoSource $logoSource A source specifieng where to download the logo from.
+ * @property AssetSource $logoSource A source specifieng where to download the logo from.
  * @property bool $active Defines if the shop is active.
  * @property bool $deleted Defines it the shop is deleted.
  * @property string $countryCode ISO 3166 alpha 2 country code.
@@ -23,7 +23,7 @@ class Shop extends ApiObject
     ];
 
     protected $classMap = [
-        'logoSource' => \AboutYou\Cloud\AdminApi\Models\ShopLogoSource::class,
+        'logoSource' => \AboutYou\Cloud\AdminApi\Models\AssetSource::class,
         'assortment' => \AboutYou\Cloud\AdminApi\Models\Assortment::class,
     ];
 

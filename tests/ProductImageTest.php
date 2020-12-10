@@ -22,7 +22,7 @@ final class ProductImageTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
     }
 
@@ -36,7 +36,7 @@ final class ProductImageTest extends BaseApiTestCase
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
         }
     }
@@ -54,7 +54,7 @@ final class ProductImageTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
     }
 
@@ -76,7 +76,7 @@ final class ProductImageTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
     }
 
@@ -93,7 +93,7 @@ final class ProductImageTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
     }
 
@@ -107,7 +107,7 @@ final class ProductImageTest extends BaseApiTestCase
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', \AboutYou\Cloud\AdminApi\Models\ProductImageSource::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
         }
     }
