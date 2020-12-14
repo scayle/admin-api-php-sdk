@@ -1,0 +1,13 @@
+{
+    "name": "Edited",
+    "logoSource": {
+        "url": "https:\/\/test.com\/image.png"
+    },
+    "attributes": [
+        {
+            "name": "sustainable",
+            "type": "simple",
+            "value": true
+        }
+    ]
+}
