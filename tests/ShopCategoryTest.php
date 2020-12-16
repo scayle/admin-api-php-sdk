@@ -95,6 +95,18 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->DeleteProperty('1', '1', '1', []);
     }
 
+    public function testGetProperty()
+    {
+        $responseEntity = $this->api->shopCategories->GetProperty('1', '1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryGetPropertyResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'configuration', \AboutYou\Cloud\AdminApi\Models\ShopCategoryConfiguration::class);
+    }
+
     public function testAllProperties()
     {
         $responseEntity = $this->api->shopCategories->AllProperties('1', '1', []);

@@ -129,6 +129,24 @@ class ShopCategoryService extends AbstractService
      *
      * @param string $shopKey
      * @param int $shopCategoryId
+     * @param string $shopCategoryPropertyKey
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty
+     */
+    public function getProperty($shopKey, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/properties/%s', $shopKey, $shopCategoryId, $shopCategoryPropertyKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param int $shopCategoryId
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

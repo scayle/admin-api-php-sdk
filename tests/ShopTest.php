@@ -113,6 +113,19 @@ final class ShopTest extends BaseApiTestCase
         $responseEntity = $this->api->shops->DeleteProperty('1', '1', []);
     }
 
+    public function testGetProperty()
+    {
+        $responseEntity = $this->api->shops->GetProperty('1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopGetPropertyResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopProperty::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopProperty::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', \AboutYou\Cloud\AdminApi\Models\Assortment::class);
+    }
+
     public function testAllProperties()
     {
         $responseEntity = $this->api->shops->AllProperties('1', []);

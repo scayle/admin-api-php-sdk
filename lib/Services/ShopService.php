@@ -124,6 +124,23 @@ class ShopService extends AbstractService
      * Description.
      *
      * @param string $shopKey
+     * @param string $shopPropertyKey
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ShopProperty
+     */
+    public function getProperty($shopKey, $shopPropertyKey, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/properties/%s', $shopKey, $shopPropertyKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopProperty::class);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
