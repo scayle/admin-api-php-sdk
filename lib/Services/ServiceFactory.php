@@ -25,5 +25,6 @@ class ServiceFactory extends AbstractServiceFactory
         'shopCategories' => \AboutYou\Cloud\AdminApi\Services\ShopCategoryService::class,
         'shopCategoryPropertyKeys' => \AboutYou\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService::class,
         'brands' => \AboutYou\Cloud\AdminApi\Services\BrandService::class,
+        'productSortings' => \AboutYou\Cloud\AdminApi\Services\ProductSortingService::class,
     ];
 }
