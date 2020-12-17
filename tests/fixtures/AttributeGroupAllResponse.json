@@ -39,5 +39,8 @@
             "isOverridablePerShop": true,
             "isDifferentiating": false
         }
-    ]
+    ],
+    "cursor": {
+        "next": null
+    }
 }

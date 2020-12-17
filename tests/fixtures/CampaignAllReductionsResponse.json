@@ -6,5 +6,8 @@
             "productVariantReferenceKey": "myKey",
             "reduction": 10
         }
-    ]
+    ],
+    "cursor": {
+        "next": null
+    }
 }
