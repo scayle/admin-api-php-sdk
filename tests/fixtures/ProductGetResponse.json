@@ -4,6 +4,16 @@
     "state": "live",
     "master": {
         "referenceKey": "M00012",
+        "categories": {
+            "isLocked": false,
+            "paths": [
+                [
+                    "Fashion",
+                    "Men",
+                    "Shirts"
+                ]
+            ]
+        },
         "attributes": [
             {
                 "name": "sleeve_length",
@@ -19,16 +29,6 @@
     "name": {
         "de_DE": "Blaues Shirt",
         "en_EN": "Blue Shirt"
-    },
-    "categories": {
-        "isLocked": false,
-        "paths": [
-            [
-                "Fashion",
-                "Men",
-                "Shirts"
-            ]
-        ]
     },
     "attributes": [
         {

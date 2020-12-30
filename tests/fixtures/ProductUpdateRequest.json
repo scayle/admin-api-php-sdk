@@ -7,6 +7,15 @@
     "state": "live",
     "master": {
         "referenceKey": "M0001",
+        "categories": {
+            "paths": [
+                [
+                    "Fashion",
+                    "Men",
+                    "Shirts"
+                ]
+            ]
+        },
         "attributes": [
             {
                 "name": "sleeve_length",
@@ -16,15 +25,6 @@
                     "en_EN": "long-sleeved"
                 }
             }
-        ]
-    },
-    "categories": {
-        "paths": [
-            [
-                "Fashion",
-                "Men",
-                "Shirts"
-            ]
         ]
     },
     "attributes": [
