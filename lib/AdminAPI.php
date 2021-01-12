@@ -22,6 +22,8 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService $shopCategoryPropertyKeys
  * @property \AboutYou\Cloud\AdminApi\Services\BrandService $brands
  * @property \AboutYou\Cloud\AdminApi\Services\ProductSortingService $productSortings
+ * @property \AboutYou\Cloud\AdminApi\Services\ShopWarehouseService $shopWarehouses
+ * @property \AboutYou\Cloud\AdminApi\Services\PackageGroupService $packageGroups
  */
 class AdminAPI extends AbstractApi
 {

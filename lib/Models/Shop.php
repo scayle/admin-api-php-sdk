@@ -16,6 +16,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $priceGroupKey Key of the price group the shop is assigned to.
  * @property ShopProperty[] $properties The properties assigned to the shop.
  * @property Assortment $assortment
+ * @property ShopWarehouse[] $warehouses A list of warehouses attached to the shop.
  */
 class Shop extends ApiObject
 {
@@ -29,6 +30,7 @@ class Shop extends ApiObject
 
     protected $collectionClassMap = [
         'properties' => \AboutYou\Cloud\AdminApi\Models\ShopProperty::class,
+        'warehouses' => \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class,
     ];
 
     protected $polymorphic = [
