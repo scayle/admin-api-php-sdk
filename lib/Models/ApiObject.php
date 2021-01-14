@@ -107,6 +107,12 @@ abstract class ApiObject implements \JsonSerializable
         $unserialized = [];
 
         foreach ($attributes as $key => $value) {
+            if (null === $value) {
+                $unserialized[$key] = $value;
+
+                continue;
+            }
+
             // Handle nested single object instantiation
             if (\array_key_exists($key, $this->classMap)) {
                 $value = new $this->classMap[$key]($value);
