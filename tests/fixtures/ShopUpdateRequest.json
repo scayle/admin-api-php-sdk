@@ -1,17 +1,26 @@
 {
-    "key": "ayde",
+    "key": "ay",
     "name": "About You Germany",
-    "url": "https:\/\/www.aboutyou.de",
-    "countryCode": "de",
-    "languageCode": "de_DE",
     "priceGroupKey": "myPriceGroup",
     "logoSource": {
         "url": "https:\/\/example.com\/logo.png"
     },
-    "properties": [
+    "shopCategoryTreeId": 1,
+    "countries": [
         {
-            "key": "myKey",
-            "value": "myValue"
+            "countryCode": "de",
+            "defaultLanguageCode": "de_DE",
+            "supportedLanguageCodes": [
+                "de_DE",
+                "en_GB"
+            ],
+            "url": "https:\/\/www.aboutyou.de",
+            "properties": [
+                {
+                    "key": "myKey",
+                    "value": "myValue"
+                }
+            ]
         }
     ]
 }

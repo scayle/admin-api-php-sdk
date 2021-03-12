@@ -9,7 +9,7 @@ final class PackageGroupTest extends BaseApiTestCase
 {
     public function testAll()
     {
-        $responseEntity = $this->api->packageGroups->All('1', []);
+        $responseEntity = $this->api->packageGroups->All('1', '1', []);
 
         $expectedResponseJson = $this->loadFixture('PackageGroupAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\PackageGroupCollection::class, $responseEntity);
@@ -29,7 +29,7 @@ final class PackageGroupTest extends BaseApiTestCase
             $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse($entity);
         }
 
-        $responseEntity = $this->api->packageGroups->AssignPackageGroupToWarehouses('1', '1', $requestEntity, []);
+        $responseEntity = $this->api->packageGroups->AssignPackageGroupToWarehouses('1', '1', '1', $requestEntity, []);
     }
 
     public function testReplacePackageGroupForWarehouses()
@@ -41,11 +41,11 @@ final class PackageGroupTest extends BaseApiTestCase
             $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse($entity);
         }
 
-        $responseEntity = $this->api->packageGroups->ReplacePackageGroupForWarehouses('1', '1', $requestEntity, []);
+        $responseEntity = $this->api->packageGroups->ReplacePackageGroupForWarehouses('1', '1', '1', $requestEntity, []);
     }
 
     public function testDelete()
     {
-        $responseEntity = $this->api->packageGroups->Delete('1', '1', []);
+        $responseEntity = $this->api->packageGroups->Delete('1', '1', '1', []);
     }
 }

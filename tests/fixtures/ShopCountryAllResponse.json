@@ -1,13 +1,5 @@
 {
-    "id": 1,
-    "key": "ay",
-    "name": "About You Germany",
-    "logoUrl": "images\/3123adasd23asd.png",
-    "priceGroupKey": "myPriceGroup",
-    "active": true,
-    "deleted": false,
-    "shopCategoryTreeId": 1,
-    "countries": [
+    "entities": [
         {
             "countryCode": "de",
             "defaultLanguageCode": "de_DE",
@@ -72,5 +64,8 @@
                 }
             ]
         }
-    ]
+    ],
+    "cursor": {
+        "next": null
+    }
 }
