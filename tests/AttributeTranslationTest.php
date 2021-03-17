@@ -21,6 +21,6 @@ final class AttributeTranslationTest extends BaseApiTestCase
         $responseEntity = $this->api->attributeTranslations->All('1', []);
 
         $expectedResponseJson = $this->loadFixture('AttributeTranslationAllResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
     }
 }

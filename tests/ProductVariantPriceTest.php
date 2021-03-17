@@ -33,6 +33,8 @@ final class ProductVariantPriceTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'unitPrice', \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class);
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'unitPrice', \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class);

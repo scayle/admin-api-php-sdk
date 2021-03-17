@@ -15,6 +15,8 @@ final class MasterCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);

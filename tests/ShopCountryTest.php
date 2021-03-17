@@ -33,6 +33,10 @@ final class ShopCountryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCountryCollection::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopProperty::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', \AboutYou\Cloud\AdminApi\Models\Assortment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class);
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCountry::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopProperty::class);
@@ -133,6 +137,10 @@ final class ShopCountryTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCountryAllPropertiesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopPropertyCollection::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopProperty::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', \AboutYou\Cloud\AdminApi\Models\Assortment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopProperty::class, $collectionEntity);

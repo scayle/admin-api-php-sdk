@@ -35,6 +35,6 @@ class AttributeTranslationService extends AbstractService
      */
     public function all($attributeName, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/attributes/%s/translations', $attributeName), $options, \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class);
+        return $this->request('get', $this->resolvePath('/attributes/%s/translations', $attributeName), $options, null);
     }
 }
