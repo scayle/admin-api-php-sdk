@@ -1,9 +1,9 @@
 {
     "name": "My Campaign",
     "description": "My first campaign",
-    "shopKeys": [
-        "ayou",
-        "ayat"
+    "countryCodes": [
+        "DE",
+        "AT"
     ],
     "reduction": 14.75,
     "startAt": "2021-01-23T11:30:58.000Z",
