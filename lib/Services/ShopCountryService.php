@@ -161,4 +161,107 @@ class ShopCountryService extends AbstractService
     {
         return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/properties', $shopKey, $countryCode), $options, \AboutYou\Cloud\AdminApi\Models\ShopPropertyCollection::class);
     }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomData($shopKey, $countryCode, $model, $options = [])
+    {
+        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode), $options, null, $model);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomData($shopKey, $countryCode, $options = [])
+    {
+        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode), $options, null);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomData($shopKey, $countryCode, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode), $options, null);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param string $key
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomDataForKey($shopKey, $countryCode, $key, $model, $options = [])
+    {
+        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key), $options, null, $model);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomDataForKey($shopKey, $countryCode, $key, $options = [])
+    {
+        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key), $options, null);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomDataForKey($shopKey, $countryCode, $key, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key), $options, null);
+    }
 }

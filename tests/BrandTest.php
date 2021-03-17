@@ -75,4 +75,54 @@ final class BrandTest extends BaseApiTestCase
     {
         $responseEntity = $this->api->brands->Delete('1', []);
     }
+
+    public function testCreateOrUpdateCustomData()
+    {
+        $expectedRequestJson = $this->loadFixture('BrandCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->brands->CreateOrUpdateCustomData('1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('BrandCreateOrUpdateCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomData()
+    {
+        $responseEntity = $this->api->brands->DeleteCustomData('1', []);
+    }
+
+    public function testGetCustomData()
+    {
+        $responseEntity = $this->api->brands->GetCustomData('1', []);
+
+        $expectedResponseJson = $this->loadFixture('BrandGetCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataForKey()
+    {
+        $expectedRequestJson = $this->loadFixture('BrandCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->brands->CreateOrUpdateCustomDataForKey('1', '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('BrandCreateOrUpdateCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataForKey()
+    {
+        $responseEntity = $this->api->brands->DeleteCustomDataForKey('1', '1', []);
+    }
+
+    public function testGetCustomDataForKey()
+    {
+        $responseEntity = $this->api->brands->GetCustomDataForKey('1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('BrandGetCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
 }

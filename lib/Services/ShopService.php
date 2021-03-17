@@ -70,4 +70,101 @@ class ShopService extends AbstractService
     {
         return $this->request('put', $this->resolvePath('/shops/%s', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\Shop::class, $model);
     }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomData($shopKey, $model, $options = [])
+    {
+        return $this->request('put', $this->resolvePath('/shops/%s/custom-data', $shopKey), $options, null, $model);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomData($shopKey, $options = [])
+    {
+        $this->request('delete', $this->resolvePath('/shops/%s/custom-data', $shopKey), $options, null);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomData($shopKey, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/custom-data', $shopKey), $options, null);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $key
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomDataForKey($shopKey, $key, $model, $options = [])
+    {
+        return $this->request('put', $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key), $options, null, $model);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomDataForKey($shopKey, $key, $options = [])
+    {
+        $this->request('delete', $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key), $options, null);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomDataForKey($shopKey, $key, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key), $options, null);
+    }
 }

@@ -127,4 +127,104 @@ final class ShopCategoryTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'configuration', \AboutYou\Cloud\AdminApi\Models\ShopCategoryConfiguration::class);
         }
     }
+
+    public function testCreateOrUpdateCustomData()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->shopCategories->CreateOrUpdateCustomData('1', '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomData()
+    {
+        $responseEntity = $this->api->shopCategories->DeleteCustomData('1', '1', []);
+    }
+
+    public function testGetCustomData()
+    {
+        $responseEntity = $this->api->shopCategories->GetCustomData('1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataForKey()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->shopCategories->CreateOrUpdateCustomDataForKey('1', '1', '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataForKey()
+    {
+        $responseEntity = $this->api->shopCategories->DeleteCustomDataForKey('1', '1', '1', []);
+    }
+
+    public function testGetCustomDataForKey()
+    {
+        $responseEntity = $this->api->shopCategories->GetCustomDataForKey('1', '1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataForCountry()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForCountryRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->shopCategories->CreateOrUpdateCustomDataForCountry('1', '1', '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForCountryResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataForCountry()
+    {
+        $responseEntity = $this->api->shopCategories->DeleteCustomDataForCountry('1', '1', '1', []);
+    }
+
+    public function testGetCustomDataForCountry()
+    {
+        $responseEntity = $this->api->shopCategories->GetCustomDataForCountry('1', '1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataForCountryResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataKeyForCountry()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataKeyForCountryRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->shopCategories->CreateOrUpdateCustomDataKeyForCountry('1', '1', '1', '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataKeyForCountryResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataKeyForCountry()
+    {
+        $responseEntity = $this->api->shopCategories->DeleteCustomDataKeyForCountry('1', '1', '1', '1', []);
+    }
+
+    public function testGetCustomDataKeyForCountry()
+    {
+        $responseEntity = $this->api->shopCategories->GetCustomDataKeyForCountry('1', '1', '1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataKeyForCountryResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
 }

@@ -70,4 +70,54 @@ final class ShopTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
     }
+
+    public function testCreateOrUpdateCustomData()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->shops->CreateOrUpdateCustomData('1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCreateOrUpdateCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomData()
+    {
+        $responseEntity = $this->api->shops->DeleteCustomData('1', []);
+    }
+
+    public function testGetCustomData()
+    {
+        $responseEntity = $this->api->shops->GetCustomData('1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopGetCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataForKey()
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->shops->CreateOrUpdateCustomDataForKey('1', '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCreateOrUpdateCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataForKey()
+    {
+        $responseEntity = $this->api->shops->DeleteCustomDataForKey('1', '1', []);
+    }
+
+    public function testGetCustomDataForKey()
+    {
+        $responseEntity = $this->api->shops->GetCustomDataForKey('1', '1', []);
+
+        $expectedResponseJson = $this->loadFixture('ShopGetCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+    }
 }
