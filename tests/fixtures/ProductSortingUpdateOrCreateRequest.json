@@ -1,13 +1,13 @@
 [
     {
         "productId": 1,
-        "shopKey": "ayou",
+        "shopKey": "ms",
         "sortKey": "default",
         "sortValue": 1.7
     },
     {
         "productReferenceKey": "my-product",
-        "shopKey": "ayou",
+        "shopKey": "ms",
         "sortKey": "default",
         "sortValue": 2.3
     }
