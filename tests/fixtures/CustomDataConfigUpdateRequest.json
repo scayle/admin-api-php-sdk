@@ -1,0 +1,13 @@
+{
+    "properties": [
+        {
+            "name": "test",
+            "type": "string",
+            "defaultValue": "default value",
+            "inherit": false,
+            "rules": {
+                "isRequired": true
+            }
+        }
+    ]
+}
