@@ -23,7 +23,7 @@ final class CustomDataConfigTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomDataConfig($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->customDataConfigs->Create($requestEntity, []);
+        $responseEntity = $this->api->customDataConfigs->Create('1', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomDataConfigCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $responseEntity);

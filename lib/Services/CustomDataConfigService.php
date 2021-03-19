@@ -26,6 +26,7 @@ class CustomDataConfigService extends AbstractService
     /**
      * Description.
      *
+     * @param string $entity
      * @param \AboutYou\Cloud\AdminApi\Models\CustomDataConfig $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -34,9 +35,9 @@ class CustomDataConfigService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\CustomDataConfig
      */
-    public function create($model, $options = [])
+    public function create($entity, $model, $options = [])
     {
-        return $this->request('post', '/custom-data-configs', $options, \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $model);
+        return $this->request('post', $this->resolvePath('/custom-data-configs/%s', $entity), $options, \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $model);
     }
 
     /**
