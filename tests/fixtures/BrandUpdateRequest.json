@@ -9,5 +9,19 @@
             "type": "simple",
             "value": true
         }
-    ]
+    ],
+    "customData": {
+        "isValid": true,
+        "name": "ayou",
+        "score": 100,
+        "some-json": {
+            "foo": "bar",
+            "de_DE": {
+                "color": "weiss"
+            },
+            "en_EN": {
+                "color": "white"
+            }
+        }
+    }
 }
