@@ -13,6 +13,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $priceGroupKey Key of the price group the shop is assigned to.
  * @property int $shopCategoryTreeId Defines shop categories tree id.
  * @property ShopCountry[] $countries The countries assigned to the shop.
+ * @property mixed $customData
  */
 class Shop extends ApiObject
 {
