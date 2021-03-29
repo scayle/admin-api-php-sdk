@@ -14,6 +14,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property ShopProperty[] $properties The properties assigned to the shop country.
  * @property Assortment $assortment
  * @property ShopWarehouse[] $warehouses A list of warehouses attached to the shop country.
+ * @property mixed $customData
  */
 class ShopCountry extends ApiObject
 {

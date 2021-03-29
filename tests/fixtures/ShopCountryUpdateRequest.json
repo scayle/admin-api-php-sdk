@@ -11,5 +11,15 @@
             "key": "myKey",
             "value": "myValue"
         }
-    ]
+    ],
+    "customData": {
+        "isValid": true,
+        "score": 100,
+        "color": {
+            "de_DE": "weiss"
+        },
+        "someJson": {
+            "foo": "bar"
+        }
+    }
 }
