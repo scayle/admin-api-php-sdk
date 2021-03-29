@@ -11,6 +11,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property ShopCategoryProducts $products
  * @property ShopCategoryConfiguration $configuration
  * @property string[] $supportedFilterGroups List of supported filter groups
+ * @property mixed $customData
  */
 class ShopCategory extends ApiObject
 {
