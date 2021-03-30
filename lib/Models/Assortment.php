@@ -3,9 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property MasterCategoryAssortmentConfiguration $masterCategories Configuration of Master Category includes/excludes.
- * @property ProductAssortmentConfiguration $products Configuration of Product includes/excludes.
- * @property AttributeAssortmentConfiguration[] $attributes Configuration of Attribute includes/excludes.
+ * @property MasterCategoryAssortmentConfiguration $masterCategories Configuration of master category includes/excludes.
+ * @property ProductAssortmentConfiguration $products Configuration of product includes/excludes.
+ * @property AttributeAssortmentConfiguration[] $attributes Configuration of attribute includes/excludes.
  */
 class Assortment extends ApiObject
 {

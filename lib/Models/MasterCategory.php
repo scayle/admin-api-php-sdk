@@ -3,8 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The id of the master category created by Backbone Core.
- * @property int $parentId The id of the parent master category if exists.
+ * @property int $id The ID of the master category created by Backbone Core.
+ * @property int $parentId The ID of the parent master category if exists.
  * @property string[] $path The complete category path.
  * @property MasterCategoryAttribute[] $attributes List of attributes which are related to this category.
  */

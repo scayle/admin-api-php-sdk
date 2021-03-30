@@ -3,8 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int[] $include List of shop category ids to include.
- * @property int[] $exclude List of shop category ids to exclude.
+ * @property int[] $include List of shop category IDs to include.
+ * @property int[] $exclude List of shop category IDs to exclude.
  */
 class ShopCategoryCategoryCriterion extends ApiObject
 {

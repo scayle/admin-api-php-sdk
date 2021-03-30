@@ -3,10 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The id of the shop created by Backbone Core.
- * @property string $key A key that uniquely identifies the shop within the tenant's ecosystem. Must be exactly 4 chars long.
- * @property string $name Full name of the Shop.
- * @property string $logoUrl The Url of the logo assigned to the shop.
+ * @property int $id The ID of the shop created by Backbone Core.
+ * @property string $key A key that uniquely identifies the shop within the tenant's ecosystem. Must be **exactly two characters** long.
+ * @property string $name Full name of the shop.
+ * @property string $logoUrl The URL of the logo assigned to the shop.
  * @property AssetSource $logoSource A source specifieng where to download the logo from.
  * @property bool $active Defines if the shop is active.
  * @property bool $deleted Defines it the shop is deleted.

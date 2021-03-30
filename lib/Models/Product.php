@@ -3,9 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The id of the product created by Backbone Core.
+ * @property int $id The ID of the product created by Backbone Core.
  * @property string[] $problems If product is in problem state, the reasons are listed here.
- * @property string $referenceKey A key that uniquely identifies the product (e.g. a shirt in a specific color) within the tenant's ecosystem.
+ * @property string $referenceKey A key that uniquely identifies the product (e.g., a shirt in a specific color) within the tenant's ecosystem.
  * @property array $name The localized product name. At least the base language that is configured in Backbone Core is mandatory.
  * @property Master $master The master the product is attached to.
  * @property string $state The state of the product determined by the state evaluation process.

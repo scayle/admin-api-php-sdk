@@ -3,8 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $url Url of remote asset.
- * @property string $attachment Base64 encoded binary asset data.
+ * @property string $url URL of remote asset.
+ * @property string $attachment Base64-encoded binary asset data.
  */
 class AssetSource extends ApiObject
 {

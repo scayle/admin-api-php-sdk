@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The id of the package group.
+ * @property int $id The ID of the package group.
  */
 class PackageGroup extends ApiObject
 {
