@@ -3,9 +3,10 @@
         {
             "id": 3,
             "parentId": 1,
-            "leftSiblingId": 2,
-            "name": "My Shop Category",
-            "stopBubbleUp": true,
+            "name": {
+                "de_DE": "Meine Shop Kategorie",
+                "en_GB": "My Shop Category"
+            },
             "products": {
                 "ids": {
                     "include": [
@@ -42,18 +43,6 @@
                                 2
                             ]
                         }
-                    }
-                ]
-            },
-            "configuration": {
-                "name": "My Shop Category",
-                "path": "\/my-shop-category",
-                "isActive": true,
-                "isVisible": true,
-                "properties": [
-                    {
-                        "key": "myKey",
-                        "value": "myValue"
                     }
                 ]
             },

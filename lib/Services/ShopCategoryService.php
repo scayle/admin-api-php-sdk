@@ -94,6 +94,7 @@ class ShopCategoryService extends AbstractService
      * Description.
      *
      * @param string $shopKey
+     * @param string $countryCode
      * @param int $shopCategoryId
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -103,15 +104,16 @@ class ShopCategoryService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty
      */
-    public function updateOrCreateProperty($shopKey, $shopCategoryId, $model, $options = [])
+    public function updateOrCreateProperty($shopKey, $countryCode, $shopCategoryId, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/categories/%s/properties', $shopKey, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $model);
+        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $model);
     }
 
     /**
      * Description.
      *
      * @param string $shopKey
+     * @param string $countryCode
      * @param int $shopCategoryId
      * @param string $shopCategoryPropertyKey
      * @param array $options additional options like limit or filters
@@ -119,15 +121,16 @@ class ShopCategoryService extends AbstractService
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteProperty($shopKey, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
+    public function deleteProperty($shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/categories/%s/properties/%s', $shopKey, $shopCategoryId, $shopCategoryPropertyKey), $options, null);
+        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey), $options, null);
     }
 
     /**
      * Description.
      *
      * @param string $shopKey
+     * @param string $countryCode
      * @param int $shopCategoryId
      * @param string $shopCategoryPropertyKey
      * @param array $options additional options like limit or filters
@@ -137,15 +140,16 @@ class ShopCategoryService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty
      */
-    public function getProperty($shopKey, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
+    public function getProperty($shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/properties/%s', $shopKey, $shopCategoryId, $shopCategoryPropertyKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
     }
 
     /**
      * Description.
      *
      * @param string $shopKey
+     * @param string $countryCode
      * @param int $shopCategoryId
      * @param array $options additional options like limit or filters
      *
@@ -154,9 +158,9 @@ class ShopCategoryService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection
      */
-    public function allProperties($shopKey, $shopCategoryId, $options = [])
+    public function allProperties($shopKey, $countryCode, $shopCategoryId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/properties', $shopKey, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection::class);
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection::class);
     }
 
     /**
