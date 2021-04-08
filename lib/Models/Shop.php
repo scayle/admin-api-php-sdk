@@ -11,7 +11,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $active Defines if the shop is active.
  * @property bool $deleted Defines it the shop is deleted.
  * @property string $priceGroupKey Key of the price group the shop is assigned to.
- * @property int $shopCategoryTreeId Defines shop categories tree id.
+ * @property int $shopCategoryTreeId Defines shop categories tree id. Can be set only on creation.
  * @property ShopCountry[] $countries The countries assigned to the shop.
  * @property mixed $customData
  */
