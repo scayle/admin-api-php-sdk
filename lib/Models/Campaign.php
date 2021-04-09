@@ -10,6 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property float $reduction The reduction percentage applied to all variants, which do not have a specific reduction set.
  * @property string $startAt Start time of campaign in Iso8601 Zulu format.
  * @property string $endAt End time of campaign in Iso8601 Zulu format.
+ * @property string $campaignKey A unique key to identifiy the campaign
  */
 class Campaign extends ApiObject
 {
