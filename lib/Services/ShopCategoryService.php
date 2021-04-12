@@ -374,4 +374,40 @@ class ShopCategoryService extends AbstractService
     {
         return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key), $options, null);
     }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $shopCategoryId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry
+     */
+    public function getCountry($shopKey, $countryCode, $shopCategoryId, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $shopCategoryId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry
+     */
+    public function updateOrCreateCountry($shopKey, $countryCode, $shopCategoryId, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
+    }
 }

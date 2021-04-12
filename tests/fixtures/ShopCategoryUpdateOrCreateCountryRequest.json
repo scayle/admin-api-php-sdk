@@ -1,0 +1,24 @@
+{
+    "isActive": true,
+    "isVisible": true,
+    "properties": [
+        {
+            "key": "myKey",
+            "value": "myValue"
+        }
+    ],
+    "customData": {
+        "isValid": true,
+        "name": "ayou",
+        "score": 100,
+        "some-json": {
+            "foo": "bar",
+            "de_DE": {
+                "color": "weiss"
+            },
+            "en_EN": {
+                "color": "white"
+            }
+        }
+    }
+}

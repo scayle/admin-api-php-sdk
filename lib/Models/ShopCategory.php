@@ -13,6 +13,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $isActive Declares whether the shop category is active or not. Can be specified on creation only.
  * @property bool $isVisible Declares whether the shop category is visible in the shop or not. Can be specified on creation only.
  * @property mixed $customData
+ * @property ShopCategoryCountry[] $countries List of country specific configurations.
  */
 class ShopCategory extends ApiObject
 {
@@ -25,6 +26,7 @@ class ShopCategory extends ApiObject
 
     protected $collectionClassMap = [
         'properties' => \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class,
+        'countries' => \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class,
     ];
 
     protected $polymorphic = [
