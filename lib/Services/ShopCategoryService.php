@@ -399,6 +399,7 @@ class ShopCategoryService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $shopCategoryId
+     * @param \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -406,8 +407,8 @@ class ShopCategoryService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry
      */
-    public function updateOrCreateCountry($shopKey, $countryCode, $shopCategoryId, $options = [])
+    public function updateOrCreateCountry($shopKey, $countryCode, $shopCategoryId, $model, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
+        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class, $model);
     }
 }

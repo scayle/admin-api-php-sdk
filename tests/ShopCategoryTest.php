@@ -252,7 +252,12 @@ final class ShopCategoryTest extends BaseApiTestCase
 
     public function testUpdateOrCreateCountry()
     {
-        $responseEntity = $this->api->shopCategories->UpdateOrCreateCountry('1', '1', '1', []);
+        $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateOrCreateCountryRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->shopCategories->UpdateOrCreateCountry('1', '1', '1', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryUpdateOrCreateCountryResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class, $responseEntity);
