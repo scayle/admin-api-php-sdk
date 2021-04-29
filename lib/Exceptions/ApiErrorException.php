@@ -42,6 +42,14 @@ class ApiErrorException extends \Exception
     }
 
     /**
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+
+    /**
      * @param array $errors
      *
      * @return ApiError[]

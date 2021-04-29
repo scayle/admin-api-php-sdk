@@ -51,7 +51,7 @@ abstract class AbstractService
             if ($statusCode < 200 || $statusCode >= 300) {
                 $responseJson = \json_decode($responseBody, true);
 
-                throw new ApiErrorException($responseJson, $statusCode);
+                throw new ApiErrorException(null === $responseJson ? [] : $responseJson, $statusCode);
             }
 
             if ($responseBody && $modelClass && \class_exists($modelClass)) {
