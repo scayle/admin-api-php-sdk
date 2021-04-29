@@ -20,7 +20,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
     }
@@ -33,13 +33,13 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryCollection::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
         }
@@ -53,7 +53,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
     }
@@ -71,7 +71,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
     }
@@ -94,7 +94,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
     }
@@ -112,7 +112,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
     }
@@ -125,13 +125,13 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
         }
@@ -245,7 +245,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
     }
@@ -263,7 +263,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProducts::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
     }

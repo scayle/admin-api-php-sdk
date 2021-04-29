@@ -5,45 +5,40 @@
         "de_DE": "Meine Shop Kategorie",
         "en_GB": "My Shop Category"
     },
-    "products": {
-        "ids": {
-            "include": [
-                1,
-                2,
-                3
-            ],
-            "exclude": [
-                4,
-                5,
-                6
+    "productSets": [
+        {
+            "productSetId": 100,
+            "referencedProductSetId": 98,
+            "includeProductIds": [
+                1
             ]
         },
-        "criteria": [
-            {
-                "isNew": true,
-                "attributes": [
-                    {
-                        "name": "color",
-                        "include": [
-                            "red"
-                        ]
-                    },
-                    {
-                        "name": "size",
-                        "exclude": [
-                            "M"
-                        ]
-                    }
-                ],
-                "categories": {
+        {
+            "productSetId": 101,
+            "excludeProductIds": [
+                2
+            ]
+        },
+        {
+            "productSetId": 102,
+            "referencedProductSetId": 99,
+            "isNew": true,
+            "attributes": [
+                {
+                    "name": "color",
                     "include": [
-                        1,
-                        2
+                        "red"
+                    ]
+                },
+                {
+                    "name": "size",
+                    "exclude": [
+                        "M"
                     ]
                 }
-            }
-        ]
-    },
+            ]
+        }
+    ],
     "supportedFilterGroups": [
         "material",
         "maker"
