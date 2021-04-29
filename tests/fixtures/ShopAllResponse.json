@@ -9,6 +9,7 @@
             "active": true,
             "deleted": false,
             "shopCategoryTreeId": 1,
+            "companyId": 1,
             "countries": [
                 {
                     "countryCode": "de",
