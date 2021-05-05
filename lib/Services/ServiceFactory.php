@@ -24,6 +24,7 @@ class ServiceFactory extends AbstractServiceFactory
         'masterCategories' => \AboutYou\Cloud\AdminApi\Services\MasterCategoryService::class,
         'shopCategories' => \AboutYou\Cloud\AdminApi\Services\ShopCategoryService::class,
         'shopCategoryPropertyKeys' => \AboutYou\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService::class,
+        'shopCategoryProductSetUnlinkInstructions' => \AboutYou\Cloud\AdminApi\Services\ShopCategoryProductSetUnlinkInstructionService::class,
         'shopCountries' => \AboutYou\Cloud\AdminApi\Services\ShopCountryService::class,
         'brands' => \AboutYou\Cloud\AdminApi\Services\BrandService::class,
         'productSortings' => \AboutYou\Cloud\AdminApi\Services\ProductSortingService::class,

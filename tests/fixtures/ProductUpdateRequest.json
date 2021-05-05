@@ -105,18 +105,6 @@
                     "value": "front"
                 }
             ]
-        },
-        {
-            "source": {
-                "attachment": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
-            },
-            "attributes": [
-                {
-                    "name": "view",
-                    "type": "simple",
-                    "value": "back"
-                }
-            ]
         }
     ]
 }

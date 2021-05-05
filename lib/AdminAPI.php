@@ -20,6 +20,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\MasterCategoryService $masterCategories
  * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryService $shopCategories
  * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService $shopCategoryPropertyKeys
+ * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryProductSetUnlinkInstructionService $shopCategoryProductSetUnlinkInstructions
  * @property \AboutYou\Cloud\AdminApi\Services\ShopCountryService $shopCountries
  * @property \AboutYou\Cloud\AdminApi\Services\BrandService $brands
  * @property \AboutYou\Cloud\AdminApi\Services\ProductSortingService $productSortings
