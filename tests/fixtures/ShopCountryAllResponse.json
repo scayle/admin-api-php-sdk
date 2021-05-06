@@ -1,7 +1,7 @@
 {
     "entities": [
         {
-            "countryCode": "de",
+            "countryCode": "DE",
             "defaultLanguageCode": "de_DE",
             "supportedLanguageCodes": [
                 "de_DE",

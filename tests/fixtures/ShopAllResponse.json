@@ -12,7 +12,7 @@
             "companyId": 1,
             "countries": [
                 {
-                    "countryCode": "de",
+                    "countryCode": "DE",
                     "defaultLanguageCode": "de_DE",
                     "supportedLanguageCodes": [
                         "de_DE",
@@ -85,7 +85,7 @@
                     "de_DE": {
                         "color": "weiss"
                     },
-                    "en_EN": {
+                    "en_GB": {
                         "color": "white"
                     }
                 }

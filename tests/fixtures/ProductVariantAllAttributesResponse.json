@@ -6,11 +6,11 @@
             "value": [
                 {
                     "de_DE": "blau",
-                    "en_EN": "blue"
+                    "en_GB": "blue"
                 },
                 {
                     "de_DE": "schwarz",
-                    "en_EN": "black"
+                    "en_GB": "black"
                 }
             ],
             "isLocked": true

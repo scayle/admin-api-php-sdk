@@ -20,7 +20,7 @@
                 "type": "localizedString",
                 "value": {
                     "de_DE": "Langarm",
-                    "en_EN": "long-sleeved"
+                    "en_GB": "long-sleeved"
                 },
                 "isLocked": false
             }
@@ -28,7 +28,7 @@
     },
     "name": {
         "de_DE": "Blaues Shirt",
-        "en_EN": "Blue Shirt"
+        "en_GB": "Blue Shirt"
     },
     "attributes": [
         {
@@ -37,11 +37,11 @@
             "value": [
                 {
                     "de_DE": "blau",
-                    "en_EN": "blue"
+                    "en_GB": "blue"
                 },
                 {
                     "de_DE": "schwarz",
-                    "en_EN": "black"
+                    "en_GB": "black"
                 }
             ],
             "isLocked": true
