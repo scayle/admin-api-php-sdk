@@ -1,0 +1,48 @@
+{
+    "id": 1,
+    "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJHH0",
+    "firstName": "John",
+    "lastName": "Doe",
+    "gender": "m",
+    "birthDate": "1980-01-01",
+    "email": "john.doe@example.com",
+    "phone": "0049\/1234567890",
+    "publicKey": "customer-1234",
+    "title": "Prof.",
+    "type": "personal",
+    "groups": [
+        "employee"
+    ],
+    "status": {
+        "isActive": true,
+        "isGuestCustomer": false
+    },
+    "addresses": [
+        {
+            "id": 998,
+            "referenceKey": "my-key",
+            "street": "Street",
+            "houseNumber": "1",
+            "additional": "erste Stock",
+            "zipCode": "123456",
+            "city": "Hamburg",
+            "countryCode": "DEU",
+            "collectionPoint": {
+                "customerKey": "bced-234-234",
+                "description": "Kiosk",
+                "key": "12345-a",
+                "type": "hermes_parcelshop"
+            },
+            "isDefault": {
+                "billing": false,
+                "shipping": true
+            },
+            "recipient": {
+                "firstName": "John",
+                "gender": "m",
+                "lastName": "Doe",
+                "title": "Prof."
+            }
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "gender": "m",
+    "birthDate": "1980-01-01",
+    "email": "john.doe@example.com",
+    "phone": "0049\/1234567890",
+    "publicKey": "customer-1234",
+    "title": "Prof."
+}

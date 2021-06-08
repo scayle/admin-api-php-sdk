@@ -27,6 +27,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\ShopWarehouseService $shopWarehouses
  * @property \AboutYou\Cloud\AdminApi\Services\PackageGroupService $packageGroups
  * @property \AboutYou\Cloud\AdminApi\Services\CustomDataConfigService $customDataConfigs
+ * @property \AboutYou\Cloud\AdminApi\Services\CustomerService $customers
  */
 class AdminAPI extends AbstractApi
 {
