@@ -44,5 +44,11 @@
                 "title": "Prof."
             }
         }
-    ]
+    ],
+    "legacyCustomData": {
+        "score": {
+            "generatedOn": "2018-05-20T19:45:15+00:00",
+            "result": "green"
+        }
+    }
 }

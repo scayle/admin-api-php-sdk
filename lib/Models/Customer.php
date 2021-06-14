@@ -17,6 +17,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string[] $groups
  * @property CustomerStatus $status
  * @property CustomerAddress[] $addresses
+ * @property array $legacyCustomData
  */
 class Customer extends ApiObject
 {
