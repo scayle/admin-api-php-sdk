@@ -72,6 +72,11 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
     }
 
+    public function testAnonymize()
+    {
+        $responseEntity = $this->api->customers->Anonymize(Identifier::fromId(1), []);
+    }
+
     public function testGetStatus()
     {
         $responseEntity = $this->api->customers->GetStatus(Identifier::fromId(1), []);

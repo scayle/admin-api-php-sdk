@@ -81,6 +81,20 @@ class CustomerService extends AbstractService
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
+     */
+    public function anonymize($customerIdentifier, $options = [])
+    {
+        $this->request('delete', $this->resolvePath('/customers/%s/anonymize', $customerIdentifier), $options, null);
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
      *
      * @return \AboutYou\Cloud\AdminApi\Models\CustomerStatus
      */
