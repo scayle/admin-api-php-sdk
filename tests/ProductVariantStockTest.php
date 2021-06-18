@@ -16,7 +16,7 @@ final class ProductVariantStockTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductVariantStock($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->productVariantStocks->Create(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->productVariantStocks->Create(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantStockCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantStock::class, $responseEntity);
@@ -25,7 +25,7 @@ final class ProductVariantStockTest extends BaseApiTestCase
 
     public function testAll()
     {
-        $responseEntity = $this->api->productVariantStocks->All(Identifier::fromId(1), Identifier::fromId(1), []);
+        $responseEntity = $this->api->productVariantStocks->All(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantStockAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection::class, $responseEntity);

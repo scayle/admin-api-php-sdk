@@ -10,7 +10,6 @@ class ProductVariantPriceService extends AbstractService
     /**
      * Description.
      *
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -20,15 +19,14 @@ class ProductVariantPriceService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice
      */
-    public function create($productIdentifier, $variantIdentifier, $model, $options = [])
+    public function create($variantIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/products/%s/variants/%s/prices', $productIdentifier, $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class, $model);
+        return $this->request('post', $this->resolvePath('/variants/%s/prices', $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class, $model);
     }
 
     /**
      * Description.
      *
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -37,15 +35,14 @@ class ProductVariantPriceService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection
      */
-    public function all($productIdentifier, $variantIdentifier, $options = [])
+    public function all($variantIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/variants/%s/prices', $productIdentifier, $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class);
+        return $this->request('get', $this->resolvePath('/variants/%s/prices', $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class);
     }
 
     /**
      * Description.
      *
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param int $priceId
      * @param array $options additional options like limit or filters
@@ -53,8 +50,8 @@ class ProductVariantPriceService extends AbstractService
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteFuturePrice($productIdentifier, $variantIdentifier, $priceId, $options = [])
+    public function deleteFuturePrice($variantIdentifier, $priceId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/products/%s/variants/%s/prices/%s', $productIdentifier, $variantIdentifier, $priceId), $options, null);
+        $this->request('delete', $this->resolvePath('/variants/%s/prices/%s', $variantIdentifier, $priceId), $options, null);
     }
 }
