@@ -1,0 +1,26 @@
+{
+    "id": 1,
+    "referenceKey": "my-key",
+    "street": "Street",
+    "houseNumber": "1",
+    "additional": "erste Stock",
+    "zipCode": "123456",
+    "city": "Hamburg",
+    "countryCode": "DEU",
+    "collectionPoint": {
+        "customerKey": "bced-234-234",
+        "description": "Kiosk",
+        "key": "12345-a",
+        "type": "hermes_parcelshop"
+    },
+    "isDefault": {
+        "billing": false,
+        "shipping": true
+    },
+    "recipient": {
+        "firstName": "John",
+        "gender": "m",
+        "lastName": "Doe",
+        "title": "Prof."
+    }
+}

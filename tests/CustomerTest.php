@@ -105,4 +105,90 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
     }
+
+    public function testGetAddresses()
+    {
+        $responseEntity = $this->api->customers->GetAddresses(Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerGetAddressesResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+        }
+    }
+
+    public function testGetAddress()
+    {
+        $responseEntity = $this->api->customers->GetAddress(Identifier::fromId(1), Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerGetAddressResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+    }
+
+    public function testCreateAddress()
+    {
+        $expectedRequestJson = $this->loadFixture('CustomerCreateAddressRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerAddress($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->customers->CreateAddress(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerCreateAddressResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+    }
+
+    public function testUpdateAddress()
+    {
+        $expectedRequestJson = $this->loadFixture('CustomerUpdateAddressRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerAddress($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->customers->UpdateAddress(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerUpdateAddressResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+    }
+
+    public function testUpdateAddressReferenceKey()
+    {
+        $expectedRequestJson = $this->loadFixture('CustomerUpdateAddressReferenceKeyRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerAddressReferenceKey($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->customers->UpdateAddressReferenceKey(Identifier::fromId(1), '1', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerUpdateAddressReferenceKeyResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+    }
+
+    public function testAnonymizeAddress()
+    {
+        $responseEntity = $this->api->customers->AnonymizeAddress(Identifier::fromId(1), Identifier::fromId(1), []);
+    }
 }
