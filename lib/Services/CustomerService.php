@@ -220,4 +220,18 @@ class CustomerService extends AbstractService
     {
         $this->request('delete', $this->resolvePath('/customers/%s/addresses/%s/anonymize', $customerIdentifier, $addressIdentifier), $options, null);
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function resetPassword($customerIdentifier, $options = [])
+    {
+        $this->request('post', $this->resolvePath('/customers/%s/send-reset-password-email', $customerIdentifier), $options, null);
+    }
 }

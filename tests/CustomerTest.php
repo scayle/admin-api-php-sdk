@@ -191,4 +191,9 @@ final class CustomerTest extends BaseApiTestCase
     {
         $responseEntity = $this->api->customers->AnonymizeAddress(Identifier::fromId(1), Identifier::fromId(1), []);
     }
+
+    public function testResetPassword()
+    {
+        $responseEntity = $this->api->customers->ResetPassword(Identifier::fromId(1), []);
+    }
 }
