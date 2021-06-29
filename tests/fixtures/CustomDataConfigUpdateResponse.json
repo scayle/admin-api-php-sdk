@@ -6,7 +6,7 @@
             "defaultValue": "default value",
             "inherit": false,
             "rules": {
-                "isRequired": true
+                "required": true
             }
         }
     ]
