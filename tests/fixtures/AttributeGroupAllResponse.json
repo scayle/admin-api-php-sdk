@@ -5,7 +5,7 @@
             "name": "material_composition_textile",
             "frontendName": {
                 "de_DE": "Materialzusammensetzung",
-                "en_US": "Material Composition"
+                "en_GB": "Material Composition"
             },
             "type": "advanced",
             "isShared": false,
