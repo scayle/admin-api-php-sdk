@@ -1,0 +1,232 @@
+{
+    "address": {
+        "billing": {
+            "id": 998,
+            "referenceKey": "my-key",
+            "street": "Street",
+            "houseNumber": "1",
+            "additional": "erste Stock",
+            "zipCode": "123456",
+            "city": "Hamburg",
+            "countryCode": "DEU",
+            "collectionPoint": {
+                "customerKey": "bced-234-234",
+                "description": "Kiosk",
+                "key": "12345-a",
+                "type": "hermes_parcelshop"
+            },
+            "isDefault": {
+                "billing": false,
+                "shipping": true
+            },
+            "recipient": {
+                "firstName": "John",
+                "gender": "m",
+                "lastName": "Doe",
+                "title": "Prof."
+            }
+        },
+        "forward": {
+            "id": 998,
+            "referenceKey": "my-key",
+            "street": "Street",
+            "houseNumber": "1",
+            "additional": "erste Stock",
+            "zipCode": "123456",
+            "city": "Hamburg",
+            "countryCode": "DEU",
+            "collectionPoint": {
+                "customerKey": "bced-234-234",
+                "description": "Kiosk",
+                "key": "12345-a",
+                "type": "hermes_parcelshop"
+            },
+            "isDefault": {
+                "billing": false,
+                "shipping": true
+            },
+            "recipient": {
+                "firstName": "John",
+                "gender": "m",
+                "lastName": "Doe",
+                "title": "Prof."
+            }
+        },
+        "shipping": {
+            "id": 998,
+            "referenceKey": "my-key",
+            "street": "Street",
+            "houseNumber": "1",
+            "additional": "erste Stock",
+            "zipCode": "123456",
+            "city": "Hamburg",
+            "countryCode": "DEU",
+            "collectionPoint": {
+                "customerKey": "bced-234-234",
+                "description": "Kiosk",
+                "key": "12345-a",
+                "type": "hermes_parcelshop"
+            },
+            "isDefault": {
+                "billing": false,
+                "shipping": true
+            },
+            "recipient": {
+                "firstName": "John",
+                "gender": "m",
+                "lastName": "Doe",
+                "title": "Prof."
+            }
+        }
+    },
+    "basketKey": "basket-c6v7k4eer1",
+    "confirmedAt": "2018-01-20T11:30:15+00:00",
+    "cost": {
+        "appliedFees": [
+            {
+                "amount": {
+                    "withTax": 200,
+                    "withoutTax": 168
+                },
+                "category": "delivery",
+                "key": "hermes",
+                "option": "express",
+                "tax": {
+                    "vat": {
+                        "amount": 32,
+                        "rate": 1
+                    }
+                }
+            }
+        ],
+        "appliedReductions": [
+            {
+                "amount": {
+                    "absoluteWithTax": 100,
+                    "relative": 1
+                },
+                "category": "voucher",
+                "type": "absolute"
+            }
+        ],
+        "tax": {
+            "vat": {
+                "amount": 11
+            }
+        },
+        "withTax": 1390,
+        "withoutTax": 1168
+    },
+    "currencyCode": "EUR",
+    "customer": {
+        "id": 9876,
+        "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJHH0"
+    },
+    "id": 123,
+    "invoicedAt": "2018-01-22T11:30:15+00:00",
+    "items": [
+        {
+            "availableQuantity": 20,
+            "deliveryForecast": {
+                "subsequentDelivery": {
+                    "key": "christmas"
+                }
+            },
+            "legacyCustomData": {
+                "key": "value"
+            },
+            "packageId": 1,
+            "price": {
+                "appliedReductions": [
+                    {
+                        "amount": {
+                            "absoluteWithTax": 100,
+                            "relative": 1
+                        },
+                        "category": "sale",
+                        "type": "relative"
+                    }
+                ],
+                "reference": {
+                    "size": "100",
+                    "unit": "ml",
+                    "withTax": 595
+                },
+                "tax": {
+                    "vat": {
+                        "amount": 190,
+                        "rate": 1
+                    }
+                },
+                "withTax": 1190,
+                "withoutTax": 1000
+            },
+            "product": {
+                "id": 123456,
+                "referenceKey": "M0001-black"
+            },
+            "referenceKey": "ac834d23e689u678",
+            "reservationKey": "6nq69bzzkd5xufxliwg8",
+            "status": "available",
+            "variant": {
+                "id": 7,
+                "referenceKey": "M00012-black-M"
+            },
+            "warehouseId": 12345
+        }
+    ],
+    "legacyCustomData": {
+        "score": {
+            "generatedOn": "2018-05-20T19:45:15+00:00",
+            "result": "green"
+        }
+    },
+    "packages": [
+        {
+            "carrierKey": "dhl",
+            "deliveryDate": {
+                "maximum": "2018-02-05",
+                "minimum": "2018-02-02"
+            },
+            "deliveryStatus": "open",
+            "id": 1
+        }
+    ],
+    "payment": [
+        {
+            "amount": 1190,
+            "data": {
+                "CCBrand": "VISA",
+                "CCExpiry": "202005",
+                "IPCity": "charlottenburg",
+                "IPLatitude": "52.5151",
+                "IPLongitude": "13.3053",
+                "IPState": "berlin",
+                "IPZone": "276",
+                "IPZoneA2": "de"
+            },
+            "key": "computop_creditcard",
+            "transactionKey": "creditcard-abcde"
+        }
+    ],
+    "publicKey": "666",
+    "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJHH0",
+    "shipping": {
+        "policy": "least_packages"
+    },
+    "status": "invoice_completed",
+    "vouchers": [
+        {
+            "applicableItems": [
+                {
+                    "isApplied": true,
+                    "key": "a87ff679a2f3e71d9181a67b7542122c"
+                }
+            ],
+            "code": "fashion2020",
+            "id": 198234,
+            "type": "absolute",
+            "value": 1000
+        }
+    ]
+}

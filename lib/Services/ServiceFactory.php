@@ -32,5 +32,6 @@ class ServiceFactory extends AbstractServiceFactory
         'packageGroups' => \AboutYou\Cloud\AdminApi\Services\PackageGroupService::class,
         'customDataConfigs' => \AboutYou\Cloud\AdminApi\Services\CustomDataConfigService::class,
         'customers' => \AboutYou\Cloud\AdminApi\Services\CustomerService::class,
+        'orders' => \AboutYou\Cloud\AdminApi\Services\OrderService::class,
     ];
 }
