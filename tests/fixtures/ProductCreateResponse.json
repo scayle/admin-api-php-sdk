@@ -85,7 +85,7 @@
                     "oldPrice": null,
                     "tax": 19,
                     "countryCode": "DE",
-                    "currencyCode": "euro",
+                    "currencyCode": "EUR",
                     "groupKey": "myGroupKey",
                     "promotionKey": "myPromotionKey",
                     "unitPrice": {

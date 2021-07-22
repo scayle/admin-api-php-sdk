@@ -11,7 +11,7 @@
         {
             "price": 9999,
             "tax": 19,
-            "currencyCode": "eur",
+            "currencyCode": "EUR",
             "countryCode": "DE",
             "oldPrice": 10999,
             "recommendedRetailPrice": 10999,
