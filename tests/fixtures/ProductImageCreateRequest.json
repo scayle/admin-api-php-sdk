@@ -1,9 +1,7 @@
 {
     "referenceKey": "myReferenceKey",
     "name": "some_name",
-    "source": {
-        "url": "https:\/\/cdn.aboutstatic.com\/file\/3f5a809d399b58ddf5c50025f984de18"
-    },
+    "assetUrl": "images\/my_image.jpg",
     "attributes": [
         {
             "name": "view",
