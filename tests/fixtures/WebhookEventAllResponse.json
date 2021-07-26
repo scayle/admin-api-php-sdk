@@ -1,0 +1,10 @@
+{
+    "entities": [
+        {
+            "event": "customer-created",
+            "version": 1,
+            "description": "Called when a customer is created.",
+            "isDeprecated": false
+        }
+    ]
+}

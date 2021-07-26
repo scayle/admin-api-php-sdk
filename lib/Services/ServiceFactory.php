@@ -33,5 +33,7 @@ class ServiceFactory extends AbstractServiceFactory
         'customDataConfigs' => \AboutYou\Cloud\AdminApi\Services\CustomDataConfigService::class,
         'customers' => \AboutYou\Cloud\AdminApi\Services\CustomerService::class,
         'orders' => \AboutYou\Cloud\AdminApi\Services\OrderService::class,
+        'webhookEvents' => \AboutYou\Cloud\AdminApi\Services\WebhookEventService::class,
+        'webhookSubscriptions' => \AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService::class,
     ];
 }
