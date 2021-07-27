@@ -47,26 +47,6 @@
                         }
                     ],
                     "isLocked": true
-                },
-                {
-                    "name": "material_composition",
-                    "type": "advancedList",
-                    "value": [
-                        {
-                            "material_group": "Obermaterial",
-                            "components": [
-                                {
-                                    "fraction": 70,
-                                    "material": "Baumwolle"
-                                },
-                                {
-                                    "fraction": 30,
-                                    "material": "Polyester"
-                                }
-                            ]
-                        }
-                    ],
-                    "isLocked": false
                 }
             ],
             "variants": [
