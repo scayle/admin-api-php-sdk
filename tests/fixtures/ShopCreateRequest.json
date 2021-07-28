@@ -1,40 +1,5 @@
 {
     "key": "ms",
     "name": "My Shop",
-    "priceGroupKey": "myPriceGroup",
-    "logoSource": {
-        "url": "https:\/\/example.com\/logo.png"
-    },
-    "shopCategoryTreeId": 1,
-    "countries": [
-        {
-            "countryCode": "DE",
-            "defaultLanguageCode": "de_DE",
-            "supportedLanguageCodes": [
-                "de_DE",
-                "en_GB"
-            ],
-            "url": "https:\/\/www.aboutyou.de",
-            "properties": [
-                {
-                    "key": "myKey",
-                    "value": "myValue"
-                }
-            ]
-        }
-    ],
-    "customData": {
-        "isValid": true,
-        "name": "ayou",
-        "score": 100,
-        "some-json": {
-            "foo": "bar",
-            "de_DE": {
-                "color": "weiss"
-            },
-            "en_GB": {
-                "color": "white"
-            }
-        }
-    }
+    "priceGroupKey": "myPriceGroup"
 }

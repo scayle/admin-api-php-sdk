@@ -1,45 +1,8 @@
 {
-    "parentId": 1,
-    "leftSiblingId": 2,
     "name": {
         "de_DE": "Meine Shop Kategorie",
         "en_GB": "My Shop Category"
     },
-    "productSets": [
-        {
-            "referencedProductSetId": 98,
-            "includeProductIds": [
-                1
-            ]
-        },
-        {
-            "excludeProductIds": [
-                2
-            ]
-        },
-        {
-            "referencedProductSetId": 99,
-            "isNew": true,
-            "attributes": [
-                {
-                    "name": "color",
-                    "include": [
-                        "red"
-                    ]
-                },
-                {
-                    "name": "size",
-                    "exclude": [
-                        "M"
-                    ]
-                }
-            ]
-        }
-    ],
-    "supportedFilterGroups": [
-        "material",
-        "maker"
-    ],
     "properties": [
         {
             "key": "myKey",
@@ -47,19 +10,5 @@
         }
     ],
     "isActive": true,
-    "isVisible": true,
-    "customData": {
-        "isValid": true,
-        "name": "ayou",
-        "score": 100,
-        "some-json": {
-            "foo": "bar",
-            "de_DE": {
-                "color": "weiss"
-            },
-            "en_GB": {
-                "color": "white"
-            }
-        }
-    }
+    "isVisible": true
 }
