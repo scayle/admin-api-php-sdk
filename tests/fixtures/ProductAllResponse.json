@@ -10,9 +10,9 @@
                     "isLocked": false,
                     "paths": [
                         [
+                            "Root",
                             "Fashion",
-                            "Men",
-                            "Shirts"
+                            "Men"
                         ]
                     ]
                 },
@@ -45,7 +45,12 @@
                             "de_DE": "schwarz",
                             "en_GB": "black"
                         }
-                    ],
+                    ]
+                },
+                {
+                    "name": "brand",
+                    "type": "simple",
+                    "value": "s.Oliver",
                     "isLocked": true
                 }
             ],

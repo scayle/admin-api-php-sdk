@@ -10,9 +10,9 @@
         "categories": {
             "paths": [
                 [
+                    "Root",
                     "Fashion",
-                    "Men",
-                    "Shirts"
+                    "Men"
                 ]
             ]
         },
@@ -41,6 +41,11 @@
                     "en_GB": "black"
                 }
             ]
+        },
+        {
+            "name": "brand",
+            "type": "simple",
+            "value": "s.Oliver"
         }
     ],
     "variants": [

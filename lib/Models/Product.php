@@ -9,8 +9,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property array $name The localized product name. At least the base language that is configured in Backbone Core is mandatory.
  * @property Master $master The master the product is attached to.
  * @property string $state The state of the product determined by the state evaluation process.
- * @property Attribute[] $attributes A list of attributes attached to the product.
- * @property ProductVariant[] $variants A list of product variants attached to the product.
+ * @property Attribute[] $attributes A list of attributes attached to the product. Brand and color attributes are mandatory and must be provided when creating a new product.
+ * @property ProductVariant[] $variants A list of product variants attached to the product. Size attributes are mandatory and have to be provided when creating a new product.
  * @property ProductImage[] $images A list of product images attached to the product.
  */
 class Product extends ApiObject
