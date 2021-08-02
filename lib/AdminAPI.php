@@ -29,6 +29,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\CustomDataConfigService $customDataConfigs
  * @property \AboutYou\Cloud\AdminApi\Services\CustomerService $customers
  * @property \AboutYou\Cloud\AdminApi\Services\OrderService $orders
+ * @property \AboutYou\Cloud\AdminApi\Services\ShipmentService $shipments
  * @property \AboutYou\Cloud\AdminApi\Services\WebhookEventService $webhookEvents
  * @property \AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService $webhookSubscriptions
  */
