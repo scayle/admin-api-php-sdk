@@ -3,7 +3,7 @@
         {
             "id": 1,
             "path": [
-                "Women",
+                "Root",
                 "Fashion"
             ]
         },
@@ -11,18 +11,18 @@
             "id": 2,
             "parentId": 1,
             "path": [
-                "Women",
+                "Root",
                 "Fashion",
-                "Shirts"
+                "Women"
             ]
         },
         {
             "id": 3,
             "parentId": 1,
             "path": [
-                "Women",
+                "Root",
                 "Fashion",
-                "Jackets"
+                "Men"
             ],
             "attributes": [
                 {
