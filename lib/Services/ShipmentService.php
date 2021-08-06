@@ -15,11 +15,9 @@ class ShipmentService extends AbstractService
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Shipment
      */
     public function create($model, $options = [])
     {
-        return $this->request('post', '/fulfillment/shipments', $options, \AboutYou\Cloud\AdminApi\Models\Shipment::class, $model);
+        $this->request('post', '/fulfillment/shipments', $options, null, $model);
     }
 }
