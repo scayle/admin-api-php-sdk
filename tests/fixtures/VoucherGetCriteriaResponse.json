@@ -1,0 +1,12 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "key": "customerId",
+            "type": "include",
+            "value": [
+                1
+            ]
+        }
+    ]
+}

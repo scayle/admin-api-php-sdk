@@ -94,4 +94,97 @@ class VoucherService extends AbstractService
     {
         $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId), $options, null);
     }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $voucherId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection
+     */
+    public function getCriteria($shopKey, $countryCode, $voucherId, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId), $options, \AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection::class);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $voucherId
+     * @param int $voucherCriterionId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterion
+     */
+    public function getCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId), $options, \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $voucherId
+     * @param \AboutYou\Cloud\AdminApi\Models\VoucherCriterion $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterion
+     */
+    public function createCriterion($shopKey, $countryCode, $voucherId, $model, $options = [])
+    {
+        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId), $options, \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $model);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $voucherId
+     * @param int $voucherCriterionId
+     * @param \AboutYou\Cloud\AdminApi\Models\VoucherCriterion $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterion
+     */
+    public function updateCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $model, $options = [])
+    {
+        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId), $options, \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $model);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $voucherId
+     * @param int $voucherCriterionId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $options = [])
+    {
+        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId), $options, null);
+    }
 }

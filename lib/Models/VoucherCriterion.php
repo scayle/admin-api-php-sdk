@@ -3,10 +3,12 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $count
- * @property string $restriction
+ * @property int $id
+ * @property string $key
+ * @property string $type
+ * @property mixed[] $value
  */
-class VoucherConstraintsApplications extends ApiObject
+class VoucherCriterion extends ApiObject
 {
     protected $defaultValues = [
     ];

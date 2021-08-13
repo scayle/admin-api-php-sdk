@@ -6,8 +6,9 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $id
  * @property string $code
  * @property VoucherConstraints $constraints
+ * @property VoucherCriterion[] $criteria
  * @property string $name
- * @property string $status one of: active, inactive, pending-review, archived
+ * @property string $status
  * @property string $summary
  * @property string $type
  * @property float $value
@@ -22,6 +23,7 @@ class Voucher extends ApiObject
     ];
 
     protected $collectionClassMap = [
+        'criteria' => \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class,
     ];
 
     protected $polymorphic = [
