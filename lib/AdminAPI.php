@@ -34,6 +34,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService $webhookSubscriptions
  * @property \AboutYou\Cloud\AdminApi\Services\CancellationService $cancellations
  * @property \AboutYou\Cloud\AdminApi\Services\ReturnItemService $returnItems
+ * @property \AboutYou\Cloud\AdminApi\Services\VoucherService $vouchers
  */
 class AdminAPI extends AbstractApi
 {

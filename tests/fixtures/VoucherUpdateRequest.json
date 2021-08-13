@@ -1,0 +1,23 @@
+{
+    "code": "testcode",
+    "constraints": {
+        "date": {
+            "max": "2021-12-23T11:30:58.000Z",
+            "min": "2021-01-23T11:30:58.000Z"
+        },
+        "isValidOnCampaigns": true,
+        "maxApplications": {
+            "count": 1,
+            "restriction": "customer"
+        },
+        "orderValue": {
+            "max": 200000,
+            "min": 7500
+        }
+    },
+    "name": "Testvoucher",
+    "status": "active",
+    "summary": "Voucher utilised for automated for testing",
+    "type": "relative",
+    "value": 0.1
+}
