@@ -37,5 +37,6 @@ class ServiceFactory extends AbstractServiceFactory
         'webhookEvents' => \AboutYou\Cloud\AdminApi\Services\WebhookEventService::class,
         'webhookSubscriptions' => \AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService::class,
         'cancellations' => \AboutYou\Cloud\AdminApi\Services\CancellationService::class,
+        'returnItems' => \AboutYou\Cloud\AdminApi\Services\ReturnItemService::class,
     ];
 }

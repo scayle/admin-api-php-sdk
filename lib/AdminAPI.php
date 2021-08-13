@@ -33,6 +33,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\WebhookEventService $webhookEvents
  * @property \AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService $webhookSubscriptions
  * @property \AboutYou\Cloud\AdminApi\Services\CancellationService $cancellations
+ * @property \AboutYou\Cloud\AdminApi\Services\ReturnItemService $returnItems
  */
 class AdminAPI extends AbstractApi
 {
