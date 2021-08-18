@@ -61,4 +61,13 @@ final class AttributeGroupTest extends BaseApiTestCase
     {
         $responseEntity = $this->api->attributeGroups->Delete('1', []);
     }
+
+    public function testUpdateFrontendName()
+    {
+        $expectedRequestJson = $this->loadFixture('AttributeGroupUpdateFrontendNameRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->attributeGroups->UpdateFrontendName('1', $requestEntity, []);
+    }
 }

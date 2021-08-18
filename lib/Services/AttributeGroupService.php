@@ -84,4 +84,19 @@ class AttributeGroupService extends AbstractService
     {
         $this->request('delete', $this->resolvePath('/attribute-groups/%s', $attributeGroupName), $options, null);
     }
+
+    /**
+     * Description.
+     *
+     * @param string $attributeGroupName
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function updateFrontendName($attributeGroupName, $model, $options = [])
+    {
+        $this->request('put', $this->resolvePath('/attribute-groups/%s/frontend-name', $attributeGroupName), $options, null, $model);
+    }
 }
