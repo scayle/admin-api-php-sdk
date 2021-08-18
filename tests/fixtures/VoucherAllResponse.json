@@ -5,8 +5,8 @@
             "code": "testcode",
             "constraints": {
                 "date": {
-                    "max": "2021-12-23T11:30:58.000Z",
-                    "min": "2021-01-23T11:30:58.000Z"
+                    "max": "2021-12-23T11:30:58+00:00",
+                    "min": "2021-01-23T11:30:58+00:00"
                 },
                 "isValidOnCampaigns": true,
                 "maxApplications": {
