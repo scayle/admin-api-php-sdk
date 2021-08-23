@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $referenceKey A key that uniquely identifies the product (e.g., a shirt in a specific color) within the tenant's ecosystem.
  * @property array $name The localized product name. At least the base language that is configured in Backbone Core is mandatory.
  * @property Master $master The master the product is attached to.
- * @property string $state The state of the product determined by the state evaluation process.
+ * @property string $state The state of the product determined by the state evaluation process. The problem state should not be requested as it can only be the result of the state evaluation process. If product is in problem state, the reasons are listed in read-only 'problems' field.
  * @property Attribute[] $attributes A list of attributes attached to the product. Brand and color attributes are mandatory and must be provided when creating a new product.
  * @property ProductVariant[] $variants A list of product variants attached to the product. Size attributes are mandatory and have to be provided when creating a new product.
  * @property ProductImage[] $images A list of product images attached to the product.
