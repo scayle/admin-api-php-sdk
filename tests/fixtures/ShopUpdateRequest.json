@@ -1,23 +1,5 @@
 {
     "key": "ms",
-    "name": "My Shop",
-    "priceGroupKey": "myPriceGroup",
-    "logoSource": {
-        "url": "https:\/\/example.com\/logo.png"
-    },
-    "shopCategoryTreeId": 1,
-    "customData": {
-        "isValid": true,
-        "name": "ayou",
-        "score": 100,
-        "some-json": {
-            "foo": "bar",
-            "de_DE": {
-                "color": "weiss"
-            },
-            "en_GB": {
-                "color": "white"
-            }
-        }
-    }
+    "name": "My Shop Updated",
+    "priceGroupKey": "myPriceGroupUpdated"
 }

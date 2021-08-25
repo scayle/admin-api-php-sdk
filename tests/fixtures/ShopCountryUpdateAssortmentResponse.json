@@ -6,12 +6,7 @@
                 "leaf"
             ]
         ],
-        "exclude": [
-            [
-                "root",
-                "leaf"
-            ]
-        ]
+        "exclude": []
     },
     "products": {
         "include": [
@@ -31,9 +26,7 @@
             "include": [
                 "red"
             ],
-            "exclude": [
-                "blue"
-            ]
+            "exclude": []
         }
     ]
 }

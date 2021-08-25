@@ -1,11 +1,15 @@
 {
+    "id": 2,
     "countryCode": "DE",
     "defaultLanguageCode": "de_DE",
     "supportedLanguageCodes": [
         "de_DE",
         "en_GB"
     ],
+    "priceGroupKey": "myPriceGroup",
     "url": "https:\/\/www.aboutyou.de",
+    "active": true,
+    "deleted": false,
     "properties": [
         {
             "key": "myKey",

@@ -5,12 +5,6 @@
                 "root",
                 "leaf"
             ]
-        ],
-        "exclude": [
-            [
-                "root",
-                "leaf"
-            ]
         ]
     },
     "products": {
@@ -30,9 +24,6 @@
             "name": "color",
             "include": [
                 "red"
-            ],
-            "exclude": [
-                "blue"
             ]
         }
     ]
