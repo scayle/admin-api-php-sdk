@@ -13,8 +13,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $promotionKey Key of the promotion the price is assigned to.
  * @property ProductVariantUnitPrice $unitPrice Describes the price for a specific unit.
  * @property float $tax A valid tax rate
- * @property string $validFrom Controlls when the price will be activated. If not present or null, its intepretated as valid from now.
- * @property string $validTo Controlls when the price will be deactivated. If not present or null, the price is valid forever.
+ * @property string $validFrom Controls when the price will be activated. If not present or null, the valid from is specified from now.
+ * @property string $validTo Controls when the price will be deactivated. If not present or null, the price is valid forever.
  */
 class ProductVariantPrice extends ApiObject
 {

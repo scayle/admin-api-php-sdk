@@ -4,13 +4,13 @@
             "quantity": 3,
             "warehouseReferenceKey": "myFirstWarehouse",
             "merchantReferenceKey": "myMerchantKey",
-            "changedAt": "2020-07-23T11:30:58.000Z"
+            "changedAt": "2020-07-23T11:30:58+00:00"
         },
         {
             "quantity": 3,
             "warehouseReferenceKey": "mySecondWarehouse",
             "merchantReferenceKey": "myMerchantKey",
-            "changedAt": "2020-07-23T11:30:58.000Z"
+            "changedAt": "2020-07-23T11:30:58+00:00"
         }
     ]
 }

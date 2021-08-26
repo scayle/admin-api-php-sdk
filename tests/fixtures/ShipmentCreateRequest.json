@@ -2,7 +2,7 @@
     "shopKey": "ms",
     "countryCode": "de",
     "carrier": "HERMES_KLV",
-    "deliveryDate": "2021-09-23T11:30:58.000Z",
+    "deliveryDate": "2021-09-23T11:30:58+00:00",
     "items": [
         {
             "orderItemId": 67219436,
