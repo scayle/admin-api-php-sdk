@@ -4,7 +4,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
  * @property int $id
- * @property string $referenceKey External reference set by the client to integrate 3rd party systems
+ * @property string $referenceKey External reference set by the client to integrate third party systems.
  * @property string $street
  * @property string $houseNumber
  * @property string $additional Additional data pertaining to the address, such as `c/o AboutYou`.

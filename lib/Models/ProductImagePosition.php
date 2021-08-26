@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $position Position of the image
+ * @property int $position Position of the image.
  */
 class ProductImagePosition extends ApiObject
 {

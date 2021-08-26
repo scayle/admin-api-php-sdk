@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $referenceKey External address reference set by the client to integrate a 3rd party system
+ * @property string $referenceKey External address reference set by the client to integrate a third party system.
  */
 class CustomerAddressReferenceKey extends ApiObject
 {

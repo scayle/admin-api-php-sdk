@@ -15,8 +15,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property array $legacyCustomData
  * @property OrderPackage[] $packages
  * @property OrderPayment[] $payment
- * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails
- * @property string $referenceKey External order reference set by the client to integrate a 3rd party system
+ * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails.
+ * @property string $referenceKey External order reference set by the client to integrate a third party system.
  * @property OrderShipping $shipping
  * @property string $status
  * @property OrderVoucher[] $vouchers
