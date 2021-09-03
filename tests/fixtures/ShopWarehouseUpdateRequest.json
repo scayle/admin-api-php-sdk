@@ -1,7 +1,4 @@
 {
     "referenceKey": "my-warehouse",
-    "priority": 1,
-    "packageGroup": {
-        "id": 3
-    }
+    "priority": 1
 }

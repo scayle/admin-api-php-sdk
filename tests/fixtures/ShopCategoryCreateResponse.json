@@ -29,12 +29,6 @@
                     "include": [
                         "red"
                     ]
-                },
-                {
-                    "name": "size",
-                    "exclude": [
-                        "M"
-                    ]
                 }
             ]
         }

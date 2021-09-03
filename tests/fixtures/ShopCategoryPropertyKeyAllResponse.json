@@ -2,7 +2,7 @@
     "entities": [
         {
             "id": 1,
-            "key": "sale",
+            "key": "myKey",
             "isInheritable": true
         }
     ]
