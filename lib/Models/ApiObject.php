@@ -54,6 +54,11 @@ abstract class ApiObject implements \JsonSerializable
         return null;
     }
 
+    public function __unset($name)
+    {
+        unset($this->_attributes[$name]);
+    }
+
     public function __isset($name)
     {
         return isset($this->_attributes[$name]);
