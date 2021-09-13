@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
+ * @property int $id
  * @property int $availableQuantity
  * @property OrderItemDeliveryForecast $deliveryForecast
  * @property array $legacyCustomData
