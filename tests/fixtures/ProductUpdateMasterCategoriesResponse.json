@@ -2,9 +2,9 @@
     "isLocked": false,
     "paths": [
         [
-            "Root",
             "Fashion",
-            "Men"
+            "Men",
+            "Shirts"
         ]
     ]
 }

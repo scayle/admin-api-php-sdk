@@ -3,7 +3,6 @@
         {
             "id": 1,
             "path": [
-                "Root",
                 "Fashion"
             ]
         },
@@ -11,7 +10,6 @@
             "id": 2,
             "parentId": 1,
             "path": [
-                "Root",
                 "Fashion",
                 "Women"
             ]
@@ -20,26 +18,10 @@
             "id": 3,
             "parentId": 1,
             "path": [
-                "Root",
                 "Fashion",
                 "Men"
             ],
             "attributes": [
-                {
-                    "name": "color",
-                    "isMandatory": true,
-                    "type": "simpleList",
-                    "defaultValue": [
-                        "green",
-                        "red"
-                    ]
-                },
-                {
-                    "name": "size",
-                    "type": "simple",
-                    "isMandatory": true,
-                    "defaultValue": 32
-                },
                 {
                     "name": "seasoon",
                     "type": "simple",

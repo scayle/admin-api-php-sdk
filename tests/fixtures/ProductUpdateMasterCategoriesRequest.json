@@ -1,9 +1,9 @@
 {
     "paths": [
         [
-            "Root",
             "Fashion",
-            "Men"
+            "Men",
+            "Shirts"
         ]
     ]
 }
