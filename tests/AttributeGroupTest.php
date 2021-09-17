@@ -70,4 +70,13 @@ final class AttributeGroupTest extends BaseApiTestCase
 
         $responseEntity = $this->api->attributeGroups->UpdateFrontendName('1', $requestEntity, []);
     }
+
+    public function testGetAttributes()
+    {
+        $responseEntity = $this->api->attributeGroups->GetAttributes('1', []);
+
+        $expectedResponseJson = $this->loadFixture('AttributeGroupGetAttributesResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ArrayCollection::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+    }
 }

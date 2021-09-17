@@ -1,0 +1,15 @@
+{
+    "entities": [
+        {
+            "de_DE": "blau",
+            "en_GB": "blue"
+        },
+        {
+            "de_DE": "schwarz",
+            "en_GB": "black"
+        }
+    ],
+    "cursor": {
+        "next": null
+    }
+}

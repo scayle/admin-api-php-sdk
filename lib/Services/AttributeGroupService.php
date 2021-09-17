@@ -99,4 +99,20 @@ class AttributeGroupService extends AbstractService
     {
         $this->request('put', $this->resolvePath('/attribute-groups/%s/frontend-name', $attributeGroupName), $options, null, $model);
     }
+
+    /**
+     * Description.
+     *
+     * @param string $attributeGroupName
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ArrayCollection
+     */
+    public function getAttributes($attributeGroupName, $options = [])
+    {
+        return $this->request('get', $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class);
+    }
 }
