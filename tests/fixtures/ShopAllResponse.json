@@ -19,12 +19,6 @@
                         "en_GB"
                     ],
                     "url": "https:\/\/www.aboutyou.de",
-                    "properties": [
-                        {
-                            "key": "myKey",
-                            "value": "myValue"
-                        }
-                    ],
                     "assortment": {
                         "masterCategories": {
                             "include": [

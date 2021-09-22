@@ -14,7 +14,6 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\AttributeTranslationService $attributeTranslations
  * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantStockService $productVariantStocks
  * @property \AboutYou\Cloud\AdminApi\Services\ShopService $shops
- * @property \AboutYou\Cloud\AdminApi\Services\ShopPropertyKeyService $shopPropertyKeys
  * @property \AboutYou\Cloud\AdminApi\Services\AttributeGroupService $attributeGroups
  * @property \AboutYou\Cloud\AdminApi\Services\CampaignService $campaigns
  * @property \AboutYou\Cloud\AdminApi\Services\MasterCategoryService $masterCategories

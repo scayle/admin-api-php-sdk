@@ -18,7 +18,6 @@ class ServiceFactory extends AbstractServiceFactory
         'attributeTranslations' => \AboutYou\Cloud\AdminApi\Services\AttributeTranslationService::class,
         'productVariantStocks' => \AboutYou\Cloud\AdminApi\Services\ProductVariantStockService::class,
         'shops' => \AboutYou\Cloud\AdminApi\Services\ShopService::class,
-        'shopPropertyKeys' => \AboutYou\Cloud\AdminApi\Services\ShopPropertyKeyService::class,
         'attributeGroups' => \AboutYou\Cloud\AdminApi\Services\AttributeGroupService::class,
         'campaigns' => \AboutYou\Cloud\AdminApi\Services\CampaignService::class,
         'masterCategories' => \AboutYou\Cloud\AdminApi\Services\MasterCategoryService::class,

@@ -12,12 +12,6 @@
             "url": "https:\/\/www.aboutyou.de",
             "active": true,
             "deleted": false,
-            "properties": [
-                {
-                    "key": "myKey",
-                    "value": "myValue"
-                }
-            ],
             "assortment": {
                 "masterCategories": {
                     "include": [

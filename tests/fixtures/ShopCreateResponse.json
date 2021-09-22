@@ -16,13 +16,7 @@
                 "de_DE",
                 "en_GB"
             ],
-            "url": "https:\/\/www.aboutyou.de",
-            "properties": [
-                {
-                    "key": "myKey",
-                    "value": "myValue"
-                }
-            ]
+            "url": "https:\/\/www.aboutyou.de"
         }
     ]
 }

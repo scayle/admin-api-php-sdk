@@ -11,7 +11,6 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $active Defines if the shop country is active.
  * @property bool $deleted Defines it the shop country is deleted.
  * @property string $priceGroupKey Key of the price group the shop country is assigned to.
- * @property ShopProperty[] $properties The properties assigned to the shop country.
  * @property Assortment $assortment
  * @property ShopWarehouse[] $warehouses A list of warehouses attached to the shop country.
  * @property mixed $customData
@@ -26,7 +25,6 @@ class ShopCountry extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'properties' => \AboutYou\Cloud\AdminApi\Models\ShopProperty::class,
         'warehouses' => \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class,
     ];
 
