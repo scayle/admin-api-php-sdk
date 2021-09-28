@@ -3,12 +3,13 @@
         {
             "id": 1,
             "name": "Edited",
+            "group": null,
             "logoUrl": "images\/123123123123.jpg",
             "attributes": [
                 {
                     "name": "sustainable",
                     "type": "simple",
-                    "value": true,
+                    "value": "Y",
                     "isLocked": false
                 }
             ],
