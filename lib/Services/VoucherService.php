@@ -76,7 +76,7 @@ class VoucherService extends AbstractService
      */
     public function update($shopKey, $countryCode, $voucherId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId), $options, \AboutYou\Cloud\AdminApi\Models\Voucher::class, $model);
+        return $this->request('patch', $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId), $options, \AboutYou\Cloud\AdminApi\Models\Voucher::class, $model);
     }
 
     /**

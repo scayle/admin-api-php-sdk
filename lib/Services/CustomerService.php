@@ -207,7 +207,7 @@ class CustomerService extends AbstractService
      */
     public function updateAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $model);
+        return $this->request('patch', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $model);
     }
 
     /**
