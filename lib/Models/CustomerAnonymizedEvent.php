@@ -2,11 +2,7 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
-/**
- * @property array $customer
- * @property CustomerAddress $address
- */
-class CustomerAddressCallback extends ApiObject
+class CustomerAnonymizedEvent extends ApiObject
 {
     protected $defaultValues = [
     ];

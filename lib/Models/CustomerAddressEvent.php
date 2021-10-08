@@ -2,11 +2,7 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
-/**
- * @property array $order
- * @property OrderItem[] $items
- */
-class OrderItemsCallback extends ApiObject
+class CustomerAddressEvent extends ApiObject
 {
     protected $defaultValues = [
     ];
