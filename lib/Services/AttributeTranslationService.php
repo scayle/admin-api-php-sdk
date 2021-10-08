@@ -10,22 +10,22 @@ class AttributeTranslationService extends AbstractService
     /**
      * Description.
      *
-     * @param string $attributeName
+     * @param string $attributeGroupName
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateOrCreate($attributeName, $model, $options = [])
+    public function updateOrCreate($attributeGroupName, $model, $options = [])
     {
-        $this->request('post', $this->resolvePath('/attributes/%s/translations', $attributeName), $options, null, $model);
+        $this->request('post', $this->resolvePath('/attributes/%s/translations', $attributeGroupName), $options, null, $model);
     }
 
     /**
      * Description.
      *
-     * @param string $attributeName
+     * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -33,8 +33,8 @@ class AttributeTranslationService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ArrayCollection
      */
-    public function all($attributeName, $options = [])
+    public function all($attributeGroupName, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/attributes/%s/translations', $attributeName), $options, \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class);
+        return $this->request('get', $this->resolvePath('/attributes/%s/translations', $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class);
     }
 }
