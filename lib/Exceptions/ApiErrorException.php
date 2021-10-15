@@ -15,14 +15,14 @@ class ApiErrorException extends \Exception
     private $statusCode;
 
     /**
-     * @param array $responseErrors
+     * @param array $errorResponse
      * @param int $statusCode
      */
-    public function __construct($responseErrors, $statusCode)
+    public function __construct($errorResponse, $statusCode)
     {
-        $this->errors = $this->parseErrors($responseErrors);
+        $this->errors = $this->parseErrors($errorResponse);
         $this->statusCode = $statusCode;
-        parent::__construct('Errors occured while handling the API request ', $statusCode);
+        parent::__construct('Errors occurred while handling the API request ', $statusCode);
     }
 
     /**
@@ -50,15 +50,19 @@ class ApiErrorException extends \Exception
     }
 
     /**
-     * @param array $errors
+     * @param array $errorResponse
      *
      * @return ApiError[]
      */
-    private function parseErrors($errors)
+    private function parseErrors($errorResponse)
     {
         $adminApiErrors = [];
 
-        foreach ($errors['errors'] as $error) {
+        if (!isset($errorResponse['errors'])) {
+            return $adminApiErrors;
+        }
+
+        foreach ($errorResponse['errors'] as $error) {
             $adminApiErrors[] = new ApiError($error['errorKey'], $error['message'], $error['context']);
         }
 
