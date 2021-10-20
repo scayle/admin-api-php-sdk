@@ -196,4 +196,26 @@ final class CustomerTest extends BaseApiTestCase
     {
         $responseEntity = $this->api->customers->ResetPassword('1', '1', Identifier::fromId(1), []);
     }
+
+    public function testAddGroups()
+    {
+        $expectedRequestJson = $this->loadFixture('CustomerAddGroupsRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerGroup($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->customers->AddGroups('1', '1', Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerAddGroupsResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Customer::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+    }
+
+    public function testDeleteGroup()
+    {
+        $responseEntity = $this->api->customers->DeleteGroup('1', '1', Identifier::fromId(1), '1', []);
+    }
 }

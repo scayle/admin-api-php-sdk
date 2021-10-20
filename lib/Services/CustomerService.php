@@ -262,4 +262,40 @@ class CustomerService extends AbstractService
     {
         $this->request('post', $this->resolvePath('/shops/%s/countries/%s/customers/%s/send-reset-password-email', $shopKey, $countryCode, $customerIdentifier), $options, null);
     }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerId
+     * @param \AboutYou\Cloud\AdminApi\Models\CustomerGroup $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\Customer
+     */
+    public function addGroups($shopKey, $countryCode, $customerId, $model, $options = [])
+    {
+        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups', $shopKey, $countryCode, $customerId), $options, \AboutYou\Cloud\AdminApi\Models\Customer::class, $model);
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param string $customerGroup
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteGroup($shopKey, $countryCode, $customerIdentifier, $customerGroup, $options = [])
+    {
+        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups/%s', $shopKey, $countryCode, $customerIdentifier, $customerGroup), $options, null);
+    }
 }
