@@ -31,7 +31,7 @@ class Identifier
      */
     public static function fromKey($referenceKey)
     {
-        return new self('key=' . $referenceKey);
+        return new self(\urlencode('key=' . $referenceKey));
     }
 
     public function __toString()
