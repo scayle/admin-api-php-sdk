@@ -1,39 +1,15 @@
 {
     "id": 1,
-    "name": "material_composition_textile",
+    "name": "color",
     "frontendName": {
-        "de_DE": "Materialzusammensetzung",
-        "en_GB": "Material Composition"
+        "de_DE": "Farbe",
+        "en_GB": "Color"
     },
-    "type": "advanced",
-    "isShared": false,
+    "type": "simple",
+    "structure": null,
+    "isShared": true,
     "level": "product",
-    "structure": {
-        "group": {
-            "type": "attributeGroup",
-            "attributeGroupName": "Obermaterial"
-        },
-        "components": {
-            "type": "array",
-            "items": {
-                "fraction": {
-                    "type": "integer"
-                },
-                "unit": {
-                    "type": "attribute",
-                    "attributeGroupName": "unit",
-                    "attributeName": "%"
-                },
-                "material": {
-                    "type": "attributeGroup",
-                    "attributeGroupName": "material"
-                }
-            }
-        }
-    },
-    "shopKeys": [
-        "acme"
-    ],
-    "isOverridablePerShop": true,
+    "shopKeys": null,
+    "isOverridablePerShop": false,
     "isDifferentiating": false
 }

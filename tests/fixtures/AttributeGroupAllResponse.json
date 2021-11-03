@@ -2,14 +2,72 @@
     "entities": [
         {
             "id": 1,
+            "name": "color",
+            "frontendName": {
+                "de_DE": "Farbe",
+                "en_GB": "Color"
+            },
+            "type": "simple",
+            "structure": null,
+            "isShared": true,
+            "level": "product",
+            "shopKeys": null,
+            "isOverridablePerShop": false,
+            "isDifferentiating": false
+        },
+        {
+            "id": 2,
+            "name": "season",
+            "frontendName": {
+                "de_DE": "Saison",
+                "en_GB": "Season"
+            },
+            "type": "simpleList",
+            "structure": null,
+            "isShared": true,
+            "level": "product",
+            "shopKeys": null,
+            "isOverridablePerShop": false,
+            "isDifferentiating": false
+        },
+        {
+            "id": 3,
+            "name": "brand",
+            "frontendName": {
+                "de_DE": "Marke",
+                "en_GB": "Brand"
+            },
+            "type": "localizedString",
+            "structure": null,
+            "isShared": true,
+            "level": "product",
+            "shopKeys": null,
+            "isOverridablePerShop": false,
+            "isDifferentiating": false
+        },
+        {
+            "id": 4,
+            "name": "notes",
+            "frontendName": {
+                "de_DE": "Hinweise",
+                "en_GB": "Notes"
+            },
+            "type": "localizedStringList",
+            "structure": null,
+            "isShared": false,
+            "level": "product",
+            "shopKeys": null,
+            "isOverridablePerShop": false,
+            "isDifferentiating": false
+        },
+        {
+            "id": 5,
             "name": "material_composition_textile",
             "frontendName": {
                 "de_DE": "Materialzusammensetzung",
                 "en_GB": "Material Composition"
             },
             "type": "advanced",
-            "isShared": false,
-            "level": "product",
             "structure": {
                 "group": {
                     "type": "attributeGroup",
@@ -33,6 +91,8 @@
                     }
                 }
             },
+            "isShared": false,
+            "level": "product",
             "shopKeys": [
                 "acme"
             ],
