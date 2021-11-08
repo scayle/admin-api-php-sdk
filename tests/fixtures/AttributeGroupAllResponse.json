@@ -94,7 +94,7 @@
             "isShared": false,
             "level": "product",
             "shopKeys": [
-                "acme"
+                "ms"
             ],
             "isOverridablePerShop": true,
             "isDifferentiating": false
