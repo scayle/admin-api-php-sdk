@@ -27,7 +27,7 @@ abstract class AbstractService
      * @param string $relativeUrl the relative url of endpoint
      * @param null|string $modelClass the classname of which the response gets transformed to
      * @param array<string, string> $options array of additional options
-     * @param null|ApiObject $body the request body object
+     * @param null|ApiObject|string $body the request body object
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
@@ -39,7 +39,7 @@ abstract class AbstractService
         try {
             if ($body instanceof ApiObject) {
                 $body = $body->toJson();
-            } else {
+            } elseif (null !== $body) {
                 $body = \json_encode($body);
             }
 

@@ -75,9 +75,12 @@ abstract class AbstractApi
         $url = $this->getApiUrl() . $relativePath . $this->makeQueryString($options);
 
         $headers = $this->getAuthHeader();
-        $headers['Content-Type'] = 'application/json';
         $headers['Accept'] = 'application/json, */*';
         $headers['X-SDK'] = 'php/' . self::VERSION;
+
+        if (null !== $body) {
+            $headers['Content-Type'] = 'application/json';
+        }
 
         $request = new Request($method, $url, $headers, $body);
 
