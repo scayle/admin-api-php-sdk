@@ -18,6 +18,13 @@ class ReturnItemService extends AbstractService
      */
     public function send($model, $options = [])
     {
-        $this->request('post', '/fulfillment/return-items', $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/fulfillment/return-items'),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 }

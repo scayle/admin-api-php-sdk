@@ -16,7 +16,7 @@ final class ProductVariantTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductVariant($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->productVariants->Create(Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->productVariants->create(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $responseEntity);
@@ -28,7 +28,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->productVariants->Get(Identifier::fromId(1), Identifier::fromId(1), []);
+        $responseEntity = $this->api->productVariants->get(Identifier::fromId(1), Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $responseEntity);
@@ -40,7 +40,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
     public function testAll()
     {
-        $responseEntity = $this->api->productVariants->All(Identifier::fromId(1), []);
+        $responseEntity = $this->api->productVariants->all(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantCollection::class, $responseEntity);
@@ -63,7 +63,7 @@ final class ProductVariantTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductVariant($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->productVariants->Update(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->productVariants->update(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $responseEntity);
@@ -75,7 +75,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->productVariants->Delete(Identifier::fromId(1), Identifier::fromId(1), []);
+        $responseEntity = $this->api->productVariants->delete(Identifier::fromId(1), Identifier::fromId(1), []);
     }
 
     public function testUpdateOrCreateAttribute()
@@ -85,7 +85,7 @@ final class ProductVariantTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Attribute($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->productVariants->UpdateOrCreateAttribute(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->productVariants->updateOrCreateAttribute(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantUpdateOrCreateAttributeResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
@@ -97,12 +97,12 @@ final class ProductVariantTest extends BaseApiTestCase
 
     public function testDeleteAttribute()
     {
-        $responseEntity = $this->api->productVariants->DeleteAttribute(Identifier::fromId(1), Identifier::fromId(1), '1', []);
+        $responseEntity = $this->api->productVariants->deleteAttribute(Identifier::fromId(1), Identifier::fromId(1), 'acme', []);
     }
 
     public function testGetAttribute()
     {
-        $responseEntity = $this->api->productVariants->GetAttribute(Identifier::fromId(1), Identifier::fromId(1), '1', []);
+        $responseEntity = $this->api->productVariants->getAttribute(Identifier::fromId(1), Identifier::fromId(1), 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantGetAttributeResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
@@ -114,7 +114,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
     public function testAllAttributes()
     {
-        $responseEntity = $this->api->productVariants->AllAttributes(Identifier::fromId(1), Identifier::fromId(1), []);
+        $responseEntity = $this->api->productVariants->allAttributes(Identifier::fromId(1), Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantAllAttributesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeCollection::class, $responseEntity);

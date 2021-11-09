@@ -16,7 +16,7 @@ final class ProductTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Product($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->products->Create($requestEntity, []);
+        $responseEntity = $this->api->products->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Product::class, $responseEntity);
@@ -30,7 +30,7 @@ final class ProductTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->products->Get(Identifier::fromId(1), []);
+        $responseEntity = $this->api->products->get(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Product::class, $responseEntity);
@@ -44,7 +44,7 @@ final class ProductTest extends BaseApiTestCase
 
     public function testAll()
     {
-        $responseEntity = $this->api->products->All([]);
+        $responseEntity = $this->api->products->all([]);
 
         $expectedResponseJson = $this->loadFixture('ProductAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductCollection::class, $responseEntity);
@@ -71,7 +71,7 @@ final class ProductTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Product($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->products->Update(Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->products->update(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Product::class, $responseEntity);
@@ -85,7 +85,7 @@ final class ProductTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->products->Delete(Identifier::fromId(1), []);
+        $responseEntity = $this->api->products->delete(Identifier::fromId(1), []);
     }
 
     public function testUpdateOrCreateAttribute()
@@ -95,7 +95,7 @@ final class ProductTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Attribute($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->products->UpdateOrCreateAttribute(Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->products->updateOrCreateAttribute(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductUpdateOrCreateAttributeResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
@@ -109,12 +109,12 @@ final class ProductTest extends BaseApiTestCase
 
     public function testDeleteAttribute()
     {
-        $responseEntity = $this->api->products->DeleteAttribute(Identifier::fromId(1), '1', []);
+        $responseEntity = $this->api->products->deleteAttribute(Identifier::fromId(1), 'acme', []);
     }
 
     public function testGetAttribute()
     {
-        $responseEntity = $this->api->products->GetAttribute(Identifier::fromId(1), '1', []);
+        $responseEntity = $this->api->products->getAttribute(Identifier::fromId(1), 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ProductGetAttributeResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
@@ -128,7 +128,7 @@ final class ProductTest extends BaseApiTestCase
 
     public function testAllAttributes()
     {
-        $responseEntity = $this->api->products->AllAttributes(Identifier::fromId(1), []);
+        $responseEntity = $this->api->products->allAttributes(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductAllAttributesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeCollection::class, $responseEntity);
@@ -155,7 +155,7 @@ final class ProductTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->products->UpdateMasterCategories(Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->products->updateMasterCategories(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductUpdateMasterCategoriesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductMasterCategories::class, $responseEntity);

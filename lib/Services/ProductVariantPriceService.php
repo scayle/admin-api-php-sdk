@@ -21,7 +21,14 @@ class ProductVariantPriceService extends AbstractService
      */
     public function create($variantIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/variants/%s/prices', $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/variants/%s/prices', $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class,
+            $model
+        );
     }
 
     /**
@@ -37,7 +44,14 @@ class ProductVariantPriceService extends AbstractService
      */
     public function all($variantIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/variants/%s/prices', $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/variants/%s/prices', $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class,
+            null
+        );
     }
 
     /**
@@ -52,6 +66,13 @@ class ProductVariantPriceService extends AbstractService
      */
     public function deleteFuturePrice($variantIdentifier, $priceId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/variants/%s/prices/%s', $variantIdentifier, $priceId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/variants/%s/prices/%s', $variantIdentifier, $priceId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

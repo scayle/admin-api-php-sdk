@@ -14,7 +14,7 @@ final class ShopTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Shop($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->shops->Create($requestEntity, []);
+        $responseEntity = $this->api->shops->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Shop::class, $responseEntity);
@@ -26,7 +26,7 @@ final class ShopTest extends BaseApiTestCase
 
     public function testAll()
     {
-        $responseEntity = $this->api->shops->All([]);
+        $responseEntity = $this->api->shops->all([]);
 
         $expectedResponseJson = $this->loadFixture('ShopAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCollection::class, $responseEntity);
@@ -44,7 +44,7 @@ final class ShopTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->shops->Get('1', []);
+        $responseEntity = $this->api->shops->get('acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Shop::class, $responseEntity);
@@ -61,7 +61,7 @@ final class ShopTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Shop($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->shops->Update('1', $requestEntity, []);
+        $responseEntity = $this->api->shops->update('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Shop::class, $responseEntity);
@@ -77,7 +77,7 @@ final class ShopTest extends BaseApiTestCase
 
         $requestEntity = $expectedRequestJson;
 
-        $responseEntity = $this->api->shops->CreateOrUpdateCustomData('1', $requestEntity, []);
+        $responseEntity = $this->api->shops->createOrUpdateCustomData('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCreateOrUpdateCustomDataResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
@@ -85,12 +85,12 @@ final class ShopTest extends BaseApiTestCase
 
     public function testDeleteCustomData()
     {
-        $responseEntity = $this->api->shops->DeleteCustomData('1', []);
+        $responseEntity = $this->api->shops->deleteCustomData('acme', []);
     }
 
     public function testGetCustomData()
     {
-        $responseEntity = $this->api->shops->GetCustomData('1', []);
+        $responseEntity = $this->api->shops->getCustomData('acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopGetCustomDataResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
@@ -102,7 +102,7 @@ final class ShopTest extends BaseApiTestCase
 
         $requestEntity = $expectedRequestJson;
 
-        $responseEntity = $this->api->shops->CreateOrUpdateCustomDataForKey('1', '1', $requestEntity, []);
+        $responseEntity = $this->api->shops->createOrUpdateCustomDataForKey('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCreateOrUpdateCustomDataForKeyResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
@@ -110,12 +110,12 @@ final class ShopTest extends BaseApiTestCase
 
     public function testDeleteCustomDataForKey()
     {
-        $responseEntity = $this->api->shops->DeleteCustomDataForKey('1', '1', []);
+        $responseEntity = $this->api->shops->deleteCustomDataForKey('acme', 'acme', []);
     }
 
     public function testGetCustomDataForKey()
     {
-        $responseEntity = $this->api->shops->GetCustomDataForKey('1', '1', []);
+        $responseEntity = $this->api->shops->getCustomDataForKey('acme', 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopGetCustomDataForKeyResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));

@@ -21,7 +21,14 @@ class ProductVariantService extends AbstractService
      */
     public function create($productIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/products/%s/variants', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/%s/variants', $productIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            $model
+        );
     }
 
     /**
@@ -38,7 +45,14 @@ class ProductVariantService extends AbstractService
      */
     public function get($productIdentifier, $variantIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariant::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            null
+        );
     }
 
     /**
@@ -54,7 +68,14 @@ class ProductVariantService extends AbstractService
      */
     public function all($productIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/variants', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/variants', $productIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariantCollection::class,
+            null
+        );
     }
 
     /**
@@ -72,7 +93,14 @@ class ProductVariantService extends AbstractService
      */
     public function update($productIdentifier, $variantIdentifier, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            $model
+        );
     }
 
     /**
@@ -87,7 +115,14 @@ class ProductVariantService extends AbstractService
      */
     public function delete($productIdentifier, $variantIdentifier, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -105,7 +140,14 @@ class ProductVariantService extends AbstractService
      */
     public function updateOrCreateAttribute($productIdentifier, $variantIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/products/%s/variants/%s/attributes', $productIdentifier, $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Attribute::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/%s/variants/%s/attributes', $productIdentifier, $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            $model
+        );
     }
 
     /**
@@ -121,7 +163,14 @@ class ProductVariantService extends AbstractService
      */
     public function deleteAttribute($productIdentifier, $variantIdentifier, $attributeGroupName, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/products/%s/variants/%s/attributes/%s', $productIdentifier, $variantIdentifier, $attributeGroupName), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/%s/variants/%s/attributes/%s', $productIdentifier, $variantIdentifier, $attributeGroupName),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -139,7 +188,14 @@ class ProductVariantService extends AbstractService
      */
     public function getAttribute($productIdentifier, $variantIdentifier, $attributeGroupName, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/variants/%s/attributes/%s', $productIdentifier, $variantIdentifier, $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/variants/%s/attributes/%s', $productIdentifier, $variantIdentifier, $attributeGroupName),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            null
+        );
     }
 
     /**
@@ -156,6 +212,13 @@ class ProductVariantService extends AbstractService
      */
     public function allAttributes($productIdentifier, $variantIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/variants/%s/attributes', $productIdentifier, $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/variants/%s/attributes', $productIdentifier, $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class,
+            null
+        );
     }
 }

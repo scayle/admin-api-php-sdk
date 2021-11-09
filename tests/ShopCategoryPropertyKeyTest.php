@@ -14,7 +14,7 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->shopCategoryPropertyKeys->Create($requestEntity, []);
+        $responseEntity = $this->api->shopCategoryPropertyKeys->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryPropertyKeyCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class, $responseEntity);
@@ -23,7 +23,7 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->shopCategoryPropertyKeys->Get('1', []);
+        $responseEntity = $this->api->shopCategoryPropertyKeys->get('acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryPropertyKeyGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class, $responseEntity);
@@ -32,7 +32,7 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
 
     public function testAll()
     {
-        $responseEntity = $this->api->shopCategoryPropertyKeys->All([]);
+        $responseEntity = $this->api->shopCategoryPropertyKeys->all([]);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryPropertyKeyAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection::class, $responseEntity);
@@ -50,7 +50,7 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->shopCategoryPropertyKeys->Update('1', $requestEntity, []);
+        $responseEntity = $this->api->shopCategoryPropertyKeys->update('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryPropertyKeyUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class, $responseEntity);
@@ -59,6 +59,6 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->shopCategoryPropertyKeys->Delete('1', []);
+        $responseEntity = $this->api->shopCategoryPropertyKeys->delete('acme', []);
     }
 }

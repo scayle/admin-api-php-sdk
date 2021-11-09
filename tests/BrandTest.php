@@ -9,7 +9,7 @@ final class BrandTest extends BaseApiTestCase
 {
     public function testAll()
     {
-        $responseEntity = $this->api->brands->All([]);
+        $responseEntity = $this->api->brands->all([]);
 
         $expectedResponseJson = $this->loadFixture('BrandAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\BrandCollection::class, $responseEntity);
@@ -27,7 +27,7 @@ final class BrandTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->brands->Get('1', []);
+        $responseEntity = $this->api->brands->get(1, []);
 
         $expectedResponseJson = $this->loadFixture('BrandGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Brand::class, $responseEntity);
@@ -44,7 +44,7 @@ final class BrandTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Brand($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->brands->Create($requestEntity, []);
+        $responseEntity = $this->api->brands->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('BrandCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Brand::class, $responseEntity);
@@ -61,7 +61,7 @@ final class BrandTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Brand($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->brands->Update('1', $requestEntity, []);
+        $responseEntity = $this->api->brands->update(1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('BrandUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Brand::class, $responseEntity);
@@ -73,7 +73,7 @@ final class BrandTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->brands->Delete('1', []);
+        $responseEntity = $this->api->brands->delete(1, []);
     }
 
     public function testCreateOrUpdateCustomData()
@@ -82,7 +82,7 @@ final class BrandTest extends BaseApiTestCase
 
         $requestEntity = $expectedRequestJson;
 
-        $responseEntity = $this->api->brands->CreateOrUpdateCustomData('1', $requestEntity, []);
+        $responseEntity = $this->api->brands->createOrUpdateCustomData(1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('BrandCreateOrUpdateCustomDataResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
@@ -90,12 +90,12 @@ final class BrandTest extends BaseApiTestCase
 
     public function testDeleteCustomData()
     {
-        $responseEntity = $this->api->brands->DeleteCustomData('1', []);
+        $responseEntity = $this->api->brands->deleteCustomData(1, []);
     }
 
     public function testGetCustomData()
     {
-        $responseEntity = $this->api->brands->GetCustomData('1', []);
+        $responseEntity = $this->api->brands->getCustomData(1, []);
 
         $expectedResponseJson = $this->loadFixture('BrandGetCustomDataResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
@@ -107,7 +107,7 @@ final class BrandTest extends BaseApiTestCase
 
         $requestEntity = $expectedRequestJson;
 
-        $responseEntity = $this->api->brands->CreateOrUpdateCustomDataForKey('1', '1', $requestEntity, []);
+        $responseEntity = $this->api->brands->createOrUpdateCustomDataForKey(1, 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('BrandCreateOrUpdateCustomDataForKeyResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
@@ -115,12 +115,12 @@ final class BrandTest extends BaseApiTestCase
 
     public function testDeleteCustomDataForKey()
     {
-        $responseEntity = $this->api->brands->DeleteCustomDataForKey('1', '1', []);
+        $responseEntity = $this->api->brands->deleteCustomDataForKey(1, 'acme', []);
     }
 
     public function testGetCustomDataForKey()
     {
-        $responseEntity = $this->api->brands->GetCustomDataForKey('1', '1', []);
+        $responseEntity = $this->api->brands->getCustomDataForKey(1, 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('BrandGetCustomDataForKeyResponse.json');
         static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));

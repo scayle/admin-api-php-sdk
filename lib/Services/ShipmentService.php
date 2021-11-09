@@ -18,6 +18,13 @@ class ShipmentService extends AbstractService
      */
     public function create($model, $options = [])
     {
-        $this->request('post', '/fulfillment/shipments', $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/fulfillment/shipments'),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 }

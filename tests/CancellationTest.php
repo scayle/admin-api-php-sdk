@@ -14,6 +14,6 @@ final class CancellationTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Cancellation($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->cancellations->Send($requestEntity, []);
+        $responseEntity = $this->api->cancellations->send($requestEntity, []);
     }
 }

@@ -18,6 +18,13 @@ class ProductSortingService extends AbstractService
      */
     public function updateOrCreate($model, $options = [])
     {
-        $this->request('post', '/product-sortings', $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/product-sortings'),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 }

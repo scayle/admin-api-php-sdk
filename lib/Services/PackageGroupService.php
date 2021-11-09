@@ -21,7 +21,14 @@ class PackageGroupService extends AbstractService
      */
     public function all($shopKey, $countryCode, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/package-groups', $shopKey, $countryCode), $options, \AboutYou\Cloud\AdminApi\Models\PackageGroupCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/package-groups', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\PackageGroupCollection::class,
+            null
+        );
     }
 
     /**
@@ -38,7 +45,14 @@ class PackageGroupService extends AbstractService
      */
     public function assignPackageGroupToWarehouses($shopKey, $countryCode, $packageGroupId, $model, $options = [])
     {
-        $this->request('post', $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId), $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -55,7 +69,14 @@ class PackageGroupService extends AbstractService
      */
     public function replacePackageGroupForWarehouses($shopKey, $countryCode, $packageGroupId, $model, $options = [])
     {
-        $this->request('put', $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId), $options, null, $model);
+        $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -71,6 +92,13 @@ class PackageGroupService extends AbstractService
      */
     public function delete($shopKey, $countryCode, $packageGroupId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

@@ -16,6 +16,6 @@ final class ProductSortingTest extends BaseApiTestCase
             $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\ProductSorting($entity);
         }
 
-        $responseEntity = $this->api->productSortings->UpdateOrCreate($requestEntity, []);
+        $responseEntity = $this->api->productSortings->updateOrCreate($requestEntity, []);
     }
 }

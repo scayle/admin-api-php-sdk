@@ -20,6 +20,13 @@ class ShopCategoryProductSetUnlinkInstructionService extends AbstractService
      */
     public function unlink($shopKey, $productSetId, $model, $options = [])
     {
-        $this->request('put', $this->resolvePath('/shops/%s/product-sets/%s/unlink', $shopKey, $productSetId), $options, null, $model);
+        $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/product-sets/%s/unlink', $shopKey, $productSetId),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 }

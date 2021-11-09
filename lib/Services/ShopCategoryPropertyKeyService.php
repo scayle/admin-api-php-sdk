@@ -20,7 +20,14 @@ class ShopCategoryPropertyKeyService extends AbstractService
      */
     public function create($model, $options = [])
     {
-        return $this->request('post', '/shop-category-property-keys', $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shop-category-property-keys'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class,
+            $model
+        );
     }
 
     /**
@@ -36,7 +43,14 @@ class ShopCategoryPropertyKeyService extends AbstractService
      */
     public function get($shopCategoryPropertyKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class,
+            null
+        );
     }
 
     /**
@@ -51,7 +65,14 @@ class ShopCategoryPropertyKeyService extends AbstractService
      */
     public function all($options = [])
     {
-        return $this->request('get', '/shop-category-property-keys', $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shop-category-property-keys'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection::class,
+            null
+        );
     }
 
     /**
@@ -68,7 +89,14 @@ class ShopCategoryPropertyKeyService extends AbstractService
      */
     public function update($shopCategoryPropertyKey, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class,
+            $model
+        );
     }
 
     /**
@@ -82,6 +110,13 @@ class ShopCategoryPropertyKeyService extends AbstractService
      */
     public function delete($shopCategoryPropertyKey, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

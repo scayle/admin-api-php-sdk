@@ -21,7 +21,14 @@ class ProductVariantStockService extends AbstractService
      */
     public function create($variantIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/variants/%s/stocks', $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantStock::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariantStock::class,
+            $model
+        );
     }
 
     /**
@@ -37,6 +44,13 @@ class ProductVariantStockService extends AbstractService
      */
     public function all($variantIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/variants/%s/stocks', $variantIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection::class,
+            null
+        );
     }
 }

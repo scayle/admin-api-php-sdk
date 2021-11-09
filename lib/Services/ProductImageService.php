@@ -21,7 +21,14 @@ class ProductImageService extends AbstractService
      */
     public function create($productIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/products/%s/images', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductImage::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/%s/images', $productIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
+            $model
+        );
     }
 
     /**
@@ -37,7 +44,14 @@ class ProductImageService extends AbstractService
      */
     public function all($productIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/images', $productIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductImageCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/images', $productIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductImageCollection::class,
+            null
+        );
     }
 
     /**
@@ -55,7 +69,14 @@ class ProductImageService extends AbstractService
      */
     public function updatePosition($productIdentifier, $imageIdentifier, $model, $options = [])
     {
-        return $this->request('patch', $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ProductImage::class, $model);
+        return $this->request(
+            'patch',
+            $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
+            $model
+        );
     }
 
     /**
@@ -70,7 +91,14 @@ class ProductImageService extends AbstractService
      */
     public function delete($productIdentifier, $imageIdentifier, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -88,7 +116,14 @@ class ProductImageService extends AbstractService
      */
     public function updateOrCreateAttribute($productIdentifier, $imageIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Attribute::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            $model
+        );
     }
 
     /**
@@ -104,7 +139,14 @@ class ProductImageService extends AbstractService
      */
     public function deleteAttribute($productIdentifier, $imageIdentifier, $attributeGroupName, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -122,7 +164,14 @@ class ProductImageService extends AbstractService
      */
     public function getAttribute($productIdentifier, $imageIdentifier, $attributeGroupName, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            null
+        );
     }
 
     /**
@@ -139,6 +188,13 @@ class ProductImageService extends AbstractService
      */
     public function allAttributes($productIdentifier, $imageIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class,
+            null
+        );
     }
 }

@@ -20,7 +20,14 @@ class ShopService extends AbstractService
      */
     public function create($model, $options = [])
     {
-        return $this->request('post', '/shops', $options, \AboutYou\Cloud\AdminApi\Models\Shop::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Shop::class,
+            $model
+        );
     }
 
     /**
@@ -35,7 +42,14 @@ class ShopService extends AbstractService
      */
     public function all($options = [])
     {
-        return $this->request('get', '/shops', $options, \AboutYou\Cloud\AdminApi\Models\ShopCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCollection::class,
+            null
+        );
     }
 
     /**
@@ -51,7 +65,14 @@ class ShopService extends AbstractService
      */
     public function get($shopKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\Shop::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Shop::class,
+            null
+        );
     }
 
     /**
@@ -68,7 +89,14 @@ class ShopService extends AbstractService
      */
     public function update($shopKey, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\Shop::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Shop::class,
+            $model
+        );
     }
 
     /**
@@ -85,7 +113,14 @@ class ShopService extends AbstractService
      */
     public function createOrUpdateCustomData($shopKey, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/custom-data', $shopKey), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/custom-data', $shopKey),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -99,7 +134,14 @@ class ShopService extends AbstractService
      */
     public function deleteCustomData($shopKey, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/custom-data', $shopKey), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/custom-data', $shopKey),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -115,7 +157,14 @@ class ShopService extends AbstractService
      */
     public function getCustomData($shopKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/custom-data', $shopKey), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/custom-data', $shopKey),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -133,7 +182,14 @@ class ShopService extends AbstractService
      */
     public function createOrUpdateCustomDataForKey($shopKey, $key, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -148,7 +204,14 @@ class ShopService extends AbstractService
      */
     public function deleteCustomDataForKey($shopKey, $key, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -165,6 +228,13 @@ class ShopService extends AbstractService
      */
     public function getCustomDataForKey($shopKey, $key, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

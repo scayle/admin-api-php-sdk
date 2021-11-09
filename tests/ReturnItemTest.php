@@ -16,6 +16,6 @@ final class ReturnItemTest extends BaseApiTestCase
             $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\ReturnItem($entity);
         }
 
-        $responseEntity = $this->api->returnItems->Send($requestEntity, []);
+        $responseEntity = $this->api->returnItems->send($requestEntity, []);
     }
 }

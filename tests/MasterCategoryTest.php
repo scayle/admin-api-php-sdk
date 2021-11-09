@@ -9,7 +9,7 @@ final class MasterCategoryTest extends BaseApiTestCase
 {
     public function testAll()
     {
-        $responseEntity = $this->api->masterCategories->All([]);
+        $responseEntity = $this->api->masterCategories->all([]);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection::class, $responseEntity);
@@ -25,7 +25,7 @@ final class MasterCategoryTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->masterCategories->Get('1', []);
+        $responseEntity = $this->api->masterCategories->get(1, []);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
@@ -41,7 +41,7 @@ final class MasterCategoryTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MasterCategory($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->masterCategories->Create($requestEntity, []);
+        $responseEntity = $this->api->masterCategories->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
@@ -57,7 +57,7 @@ final class MasterCategoryTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MasterCategory($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->masterCategories->Update('1', $requestEntity, []);
+        $responseEntity = $this->api->masterCategories->update(1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
@@ -68,6 +68,6 @@ final class MasterCategoryTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->masterCategories->Delete('1', []);
+        $responseEntity = $this->api->masterCategories->delete(1, []);
     }
 }

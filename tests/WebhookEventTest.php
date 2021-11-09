@@ -9,7 +9,7 @@ final class WebhookEventTest extends BaseApiTestCase
 {
     public function testAll()
     {
-        $responseEntity = $this->api->webhookEvents->All([]);
+        $responseEntity = $this->api->webhookEvents->all([]);
 
         $expectedResponseJson = $this->loadFixture('WebhookEventAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookEventCollection::class, $responseEntity);

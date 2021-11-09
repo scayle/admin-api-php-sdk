@@ -19,7 +19,14 @@ class MasterCategoryService extends AbstractService
      */
     public function all($options = [])
     {
-        return $this->request('get', '/master-categories', $options, \AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/master-categories'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection::class,
+            null
+        );
     }
 
     /**
@@ -35,7 +42,14 @@ class MasterCategoryService extends AbstractService
      */
     public function get($masterCategoryId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/master-categories/%s', $masterCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\MasterCategory::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/master-categories/%s', $masterCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\MasterCategory::class,
+            null
+        );
     }
 
     /**
@@ -51,7 +65,14 @@ class MasterCategoryService extends AbstractService
      */
     public function create($model, $options = [])
     {
-        return $this->request('post', '/master-categories', $options, \AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/master-categories'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\MasterCategory::class,
+            $model
+        );
     }
 
     /**
@@ -68,7 +89,14 @@ class MasterCategoryService extends AbstractService
      */
     public function update($masterCategoryId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/master-categories/%s', $masterCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/master-categories/%s', $masterCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\MasterCategory::class,
+            $model
+        );
     }
 
     /**
@@ -82,6 +110,13 @@ class MasterCategoryService extends AbstractService
      */
     public function delete($masterCategoryId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/master-categories/%s', $masterCategoryId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/master-categories/%s', $masterCategoryId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

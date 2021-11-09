@@ -18,6 +18,13 @@ class CancellationService extends AbstractService
      */
     public function send($model, $options = [])
     {
-        $this->request('post', '/fulfillment/cancellations', $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/fulfillment/cancellations'),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 }

@@ -22,7 +22,14 @@ class OrderService extends AbstractService
      */
     public function get($shopKey, $countryCode, $orderIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/orders/%s', $shopKey, $countryCode, $orderIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Order::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/orders/%s', $shopKey, $countryCode, $orderIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Order::class,
+            null
+        );
     }
 
     /**
@@ -41,7 +48,14 @@ class OrderService extends AbstractService
      */
     public function updateReferenceKey($shopKey, $countryCode, $orderId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/orders/%s/reference-key', $shopKey, $countryCode, $orderId), $options, \AboutYou\Cloud\AdminApi\Models\Order::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/orders/%s/reference-key', $shopKey, $countryCode, $orderId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Order::class,
+            $model
+        );
     }
 
     /**
@@ -59,6 +73,13 @@ class OrderService extends AbstractService
      */
     public function getStatus($shopKey, $countryCode, $orderIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/orders/%s/status', $shopKey, $countryCode, $orderIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\OrderStatus::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/orders/%s/status', $shopKey, $countryCode, $orderIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\OrderStatus::class,
+            null
+        );
     }
 }

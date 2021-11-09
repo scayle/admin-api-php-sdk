@@ -20,7 +20,14 @@ class CustomDataConfigService extends AbstractService
      */
     public function get($entity, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/custom-data-configs/%s', $entity), $options, \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/custom-data-configs/%s', $entity),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class,
+            null
+        );
     }
 
     /**
@@ -37,7 +44,14 @@ class CustomDataConfigService extends AbstractService
      */
     public function create($entity, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/custom-data-configs/%s', $entity), $options, \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/custom-data-configs/%s', $entity),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class,
+            $model
+        );
     }
 
     /**
@@ -54,7 +68,14 @@ class CustomDataConfigService extends AbstractService
      */
     public function update($entity, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/custom-data-configs/%s', $entity), $options, \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/custom-data-configs/%s', $entity),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class,
+            $model
+        );
     }
 
     /**
@@ -68,6 +89,13 @@ class CustomDataConfigService extends AbstractService
      */
     public function delete($entity, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/custom-data-configs/%s', $entity), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/custom-data-configs/%s', $entity),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

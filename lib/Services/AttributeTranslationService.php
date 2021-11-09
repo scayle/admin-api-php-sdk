@@ -19,7 +19,14 @@ class AttributeTranslationService extends AbstractService
      */
     public function updateOrCreate($attributeGroupName, $model, $options = [])
     {
-        $this->request('post', $this->resolvePath('/attributes/%s/translations', $attributeGroupName), $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -35,6 +42,13 @@ class AttributeTranslationService extends AbstractService
      */
     public function all($attributeGroupName, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/attributes/%s/translations', $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class,
+            null
+        );
     }
 }

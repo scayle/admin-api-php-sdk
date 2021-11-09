@@ -19,7 +19,14 @@ class BrandService extends AbstractService
      */
     public function all($options = [])
     {
-        return $this->request('get', '/brands', $options, \AboutYou\Cloud\AdminApi\Models\BrandCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/brands'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\BrandCollection::class,
+            null
+        );
     }
 
     /**
@@ -35,7 +42,14 @@ class BrandService extends AbstractService
      */
     public function get($brandId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/brands/%s', $brandId), $options, \AboutYou\Cloud\AdminApi\Models\Brand::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/brands/%s', $brandId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Brand::class,
+            null
+        );
     }
 
     /**
@@ -51,7 +65,14 @@ class BrandService extends AbstractService
      */
     public function create($model, $options = [])
     {
-        return $this->request('post', '/brands', $options, \AboutYou\Cloud\AdminApi\Models\Brand::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/brands'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Brand::class,
+            $model
+        );
     }
 
     /**
@@ -68,7 +89,14 @@ class BrandService extends AbstractService
      */
     public function update($brandId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/brands/%s', $brandId), $options, \AboutYou\Cloud\AdminApi\Models\Brand::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/brands/%s', $brandId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Brand::class,
+            $model
+        );
     }
 
     /**
@@ -82,7 +110,14 @@ class BrandService extends AbstractService
      */
     public function delete($brandId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/brands/%s', $brandId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/brands/%s', $brandId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -99,7 +134,14 @@ class BrandService extends AbstractService
      */
     public function createOrUpdateCustomData($brandId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/brands/%s/custom-data', $brandId), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/brands/%s/custom-data', $brandId),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -113,7 +155,14 @@ class BrandService extends AbstractService
      */
     public function deleteCustomData($brandId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/brands/%s/custom-data', $brandId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/brands/%s/custom-data', $brandId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -129,7 +178,14 @@ class BrandService extends AbstractService
      */
     public function getCustomData($brandId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/brands/%s/custom-data', $brandId), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/brands/%s/custom-data', $brandId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -147,7 +203,14 @@ class BrandService extends AbstractService
      */
     public function createOrUpdateCustomDataForKey($brandId, $key, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -162,7 +225,14 @@ class BrandService extends AbstractService
      */
     public function deleteCustomDataForKey($brandId, $key, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -179,6 +249,13 @@ class BrandService extends AbstractService
      */
     public function getCustomDataForKey($brandId, $key, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

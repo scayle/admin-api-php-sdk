@@ -21,7 +21,14 @@ class ShopCategoryService extends AbstractService
      */
     public function create($shopKey, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/categories', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/categories', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategory::class,
+            $model
+        );
     }
 
     /**
@@ -37,7 +44,14 @@ class ShopCategoryService extends AbstractService
      */
     public function all($shopKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/categories', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryCollection::class,
+            null
+        );
     }
 
     /**
@@ -54,7 +68,14 @@ class ShopCategoryService extends AbstractService
      */
     public function get($shopKey, $shopCategoryId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategory::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategory::class,
+            null
+        );
     }
 
     /**
@@ -72,7 +93,14 @@ class ShopCategoryService extends AbstractService
      */
     public function update($shopKey, $shopCategoryId, $model, $options = [])
     {
-        return $this->request('patch', $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $model);
+        return $this->request(
+            'patch',
+            $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategory::class,
+            $model
+        );
     }
 
     /**
@@ -87,7 +115,14 @@ class ShopCategoryService extends AbstractService
      */
     public function delete($shopKey, $shopCategoryId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -106,7 +141,14 @@ class ShopCategoryService extends AbstractService
      */
     public function updateOrCreateProperty($shopKey, $countryCode, $shopCategoryId, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class,
+            $model
+        );
     }
 
     /**
@@ -123,7 +165,14 @@ class ShopCategoryService extends AbstractService
      */
     public function deleteProperty($shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -142,7 +191,14 @@ class ShopCategoryService extends AbstractService
      */
     public function getProperty($shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class,
+            null
+        );
     }
 
     /**
@@ -160,7 +216,14 @@ class ShopCategoryService extends AbstractService
      */
     public function allProperties($shopKey, $countryCode, $shopCategoryId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection::class,
+            null
+        );
     }
 
     /**
@@ -178,7 +241,14 @@ class ShopCategoryService extends AbstractService
      */
     public function createOrUpdateCustomData($shopKey, $shopCategoryId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -193,7 +263,14 @@ class ShopCategoryService extends AbstractService
      */
     public function deleteCustomData($shopKey, $shopCategoryId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -210,7 +287,14 @@ class ShopCategoryService extends AbstractService
      */
     public function getCustomData($shopKey, $shopCategoryId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -229,7 +313,14 @@ class ShopCategoryService extends AbstractService
      */
     public function createOrUpdateCustomDataForKey($shopKey, $shopCategoryId, $key, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -245,7 +336,14 @@ class ShopCategoryService extends AbstractService
      */
     public function deleteCustomDataForKey($shopKey, $shopCategoryId, $key, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -263,7 +361,14 @@ class ShopCategoryService extends AbstractService
      */
     public function getCustomDataForKey($shopKey, $shopCategoryId, $key, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -282,7 +387,14 @@ class ShopCategoryService extends AbstractService
      */
     public function createOrUpdateCustomDataForCountry($shopKey, $shopCategoryId, $countryCode, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -298,7 +410,14 @@ class ShopCategoryService extends AbstractService
      */
     public function deleteCustomDataForCountry($shopKey, $shopCategoryId, $countryCode, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -316,7 +435,14 @@ class ShopCategoryService extends AbstractService
      */
     public function getCustomDataForCountry($shopKey, $shopCategoryId, $countryCode, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -336,7 +462,14 @@ class ShopCategoryService extends AbstractService
      */
     public function createOrUpdateCustomDataKeyForCountry($shopKey, $shopCategoryId, $countryCode, $key, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -353,7 +486,14 @@ class ShopCategoryService extends AbstractService
      */
     public function deleteCustomDataKeyForCountry($shopKey, $shopCategoryId, $countryCode, $key, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -372,7 +512,14 @@ class ShopCategoryService extends AbstractService
      */
     public function getCustomDataKeyForCountry($shopKey, $shopCategoryId, $countryCode, $key, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -390,7 +537,14 @@ class ShopCategoryService extends AbstractService
      */
     public function getCountry($shopKey, $countryCode, $shopCategoryId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class,
+            null
+        );
     }
 
     /**
@@ -409,6 +563,13 @@ class ShopCategoryService extends AbstractService
      */
     public function updateOrCreateCountry($shopKey, $countryCode, $shopCategoryId, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId), $options, \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class,
+            $model
+        );
     }
 }

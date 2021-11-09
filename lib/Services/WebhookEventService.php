@@ -19,6 +19,13 @@ class WebhookEventService extends AbstractService
      */
     public function all($options = [])
     {
-        return $this->request('get', '/webhooks/events', $options, \AboutYou\Cloud\AdminApi\Models\WebhookEventCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/webhooks/events'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\WebhookEventCollection::class,
+            null
+        );
     }
 }

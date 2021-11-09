@@ -26,7 +26,8 @@ abstract class AbstractService
      * @param string $method the http method
      * @param string $relativeUrl the relative url of endpoint
      * @param null|string $modelClass the classname of which the response gets transformed to
-     * @param array<string, string> $options array of additional options
+     * @param array $query array of additional query parameters
+     * @param array $headers array of additional headers
      * @param null|ApiObject|string $body the request body object
      *
      * @throws ClientExceptionInterface
@@ -34,7 +35,7 @@ abstract class AbstractService
      *
      * @return null|mixed
      */
-    protected function request($method, $relativeUrl, $options = [], $modelClass = null, $body = null)
+    protected function request($method, $relativeUrl, $query = [], $headers = [], $modelClass = null, $body = null)
     {
         try {
             if ($body instanceof ApiObject) {
@@ -43,7 +44,7 @@ abstract class AbstractService
                 $body = \json_encode($body);
             }
 
-            $response = $this->client->request($method, $relativeUrl, $options, $body);
+            $response = $this->client->request($method, $relativeUrl, $query, $headers, $body);
             $statusCode = $response->getStatusCode();
 
             $responseBody = $response->getBody()->getContents();

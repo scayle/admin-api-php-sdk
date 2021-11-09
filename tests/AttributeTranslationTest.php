@@ -13,12 +13,12 @@ final class AttributeTranslationTest extends BaseApiTestCase
 
         $requestEntity = $expectedRequestJson;
 
-        $responseEntity = $this->api->attributeTranslations->UpdateOrCreate('1', $requestEntity, []);
+        $responseEntity = $this->api->attributeTranslations->updateOrCreate('acme', $requestEntity, []);
     }
 
     public function testAll()
     {
-        $responseEntity = $this->api->attributeTranslations->All('1', []);
+        $responseEntity = $this->api->attributeTranslations->all('acme', []);
 
         $expectedResponseJson = $this->loadFixture('AttributeTranslationAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ArrayCollection::class, $responseEntity);

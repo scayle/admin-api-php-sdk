@@ -9,7 +9,7 @@ final class CustomDataConfigTest extends BaseApiTestCase
 {
     public function testGet()
     {
-        $responseEntity = $this->api->customDataConfigs->Get('1', []);
+        $responseEntity = $this->api->customDataConfigs->get('acme', []);
 
         $expectedResponseJson = $this->loadFixture('CustomDataConfigGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $responseEntity);
@@ -23,7 +23,7 @@ final class CustomDataConfigTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomDataConfig($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->customDataConfigs->Create('1', $requestEntity, []);
+        $responseEntity = $this->api->customDataConfigs->create('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomDataConfigCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $responseEntity);
@@ -37,7 +37,7 @@ final class CustomDataConfigTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomDataConfig($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->customDataConfigs->Update('1', $requestEntity, []);
+        $responseEntity = $this->api->customDataConfigs->update('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomDataConfigUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $responseEntity);
@@ -46,6 +46,6 @@ final class CustomDataConfigTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->customDataConfigs->Delete('1', []);
+        $responseEntity = $this->api->customDataConfigs->delete('acme', []);
     }
 }

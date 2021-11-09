@@ -9,7 +9,7 @@ final class VoucherTest extends BaseApiTestCase
 {
     public function testAll()
     {
-        $responseEntity = $this->api->vouchers->All('1', '1', []);
+        $responseEntity = $this->api->vouchers->all('acme', 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('VoucherAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCollection::class, $responseEntity);
@@ -27,7 +27,7 @@ final class VoucherTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->vouchers->Get('1', '1', '1', []);
+        $responseEntity = $this->api->vouchers->get('acme', 'acme', 1, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Voucher::class, $responseEntity);
@@ -44,7 +44,7 @@ final class VoucherTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Voucher($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->vouchers->Create('1', '1', $requestEntity, []);
+        $responseEntity = $this->api->vouchers->create('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Voucher::class, $responseEntity);
@@ -61,7 +61,7 @@ final class VoucherTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Voucher($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->vouchers->Update('1', '1', '1', $requestEntity, []);
+        $responseEntity = $this->api->vouchers->update('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Voucher::class, $responseEntity);
@@ -73,12 +73,12 @@ final class VoucherTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->vouchers->Delete('1', '1', '1', []);
+        $responseEntity = $this->api->vouchers->delete('acme', 'acme', 1, []);
     }
 
     public function testGetCriteria()
     {
-        $responseEntity = $this->api->vouchers->GetCriteria('1', '1', '1', []);
+        $responseEntity = $this->api->vouchers->getCriteria('acme', 'acme', 1, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherGetCriteriaResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection::class, $responseEntity);
@@ -96,7 +96,7 @@ final class VoucherTest extends BaseApiTestCase
 
     public function testGetCriterion()
     {
-        $responseEntity = $this->api->vouchers->GetCriterion('1', '1', '1', '1', []);
+        $responseEntity = $this->api->vouchers->getCriterion('acme', 'acme', 1, 1, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherGetCriterionResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $responseEntity);
@@ -113,7 +113,7 @@ final class VoucherTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\VoucherCriterion($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->vouchers->CreateCriterion('1', '1', '1', $requestEntity, []);
+        $responseEntity = $this->api->vouchers->createCriterion('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherCreateCriterionResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $responseEntity);
@@ -130,7 +130,7 @@ final class VoucherTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\VoucherCriterion($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->vouchers->UpdateCriterion('1', '1', '1', '1', $requestEntity, []);
+        $responseEntity = $this->api->vouchers->updateCriterion('acme', 'acme', 1, 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherUpdateCriterionResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $responseEntity);
@@ -142,6 +142,6 @@ final class VoucherTest extends BaseApiTestCase
 
     public function testDeleteCriterion()
     {
-        $responseEntity = $this->api->vouchers->DeleteCriterion('1', '1', '1', '1', []);
+        $responseEntity = $this->api->vouchers->deleteCriterion('acme', 'acme', 1, 1, []);
     }
 }

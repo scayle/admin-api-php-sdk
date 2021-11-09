@@ -16,7 +16,7 @@ final class ShopWarehouseTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopWarehouse($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->shopWarehouses->Create('1', '1', $requestEntity, []);
+        $responseEntity = $this->api->shopWarehouses->create('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopWarehouseCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class, $responseEntity);
@@ -32,7 +32,7 @@ final class ShopWarehouseTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopWarehouse($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->shopWarehouses->Update('1', '1', Identifier::fromId(1), $requestEntity, []);
+        $responseEntity = $this->api->shopWarehouses->update('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopWarehouseUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class, $responseEntity);
@@ -43,6 +43,6 @@ final class ShopWarehouseTest extends BaseApiTestCase
 
     public function testDelete()
     {
-        $responseEntity = $this->api->shopWarehouses->Delete('1', '1', Identifier::fromId(1), []);
+        $responseEntity = $this->api->shopWarehouses->delete('acme', 'acme', Identifier::fromId(1), []);
     }
 }

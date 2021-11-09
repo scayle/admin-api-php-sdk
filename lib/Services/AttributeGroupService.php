@@ -20,7 +20,14 @@ class AttributeGroupService extends AbstractService
      */
     public function create($model, $options = [])
     {
-        return $this->request('post', '/attribute-groups', $options, \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/attribute-groups'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class,
+            $model
+        );
     }
 
     /**
@@ -36,7 +43,14 @@ class AttributeGroupService extends AbstractService
      */
     public function get($attributeGroupName, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/attribute-groups/%s', $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class,
+            null
+        );
     }
 
     /**
@@ -51,7 +65,14 @@ class AttributeGroupService extends AbstractService
      */
     public function all($options = [])
     {
-        return $this->request('get', '/attribute-groups', $options, \AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/attribute-groups'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection::class,
+            null
+        );
     }
 
     /**
@@ -68,7 +89,14 @@ class AttributeGroupService extends AbstractService
      */
     public function update($attributeGroupName, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/attribute-groups/%s', $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class,
+            $model
+        );
     }
 
     /**
@@ -82,7 +110,14 @@ class AttributeGroupService extends AbstractService
      */
     public function delete($attributeGroupName, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/attribute-groups/%s', $attributeGroupName), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -97,7 +132,14 @@ class AttributeGroupService extends AbstractService
      */
     public function updateFrontendName($attributeGroupName, $model, $options = [])
     {
-        $this->request('put', $this->resolvePath('/attribute-groups/%s/frontend-name', $attributeGroupName), $options, null, $model);
+        $this->request(
+            'put',
+            $this->resolvePath('/attribute-groups/%s/frontend-name', $attributeGroupName),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -113,6 +155,13 @@ class AttributeGroupService extends AbstractService
      */
     public function getAttributes($attributeGroupName, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName), $options, \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class,
+            null
+        );
     }
 }

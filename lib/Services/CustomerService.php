@@ -22,7 +22,14 @@ class CustomerService extends AbstractService
      */
     public function get($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Customer::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            null
+        );
     }
 
     /**
@@ -40,7 +47,14 @@ class CustomerService extends AbstractService
      */
     public function create($shopKey, $countryCode, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode), $options, \AboutYou\Cloud\AdminApi\Models\Customer::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            $model
+        );
     }
 
     /**
@@ -59,7 +73,14 @@ class CustomerService extends AbstractService
      */
     public function update($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
     {
-        return $this->request('patch', $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\Customer::class, $model);
+        return $this->request(
+            'patch',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            $model
+        );
     }
 
     /**
@@ -78,7 +99,14 @@ class CustomerService extends AbstractService
      */
     public function updateReferenceKey($shopKey, $countryCode, $customerId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/customers/%s/reference-key', $shopKey, $countryCode, $customerId), $options, \AboutYou\Cloud\AdminApi\Models\Customer::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/reference-key', $shopKey, $countryCode, $customerId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            $model
+        );
     }
 
     /**
@@ -94,7 +122,14 @@ class CustomerService extends AbstractService
      */
     public function anonymize($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/customers/%s/anonymize', $shopKey, $countryCode, $customerIdentifier), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/anonymize', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -112,7 +147,14 @@ class CustomerService extends AbstractService
      */
     public function getStatus($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class,
+            null
+        );
     }
 
     /**
@@ -131,7 +173,14 @@ class CustomerService extends AbstractService
      */
     public function updateStatus($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class,
+            $model
+        );
     }
 
     /**
@@ -149,7 +198,14 @@ class CustomerService extends AbstractService
      */
     public function getAddresses($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection::class,
+            null
+        );
     }
 
     /**
@@ -168,7 +224,14 @@ class CustomerService extends AbstractService
      */
     public function getAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            null
+        );
     }
 
     /**
@@ -187,7 +250,14 @@ class CustomerService extends AbstractService
      */
     public function createAddress($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            $model
+        );
     }
 
     /**
@@ -207,7 +277,14 @@ class CustomerService extends AbstractService
      */
     public function updateAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $model, $options = [])
     {
-        return $this->request('patch', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $model);
+        return $this->request(
+            'patch',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            $model
+        );
     }
 
     /**
@@ -227,7 +304,14 @@ class CustomerService extends AbstractService
      */
     public function updateAddressReferenceKey($shopKey, $countryCode, $customerIdentifier, $addressId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/reference-key', $shopKey, $countryCode, $customerIdentifier, $addressId), $options, \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/reference-key', $shopKey, $countryCode, $customerIdentifier, $addressId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            $model
+        );
     }
 
     /**
@@ -244,7 +328,14 @@ class CustomerService extends AbstractService
      */
     public function anonymizeAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/anonymize', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/anonymize', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -260,7 +351,14 @@ class CustomerService extends AbstractService
      */
     public function resetPassword($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
-        $this->request('post', $this->resolvePath('/shops/%s/countries/%s/customers/%s/send-reset-password-email', $shopKey, $countryCode, $customerIdentifier), $options, null);
+        $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/send-reset-password-email', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -279,7 +377,14 @@ class CustomerService extends AbstractService
      */
     public function addGroups($shopKey, $countryCode, $customerId, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups', $shopKey, $countryCode, $customerId), $options, \AboutYou\Cloud\AdminApi\Models\Customer::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups', $shopKey, $countryCode, $customerId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            $model
+        );
     }
 
     /**
@@ -296,6 +401,13 @@ class CustomerService extends AbstractService
      */
     public function deleteGroup($shopKey, $countryCode, $customerIdentifier, $customerGroup, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups/%s', $shopKey, $countryCode, $customerIdentifier, $customerGroup), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups/%s', $shopKey, $countryCode, $customerIdentifier, $customerGroup),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

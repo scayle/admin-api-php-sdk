@@ -21,7 +21,14 @@ class CampaignService extends AbstractService
      */
     public function create($shopKey, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/campaigns', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\Campaign::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/campaigns', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Campaign::class,
+            $model
+        );
     }
 
     /**
@@ -37,7 +44,14 @@ class CampaignService extends AbstractService
      */
     public function all($shopKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/campaigns', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\CampaignCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/campaigns', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CampaignCollection::class,
+            null
+        );
     }
 
     /**
@@ -54,7 +68,14 @@ class CampaignService extends AbstractService
      */
     public function get($shopKey, $campaignId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId), $options, \AboutYou\Cloud\AdminApi\Models\Campaign::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Campaign::class,
+            null
+        );
     }
 
     /**
@@ -72,7 +93,14 @@ class CampaignService extends AbstractService
      */
     public function update($shopKey, $campaignId, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId), $options, \AboutYou\Cloud\AdminApi\Models\Campaign::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Campaign::class,
+            $model
+        );
     }
 
     /**
@@ -87,7 +115,14 @@ class CampaignService extends AbstractService
      */
     public function delete($shopKey, $campaignId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -103,7 +138,14 @@ class CampaignService extends AbstractService
      */
     public function updateOrCreateVariantReductions($shopKey, $campaignId, $model, $options = [])
     {
-        $this->request('post', $this->resolvePath('/shops/%s/campaigns/%s/reductions/variants', $shopKey, $campaignId), $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/campaigns/%s/reductions/variants', $shopKey, $campaignId),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -119,7 +161,14 @@ class CampaignService extends AbstractService
      */
     public function updateOrCreateProductReductions($shopKey, $campaignId, $model, $options = [])
     {
-        $this->request('post', $this->resolvePath('/shops/%s/campaigns/%s/reductions/products', $shopKey, $campaignId), $options, null, $model);
+        $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/campaigns/%s/reductions/products', $shopKey, $campaignId),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -136,7 +185,14 @@ class CampaignService extends AbstractService
      */
     public function allReductions($shopKey, $campaignId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/campaigns/%s/reductions/variants', $shopKey, $campaignId), $options, \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/campaigns/%s/reductions/variants', $shopKey, $campaignId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class,
+            null
+        );
     }
 
     /**
@@ -151,6 +207,13 @@ class CampaignService extends AbstractService
      */
     public function deleteReductions($shopKey, $campaignId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/campaigns/%s/reductions', $shopKey, $campaignId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/campaigns/%s/reductions', $shopKey, $campaignId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

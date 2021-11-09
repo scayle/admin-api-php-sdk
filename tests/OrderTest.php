@@ -11,7 +11,7 @@ final class OrderTest extends BaseApiTestCase
 {
     public function testGet()
     {
-        $responseEntity = $this->api->orders->Get('1', '1', Identifier::fromId(1), []);
+        $responseEntity = $this->api->orders->get('acme', 'acme', Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('OrderGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $responseEntity);
@@ -34,7 +34,7 @@ final class OrderTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\OrderReferenceKey($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->orders->UpdateReferenceKey('1', '1', '1', $requestEntity, []);
+        $responseEntity = $this->api->orders->updateReferenceKey('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('OrderUpdateReferenceKeyResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $responseEntity);
@@ -52,7 +52,7 @@ final class OrderTest extends BaseApiTestCase
 
     public function testGetStatus()
     {
-        $responseEntity = $this->api->orders->GetStatus('1', '1', Identifier::fromId(1), []);
+        $responseEntity = $this->api->orders->getStatus('acme', 'acme', Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('OrderGetStatusResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\OrderStatus::class, $responseEntity);

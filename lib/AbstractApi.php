@@ -63,44 +63,54 @@ abstract class AbstractApi
     /**
      * @param string $method
      * @param string $relativePath
-     * @param array<string, string> $options
+     * @param array $query
+     * @param array $headers
      * @param null|string $body
      *
      * @throws ClientExceptionInterface
      *
      * @return ResponseInterface
      */
-    public function request($method, $relativePath, $options = [], $body = null)
+    public function request($method, $relativePath, $query = [], $headers = [], $body = null)
     {
-        $url = $this->getApiUrl() . $relativePath . $this->makeQueryString($options);
-
-        $headers = $this->getAuthHeader();
-        $headers['Accept'] = 'application/json, */*';
-        $headers['X-SDK'] = 'php/' . self::VERSION;
-
-        if (null !== $body) {
-            $headers['Content-Type'] = 'application/json';
-        }
-
+        $url = $this->getApiUrl() . $relativePath . $this->makeQueryString($query);
+        $headers = $this->makeHeaders($headers, null !== $body);
         $request = new Request($method, $url, $headers, $body);
 
         return $this->httpClient->sendRequest($request);
     }
 
-    private function getAuthHeader()
+    /**
+     * @param array $headers
+     * @param bool $withContentType
+     *
+     * @return array
+     */
+    private function makeHeaders($headers, $withContentType)
     {
-        return [
-            self::AUTH_HEADER_NAME => $this->getAccessToken(),
-        ];
+        $headers[self::AUTH_HEADER_NAME] = $this->getAccessToken();
+        $headers['Accept'] = 'application/json, */*';
+        $headers['X-SDK'] = 'php/' . self::VERSION;
+
+        if ($withContentType) {
+            $headers['Content-Type'] = 'application/json';
+        }
+
+        return \array_filter($headers);
     }
 
-    private function makeQueryString(array $options): string
+    /**
+     * @param array $query
+     *
+     * @return string
+     */
+    private function makeQueryString($query)
     {
-        if (empty($options)) {
+        if (empty($query)) {
             return '';
         }
 
-        foreach ($options as &$value) {
+        foreach ($query as &$value) {
             if (\is_bool($value)) {
                 $value = $value ? 'true' : 'false';
             }
@@ -108,7 +118,7 @@ abstract class AbstractApi
 
         unset($value);
 
-        return '?' . \http_build_query($options);
+        return '?' . \http_build_query($query);
     }
 
     /**

@@ -20,7 +20,14 @@ class WebhookSubscriptionService extends AbstractService
      */
     public function create($model, $options = [])
     {
-        return $this->request('post', '/webhooks/subscriptions', $options, \AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/webhooks/subscriptions'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class,
+            $model
+        );
     }
 
     /**
@@ -36,7 +43,14 @@ class WebhookSubscriptionService extends AbstractService
      */
     public function get($subscriptionId, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId), $options, \AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class,
+            null
+        );
     }
 
     /**
@@ -51,7 +65,14 @@ class WebhookSubscriptionService extends AbstractService
      */
     public function all($options = [])
     {
-        return $this->request('get', '/webhooks/subscriptions', $options, \AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/webhooks/subscriptions'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection::class,
+            null
+        );
     }
 
     /**
@@ -65,6 +86,13 @@ class WebhookSubscriptionService extends AbstractService
      */
     public function delete($subscriptionId, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

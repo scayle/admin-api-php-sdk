@@ -22,7 +22,14 @@ class ShopWarehouseService extends AbstractService
      */
     public function create($shopKey, $countryCode, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/countries/%s/warehouses', $shopKey, $countryCode), $options, \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/warehouses', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class,
+            $model
+        );
     }
 
     /**
@@ -41,7 +48,14 @@ class ShopWarehouseService extends AbstractService
      */
     public function update($shopKey, $countryCode, $shopWarehouseIdentifier, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopWarehouseIdentifier), $options, \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopWarehouseIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class,
+            $model
+        );
     }
 
     /**
@@ -57,6 +71,13 @@ class ShopWarehouseService extends AbstractService
      */
     public function delete($shopKey, $countryCode, $shopWarehouseIdentifier, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopWarehouseIdentifier), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopWarehouseIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }

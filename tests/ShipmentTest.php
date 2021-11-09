@@ -14,6 +14,6 @@ final class ShipmentTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Shipment($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->shipments->Create($requestEntity, []);
+        $responseEntity = $this->api->shipments->create($requestEntity, []);
     }
 }

@@ -21,7 +21,14 @@ class ShopCountryService extends AbstractService
      */
     public function create($shopKey, $model, $options = [])
     {
-        return $this->request('post', $this->resolvePath('/shops/%s/countries', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCountry::class, $model);
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+            $model
+        );
     }
 
     /**
@@ -37,7 +44,14 @@ class ShopCountryService extends AbstractService
      */
     public function all($shopKey, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries', $shopKey), $options, \AboutYou\Cloud\AdminApi\Models\ShopCountryCollection::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries', $shopKey),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCountryCollection::class,
+            null
+        );
     }
 
     /**
@@ -54,7 +68,14 @@ class ShopCountryService extends AbstractService
      */
     public function get($shopKey, $countryCode, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s', $shopKey, $countryCode), $options, \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+            null
+        );
     }
 
     /**
@@ -72,7 +93,14 @@ class ShopCountryService extends AbstractService
      */
     public function update($shopKey, $countryCode, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s', $shopKey, $countryCode), $options, \AboutYou\Cloud\AdminApi\Models\ShopCountry::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+            $model
+        );
     }
 
     /**
@@ -90,7 +118,14 @@ class ShopCountryService extends AbstractService
      */
     public function updateAssortment($shopKey, $countryCode, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/assortment', $shopKey, $countryCode), $options, \AboutYou\Cloud\AdminApi\Models\Assortment::class, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/assortment', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Assortment::class,
+            $model
+        );
     }
 
     /**
@@ -108,7 +143,14 @@ class ShopCountryService extends AbstractService
      */
     public function createOrUpdateCustomData($shopKey, $countryCode, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -123,7 +165,14 @@ class ShopCountryService extends AbstractService
      */
     public function deleteCustomData($shopKey, $countryCode, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -140,7 +189,14 @@ class ShopCountryService extends AbstractService
      */
     public function getCustomData($shopKey, $countryCode, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/custom-data', $shopKey, $countryCode),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -159,7 +215,14 @@ class ShopCountryService extends AbstractService
      */
     public function createOrUpdateCustomDataForKey($shopKey, $countryCode, $key, $model, $options = [])
     {
-        return $this->request('put', $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key), $options, null, $model);
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
     }
 
     /**
@@ -175,7 +238,14 @@ class ShopCountryService extends AbstractService
      */
     public function deleteCustomDataForKey($shopKey, $countryCode, $key, $options = [])
     {
-        $this->request('delete', $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key), $options, null);
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 
     /**
@@ -193,6 +263,13 @@ class ShopCountryService extends AbstractService
      */
     public function getCustomDataForKey($shopKey, $countryCode, $key, $options = [])
     {
-        return $this->request('get', $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key), $options, null);
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/custom-data/%s', $shopKey, $countryCode, $key),
+            $options,
+            [],
+            null,
+            null
+        );
     }
 }
