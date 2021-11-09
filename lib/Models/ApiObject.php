@@ -47,11 +47,13 @@ abstract class ApiObject implements \JsonSerializable
 
     public function &__get($name)
     {
+        $attribute = null;
+
         if (\array_key_exists($name, $this->_attributes)) {
-            return $this->_attributes[$name];
+            $attribute = &$this->_attributes[$name];
         }
 
-        return null;
+        return $attribute;
     }
 
     public function __unset($name)
