@@ -9,7 +9,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $confirmedAt
  * @property OrderCost $cost
  * @property string $currencyCode
- * @property OrderCustomer $customer
+ * @property Customer $customer
+ * @property ShopCountry $shopCountry
  * @property string $invoicedAt
  * @property OrderItem[] $items
  * @property array $legacyCustomData
@@ -28,9 +29,10 @@ class Order extends ApiObject
 
     protected $classMap = [
         'shipping' => \AboutYou\Cloud\AdminApi\Models\OrderShipping::class,
-        'customer' => \AboutYou\Cloud\AdminApi\Models\OrderCustomer::class,
+        'customer' => \AboutYou\Cloud\AdminApi\Models\Customer::class,
         'cost' => \AboutYou\Cloud\AdminApi\Models\OrderCost::class,
         'address' => \AboutYou\Cloud\AdminApi\Models\OrderAddress::class,
+        'shopCountry' => \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
     ];
 
     protected $collectionClassMap = [

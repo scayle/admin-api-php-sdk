@@ -21,10 +21,11 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\OrderCustomer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
     }
 
     public function testUpdateReferenceKey()
@@ -44,10 +45,11 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\OrderCustomer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
     }
 
     public function testGetStatus()
@@ -62,9 +64,10 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\OrderCustomer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
     }
 }

@@ -118,10 +118,6 @@
         "withoutTax": 1168
     },
     "currencyCode": "EUR",
-    "customer": {
-        "id": 9876,
-        "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJHH0"
-    },
     "id": 123,
     "invoicedAt": "2018-01-22T11:30:15+00:00",
     "items": [
@@ -229,5 +225,40 @@
             "type": "absolute",
             "value": 1000
         }
-    ]
+    ],
+    "shopCountry": {
+        "id": 1,
+        "shopKey": "ay",
+        "countryCode": "DE",
+        "defaultLanguageCode": "de_DE",
+        "supportedLanguageCodes": [
+            "de_DE",
+            "en_GB"
+        ],
+        "active": true,
+        "deleted": false,
+        "url": "www.example.com",
+        "currencyCode": "EUR",
+        "priceGroupKey": "myPriceGroup"
+    },
+    "customer": {
+        "id": 1,
+        "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJHH0",
+        "firstName": "John",
+        "lastName": "Doe",
+        "gender": "m",
+        "birthDate": "1980-01-01",
+        "email": "john.doe@example.com",
+        "phone": "0049\/1234567890",
+        "publicKey": "customer-1234",
+        "title": "Prof.",
+        "type": "personal",
+        "groups": [
+            "employee"
+        ],
+        "status": {
+            "isActive": true,
+            "isGuestCustomer": false
+        }
+    }
 }
