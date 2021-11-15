@@ -160,7 +160,8 @@
             },
             "product": {
                 "id": 123456,
-                "referenceKey": "M0001-black"
+                "referenceKey": "M0001-black",
+                "name": "Blue Shirt"
             },
             "referenceKey": "ac834d23e689u678",
             "reservationKey": "6nq69bzzkd5xufxliwg8",
