@@ -3,8 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $amount
- * @property int $rate
+ * @property float $amount
+ * @property float $rate
  */
 class OrderVat extends ApiObject
 {

@@ -4,7 +4,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
  * @property int $absoluteWithTax
- * @property int $relative
+ * @property float $relative
  */
 class OrderReductionAmount extends ApiObject
 {
