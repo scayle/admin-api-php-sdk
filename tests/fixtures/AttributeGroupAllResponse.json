@@ -11,7 +11,7 @@
             "structure": null,
             "isShared": true,
             "level": "product",
-            "shopKeys": null,
+            "shopCountries": null,
             "isOverridablePerShop": false,
             "isDifferentiating": false
         },
@@ -26,7 +26,7 @@
             "structure": null,
             "isShared": true,
             "level": "product",
-            "shopKeys": null,
+            "shopCountries": null,
             "isOverridablePerShop": false,
             "isDifferentiating": false
         },
@@ -41,7 +41,7 @@
             "structure": null,
             "isShared": true,
             "level": "product",
-            "shopKeys": null,
+            "shopCountries": null,
             "isOverridablePerShop": false,
             "isDifferentiating": false
         },
@@ -56,7 +56,7 @@
             "structure": null,
             "isShared": false,
             "level": "product",
-            "shopKeys": null,
+            "shopCountries": null,
             "isOverridablePerShop": false,
             "isDifferentiating": false
         },
@@ -93,8 +93,11 @@
             },
             "isShared": false,
             "level": "product",
-            "shopKeys": [
-                "acme"
+            "shopCountries": [
+                {
+                    "shopKey": "ms",
+                    "countryCode": "de"
+                }
             ],
             "isOverridablePerShop": true,
             "isDifferentiating": false

@@ -9,7 +9,7 @@
     "structure": null,
     "isShared": true,
     "level": "product",
-    "shopKeys": null,
+    "shopCountries": null,
     "isOverridablePerShop": false,
     "isDifferentiating": false
 }
