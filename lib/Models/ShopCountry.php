@@ -14,7 +14,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $deleted Defines it the shop country is deleted.
  * @property string $priceGroupKey Key of the price group the shop country is assigned to.
  * @property Assortment $assortment
- * @property ShopWarehouse[] $warehouses A list of warehouses attached to the shop country.
+ * @property ShopCountryWarehouse[] $warehouses A list of warehouses attached to the shop country.
  * @property mixed $customData
  */
 class ShopCountry extends ApiObject
@@ -27,7 +27,7 @@ class ShopCountry extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'warehouses' => \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class,
+        'warehouses' => \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse::class,
     ];
 
     protected $polymorphic = [

@@ -5,20 +5,20 @@ namespace AboutYou\Cloud\AdminApi\Services;
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use Psr\Http\Client\ClientExceptionInterface;
 
-class ShopWarehouseService extends AbstractService
+class ShopCountryWarehouseService extends AbstractService
 {
     /**
      * Description.
      *
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\ShopWarehouse $model the model to create or update
+     * @param \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopWarehouse
+     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse
      */
     public function create($shopKey, $countryCode, $model, $options = [])
     {
@@ -27,7 +27,7 @@ class ShopWarehouseService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/warehouses', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class,
+            \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse::class,
             $model
         );
     }
@@ -37,23 +37,23 @@ class ShopWarehouseService extends AbstractService
      *
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopWarehouseIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ShopWarehouse $model the model to create or update
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopCountryWarehouseIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopWarehouse
+     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse
      */
-    public function update($shopKey, $countryCode, $shopWarehouseIdentifier, $model, $options = [])
+    public function update($shopKey, $countryCode, $shopCountryWarehouseIdentifier, $model, $options = [])
     {
         return $this->request(
             'put',
-            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopWarehouseIdentifier),
+            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopCountryWarehouseIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopWarehouse::class,
+            \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse::class,
             $model
         );
     }
@@ -63,17 +63,17 @@ class ShopWarehouseService extends AbstractService
      *
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopWarehouseIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopCountryWarehouseIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $countryCode, $shopWarehouseIdentifier, $options = [])
+    public function delete($shopKey, $countryCode, $shopCountryWarehouseIdentifier, $options = [])
     {
         $this->request(
             'delete',
-            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopWarehouseIdentifier),
+            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopCountryWarehouseIdentifier),
             $options,
             [],
             null,

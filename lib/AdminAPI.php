@@ -23,7 +23,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\ShopCountryService $shopCountries
  * @property \AboutYou\Cloud\AdminApi\Services\BrandService $brands
  * @property \AboutYou\Cloud\AdminApi\Services\ProductSortingService $productSortings
- * @property \AboutYou\Cloud\AdminApi\Services\ShopWarehouseService $shopWarehouses
+ * @property \AboutYou\Cloud\AdminApi\Services\ShopCountryWarehouseService $shopCountryWarehouses
  * @property \AboutYou\Cloud\AdminApi\Services\PackageGroupService $packageGroups
  * @property \AboutYou\Cloud\AdminApi\Services\CustomDataConfigService $customDataConfigs
  * @property \AboutYou\Cloud\AdminApi\Services\CustomerService $customers

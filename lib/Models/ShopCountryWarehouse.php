@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $priority The priority of the warehouse. The higher the value, the higher the priority.
  * @property PackageGroup $packageGroup The assigned package group of the warehouse.
  */
-class ShopWarehouse extends ApiObject
+class ShopCountryWarehouse extends ApiObject
 {
     protected $defaultValues = [
     ];
