@@ -1,0 +1,11 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "name": "My Company"
+        }
+    ],
+    "cursor": {
+        "next": null
+    }
+}

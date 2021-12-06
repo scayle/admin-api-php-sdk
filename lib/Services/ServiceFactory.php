@@ -38,5 +38,6 @@ class ServiceFactory extends AbstractServiceFactory
         'cancellations' => \AboutYou\Cloud\AdminApi\Services\CancellationService::class,
         'returnItems' => \AboutYou\Cloud\AdminApi\Services\ReturnItemService::class,
         'vouchers' => \AboutYou\Cloud\AdminApi\Services\VoucherService::class,
+        'companies' => \AboutYou\Cloud\AdminApi\Services\CompanyService::class,
     ];
 }

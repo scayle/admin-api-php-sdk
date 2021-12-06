@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Helpers\ArrayHelper;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ShipmentService extends AbstractService
@@ -21,8 +22,8 @@ class ShipmentService extends AbstractService
         $this->request(
             'post',
             $this->resolvePath('/fulfillment/shipments'),
-            $options,
-            [],
+            ArrayHelper::except($options, ['companyId']),
+            ['X-Company-Id' => ArrayHelper::get($options, 'companyId')],
             null,
             $model
         );
