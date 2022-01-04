@@ -4,7 +4,7 @@
 
 * [Requirements](#requirements)
 * [Installation](#installation)
-* [Documentation])(#documentation)
+* [Documentation](#documentation)
 
 ## Requirements
 
