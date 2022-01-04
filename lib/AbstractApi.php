@@ -11,8 +11,6 @@ use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractApi
 {
-    const VERSION = '1.0.0';
-
     const API_URL = 'apiUrl';
     const ACCESS_TOKEN = 'accessToken';
     const AUTH_HEADER_NAME = 'X-Access-Token';
@@ -90,7 +88,6 @@ abstract class AbstractApi
     {
         $headers[self::AUTH_HEADER_NAME] = $this->getAccessToken();
         $headers['Accept'] = 'application/json, */*';
-        $headers['X-SDK'] = 'php/' . self::VERSION;
 
         if ($withContentType) {
             $headers['Content-Type'] = 'application/json';

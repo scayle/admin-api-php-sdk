@@ -1,15 +1,24 @@
-# About You Cloud Admin API PHP SDK
+# AboutYou Cloud AdminAPI SDK
+
+## Contents
+
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Documentation])(#documentation)
 
 ## Requirements
 
-PHP 5.6.0 and later.
+* Admin API dev-master
+* PHP 5.7 or higher
 
-## Composer
+## Installation
 
-You can install the SDK via Composer. Run the following command:
+Install the library via [Composer](https://getcomposer.org/):
 
-`composer require aboutyou/admin-api`
+```php
+composer require aboutyou-cloud/admin-api
+```
 
 ## Documentation
 
-See the [PHP SDK docs](https://resources.aboutyou.cloud/en/dev/adminapi/introduction).
+Please refer to the [Admin API Developer Guide](https://resources.aboutyou.cloud/en/dev/adminapi/introduction) for method descriptions and usage examples.
