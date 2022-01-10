@@ -3,12 +3,12 @@
         "productId": 1,
         "shopKey": "ms",
         "sortKey": "default",
-        "sortValue": 1.7
+        "sortValue": 1
     },
     {
         "productReferenceKey": "my-product",
         "shopKey": "ms",
         "sortKey": "default",
-        "sortValue": 2.3
+        "sortValue": 2
     }
 ]

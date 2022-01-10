@@ -7,7 +7,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $productReferenceKey Tenant provided product identifier.
  * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem.
  * @property string $sortKey The sort key.
- * @property float $sortValue The value used for sorting.
+ * @property int $sortValue The value used for sorting.
  */
 class ProductSorting extends ApiObject
 {
