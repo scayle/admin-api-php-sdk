@@ -109,6 +109,18 @@
                         }
                     ]
                 }
+            ],
+            "productSortings": [
+                {
+                    "shopKey": "ks",
+                    "sortKey": "default",
+                    "sortValue": 1
+                },
+                {
+                    "shopKey": "ms",
+                    "sortKey": "default",
+                    "sortValue": 2
+                }
             ]
         }
     ],

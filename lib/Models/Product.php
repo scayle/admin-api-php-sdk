@@ -12,6 +12,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property Attribute[] $attributes A list of attributes attached to the product.
  * @property ProductVariant[] $variants A list of product variants attached to the product.
  * @property ProductImage[] $images A list of product images attached to the product.
+ * @property ProductSorting[] $productSortings A list of product sortings.
  */
 class Product extends ApiObject
 {
@@ -27,6 +28,7 @@ class Product extends ApiObject
         'variants' => \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
         'images' => \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
         'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+        'productSortings' => \AboutYou\Cloud\AdminApi\Models\ProductSorting::class,
     ];
 
     protected $polymorphic = [
