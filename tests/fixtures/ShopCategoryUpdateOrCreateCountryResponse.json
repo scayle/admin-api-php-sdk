@@ -14,7 +14,6 @@
         "name": "ayou",
         "score": 100,
         "some-json": {
-            "foo": "bar",
             "de_DE": {
                 "color": "weiss"
             },
