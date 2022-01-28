@@ -65,6 +65,7 @@
                     "tax": 19,
                     "countryCode": "DE",
                     "currencyCode": "EUR",
+                    "recommendedRetailPrice": 10999,
                     "groupKey": "myGroupKey",
                     "promotionKey": "myPromotionKey",
                     "unitPrice": {

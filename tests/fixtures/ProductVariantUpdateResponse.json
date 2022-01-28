@@ -1,6 +1,6 @@
 {
     "id": 7,
-    "referenceKey": "M00012-black-M",
+    "referenceKey": "M0001-black-M",
     "ean": "0000007619991",
     "attributes": [
         {
@@ -14,10 +14,11 @@
         {
             "id": 7,
             "price": 9999,
-            "oldPrice": null,
+            "oldPrice": 10999,
             "tax": 19,
             "countryCode": "DE",
             "currencyCode": "EUR",
+            "recommendedRetailPrice": 10999,
             "groupKey": "myGroupKey",
             "promotionKey": "myPromotionKey",
             "unitPrice": {
