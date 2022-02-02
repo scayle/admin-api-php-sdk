@@ -13,7 +13,7 @@ final class PackageGroupTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('PackageGroupAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\PackageGroupCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\PackageGroup::class, $collectionEntity);

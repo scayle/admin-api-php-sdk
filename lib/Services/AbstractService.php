@@ -41,7 +41,7 @@ abstract class AbstractService
             if ($body instanceof ApiObject) {
                 $body = $body->toJson();
             } elseif (null !== $body) {
-                $body = \json_encode($body);
+                $body = json_encode($body);
             }
 
             $response = $this->client->request($method, $relativeUrl, $query, $headers, $body);
@@ -50,18 +50,18 @@ abstract class AbstractService
             $responseBody = $response->getBody()->getContents();
             // Catching all NON 2xx status codes for further error processing
             if ($statusCode < 200 || $statusCode >= 300) {
-                $responseJson = \json_decode($responseBody, true);
+                $responseJson = json_decode($responseBody, true);
 
                 throw new ApiErrorException(null === $responseJson ? [] : $responseJson, $statusCode);
             }
 
-            if ($responseBody && $modelClass && \class_exists($modelClass)) {
-                $responseJson = \json_decode($responseBody, true);
+            if ($responseBody && $modelClass && class_exists($modelClass)) {
+                $responseJson = json_decode($responseBody, true);
 
                 return new $modelClass($responseJson);
             }
 
-            return \json_decode($responseBody, true);
+            return json_decode($responseBody, true);
         } catch (ClientExceptionInterface $e) {
             throw $e;
         }
@@ -75,6 +75,6 @@ abstract class AbstractService
      */
     protected function resolvePath($path, ...$params)
     {
-        return \vsprintf($path, $params);
+        return vsprintf($path, $params);
     }
 }

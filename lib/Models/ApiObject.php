@@ -89,7 +89,7 @@ abstract class ApiObject implements \JsonSerializable
      */
     public function toJson()
     {
-        return \json_encode($this->_attributes);
+        return json_encode($this->_attributes);
     }
 
     /**
@@ -99,9 +99,9 @@ abstract class ApiObject implements \JsonSerializable
      */
     private function mergeDefaultValues($attributes)
     {
-        $diff = \array_diff_key($this->defaultValues, $attributes);
+        $diff = array_diff_key($this->defaultValues, $attributes);
 
-        return \array_merge($attributes, $diff);
+        return array_merge($attributes, $diff);
     }
 
     /**

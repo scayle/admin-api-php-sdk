@@ -14,13 +14,13 @@ final class ProductImageTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ProductImageCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductImage($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->productImages->create(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductImageCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
@@ -32,7 +32,7 @@ final class ProductImageTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ProductImageAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImageCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
@@ -49,13 +49,13 @@ final class ProductImageTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ProductImageUpdatePositionRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductImagePosition($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->productImages->updatePosition(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductImageUpdatePositionResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductImage::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
@@ -71,13 +71,13 @@ final class ProductImageTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ProductImageUpdateOrCreateAttributeRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Attribute($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->productImages->updateOrCreateAttribute(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductImageUpdateOrCreateAttributeResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
@@ -94,7 +94,7 @@ final class ProductImageTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ProductImageGetAttributeResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
@@ -106,7 +106,7 @@ final class ProductImageTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ProductImageAllAttributesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);

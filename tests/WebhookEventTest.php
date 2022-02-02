@@ -13,7 +13,7 @@ final class WebhookEventTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('WebhookEventAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookEventCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookEvent::class, $collectionEntity);

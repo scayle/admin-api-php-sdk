@@ -12,13 +12,13 @@ final class AttributeGroupTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('AttributeGroupCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\AttributeGroup($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->attributeGroups->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('AttributeGroupCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeGroup::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testGet()
@@ -27,7 +27,7 @@ final class AttributeGroupTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('AttributeGroupGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeGroup::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testAll()
@@ -36,7 +36,7 @@ final class AttributeGroupTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('AttributeGroupAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeGroup::class, $collectionEntity);
@@ -48,13 +48,13 @@ final class AttributeGroupTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('AttributeGroupUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\AttributeGroup($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->attributeGroups->update('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('AttributeGroupUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeGroup::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testDelete()
@@ -77,6 +77,6 @@ final class AttributeGroupTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('AttributeGroupGetAttributesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ArrayCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 }

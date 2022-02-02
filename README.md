@@ -9,7 +9,7 @@
 ## Requirements
 
 * Admin API dev-master
-* PHP 5.7 or higher
+* PHP 7.0 or higher
 
 ## Installation
 

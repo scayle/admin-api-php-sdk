@@ -13,13 +13,13 @@ abstract class BaseApiTestCase extends TestCase
      */
     protected $api;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
         //Mock Server
         $this->api = new AdminAPI([
-            'apiUrl' => \getenv('API_URL') ? \getenv('API_URL') : 'http://127.0.0.1:4010',
+            'apiUrl' => getenv('API_URL') ? getenv('API_URL') : 'http://127.0.0.1:4010',
             'accessToken' => 'abc123',
         ]);
     }
@@ -115,6 +115,6 @@ abstract class BaseApiTestCase extends TestCase
         $filename = __DIR__ . '/fixtures/' . $filename;
         static::assertFileExists($filename, 'Fixtures do not exist. Are you sure you have valid request and response examples in your OpenAPI specification?');
 
-        return \json_decode(\file_get_contents($filename), true);
+        return json_decode(file_get_contents($filename), true);
     }
 }

@@ -12,7 +12,7 @@ final class ShopCategoryProductSetUnlinkInstructionTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ShopCategoryProductSetUnlinkInstructionUnlinkRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSetUnlinkInstruction($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->shopCategoryProductSetUnlinkInstructions->unlink('acme', 1, $requestEntity, []);
     }

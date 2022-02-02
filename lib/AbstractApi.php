@@ -11,9 +11,9 @@ use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractApi
 {
-    const API_URL = 'apiUrl';
-    const ACCESS_TOKEN = 'accessToken';
-    const AUTH_HEADER_NAME = 'X-Access-Token';
+    public const API_URL = 'apiUrl';
+    public const ACCESS_TOKEN = 'accessToken';
+    public const AUTH_HEADER_NAME = 'X-Access-Token';
 
     /**
      * @var ClientInterface
@@ -93,7 +93,7 @@ abstract class AbstractApi
             $headers['Content-Type'] = 'application/json';
         }
 
-        return \array_filter($headers);
+        return array_filter($headers);
     }
 
     /**
@@ -115,7 +115,7 @@ abstract class AbstractApi
 
         unset($value);
 
-        return '?' . \http_build_query($query);
+        return '?' . http_build_query($query);
     }
 
     /**
@@ -126,13 +126,13 @@ abstract class AbstractApi
     private function validateConfig($config)
     {
         if (empty($config[self::API_URL])) {
-            $message = \sprintf('%s cannot be empty', self::API_URL);
+            $message = sprintf('%s cannot be empty', self::API_URL);
 
             throw new InvalidArgumentException($message);
         }
 
         if (empty($config[self::ACCESS_TOKEN])) {
-            $message = \sprintf('%s cannot be empty', self::ACCESS_TOKEN);
+            $message = sprintf('%s cannot be empty', self::ACCESS_TOKEN);
 
             throw new InvalidArgumentException($message);
         }

@@ -12,7 +12,7 @@ class ArrayHelper
      */
     public static function except($array, $keys)
     {
-        return \array_diff_key($array, \array_flip($keys));
+        return array_diff_key($array, array_flip($keys));
     }
 
     /**

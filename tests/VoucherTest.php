@@ -13,7 +13,7 @@ final class VoucherTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('VoucherAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
@@ -31,7 +31,7 @@ final class VoucherTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('VoucherGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Voucher::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
@@ -42,13 +42,13 @@ final class VoucherTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('VoucherCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Voucher($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->vouchers->create('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Voucher::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
@@ -59,13 +59,13 @@ final class VoucherTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('VoucherUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Voucher($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->vouchers->update('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Voucher::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
@@ -82,7 +82,7 @@ final class VoucherTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('VoucherGetCriteriaResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
@@ -100,7 +100,7 @@ final class VoucherTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('VoucherGetCriterionResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
@@ -111,13 +111,13 @@ final class VoucherTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('VoucherCreateCriterionRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\VoucherCriterion($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->vouchers->createCriterion('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherCreateCriterionResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);
@@ -128,13 +128,13 @@ final class VoucherTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('VoucherUpdateCriterionRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\VoucherCriterion($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->vouchers->updateCriterion('acme', 'acme', 1, 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherUpdateCriterionResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class);

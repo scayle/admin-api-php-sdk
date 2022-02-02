@@ -13,7 +13,7 @@ final class CustomDataConfigTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CustomDataConfigGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testCreate()
@@ -21,13 +21,13 @@ final class CustomDataConfigTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomDataConfigCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomDataConfig($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customDataConfigs->create('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomDataConfigCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testUpdate()
@@ -35,13 +35,13 @@ final class CustomDataConfigTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomDataConfigUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomDataConfig($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customDataConfigs->update('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomDataConfigUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testDelete()

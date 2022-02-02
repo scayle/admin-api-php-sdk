@@ -12,13 +12,13 @@ final class CompanyTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CompanyCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Company($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->companies->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CompanyCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Company::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testAll()
@@ -27,7 +27,7 @@ final class CompanyTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CompanyAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CompanyCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Company::class, $collectionEntity);
@@ -40,7 +40,7 @@ final class CompanyTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CompanyGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Company::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testUpdate()
@@ -48,12 +48,12 @@ final class CompanyTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CompanyUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Company($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->companies->update(1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CompanyUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Company::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 }

@@ -12,13 +12,13 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('WebhookSubscriptionCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\WebhookSubscription($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->webhookSubscriptions->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testGet()
@@ -27,7 +27,7 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testAll()
@@ -36,7 +36,7 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class, $collectionEntity);

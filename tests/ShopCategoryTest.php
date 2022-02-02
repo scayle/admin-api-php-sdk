@@ -12,13 +12,13 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ShopCategoryCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategory($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->shopCategories->create('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -31,7 +31,7 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -51,7 +51,7 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -63,13 +63,13 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategory($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->shopCategories->update('acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategory::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -86,13 +86,13 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateOrCreatePropertyRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->shopCategories->updateOrCreateProperty('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryUpdateOrCreatePropertyResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -110,7 +110,7 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetPropertyResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -123,7 +123,7 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryAllPropertiesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -146,7 +146,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->createOrUpdateCustomData('acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testDeleteCustomData()
@@ -159,7 +159,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->getCustomData('acme', 1, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testCreateOrUpdateCustomDataForKey()
@@ -171,7 +171,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->createOrUpdateCustomDataForKey('acme', 1, 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForKeyResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testDeleteCustomDataForKey()
@@ -184,7 +184,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->getCustomDataForKey('acme', 1, 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataForKeyResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testCreateOrUpdateCustomDataForCountry()
@@ -196,7 +196,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->createOrUpdateCustomDataForCountry('acme', 1, 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForCountryResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testDeleteCustomDataForCountry()
@@ -209,7 +209,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->getCustomDataForCountry('acme', 1, 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataForCountryResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testCreateOrUpdateCustomDataKeyForCountry()
@@ -221,7 +221,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->createOrUpdateCustomDataKeyForCountry('acme', 1, 'acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataKeyForCountryResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testDeleteCustomDataKeyForCountry()
@@ -234,7 +234,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCategories->getCustomDataKeyForCountry('acme', 1, 'acme', 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataKeyForCountryResponse.json');
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), \json_encode($responseEntity));
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 
     public function testGetCountry()
@@ -243,7 +243,7 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCountryResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);
@@ -255,13 +255,13 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateOrCreateCountryRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->shopCategories->updateOrCreateCountry('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryUpdateOrCreateCountryResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class);

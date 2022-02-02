@@ -15,7 +15,7 @@ final class OrderTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('OrderGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
@@ -33,13 +33,13 @@ final class OrderTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('OrderUpdateReferenceKeyRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\OrderReferenceKey($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->orders->updateReferenceKey('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('OrderUpdateReferenceKeyResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
@@ -58,7 +58,7 @@ final class OrderTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('OrderGetStatusResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\OrderStatus::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);

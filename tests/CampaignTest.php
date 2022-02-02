@@ -12,13 +12,13 @@ final class CampaignTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CampaignCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Campaign($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->campaigns->create('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CampaignCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Campaign::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testAll()
@@ -27,7 +27,7 @@ final class CampaignTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CampaignAllResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CampaignCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Campaign::class, $collectionEntity);
@@ -40,7 +40,7 @@ final class CampaignTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CampaignGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Campaign::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testUpdate()
@@ -48,13 +48,13 @@ final class CampaignTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CampaignUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Campaign($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->campaigns->update('acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CampaignUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Campaign::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testDelete()
@@ -92,7 +92,7 @@ final class CampaignTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CampaignAllReductionsResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction::class, $collectionEntity);

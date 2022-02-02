@@ -15,7 +15,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CustomerGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Customer::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -26,13 +26,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerCreateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Customer($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->create('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerCreateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Customer::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -43,13 +43,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerUpdateRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Customer($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->update('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Customer::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -60,13 +60,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerUpdateReferenceKeyRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerReferenceKey($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->updateReferenceKey('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerUpdateReferenceKeyResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Customer::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -83,7 +83,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CustomerGetStatusResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerStatus::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -94,13 +94,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerUpdateStatusRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerStatus($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->updateStatus('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerUpdateStatusResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerStatus::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -112,7 +112,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CustomerGetAddressesResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -130,7 +130,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CustomerGetAddressResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -141,13 +141,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerCreateAddressRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerAddress($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->createAddress('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerCreateAddressResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -158,13 +158,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerUpdateAddressRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerAddress($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->updateAddress('acme', 'acme', Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerUpdateAddressResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -175,13 +175,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerUpdateAddressReferenceKeyRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerAddressReferenceKey($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->updateAddressReferenceKey('acme', 'acme', Identifier::fromId(1), 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerUpdateAddressReferenceKeyResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerAddress::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
@@ -202,13 +202,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedRequestJson = $this->loadFixture('CustomerAddGroupsRequest.json');
 
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerGroup($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedRequestJson), $requestEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->customers->addGroups('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CustomerAddGroupsResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Customer::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(\json_encode($expectedResponseJson), $responseEntity->toJson());
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
