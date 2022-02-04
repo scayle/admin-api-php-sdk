@@ -13,6 +13,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property ProductVariant[] $variants A list of product variants attached to the product.
  * @property ProductImage[] $images A list of product images attached to the product.
  * @property ProductSorting[] $productSortings A list of product sortings.
+ * @property mixed $customData
  */
 class Product extends ApiObject
 {
