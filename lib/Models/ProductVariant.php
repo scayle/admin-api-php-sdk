@@ -8,6 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $ean An ean that refers to a product variant .
  * @property Attribute[] $attributes A list of attributes attached to the product variant.
  * @property ProductVariantPrice[] $prices A list of prices attached to the product variant.
+ * @property mixed $customData
  */
 class ProductVariant extends ApiObject
 {
