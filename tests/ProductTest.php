@@ -176,4 +176,54 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', \AboutYou\Cloud\AdminApi\Models\ProductSorting::class);
     }
+
+    public function testCreateOrUpdateCustomData()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->products->createOrUpdateCustomData(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductCreateOrUpdateCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomData()
+    {
+        $responseEntity = $this->api->products->deleteCustomData(Identifier::fromId(1), []);
+    }
+
+    public function testGetCustomData()
+    {
+        $responseEntity = $this->api->products->getCustomData(Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('ProductGetCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataForKey()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->products->createOrUpdateCustomDataForKey(Identifier::fromId(1), 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductCreateOrUpdateCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataForKey()
+    {
+        $responseEntity = $this->api->products->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+    }
+
+    public function testGetCustomDataForKey()
+    {
+        $responseEntity = $this->api->products->getCustomDataForKey(Identifier::fromId(1), 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('ProductGetCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
 }

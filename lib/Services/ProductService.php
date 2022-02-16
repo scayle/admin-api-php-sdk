@@ -236,4 +236,143 @@ class ProductService extends AbstractService
             $model
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomData($productIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/products/%s/custom-data', $productIdentifier),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomData($productIdentifier, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/%s/custom-data', $productIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomData($productIdentifier, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/custom-data', $productIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param string $key
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomDataForKey($productIdentifier, $key, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomDataForKey($productIdentifier, $key, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomDataForKey($productIdentifier, $key, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }
