@@ -221,4 +221,143 @@ class ProductVariantService extends AbstractService
             null
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomData($variantIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/variants/%s/custom-data', $variantIdentifier),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomData($variantIdentifier, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/variants/%s/custom-data', $variantIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomData($variantIdentifier, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/variants/%s/custom-data', $variantIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param string $key
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomDataForKey($variantIdentifier, $key, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/variants/%s/custom-data/%s', $variantIdentifier, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomDataForKey($variantIdentifier, $key, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/variants/%s/custom-data/%s', $variantIdentifier, $key),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomDataForKey($variantIdentifier, $key, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/variants/%s/custom-data/%s', $variantIdentifier, $key),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }

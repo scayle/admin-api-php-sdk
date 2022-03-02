@@ -129,4 +129,54 @@ final class ProductVariantTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
         }
     }
+
+    public function testCreateOrUpdateCustomData()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductVariantCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->productVariants->createOrUpdateCustomData(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantCreateOrUpdateCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomData()
+    {
+        $responseEntity = $this->api->productVariants->deleteCustomData(Identifier::fromId(1), []);
+    }
+
+    public function testGetCustomData()
+    {
+        $responseEntity = $this->api->productVariants->getCustomData(Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantGetCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataForKey()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductVariantCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->productVariants->createOrUpdateCustomDataForKey(Identifier::fromId(1), 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantCreateOrUpdateCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataForKey()
+    {
+        $responseEntity = $this->api->productVariants->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+    }
+
+    public function testGetCustomDataForKey()
+    {
+        $responseEntity = $this->api->productVariants->getCustomDataForKey(Identifier::fromId(1), 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantGetCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
 }
