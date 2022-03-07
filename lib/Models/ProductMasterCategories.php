@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property bool $isLocked Specifies if the product categories were locked via Commerce Suite Panel.
+ * @property bool $isLocked Specifies if the product categories were locked via the SCAYLE Panel.
  * @property string[][] $paths The master category paths.
  */
 class ProductMasterCategories extends ApiObject
