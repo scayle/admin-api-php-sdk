@@ -17,7 +17,7 @@ abstract class BaseApiTestCase extends TestCase
     {
         parent::setUp();
 
-        //Mock Server
+        // Mock Server
         $this->api = new AdminAPI([
             'apiUrl' => getenv('API_URL') ? getenv('API_URL') : 'http://127.0.0.1:4010',
             'accessToken' => 'abc123',

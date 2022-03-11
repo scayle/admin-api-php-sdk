@@ -21,4 +21,4 @@ composer require aboutyou-cloud/admin-api
 
 ## Documentation
 
-Please refer to the [Admin API Developer Guide](https://resources.aboutyou.cloud/en/dev/adminapi/introduction) for method descriptions and usage examples.
+Please refer to the [Admin API Developer Guide](https://scayle.dev/en/dev/admin-api/introduction) for method descriptions and usage examples.
