@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+
 /**
  * @internal
  */
@@ -102,5 +104,55 @@ final class CampaignTest extends BaseApiTestCase
     public function testDeleteReductions()
     {
         $responseEntity = $this->api->campaigns->deleteReductions('acme', 1, []);
+    }
+
+    public function testCreateOrUpdateCustomData()
+    {
+        $expectedRequestJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->campaigns->createOrUpdateCustomData(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomData()
+    {
+        $responseEntity = $this->api->campaigns->deleteCustomData(Identifier::fromId(1), []);
+    }
+
+    public function testGetCustomData()
+    {
+        $responseEntity = $this->api->campaigns->getCustomData(Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignGetCustomDataResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testCreateOrUpdateCustomDataForKey()
+    {
+        $expectedRequestJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->campaigns->createOrUpdateCustomDataForKey(Identifier::fromId(1), 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+    }
+
+    public function testDeleteCustomDataForKey()
+    {
+        $responseEntity = $this->api->campaigns->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+    }
+
+    public function testGetCustomDataForKey()
+    {
+        $responseEntity = $this->api->campaigns->getCustomDataForKey(Identifier::fromId(1), 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('CampaignGetCustomDataForKeyResponse.json');
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
 }

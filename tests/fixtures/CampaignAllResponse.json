@@ -10,7 +10,13 @@
             ],
             "reduction": 14.75,
             "startAt": "2021-01-23T11:30:58+00:00",
-            "endAt": "2021-09-23T11:30:58+00:00"
+            "endAt": "2021-09-23T11:30:58+00:00",
+            "customData": {
+                "devicesAllowed": [
+                    "app",
+                    "web"
+                ]
+            }
         }
     ],
     "cursor": {

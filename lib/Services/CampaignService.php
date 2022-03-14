@@ -216,4 +216,143 @@ class CampaignService extends AbstractService
             null
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomData($campaignId, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/campaigns/%s/custom-data', $campaignId),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomData($campaignId, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/campaigns/%s/custom-data', $campaignId),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomData($campaignId, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/campaigns/%s/custom-data', $campaignId),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param string $key
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function createOrUpdateCustomDataForKey($campaignId, $key, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/campaigns/%s/custom-data/%s', $campaignId, $key),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomDataForKey($campaignId, $key, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/campaigns/%s/custom-data/%s', $campaignId, $key),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param string $key
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return array
+     */
+    public function getCustomDataForKey($campaignId, $key, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/campaigns/%s/custom-data/%s', $campaignId, $key),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }

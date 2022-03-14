@@ -8,5 +8,11 @@
     "reduction": 14.75,
     "startAt": "2021-01-23T11:30:58+00:00",
     "endAt": "2021-09-23T11:30:58+00:00",
-    "campaignKey": "05f962c8-857b-462a-bea2-54e2bfecf729"
+    "campaignKey": "05f962c8-857b-462a-bea2-54e2bfecf729",
+    "customData": {
+        "devicesAllowed": [
+            "app",
+            "web"
+        ]
+    }
 }
