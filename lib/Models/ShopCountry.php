@@ -10,8 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string[] $supportedLanguageCodes List of supported language codes.
  * @property string $url Url of the shop country.
  * @property bool $active Defines if the shop country is active.
- * @property string $currencyCode The currency used in the shop country.
- * @property bool $deleted Defines it the shop country is deleted.
+ * @property bool $deleted Defines if the shop country is deleted.
  * @property string $priceGroupKey Key of the price group the shop country is assigned to.
  * @property Assortment $assortment
  * @property ShopCountryWarehouse[] $warehouses A list of warehouses attached to the shop country.
