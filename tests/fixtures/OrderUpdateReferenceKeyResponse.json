@@ -239,6 +239,7 @@
         "active": true,
         "deleted": false,
         "url": "www.example.com",
+        "currencyCode": "EUR",
         "priceGroupKey": "myPriceGroup"
     },
     "customer": {

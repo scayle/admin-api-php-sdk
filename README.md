@@ -8,7 +8,7 @@
 
 ## Requirements
 
-* Admin API v1.8.8
+* Admin API dev-master
 * PHP 7.0 or higher
 
 ## Installation
