@@ -3,13 +3,12 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $name The attribute name.
- * @property string $type The attribute type.
+ * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem.
+ * @property string $countryCode ISO 3166 alpha 2 country code.
  * @property mixed $value The attribute value where the datatype is defined by the type property.
  * @property bool $isLocked Specifies if the attribute was locked via SCAYLE Panel.
- * @property AttributeShopCountrySpecific[] $shopCountrySpecific Used to override the attribute value for a specific shop country.
  */
-class Attribute extends ApiObject
+class AttributeShopCountrySpecific extends ApiObject
 {
     protected $defaultValues = [
     ];
