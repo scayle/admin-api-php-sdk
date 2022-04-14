@@ -3,21 +3,21 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id
+ * @property int $id The ID of the customer
  * @property string $referenceKey External reference set by the client to integrate a third party system.
- * @property string $firstName
- * @property string $lastName
- * @property string $gender
- * @property string $birthDate
- * @property string $email
- * @property string $phone
+ * @property string $firstName First name of the customer
+ * @property string $lastName Last name of the customer
+ * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f"
+ * @property string $birthDate Date of birth of the customer in YYYY-MM-DD format
+ * @property string $email email address of the customer
+ * @property string $phone phone number of the customer
  * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails.
- * @property string $title
- * @property string $type
- * @property string[] $groups
- * @property CustomerStatus $status
- * @property CustomerAddress[] $addresses
- * @property array $legacyCustomData
+ * @property string $title User defined title. It can be set to NULL otherwise
+ * @property string $type Type of customer (like personal)
+ * @property string[] $groups Group to which the customer belongs to
+ * @property CustomerStatus $status Defines if customer isActive or not and if customer isGuestCustomer or not
+ * @property CustomerAddress[] $addresses Customers address (es)
+ * @property array $legacyCustomData Custom data added to the customers (legacy feature)
  */
 class Customer extends ApiObject
 {

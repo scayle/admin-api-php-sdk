@@ -12,7 +12,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property ShopCategoryProperty[] $properties The properties assigned to the shop category. Can be specified on creation only.
  * @property bool $isActive Declares whether the shop category is active or not. Can be specified on creation only.
  * @property bool $isVisible Declares whether the shop category is visible in the shop or not. Can be specified on creation only.
- * @property mixed $customData
+ * @property mixed $customData Arbitrary fields assigned to shop categories
  * @property ShopCategoryCountry[] $countries List of country specific configurations.
  */
 class ShopCategory extends ApiObject

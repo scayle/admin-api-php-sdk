@@ -3,24 +3,24 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id
- * @property OrderAddress $address
- * @property string $basketKey
- * @property string $confirmedAt
- * @property OrderCost $cost
- * @property string $currencyCode
- * @property Customer $customer
- * @property ShopCountry $shopCountry
- * @property string $invoicedAt
- * @property OrderItem[] $items
- * @property array $legacyCustomData
- * @property OrderPackage[] $packages
- * @property OrderPayment[] $payment
+ * @property int $id The ID of the order created
+ * @property OrderAddress $address Billing and Shipping address of the customer
+ * @property string $basketKey A key that uniquely identifies customer's cart
+ * @property string $confirmedAt Timestamp when the order was confirmed
+ * @property OrderCost $cost Total cost of the order that includes tax, VAT, etc
+ * @property string $currencyCode ISO 4217 currency code
+ * @property Customer $customer Details about the customer account
+ * @property ShopCountry $shopCountry Country of the shop as ISO 3166 alpha 2 country code
+ * @property string $invoicedAt Timestamp when the invoice is sent
+ * @property OrderItem[] $items Collection of items ordered
+ * @property array $legacyCustomData Custom data added to the order (legacy feature)
+ * @property OrderPackage[] $packages Details for the package(s) part of the order
+ * @property OrderPayment[] $payment Payment details
  * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails.
  * @property string $referenceKey External order reference set by the client to integrate a third party system.
- * @property OrderShipping $shipping
- * @property string $status
- * @property OrderVoucher[] $vouchers
+ * @property OrderShipping $shipping Shipping details
+ * @property string $status Status of the order e.g: invoice_completed
+ * @property OrderVoucher[] $vouchers Applicable voucher and its details
  */
 class Order extends ApiObject
 {

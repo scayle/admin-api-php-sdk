@@ -3,9 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $received
- * @property string $returnKey
- * @property string $returnReason
+ * @property string $received Timestamp when the product return is received
+ * @property string $returnKey A key that is assigned to uniquely identify a return request
+ * @property string $returnReason Description of why the return is initiated
  */
 class ReturnItem extends ApiObject
 {

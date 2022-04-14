@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $event
+ * @property string $event Name of the hook event.
  * @property int $version The version of the hook.
  * @property string $description Explaination for the hook.
  * @property bool $isDeprecated The webhook event is deprecated and is not allowed for new subscriptions.

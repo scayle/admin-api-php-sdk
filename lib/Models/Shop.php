@@ -14,7 +14,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $shopCategoryTreeId Defines shop categories tree id. Can be set only on creation.
  * @property int $companyId The ID of the company the shop is assigned to.
  * @property ShopCountry[] $countries The countries assigned to the shop.
- * @property mixed $customData
+ * @property mixed $customData Arbitrary fields assigned to Shop
  */
 class Shop extends ApiObject
 {

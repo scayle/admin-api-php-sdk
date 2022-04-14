@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $status
+ * @property string $status Phases of order e.g: cancelled , delivered
  */
 class OrderStatus extends ApiObject
 {

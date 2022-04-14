@@ -13,9 +13,9 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $deleted Defines if the shop country is deleted.
  * @property string $priceGroupKey Key of the price group the shop country is assigned to.
  * @property string $currencyCode The currency used in the shop country.
- * @property Assortment $assortment
+ * @property Assortment $assortment Rules that defines what products can be sold within which Shop country
  * @property ShopCountryWarehouse[] $warehouses A list of warehouses attached to the shop country.
- * @property mixed $customData
+ * @property mixed $customData Arbitrary fields assigned to Shop countries
  */
 class ShopCountry extends ApiObject
 {
