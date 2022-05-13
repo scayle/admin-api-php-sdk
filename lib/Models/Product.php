@@ -14,6 +14,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property ProductImage[] $images A list of product images attached to the product.
  * @property ProductSorting[] $productSortings A list of product sortings.
  * @property mixed $customData
+ * @property bool $isComposite Indicates whether the product is composite.
  */
 class Product extends ApiObject
 {

@@ -76,6 +76,17 @@
                             },
                             "validFrom": "2021-09-23T11:30:58+00:00"
                         }
+                    ],
+                    "isComposite": true,
+                    "relatedVariants": [
+                        {
+                            "variantReferenceKey": "M0001-black-s",
+                            "isMainVariant": true
+                        },
+                        {
+                            "variantReferenceKey": "L0001-meister",
+                            "isMainVariant": false
+                        }
                     ]
                 }
             ],
@@ -134,7 +145,8 @@
                         "color": "white"
                     }
                 }
-            }
+            },
+            "isComposite": true
         }
     ],
     "cursor": {

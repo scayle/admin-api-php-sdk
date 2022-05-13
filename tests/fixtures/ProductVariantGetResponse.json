@@ -41,5 +41,16 @@
                 "color": "white"
             }
         }
-    }
+    },
+    "isComposite": true,
+    "relatedVariants": [
+        {
+            "variantReferenceKey": "M0001-black-s",
+            "isMainVariant": true
+        },
+        {
+            "variantReferenceKey": "L0001-meister",
+            "isMainVariant": false
+        }
+    ]
 }

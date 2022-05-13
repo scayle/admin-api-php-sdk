@@ -24,6 +24,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
     }
 
     public function testGet()
@@ -36,6 +37,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
     }
 
     public function testAll()
@@ -48,11 +50,13 @@ final class ProductVariantTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
         }
     }
 
@@ -71,6 +75,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
     }
 
     public function testDelete()
@@ -93,6 +98,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
     }
 
     public function testDeleteAttribute()
@@ -110,6 +116,7 @@ final class ProductVariantTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
     }
 
     public function testAllAttributes()
@@ -122,11 +129,13 @@ final class ProductVariantTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
         }
     }
 
