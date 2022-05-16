@@ -188,4 +188,45 @@ final class ProductVariantTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductVariantGetCustomDataForKeyResponse.json');
         static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
     }
+
+    public function testCreateComposite()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductVariantCreateCompositeRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductVariant($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->productVariants->createComposite(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantCreateCompositeResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
+    }
+
+    public function testUpdateComposite()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductVariantUpdateCompositeRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductVariant($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->productVariants->updateComposite(Identifier::fromId(1), Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantUpdateCompositeResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariant::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class);
+    }
+
+    public function testDeleteComposite()
+    {
+        $responseEntity = $this->api->productVariants->deleteComposite(Identifier::fromId(1), Identifier::fromId(1), []);
+    }
 }

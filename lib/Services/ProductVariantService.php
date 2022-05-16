@@ -360,4 +360,75 @@ class ProductVariantService extends AbstractService
             null
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariant
+     */
+    public function createComposite($productIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/composite/%s/variants', $productIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariant
+     */
+    public function updateComposite($productIdentifier, $variantIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/products/composite/%s/variants/%s', $productIdentifier, $variantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteComposite($productIdentifier, $variantIdentifier, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/composite/%s/variants/%s', $productIdentifier, $variantIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }

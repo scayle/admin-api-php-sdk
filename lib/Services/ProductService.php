@@ -375,4 +375,72 @@ class ProductService extends AbstractService
             null
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Product $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\Product
+     */
+    public function createComposite($model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/composite'),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Product::class,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Product $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\Product
+     */
+    public function updateComposite($productIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/products/composite/%s', $productIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Product::class,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteComposite($productIdentifier, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/products/composite/%s', $productIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }

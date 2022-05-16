@@ -1,0 +1,56 @@
+{
+    "id": 7,
+    "referenceKey": "M0001-black-M",
+    "ean": "0000007619991",
+    "attributes": [
+        {
+            "name": "size",
+            "type": "simple",
+            "value": "M",
+            "isLocked": true
+        }
+    ],
+    "prices": [
+        {
+            "id": 7,
+            "price": 9999,
+            "oldPrice": 10999,
+            "tax": 19,
+            "countryCode": "DE",
+            "currencyCode": "EUR",
+            "recommendedRetailPrice": 10999,
+            "groupKey": "myGroupKey",
+            "promotionKey": "myPromotionKey",
+            "unitPrice": {
+                "unit": "ml",
+                "amount": 100,
+                "price": 399
+            },
+            "validFrom": "2021-09-23T11:30:58+00:00"
+        }
+    ],
+    "customData": {
+        "isValid": true,
+        "name": "ayou",
+        "score": 100,
+        "some-json": {
+            "de_DE": {
+                "color": "weiss"
+            },
+            "en_GB": {
+                "color": "white"
+            }
+        }
+    },
+    "isComposite": true,
+    "relatedVariants": [
+        {
+            "variantReferenceKey": "M0001-black-s",
+            "isMainVariant": true
+        },
+        {
+            "variantReferenceKey": "L0001-meister",
+            "isMainVariant": false
+        }
+    ]
+}

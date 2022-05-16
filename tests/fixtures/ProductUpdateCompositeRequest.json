@@ -1,0 +1,126 @@
+{
+    "referenceKey": "M0001-black",
+    "name": {
+        "de_DE": "FCB Trikot",
+        "en_GB": "FCB Jersey"
+    },
+    "state": "live",
+    "master": {
+        "referenceKey": "M0001",
+        "categories": {
+            "paths": [
+                [
+                    "Fashion",
+                    "Men",
+                    "Shirts"
+                ]
+            ]
+        },
+        "attributes": [
+            {
+                "name": "sleeve_length",
+                "type": "localizedString",
+                "value": {
+                    "de_DE": "Langarm",
+                    "en_GB": "long-sleeved"
+                }
+            }
+        ]
+    },
+    "attributes": [
+        {
+            "name": "color",
+            "type": "localizedStringList",
+            "value": [
+                {
+                    "de_DE": "blau",
+                    "en_GB": "blue"
+                },
+                {
+                    "de_DE": "schwarz",
+                    "en_GB": "black"
+                }
+            ]
+        }
+    ],
+    "variants": [
+        {
+            "referenceKey": "M0001-black-bundle-1",
+            "attributes": [
+                {
+                    "name": "size",
+                    "type": "simple",
+                    "value": "M"
+                },
+                {
+                    "name": "logo",
+                    "type": "simple",
+                    "value": "meister_logo"
+                },
+                {
+                    "name": "name_flock",
+                    "type": "simple",
+                    "value": "25_mueller"
+                }
+            ],
+            "prices": [
+                {
+                    "price": 9999,
+                    "tax": 19,
+                    "currencyCode": "EUR",
+                    "countryCode": "DE",
+                    "oldPrice": 10999,
+                    "recommendedRetailPrice": 10999,
+                    "groupKey": "myGroupKey",
+                    "promotionKey": "myPromotionKey",
+                    "unitPrice": {
+                        "unit": "ml",
+                        "amount": 100,
+                        "price": 399
+                    },
+                    "validFrom": "2021-09-23T11:30:58+00:00",
+                    "validTo": null
+                }
+            ],
+            "relatedVariants": [
+                {
+                    "variantReferenceKey": "M0001-black-s",
+                    "isMainVariant": true
+                },
+                {
+                    "variantReferenceKey": "L0001-meister",
+                    "isMainVariant": false
+                },
+                {
+                    "variantReferenceKey": "NF0001-mueller",
+                    "isMainVariant": false
+                }
+            ],
+            "customData": {
+                "isValid": true,
+                "name": "fcb",
+                "score": 100,
+                "some-json": {
+                    "de_DE": {
+                        "color": "schwarz"
+                    },
+                    "en_GB": {
+                        "color": "black"
+                    }
+                }
+            }
+        }
+    ],
+    "images": [
+        {
+            "assetUrl": "images\/084dace7d7ff691e97982fa554113c29",
+            "attributes": [
+                {
+                    "name": "view",
+                    "type": "simple",
+                    "value": "front"
+                }
+            ]
+        }
+    ]
+}
