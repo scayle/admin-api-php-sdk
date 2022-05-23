@@ -1,11 +1,12 @@
 {
-    "id": 7,
-    "price": 9999,
-    "oldPrice": null,
+    "key": "1-100",
+    "price": 80,
+    "oldPrice": 100,
+    "recommendedRetailPrice": 90,
+    "buyingPrice": 70,
     "tax": 19,
     "countryCode": "DE",
     "currencyCode": "EUR",
-    "recommendedRetailPrice": 10999,
     "groupKey": "myGroupKey",
     "promotionKey": "myPromotionKey",
     "unitPrice": {
@@ -13,5 +14,6 @@
         "amount": 100,
         "price": 399
     },
-    "validFrom": "2021-09-23T11:30:58+00:00"
+    "validFrom": "2021-09-23T11:30:58+00:00",
+    "validTo": null
 }

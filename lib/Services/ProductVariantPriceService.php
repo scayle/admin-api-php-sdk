@@ -58,17 +58,17 @@ class ProductVariantPriceService extends AbstractService
      * Description.
      *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
-     * @param int $priceId
+     * @param string $priceKey
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteFuturePrice($variantIdentifier, $priceId, $options = [])
+    public function delete($variantIdentifier, $priceKey, $options = [])
     {
         $this->request(
             'delete',
-            $this->resolvePath('/variants/%s/prices/%s', $variantIdentifier, $priceId),
+            $this->resolvePath('/variants/%s/prices/%s', $variantIdentifier, $priceKey),
             $options,
             [],
             null,

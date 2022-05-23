@@ -41,8 +41,8 @@ final class ProductVariantPriceTest extends BaseApiTestCase
         }
     }
 
-    public function testDeleteFuturePrice()
+    public function testDelete()
     {
-        $responseEntity = $this->api->productVariantPrices->deleteFuturePrice(Identifier::fromId(1), 1, []);
+        $responseEntity = $this->api->productVariantPrices->delete(Identifier::fromId(1), 'acme', []);
     }
 }

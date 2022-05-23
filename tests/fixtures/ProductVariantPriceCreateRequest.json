@@ -1,10 +1,11 @@
 {
-    "price": 9999,
+    "price": 80,
+    "oldPrice": 100,
+    "recommendedRetailPrice": 90,
+    "buyingPrice": 70,
     "tax": 19,
-    "currencyCode": "EUR",
     "countryCode": "DE",
-    "oldPrice": 10999,
-    "recommendedRetailPrice": 10999,
+    "currencyCode": "EUR",
     "groupKey": "myGroupKey",
     "promotionKey": "myPromotionKey",
     "unitPrice": {
