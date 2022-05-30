@@ -8,6 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $ean An ean that refers to a product variant .
  * @property Attribute[] $attributes A list of attributes attached to the product variant.
  * @property ProductVariantPrice[] $prices A list of prices attached to the product variant.
+ * @property ProductVariantStock[] $stocks The product variant stock information.
  * @property mixed $customData
  * @property bool $isComposite Indicates whether the variant is composite.
  * @property RelatedProductVariant[] $relatedVariants A list of variants that belong to the composite variant.

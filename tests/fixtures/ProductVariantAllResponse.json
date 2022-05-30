@@ -33,6 +33,14 @@
                     "validTo": null
                 }
             ],
+            "stocks": [
+                {
+                    "quantity": 17,
+                    "warehouseReferenceKey": "myWarehouse",
+                    "changedAt": "2020-07-23T11:30:58+00:00",
+                    "sellableWithoutStock": false
+                }
+            ],
             "customData": {
                 "isValid": true,
                 "name": "ayou",
