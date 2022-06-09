@@ -18,4 +18,16 @@ final class ProductSortingTest extends BaseApiTestCase
 
         $responseEntity = $this->api->productSortings->updateOrCreate($requestEntity, []);
     }
+
+    public function testDelete()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductSortingDeleteRequest.json');
+
+        $requestEntity = [];
+        foreach ($expectedRequestJson as $entity) {
+            $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\ProductSorting($entity);
+        }
+
+        $responseEntity = $this->api->productSortings->delete($requestEntity, []);
+    }
 }

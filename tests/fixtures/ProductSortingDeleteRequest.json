@@ -1,0 +1,14 @@
+[
+    {
+        "productId": 1,
+        "shopKey": "ms",
+        "sortKey": "default",
+        "sortValue": 1
+    },
+    {
+        "productReferenceKey": "my-product",
+        "shopKey": "ms",
+        "sortKey": "default",
+        "sortValue": 2
+    }
+]

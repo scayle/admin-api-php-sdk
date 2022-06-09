@@ -27,4 +27,25 @@ class ProductSortingService extends AbstractService
             $model
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\ProductSorting[] $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function delete($model, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/product-sortings'),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
 }
