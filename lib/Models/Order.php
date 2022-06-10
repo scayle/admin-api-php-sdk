@@ -21,6 +21,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property OrderShipping $shipping Shipping details
  * @property string $status Status of the order e.g: invoice_completed
  * @property OrderVoucher[] $vouchers Applicable voucher and its details
+ * @property string $campaignKey Reference to the campaign applied to this order
+ * @property OrderLoyaltyCard $loyaltyCard
  */
 class Order extends ApiObject
 {
@@ -33,6 +35,7 @@ class Order extends ApiObject
         'cost' => \AboutYou\Cloud\AdminApi\Models\OrderCost::class,
         'address' => \AboutYou\Cloud\AdminApi\Models\OrderAddress::class,
         'shopCountry' => \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+        'loyaltyCard' => \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class,
     ];
 
     protected $collectionClassMap = [
