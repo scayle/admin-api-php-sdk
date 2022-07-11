@@ -12,6 +12,7 @@ class ServiceFactory extends AbstractServiceFactory
      */
     protected $classMap = [
         'products' => \AboutYou\Cloud\AdminApi\Services\ProductService::class,
+        'masters' => \AboutYou\Cloud\AdminApi\Services\MasterService::class,
         'productImages' => \AboutYou\Cloud\AdminApi\Services\ProductImageService::class,
         'productVariants' => \AboutYou\Cloud\AdminApi\Services\ProductVariantService::class,
         'productVariantPrices' => \AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService::class,

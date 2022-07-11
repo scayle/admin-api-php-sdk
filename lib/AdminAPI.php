@@ -8,6 +8,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * Allows access to AdminApi functions.
  *
  * @property \AboutYou\Cloud\AdminApi\Services\ProductService $products
+ * @property \AboutYou\Cloud\AdminApi\Services\MasterService $masters
  * @property \AboutYou\Cloud\AdminApi\Services\ProductImageService $productImages
  * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantService $productVariants
  * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService $productVariantPrices
