@@ -17,6 +17,7 @@ class Master extends ApiObject
     ];
 
     protected $collectionClassMap = [
+        'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
     ];
 
     protected $polymorphic = [

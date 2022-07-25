@@ -30,4 +30,27 @@ class MasterService extends AbstractService
             $model
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\AttributeCollection
+     */
+    public function allAttributes($productMasterIdentifier, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class,
+            null
+        );
+    }
 }
