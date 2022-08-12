@@ -10,7 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $additional Additional data pertaining to the address, such as `c/o AboutYou`.
  * @property string $zipCode Zip code is a postal code of recepients location. Its a madatory value
  * @property string $city City of the recipient. It is a mandatory value
- * @property string $countryCode ISO 3166 alpha 2 country code
+ * @property string $countryCode ISO 3166-1 alpha-3 country code
  * @property CustomerAddressCollectionPoint $collectionPoint Details of the point where the parcel is received (if used)
  * @property CustomerAddressDefault $isDefault Defines whether the address is the default billing and shipping address
  * @property CustomerAddressRecipient $recipient Recipient personal details
