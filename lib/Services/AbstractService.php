@@ -47,7 +47,7 @@ abstract class AbstractService
             $response = $this->client->request($method, $relativeUrl, $query, $headers, $body);
             $statusCode = $response->getStatusCode();
 
-            $responseBody = $response->getBody()->getContents();
+            $responseBody = (string) $response->getBody();
             // Catching all NON 2xx status codes for further error processing
             if ($statusCode < 200 || $statusCode >= 300) {
                 $responseJson = json_decode($responseBody, true);
