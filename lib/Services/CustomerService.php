@@ -12,6 +12,30 @@ class CustomerService extends AbstractService
      *
      * @param string $shopKey
      * @param string $countryCode
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\CustomerCollection
+     */
+    public function all($shopKey, $countryCode, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerCollection::class,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
      *

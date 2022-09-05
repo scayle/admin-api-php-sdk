@@ -9,6 +9,24 @@ use AboutYou\Cloud\AdminApi\Models\Identifier;
  */
 final class CustomerTest extends BaseApiTestCase
 {
+    public function testAll()
+    {
+        $responseEntity = $this->api->customers->all('acme', 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerAllResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CustomerCollection::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Customer::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class);
+        }
+    }
+
     public function testGet()
     {
         $responseEntity = $this->api->customers->get('acme', 'acme', Identifier::fromId(1), []);
