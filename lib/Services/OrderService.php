@@ -37,6 +37,30 @@ class OrderService extends AbstractService
      *
      * @param string $shopKey
      * @param string $countryCode
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\OrderCollection
+     */
+    public function all($shopKey, $countryCode, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/orders', $shopKey, $countryCode),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\OrderCollection::class,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
      * @param int $orderId
      * @param \AboutYou\Cloud\AdminApi\Models\OrderReferenceKey $model the model to create or update
      * @param array $options additional options like limit or filters
