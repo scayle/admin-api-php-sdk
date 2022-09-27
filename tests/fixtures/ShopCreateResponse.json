@@ -11,6 +11,7 @@
     "countries": [
         {
             "countryCode": "DE",
+            "currencyCode": "EUR",
             "defaultLanguageCode": "de_DE",
             "supportedLanguageCodes": [
                 "de_DE",
