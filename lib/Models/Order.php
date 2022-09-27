@@ -12,6 +12,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property Customer $customer Details about the customer account
  * @property ShopCountry $shopCountry Country of the shop as ISO 3166 alpha 2 country code
  * @property string $invoicedAt Timestamp when the invoice is sent
+ * @property string $createdAt Timestamp when the order is created
+ * @property string $updatedAt Timestamp when the order is updated
  * @property OrderItem[] $items Collection of items ordered
  * @property array $legacyCustomData Custom data added to the order (legacy feature)
  * @property OrderPackage[] $packages Details for the package(s) part of the order
