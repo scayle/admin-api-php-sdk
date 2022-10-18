@@ -10,7 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $packageId
  * @property OrderItemPrice $price
  * @property OrderItemProduct $product
- * @property string $referenceKey
+ * @property string $key
  * @property string $reservationKey
  * @property string $status
  * @property OrderItemVariant $variant
