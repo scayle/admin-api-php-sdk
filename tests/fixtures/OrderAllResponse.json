@@ -162,7 +162,6 @@
                     },
                     "product": {
                         "id": 123456,
-                        "referenceKey": "M0001-black",
                         "name": "Blue Shirt"
                     },
                     "key": "ac834d23e689u678",
