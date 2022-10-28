@@ -19,5 +19,15 @@
     "status": "active",
     "summary": "Voucher utilised for automated for testing",
     "type": "relative",
-    "value": 0.1
+    "value": 0.1,
+    "criteria": [
+        {
+            "id": 1,
+            "key": "customerId",
+            "type": "include",
+            "value": [
+                1
+            ]
+        }
+    ]
 }
