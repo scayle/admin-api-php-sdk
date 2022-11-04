@@ -1,0 +1,14 @@
+{
+    "name": "color",
+    "type": "localizedStringList",
+    "value": [
+        {
+            "de_DE": "blau",
+            "en_GB": "blue"
+        },
+        {
+            "de_DE": "schwarz",
+            "en_GB": "black"
+        }
+    ]
+}

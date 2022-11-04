@@ -43,4 +43,16 @@ final class MasterTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
         }
     }
+
+    public function testGetAttribute()
+    {
+        $responseEntity = $this->api->masters->getAttribute(Identifier::fromId(1), 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('MasterGetAttributeResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'categories', \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+    }
 }
