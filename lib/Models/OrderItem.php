@@ -15,6 +15,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $status
  * @property OrderItemVariant $variant
  * @property int $warehouseId
+ * @property OrderItemGroup $itemGroup
  */
 class OrderItem extends ApiObject
 {
@@ -26,6 +27,7 @@ class OrderItem extends ApiObject
         'price' => \AboutYou\Cloud\AdminApi\Models\OrderItemPrice::class,
         'product' => \AboutYou\Cloud\AdminApi\Models\OrderItemProduct::class,
         'variant' => \AboutYou\Cloud\AdminApi\Models\OrderItemVariant::class,
+        'itemGroup' => \AboutYou\Cloud\AdminApi\Models\OrderItemGroup::class,
     ];
 
     protected $collectionClassMap = [
