@@ -171,12 +171,7 @@
                 "id": 7,
                 "referenceKey": "M00012-black-M"
             },
-            "warehouseId": 12345,
-            "itemGroup": {
-                "id": "ab123",
-                "isMainItem": true,
-                "isRequired": true
-            }
+            "warehouseId": 12345
         }
     ],
     "legacyCustomData": {
