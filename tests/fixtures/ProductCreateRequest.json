@@ -18,27 +18,44 @@
         },
         "attributes": [
             {
-                "name": "sleeve_length",
+                "name": "collection",
                 "type": "localizedString",
                 "value": {
-                    "de_DE": "Langarm",
-                    "en_GB": "long-sleeved"
+                    "de_DE": "einzigartig",
+                    "en_GB": "unique"
                 }
+            },
+            {
+                "name": "season",
+                "type": "simpleList",
+                "value": [
+                    "autumn",
+                    "winter"
+                ]
             }
         ]
     },
     "attributes": [
         {
-            "name": "color",
-            "type": "localizedStringList",
+            "name": "dimensions",
+            "type": "advanced",
+            "value": {
+                "height": 100,
+                "width": 30,
+                "unit": "cm"
+            }
+        },
+        {
+            "name": "material",
+            "type": "advancedList",
             "value": [
                 {
-                    "de_DE": "blau",
-                    "en_GB": "blue"
+                    "name": "wool",
+                    "percentage": 80
                 },
                 {
-                    "de_DE": "schwarz",
-                    "en_GB": "black"
+                    "name": "cotton",
+                    "percentage": 20
                 }
             ]
         }
@@ -51,6 +68,20 @@
                     "name": "size",
                     "type": "simple",
                     "value": "M"
+                },
+                {
+                    "name": "color",
+                    "type": "localizedStringList",
+                    "value": [
+                        {
+                            "de_DE": "weiß",
+                            "en_GB": "white"
+                        },
+                        {
+                            "de_DE": "schwarz",
+                            "en_GB": "black"
+                        }
+                    ]
                 }
             ],
             "prices": [

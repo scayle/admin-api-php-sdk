@@ -18,12 +18,21 @@
                 },
                 "attributes": [
                     {
-                        "name": "sleeve_length",
+                        "name": "collection",
                         "type": "localizedString",
                         "value": {
-                            "de_DE": "Langarm",
-                            "en_GB": "long-sleeved"
+                            "de_DE": "einzigartig",
+                            "en_GB": "unique"
                         },
+                        "isLocked": false
+                    },
+                    {
+                        "name": "season",
+                        "type": "simpleList",
+                        "value": [
+                            "autumn",
+                            "winter"
+                        ],
                         "isLocked": false
                     }
                 ]
@@ -34,18 +43,29 @@
             },
             "attributes": [
                 {
-                    "name": "color",
-                    "type": "localizedStringList",
+                    "name": "dimensions",
+                    "type": "advanced",
+                    "value": {
+                        "height": 100,
+                        "width": 30,
+                        "unit": "cm"
+                    },
+                    "isLocked": false
+                },
+                {
+                    "name": "material",
+                    "type": "advancedList",
                     "value": [
                         {
-                            "de_DE": "blau",
-                            "en_GB": "blue"
+                            "name": "wool",
+                            "percentage": 80
                         },
                         {
-                            "de_DE": "schwarz",
-                            "en_GB": "black"
+                            "name": "cotton",
+                            "percentage": 20
                         }
-                    ]
+                    ],
+                    "isLocked": false
                 }
             ],
             "variants": [
@@ -56,7 +76,23 @@
                         {
                             "name": "size",
                             "type": "simple",
-                            "value": "M"
+                            "value": "M",
+                            "isLocked": false
+                        },
+                        {
+                            "name": "color",
+                            "type": "localizedStringList",
+                            "value": [
+                                {
+                                    "de_DE": "weiß",
+                                    "en_GB": "white"
+                                },
+                                {
+                                    "de_DE": "schwarz",
+                                    "en_GB": "black"
+                                }
+                            ],
+                            "isLocked": false
                         }
                     ],
                     "prices": [
@@ -104,7 +140,8 @@
                         {
                             "name": "view",
                             "type": "simple",
-                            "value": "front"
+                            "value": "front",
+                            "isLocked": false
                         }
                     ]
                 },
