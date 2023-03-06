@@ -8,6 +8,7 @@
     {
         "productReferenceKey": "my-product",
         "shopKey": "ms",
+        "countryCode": "DE",
         "sortKey": "default",
         "sortValue": 2
     }
