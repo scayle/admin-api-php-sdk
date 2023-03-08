@@ -16,6 +16,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $type Type of customer (like personal)
  * @property string[] $groups Group to which the customer belongs to
  * @property CustomerStatus $status Defines if customer isActive or not and if customer isGuestCustomer or not
+ * @property Company $company Company to which the customer belongs to
  * @property CustomerAddress[] $addresses Customers address (es)
  * @property array $legacyCustomData Custom data added to the customers (legacy feature)
  * @property string $createdAt Timestamp when the customer is created
