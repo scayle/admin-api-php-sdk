@@ -417,6 +417,106 @@ class CustomerService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\CustomerMembership $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\CustomerMembership
+     */
+    public function createMembership($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerMembership::class,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $membershipId
+     * @param \AboutYou\Cloud\AdminApi\Models\CustomerMembership $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\CustomerMembership
+     */
+    public function updateMembership($shopKey, $countryCode, $membershipId, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/customers/memberships/%s', $shopKey, $countryCode, $membershipId),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerMembership::class,
+            $model
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection
+     */
+    public function getMemberships($shopKey, $countryCode, $customerIdentifier, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection::class,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param int $membershipId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteMembership($shopKey, $countryCode, $membershipId, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/customers/memberships/%s', $shopKey, $countryCode, $membershipId),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * Description.
+     *
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
      * @param string $customerGroup
      * @param array $options additional options like limit or filters
      *

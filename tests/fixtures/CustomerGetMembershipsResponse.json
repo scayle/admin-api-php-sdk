@@ -1,0 +1,15 @@
+{
+    "entities": [
+        {
+            "id": 5,
+            "isActive": true,
+            "accountNumber": "1234567890",
+            "typeKey": "payback",
+            "createdAt": "2023-01-22T11:30:15+00:00",
+            "updatedAt": "2023-01-22T11:30:15+00:00"
+        }
+    ],
+    "cursor": {
+        "next": "1"
+    }
+}
