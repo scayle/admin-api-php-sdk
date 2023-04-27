@@ -176,7 +176,8 @@
                         "id": "ab123",
                         "isMainItem": true,
                         "isRequired": true
-                    }
+                    },
+                    "campaignKey": "sale15"
                 }
             ],
             "legacyCustomData": {

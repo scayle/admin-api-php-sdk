@@ -16,6 +16,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property OrderItemVariant $variant
  * @property int $warehouseId
  * @property OrderItemGroup $itemGroup
+ * @property string $campaignKey Reference to the campaign applied to this order
  */
 class OrderItem extends ApiObject
 {
