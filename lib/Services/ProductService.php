@@ -443,4 +443,28 @@ class ProductService extends AbstractService
             null
         );
     }
+
+    /**
+     * Description.
+     *
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\ProductState $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\ProductState
+     */
+    public function updateState($productIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/products/%s/state', $productIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\ProductState::class,
+            $model
+        );
+    }
 }
