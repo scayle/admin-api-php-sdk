@@ -222,6 +222,7 @@
     "status": "invoice_completed",
     "vouchers": [
         {
+            "id": 198234,
             "applicableItems": [
                 {
                     "isApplied": true,
@@ -229,9 +230,9 @@
                 }
             ],
             "code": "fashion2020",
-            "id": 198234,
             "type": "absolute",
-            "value": 1000
+            "value": 1000,
+            "voucherId": 1443
         }
     ],
     "shopCountry": {
