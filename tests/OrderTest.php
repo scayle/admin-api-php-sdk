@@ -24,6 +24,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
@@ -44,6 +45,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
@@ -57,6 +59,7 @@ final class OrderTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
@@ -83,6 +86,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
@@ -103,6 +107,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);

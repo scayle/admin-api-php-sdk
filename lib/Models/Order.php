@@ -16,6 +16,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $updatedAt Timestamp when the order is updated
  * @property OrderItem[] $items Collection of items ordered
  * @property array $legacyCustomData Custom data added to the order (legacy feature)
+ * @property OrderMembershipDiscount $membershipDiscount Membership discount information
  * @property OrderPackage[] $packages Details for the package(s) part of the order
  * @property OrderPayment[] $payment Payment details
  * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails.
@@ -35,6 +36,7 @@ class Order extends ApiObject
         'customer' => \AboutYou\Cloud\AdminApi\Models\Customer::class,
         'cost' => \AboutYou\Cloud\AdminApi\Models\OrderCost::class,
         'address' => \AboutYou\Cloud\AdminApi\Models\OrderAddress::class,
+        'membershipDiscount' => \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class,
         'shopCountry' => \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
         'loyaltyCard' => \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class,
     ];
