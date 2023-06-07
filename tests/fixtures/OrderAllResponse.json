@@ -220,6 +220,20 @@
                 "policy": "least_packages"
             },
             "status": "invoice_completed",
+            "detailedStatus": {
+                "billing": {
+                    "code": "billing_payment_pending",
+                    "name": "Zahlung reserviert"
+                },
+                "order": {
+                    "code": "order_invoiced",
+                    "name": "Invoiced"
+                },
+                "shipping": {
+                    "code": "shipping_partially_returned",
+                    "name": "Teilweise Retoure"
+                }
+            },
             "vouchers": [
                 {
                     "id": 198234,

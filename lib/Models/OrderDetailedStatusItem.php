@@ -3,16 +3,15 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $status Phases of order e.g: cancelled , delivered
- * @property OrderDetailedStatus $detailedStatus
+ * @property string $code Unique identifier of the state
+ * @property string $name Name of the state
  */
-class OrderStatus extends ApiObject
+class OrderDetailedStatusItem extends ApiObject
 {
     protected $defaultValues = [
     ];
 
     protected $classMap = [
-        'detailedStatus' => \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class,
     ];
 
     protected $collectionClassMap = [

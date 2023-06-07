@@ -28,6 +28,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
     }
 
     public function testAll()
@@ -49,6 +50,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $collectionEntity);
@@ -63,6 +65,7 @@ final class OrderTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
         }
     }
 
@@ -90,6 +93,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
     }
 
     public function testGetStatus()
@@ -111,5 +115,6 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
     }
 }

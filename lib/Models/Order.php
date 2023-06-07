@@ -23,6 +23,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $referenceKey External order reference set by the client to integrate a third party system.
  * @property OrderShipping $shipping Shipping details
  * @property string $status Status of the order e.g: invoice_completed
+ * @property OrderDetailedStatus $detailedStatus
  * @property OrderVoucher[] $vouchers Applicable voucher and its details
  * @property OrderLoyaltyCard $loyaltyCard
  */
@@ -39,6 +40,7 @@ class Order extends ApiObject
         'membershipDiscount' => \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class,
         'shopCountry' => \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
         'loyaltyCard' => \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class,
+        'detailedStatus' => \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class,
     ];
 
     protected $collectionClassMap = [
