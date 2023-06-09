@@ -117,7 +117,10 @@
                     }
                 },
                 "withTax": 1390,
-                "withoutTax": 1168
+                "withoutTax": 1168,
+                "withTaxWithMembershipDiscountWithoutServiceCosts": 1337,
+                "withoutTaxWithMembershipDiscount": 1234,
+                "costCapture": 1390
             },
             "currencyCode": "EUR",
             "id": 123,
@@ -185,6 +188,12 @@
                     "generatedOn": "2018-05-20T19:45:15+00:00",
                     "result": "green"
                 }
+            },
+            "membershipDiscount": {
+                "membershipCardId": 1,
+                "pointsUsed": 1356,
+                "reductionValue": 127,
+                "tax": 0
             },
             "packages": [
                 {
