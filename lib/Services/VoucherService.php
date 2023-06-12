@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class VoucherService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
@@ -57,8 +53,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Voucher $model the model to create or update
@@ -82,8 +76,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
@@ -108,8 +100,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
@@ -131,8 +121,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
@@ -156,8 +144,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
@@ -182,8 +168,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
@@ -208,8 +192,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
@@ -235,8 +217,6 @@ class VoucherService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId

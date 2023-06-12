@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class CampaignService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param \AboutYou\Cloud\AdminApi\Models\Campaign $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
@@ -55,8 +51,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $campaignId
      * @param array $options additional options like limit or filters
@@ -79,8 +73,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $campaignId
      * @param \AboutYou\Cloud\AdminApi\Models\Campaign $model the model to create or update
@@ -104,8 +96,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $campaignId
      * @param array $options additional options like limit or filters
@@ -126,8 +116,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $campaignId
      * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction[] $model the model to create or update
@@ -149,8 +137,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $campaignId
      * @param \AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction[] $model the model to create or update
@@ -172,8 +158,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $campaignId
      * @param array $options additional options like limit or filters
@@ -196,8 +180,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $campaignId
      * @param array $options additional options like limit or filters
@@ -218,8 +200,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -242,8 +222,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
      * @param array $options additional options like limit or filters
      *
@@ -263,8 +241,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
      * @param array $options additional options like limit or filters
      *
@@ -286,8 +262,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
      * @param string $key
      * @param array $model the model to create or update
@@ -311,8 +285,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
      * @param string $key
      * @param array $options additional options like limit or filters
@@ -333,8 +305,6 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
      * @param string $key
      * @param array $options additional options like limit or filters

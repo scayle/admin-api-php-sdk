@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class WebhookSubscriptionService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\WebhookSubscription $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -31,8 +29,6 @@ class WebhookSubscriptionService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $subscriptionId
      * @param array $options additional options like limit or filters
      *
@@ -54,8 +50,6 @@ class WebhookSubscriptionService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -76,8 +70,6 @@ class WebhookSubscriptionService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $subscriptionId
      * @param array $options additional options like limit or filters
      *

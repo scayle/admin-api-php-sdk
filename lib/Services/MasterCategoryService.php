@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class MasterCategoryService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -30,8 +28,6 @@ class MasterCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $masterCategoryId
      * @param array $options additional options like limit or filters
      *
@@ -53,8 +49,6 @@ class MasterCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\MasterCategory $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -76,8 +70,6 @@ class MasterCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $masterCategoryId
      * @param \AboutYou\Cloud\AdminApi\Models\MasterCategory $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -100,8 +92,6 @@ class MasterCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $masterCategoryId
      * @param array $options additional options like limit or filters
      *

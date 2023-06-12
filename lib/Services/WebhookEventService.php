@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class WebhookEventService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

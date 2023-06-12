@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class AttributeTranslationService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $attributeGroupName
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -30,8 +28,6 @@ class AttributeTranslationService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *

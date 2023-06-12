@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ShopCountryService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCountry $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
@@ -55,8 +51,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $options additional options like limit or filters
@@ -79,8 +73,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCountry $model the model to create or update
@@ -104,8 +96,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Assortment $model the model to create or update
@@ -129,8 +119,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $model the model to create or update
@@ -154,8 +142,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $options additional options like limit or filters
@@ -176,8 +162,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $options additional options like limit or filters
@@ -200,8 +184,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param string $key
@@ -226,8 +208,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param string $key
@@ -249,8 +229,6 @@ class ShopCountryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param string $key

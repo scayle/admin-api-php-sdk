@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ProductVariantPriceService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class ProductVariantPriceService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -55,8 +51,6 @@ class ProductVariantPriceService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param string $priceKey
      * @param array $options additional options like limit or filters

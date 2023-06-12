@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class CompanyService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Company $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -31,8 +29,6 @@ class CompanyService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -53,8 +49,6 @@ class CompanyService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $companyId
      * @param array $options additional options like limit or filters
      *
@@ -76,8 +70,6 @@ class CompanyService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $companyId
      * @param \AboutYou\Cloud\AdminApi\Models\Company $model the model to create or update
      * @param array $options additional options like limit or filters

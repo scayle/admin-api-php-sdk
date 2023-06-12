@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ProductImageService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductImage $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -55,8 +51,6 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductImagePosition $model the model to create or update
@@ -80,8 +74,6 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
      * @param array $options additional options like limit or filters
@@ -102,8 +94,6 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
@@ -127,8 +117,6 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
      * @param string $attributeGroupName
@@ -150,8 +138,6 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
      * @param string $attributeGroupName
@@ -175,8 +161,6 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
      * @param array $options additional options like limit or filters

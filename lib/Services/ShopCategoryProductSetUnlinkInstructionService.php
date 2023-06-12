@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ShopCategoryProductSetUnlinkInstructionService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $productSetId
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSetUnlinkInstruction $model the model to create or update

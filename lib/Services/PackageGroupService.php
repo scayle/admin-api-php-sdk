@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class PackageGroupService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class PackageGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $packageGroupId
@@ -56,8 +52,6 @@ class PackageGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $packageGroupId
@@ -80,8 +74,6 @@ class PackageGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $packageGroupId

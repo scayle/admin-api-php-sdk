@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class AttributeGroupService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroup $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -31,8 +29,6 @@ class AttributeGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
@@ -54,8 +50,6 @@ class AttributeGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -76,8 +70,6 @@ class AttributeGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $attributeGroupName
      * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroup $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -100,8 +92,6 @@ class AttributeGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
@@ -121,8 +111,6 @@ class AttributeGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $attributeGroupName
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -143,8 +131,6 @@ class AttributeGroupService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *

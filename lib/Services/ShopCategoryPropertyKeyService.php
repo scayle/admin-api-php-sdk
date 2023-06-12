@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ShopCategoryPropertyKeyService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -31,8 +29,6 @@ class ShopCategoryPropertyKeyService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopCategoryPropertyKey
      * @param array $options additional options like limit or filters
      *
@@ -54,8 +50,6 @@ class ShopCategoryPropertyKeyService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -76,8 +70,6 @@ class ShopCategoryPropertyKeyService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopCategoryPropertyKey
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -100,8 +92,6 @@ class ShopCategoryPropertyKeyService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopCategoryPropertyKey
      * @param array $options additional options like limit or filters
      *

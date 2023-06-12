@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class OrderService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $orderIdentifier
@@ -33,8 +31,6 @@ class OrderService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $options additional options like limit or filters
@@ -57,8 +53,6 @@ class OrderService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $orderId
@@ -83,8 +77,6 @@ class OrderService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $orderIdentifier

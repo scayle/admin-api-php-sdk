@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ShopService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Shop $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -31,8 +29,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -53,8 +49,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
@@ -76,8 +70,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param \AboutYou\Cloud\AdminApi\Models\Shop $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -100,8 +92,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -124,8 +114,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
@@ -145,8 +133,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
@@ -168,8 +154,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $key
      * @param array $model the model to create or update
@@ -193,8 +177,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $key
      * @param array $options additional options like limit or filters
@@ -215,8 +197,6 @@ class ShopService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $key
      * @param array $options additional options like limit or filters

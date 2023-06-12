@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ShopCountryWarehouseService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse $model the model to create or update
@@ -33,8 +31,6 @@ class ShopCountryWarehouseService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopCountryWarehouseIdentifier
@@ -59,8 +55,6 @@ class ShopCountryWarehouseService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopCountryWarehouseIdentifier

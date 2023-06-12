@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class BrandService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -30,8 +28,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param array $options additional options like limit or filters
      *
@@ -53,8 +49,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Brand $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -76,8 +70,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param \AboutYou\Cloud\AdminApi\Models\Brand $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -100,8 +92,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param array $options additional options like limit or filters
      *
@@ -121,8 +111,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -145,8 +133,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param array $options additional options like limit or filters
      *
@@ -166,8 +152,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param array $options additional options like limit or filters
      *
@@ -189,8 +173,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param string $key
      * @param array $model the model to create or update
@@ -214,8 +196,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param string $key
      * @param array $options additional options like limit or filters
@@ -236,8 +216,6 @@ class BrandService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param int $brandId
      * @param string $key
      * @param array $options additional options like limit or filters

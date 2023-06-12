@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class CustomerService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -57,8 +53,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Customer $model the model to create or update
@@ -82,8 +76,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -108,8 +100,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $customerId
@@ -134,8 +124,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -157,8 +145,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -182,8 +168,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -208,8 +192,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -233,8 +215,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -259,8 +239,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -285,8 +263,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -312,8 +288,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -339,7 +313,7 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
+     * @deprecated
      *
      * @param string $shopKey
      * @param string $countryCode
@@ -363,8 +337,27 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $addressIdentifier
+     * @param array $options additional options like limit or filters
      *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function anonymizeAddressByIdentifier($shopKey, $countryCode, $addressIdentifier, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/shops/%s/countries/%s/customers/addresses/%s/anonymize', $shopKey, $countryCode, $addressIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -386,8 +379,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerId
@@ -412,8 +403,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -438,8 +427,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $membershipId
@@ -464,8 +451,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
@@ -489,8 +474,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $membershipId
@@ -512,8 +495,6 @@ class CustomerService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier

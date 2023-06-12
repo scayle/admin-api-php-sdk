@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ProductService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Product $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -31,8 +29,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -54,8 +50,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -76,8 +70,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Product $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -100,8 +92,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -121,8 +111,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -145,8 +133,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
@@ -167,8 +153,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
@@ -191,8 +175,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -214,8 +196,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -238,8 +218,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -262,8 +240,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -283,8 +259,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -306,8 +280,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param string $key
      * @param array $model the model to create or update
@@ -331,8 +303,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param string $key
      * @param array $options additional options like limit or filters
@@ -353,8 +323,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param string $key
      * @param array $options additional options like limit or filters
@@ -377,8 +345,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Product $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -400,8 +366,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Product $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -424,8 +388,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -445,8 +407,6 @@ class ProductService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductState $model the model to create or update
      * @param array $options additional options like limit or filters

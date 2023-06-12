@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ProductVariantService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
@@ -56,8 +52,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -79,8 +73,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
@@ -104,8 +96,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
@@ -126,8 +116,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
@@ -151,8 +139,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param string $attributeGroupName
@@ -174,8 +160,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param string $attributeGroupName
@@ -199,8 +183,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
@@ -223,8 +205,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -247,8 +227,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -268,8 +246,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
      *
@@ -291,8 +267,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param string $key
      * @param array $model the model to create or update
@@ -316,8 +290,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param string $key
      * @param array $options additional options like limit or filters
@@ -338,8 +310,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param string $key
      * @param array $options additional options like limit or filters
@@ -362,8 +332,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -386,8 +354,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
@@ -411,8 +377,6 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
      * @param array $options additional options like limit or filters

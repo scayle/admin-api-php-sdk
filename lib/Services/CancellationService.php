@@ -9,8 +9,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class CancellationService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\Cancellation $model the model to create or update
      * @param array $options additional options like limit or filters
      *

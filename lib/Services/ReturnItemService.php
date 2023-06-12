@@ -9,8 +9,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ReturnItemService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param \AboutYou\Cloud\AdminApi\Models\ReturnItem[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *

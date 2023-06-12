@@ -8,8 +8,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 class ShopCategoryService extends AbstractService
 {
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCategory $model the model to create or update
      * @param array $options additional options like limit or filters
@@ -32,8 +30,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
@@ -55,8 +51,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param array $options additional options like limit or filters
@@ -79,8 +73,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCategory $model the model to create or update
@@ -104,8 +96,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param array $options additional options like limit or filters
@@ -126,8 +116,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $shopCategoryId
@@ -152,8 +140,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $shopCategoryId
@@ -176,8 +162,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $shopCategoryId
@@ -202,8 +186,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $shopCategoryId
@@ -227,8 +209,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param array $model the model to create or update
@@ -252,8 +232,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param array $options additional options like limit or filters
@@ -274,8 +252,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param array $options additional options like limit or filters
@@ -298,8 +274,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $key
@@ -324,8 +298,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $key
@@ -347,8 +319,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $key
@@ -372,8 +342,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $countryCode
@@ -398,8 +366,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $countryCode
@@ -421,8 +387,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $countryCode
@@ -446,8 +410,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $countryCode
@@ -473,8 +435,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $countryCode
@@ -497,8 +457,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param int $shopCategoryId
      * @param string $countryCode
@@ -523,8 +481,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $shopCategoryId
@@ -548,8 +504,6 @@ class ShopCategoryService extends AbstractService
     }
 
     /**
-     * Description.
-     *
      * @param string $shopKey
      * @param string $countryCode
      * @param int $shopCategoryId
