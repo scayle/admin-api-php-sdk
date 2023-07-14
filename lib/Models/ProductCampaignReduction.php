@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $productId Backbone Core's internal product identifier.
+ * @property int $productId SCAYLE's internal product identifier.
  * @property string $productReferenceKey Tenant provided product identifier.
  * @property int $reduction The reduction percentage applied to all variants belonging to this product.
  */

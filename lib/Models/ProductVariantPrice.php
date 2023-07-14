@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $key Key assigned by BACKBONE Core.
+ * @property string $key Key assigned by SCAYLE.
  * @property int $price Price of the variant.
  * @property int $oldPrice Old price of the variant.
  * @property int $recommendedRetailPrice Recommended retail price of the variant.

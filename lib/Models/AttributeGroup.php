@@ -3,9 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The ID of the attribute group created by Backbone Core.
+ * @property int $id The ID of the attribute group created by SCAYLE.
  * @property string $name A name that uniquely identifies an attribute group.
- * @property array $frontendName The localized attribute group name. At least the base language that is configured in Backbone Core is mandatory.
+ * @property array $frontendName The localized attribute group name. At least the base language that is configured in SCAYLE is mandatory.
  * @property string $type An attribute group type.
  * @property bool $isShared Defines whether an attribute value is shared beetwen the entities or every entity has its own value.
  * It is not possible to share attributes of advanced type, therefore isShared must be always false in this case.

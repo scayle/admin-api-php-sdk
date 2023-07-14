@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The ID of the shop created by Backbone Core.
+ * @property int $id The ID of the shop created by SCAYLE.
  * @property string $key A key that uniquely identifies the shop within the tenant's ecosystem. Must be **exactly two characters** long.
  * @property string $name Full name of the shop.
  * @property string $logoUrl The URL of the logo assigned to the shop.

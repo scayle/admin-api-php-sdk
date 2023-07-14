@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The ID of the company created by Backbone Core.
+ * @property int $id The ID of the company created by SCAYLE.
  * @property string $name Name of the company.
  */
 class Company extends ApiObject

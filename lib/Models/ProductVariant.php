@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id ID assigned by BACKBONE Core.
+ * @property int $id ID assigned by SCAYLE.
  * @property string $referenceKey A key that uniquely identifies the variant of a product (usually an SKU) within the tenant's ecosystem.
  * @property string $ean An ean that refers to a product variant .
  * @property Attribute[] $attributes A list of attributes attached to the product variant.

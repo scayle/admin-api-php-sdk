@@ -3,8 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The ID of the shop country created by Backbone Core.
- * @property string $shopKey The key of the shop created by Backbone Core.
+ * @property int $id The ID of the shop country created by SCAYLE.
+ * @property string $shopKey The key of the shop created by SCAYLE.
  * @property string $countryCode ISO 3166 alpha 2 country code.
  * @property string $defaultLanguageCode ISO-3166 country code and ISO-639 language code.
  * @property string[] $supportedLanguageCodes List of supported language codes.
