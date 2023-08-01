@@ -55,7 +55,14 @@
                             "blue"
                         ]
                     }
-                ]
+                ],
+                "merchantReferenceKeys": {
+                    "include": [
+                        "merchant-1",
+                        "merchant-2"
+                    ],
+                    "exclude": []
+                }
             },
             "warehouses": [
                 {
