@@ -17,6 +17,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $warehouseId
  * @property OrderItemGroup $itemGroup
  * @property string $campaignKey Reference to the campaign applied to this order
+ * @property OrderItemMerchant $merchant
  */
 class OrderItem extends ApiObject
 {
@@ -29,6 +30,7 @@ class OrderItem extends ApiObject
         'product' => \AboutYou\Cloud\AdminApi\Models\OrderItemProduct::class,
         'variant' => \AboutYou\Cloud\AdminApi\Models\OrderItemVariant::class,
         'itemGroup' => \AboutYou\Cloud\AdminApi\Models\OrderItemGroup::class,
+        'merchant' => \AboutYou\Cloud\AdminApi\Models\OrderItemMerchant::class,
     ];
 
     protected $collectionClassMap = [

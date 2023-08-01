@@ -180,7 +180,10 @@
                 "isMainItem": true,
                 "isRequired": true
             },
-            "campaignKey": "sale15"
+            "campaignKey": "sale15",
+            "merchant": {
+                "referenceKey": "merchant-1"
+            }
         }
     ],
     "legacyCustomData": {
