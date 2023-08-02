@@ -7,6 +7,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property OrderAddress $address Billing and Shipping address of the customer
  * @property string $basketKey A key that uniquely identifies customer's cart
  * @property string $confirmedAt Timestamp when the order was confirmed
+ * @property OrderContact[] $contacts Collection of contacts
  * @property OrderCost $cost Total cost of the order that includes tax, VAT, etc
  * @property string $currencyCode ISO 4217 currency code
  * @property Customer $customer Details about the customer account
@@ -47,6 +48,7 @@ class Order extends ApiObject
         'vouchers' => \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class,
         'payment' => \AboutYou\Cloud\AdminApi\Models\OrderPayment::class,
         'items' => \AboutYou\Cloud\AdminApi\Models\OrderItem::class,
+        'contacts' => \AboutYou\Cloud\AdminApi\Models\OrderContact::class,
         'packages' => \AboutYou\Cloud\AdminApi\Models\OrderPackage::class,
     ];
 

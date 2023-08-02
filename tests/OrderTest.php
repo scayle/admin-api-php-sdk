@@ -22,6 +22,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
@@ -44,6 +45,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
@@ -59,6 +61,7 @@ final class OrderTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
@@ -87,6 +90,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
@@ -109,6 +113,7 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);

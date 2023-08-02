@@ -83,6 +83,12 @@
             },
             "basketKey": "basket-c6v7k4eer1",
             "confirmedAt": "2018-01-20T11:30:15+00:00",
+            "contacts": [
+                {
+                    "type": "carrier",
+                    "value": "+385 95 677 8888"
+                }
+            ],
             "cost": {
                 "appliedFees": [
                     {
