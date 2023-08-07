@@ -44,6 +44,23 @@ final class MasterTest extends BaseApiTestCase
         }
     }
 
+    public function testUpdateOrCreateAttribute()
+    {
+        $expectedRequestJson = $this->loadFixture('MasterUpdateOrCreateAttributeRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Attribute($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->masters->updateOrCreateAttribute(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('MasterUpdateOrCreateAttributeResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Attribute::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'categories', \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
+    }
+
     public function testGetAttribute()
     {
         $responseEntity = $this->api->masters->getAttribute(Identifier::fromId(1), 'acme', []);

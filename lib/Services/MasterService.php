@@ -52,6 +52,28 @@ class MasterService extends AbstractService
 
     /**
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\Attribute
+     */
+    public function updateOrCreateAttribute($productMasterIdentifier, $model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            $model
+        );
+    }
+
+    /**
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
