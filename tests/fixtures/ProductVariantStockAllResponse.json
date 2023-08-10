@@ -4,13 +4,15 @@
             "quantity": 3,
             "warehouseReferenceKey": "myFirstWarehouse",
             "changedAt": "2020-07-23T11:30:58+00:00",
-            "sellableWithoutStock": false
+            "sellableWithoutStock": false,
+            "merchantReferenceKey": "merchant-1"
         },
         {
             "quantity": 3,
             "warehouseReferenceKey": "mySecondWarehouse",
             "changedAt": "2020-07-23T11:30:58+00:00",
-            "sellableWithoutStock": true
+            "sellableWithoutStock": true,
+            "merchantReferenceKey": "merchant-1"
         }
     ]
 }

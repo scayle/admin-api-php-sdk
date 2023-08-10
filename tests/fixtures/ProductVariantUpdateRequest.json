@@ -78,7 +78,8 @@
                 "price": 399
             },
             "validFrom": "2021-09-23T11:30:58+00:00",
-            "validTo": null
+            "validTo": null,
+            "merchantReferenceKey": "merchant-1"
         }
     ],
     "stocks": [
@@ -86,7 +87,8 @@
             "quantity": 17,
             "warehouseReferenceKey": "myWarehouse",
             "changedAt": "2020-07-23T11:30:58+00:00",
-            "sellableWithoutStock": false
+            "sellableWithoutStock": false,
+            "merchantReferenceKey": "merchant-1"
         }
     ],
     "customData": {

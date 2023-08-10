@@ -15,6 +15,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property ProductSorting[] $productSortings A list of product sortings.
  * @property mixed $customData
  * @property bool $isComposite Indicates whether the product is composite.
+ * @property string[] $merchantReferenceKeys A list of merchant reference keys the product belongs to.
  */
 class Product extends ApiObject
 {

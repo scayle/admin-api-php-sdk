@@ -16,6 +16,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property ProductVariantUnitPrice $unitPrice Describes the price for a specific unit.
  * @property string $validFrom Controls when the price will be activated. If not present or null, the valid from is specified from now.
  * @property string $validTo Controls when the price will be deactivated. If not present or null, the price is valid forever.
+ * @property string $merchantReferenceKey A merchant reference key the price belongs to.
  */
 class ProductVariantPrice extends ApiObject
 {

@@ -17,7 +17,8 @@
                 "price": 399
             },
             "validFrom": "2021-09-23T11:30:58+00:00",
-            "validTo": null
+            "validTo": null,
+            "merchantReferenceKey": "merchant-1"
         }
     ]
 }
