@@ -1,0 +1,13 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "referenceKey": "DHL_STD_NATIONAL",
+            "name": "DHL",
+            "trackingUrl": "http:\/\/nolp.dhl.de\/nextt-online-public\/set_identcodes.do"
+        }
+    ],
+    "cursor": {
+        "next": null
+    }
+}

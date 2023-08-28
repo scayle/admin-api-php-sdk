@@ -37,6 +37,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\VoucherService $vouchers
  * @property \AboutYou\Cloud\AdminApi\Services\CompanyService $companies
  * @property \AboutYou\Cloud\AdminApi\Services\AssetService $assets
+ * @property \AboutYou\Cloud\AdminApi\Services\CarrierService $carriers
  */
 class AdminAPI extends AbstractApi
 {

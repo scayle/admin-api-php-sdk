@@ -41,5 +41,6 @@ class ServiceFactory extends AbstractServiceFactory
         'vouchers' => \AboutYou\Cloud\AdminApi\Services\VoucherService::class,
         'companies' => \AboutYou\Cloud\AdminApi\Services\CompanyService::class,
         'assets' => \AboutYou\Cloud\AdminApi\Services\AssetService::class,
+        'carriers' => \AboutYou\Cloud\AdminApi\Services\CarrierService::class,
     ];
 }
