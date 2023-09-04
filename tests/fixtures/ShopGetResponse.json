@@ -1,7 +1,7 @@
 {
     "id": 1,
     "key": "ay",
-    "name": "About You Germany",
+    "name": "My Shop",
     "logoUrl": "images\/3123adasd23asd.png",
     "priceGroupKey": "myPriceGroup",
     "active": true,
@@ -17,7 +17,7 @@
                 "de_DE",
                 "en_GB"
             ],
-            "url": "https:\/\/www.aboutyou.de",
+            "url": "https:\/\/www.shop.de",
             "assortment": {
                 "masterCategories": {
                     "include": [

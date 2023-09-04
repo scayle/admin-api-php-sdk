@@ -7,7 +7,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $referenceKey External reference set by the client to integrate third party systems.
  * @property string $street Street is the mandatory string value in recepient's address
  * @property string $houseNumber House number of the recepient address
- * @property string $additional Additional data pertaining to the address, such as `c/o AboutYou`.
+ * @property string $additional Additional data pertaining to the address
  * @property string $zipCode Zip code is a postal code of recepients location. Its a madatory value
  * @property string $city City of the recipient. It is a mandatory value
  * @property string $countryCode ISO 3166-1 alpha-3 country code
