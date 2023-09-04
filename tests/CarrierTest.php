@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+
 /**
  * @internal
  */
@@ -22,7 +24,7 @@ final class CarrierTest extends BaseApiTestCase
 
     public function testGet()
     {
-        $responseEntity = $this->api->carriers->get(1, []);
+        $responseEntity = $this->api->carriers->get(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('CarrierGetResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Carrier::class, $responseEntity);
@@ -50,7 +52,7 @@ final class CarrierTest extends BaseApiTestCase
         $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Carrier($expectedRequestJson);
         static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->carriers->update(1, $requestEntity, []);
+        $responseEntity = $this->api->carriers->update(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CarrierUpdateResponse.json');
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Carrier::class, $responseEntity);

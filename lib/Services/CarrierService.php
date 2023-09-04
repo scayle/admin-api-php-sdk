@@ -28,7 +28,7 @@ class CarrierService extends AbstractService
     }
 
     /**
-     * @param int $carrierId
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $carrierIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -36,11 +36,11 @@ class CarrierService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\Carrier
      */
-    public function get($carrierId, $options = [])
+    public function get($carrierIdentifier, $options = [])
     {
         return $this->request(
             'get',
-            $this->resolvePath('/carriers/%s', $carrierId),
+            $this->resolvePath('/carriers/%s', $carrierIdentifier),
             $options,
             [],
             \AboutYou\Cloud\AdminApi\Models\Carrier::class,
@@ -70,7 +70,7 @@ class CarrierService extends AbstractService
     }
 
     /**
-     * @param int $carrierId
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $carrierIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\Carrier $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -79,11 +79,11 @@ class CarrierService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\Carrier
      */
-    public function update($carrierId, $model, $options = [])
+    public function update($carrierIdentifier, $model, $options = [])
     {
         return $this->request(
             'put',
-            $this->resolvePath('/carriers/%s', $carrierId),
+            $this->resolvePath('/carriers/%s', $carrierIdentifier),
             $options,
             [],
             \AboutYou\Cloud\AdminApi\Models\Carrier::class,

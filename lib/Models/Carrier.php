@@ -4,7 +4,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
  * @property int $id The ID of the carrier created by SCAYLE.
- * @property string $referenceKey Reference key of the carrier.
+ * @property string $key The key of the carrier.
  * @property string $name Name of the carrier.
  * @property string $trackingUrl Tracking URL of the carrier.
  */
