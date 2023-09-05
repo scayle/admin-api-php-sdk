@@ -93,4 +93,24 @@ class MasterService extends AbstractService
             null
         );
     }
+
+    /**
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
+     * @param string $attributeGroupName
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteAttribute($productMasterIdentifier, $attributeGroupName, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/product-masters/%s/attributes/%s', $productMasterIdentifier, $attributeGroupName),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }

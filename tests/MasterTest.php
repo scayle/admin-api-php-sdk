@@ -72,4 +72,9 @@ final class MasterTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'categories', \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\Attribute::class);
     }
+
+    public function testDeleteAttribute()
+    {
+        $responseEntity = $this->api->masters->deleteAttribute(Identifier::fromId(1), 'acme', []);
+    }
 }
