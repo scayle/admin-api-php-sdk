@@ -173,6 +173,11 @@
                 "id": 123456,
                 "name": "Blue Shirt"
             },
+            "promotion": {
+                "id": "649178aa530da10426f3f8d1",
+                "name": "PromoABC",
+                "version": "v1"
+            },
             "key": "ac834d23e689u678",
             "reservationKey": "6nq69bzzkd5xufxliwg8",
             "status": "available",

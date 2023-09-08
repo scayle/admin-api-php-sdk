@@ -10,6 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $packageId
  * @property OrderItemPrice $price
  * @property OrderItemProduct $product
+ * @property OrderItemPromotion $promotion
  * @property string $key
  * @property string $reservationKey
  * @property string $status
@@ -28,6 +29,7 @@ class OrderItem extends ApiObject
         'deliveryForecast' => \AboutYou\Cloud\AdminApi\Models\OrderItemDeliveryForecast::class,
         'price' => \AboutYou\Cloud\AdminApi\Models\OrderItemPrice::class,
         'product' => \AboutYou\Cloud\AdminApi\Models\OrderItemProduct::class,
+        'promotion' => \AboutYou\Cloud\AdminApi\Models\OrderItemPromotion::class,
         'variant' => \AboutYou\Cloud\AdminApi\Models\OrderItemVariant::class,
         'itemGroup' => \AboutYou\Cloud\AdminApi\Models\OrderItemGroup::class,
         'merchant' => \AboutYou\Cloud\AdminApi\Models\OrderItemMerchant::class,
