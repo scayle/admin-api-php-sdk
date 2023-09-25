@@ -2,7 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi\Exceptions;
 
-class ApiError
+use JsonSerializable;
+
+class ApiError implements JsonSerializable
 {
     /**
      * @var string
@@ -48,5 +50,17 @@ class ApiError
     public function getContext()
     {
         return $this->context;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'errorKey' => $this->errorKey,
+            'message' => $this->message,
+            'context' => $this->context,
+        ];
     }
 }
