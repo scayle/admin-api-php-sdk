@@ -4,7 +4,42 @@
             "id": 1,
             "referenceKey": "acme",
             "name": "ACME",
-            "priority": 1
+            "priority": 1,
+            "contacts": [
+                {
+                    "id": 1,
+                    "email": "foo@bar.org",
+                    "phone": "123456789",
+                    "cellPhone": "123456789",
+                    "name": "John Doe",
+                    "type": "general",
+                    "position": "Partner Service",
+                    "description": "Additional information"
+                }
+            ],
+            "returnAddresses": [
+                {
+                    "id": 1,
+                    "name": "Return Point",
+                    "street": "Domstrasse",
+                    "streetNo": "10",
+                    "zipCode": "22303",
+                    "city": "Hamburg",
+                    "countryCode": "DE",
+                    "dhlCode": "JVGL0849489024"
+                }
+            ],
+            "carriers": [
+                {
+                    "countryCode": "DE",
+                    "carrier": {
+                        "id": 1,
+                        "key": "DHL_STD_NATIONAL",
+                        "name": "DHL",
+                        "trackingUrl": "http:\/\/nolp.dhl.de\/nextt-online-public\/set_identcodes.do"
+                    }
+                }
+            ]
         }
     ],
     "cursor": {

@@ -1,0 +1,9 @@
+{
+    "email": "foo@bar.org",
+    "phone": "123456789",
+    "cellPhone": "123456789",
+    "name": "John Doe",
+    "type": "general",
+    "position": "Partner Service",
+    "description": "Additional information"
+}
