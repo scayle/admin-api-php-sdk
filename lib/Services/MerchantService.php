@@ -348,4 +348,65 @@ class MerchantService extends AbstractService
             null
         );
     }
+
+    /**
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\WarehouseCollection
+     */
+    public function allWarehouses($merchantIdentifier, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/merchants/%s/warehouses', $merchantIdentifier),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\WarehouseCollection::class,
+            null
+        );
+    }
+
+    /**
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $warehouseIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function attachWarehouse($merchantIdentifier, $warehouseIdentifier, $options = [])
+    {
+        $this->request(
+            'post',
+            $this->resolvePath('/merchants/%s/warehouses/%s', $merchantIdentifier, $warehouseIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
+
+    /**
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $warehouseIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function detachWarehouse($merchantIdentifier, $warehouseIdentifier, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/merchants/%s/warehouses/%s', $merchantIdentifier, $warehouseIdentifier),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }

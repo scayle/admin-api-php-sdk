@@ -33,7 +33,7 @@ class ShopCountryWarehouseService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopCountryWarehouseIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $warehouseIdentifier
      * @param \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse $model the model to create or update
      * @param array $options additional options like limit or filters
      *
@@ -42,11 +42,11 @@ class ShopCountryWarehouseService extends AbstractService
      *
      * @return \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse
      */
-    public function update($shopKey, $countryCode, $shopCountryWarehouseIdentifier, $model, $options = [])
+    public function update($shopKey, $countryCode, $warehouseIdentifier, $model, $options = [])
     {
         return $this->request(
             'put',
-            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopCountryWarehouseIdentifier),
+            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $warehouseIdentifier),
             $options,
             [],
             \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse::class,
@@ -57,17 +57,17 @@ class ShopCountryWarehouseService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $shopCountryWarehouseIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $warehouseIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $countryCode, $shopCountryWarehouseIdentifier, $options = [])
+    public function delete($shopKey, $countryCode, $warehouseIdentifier, $options = [])
     {
         $this->request(
             'delete',
-            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $shopCountryWarehouseIdentifier),
+            $this->resolvePath('/shops/%s/countries/%s/warehouses/%s', $shopKey, $countryCode, $warehouseIdentifier),
             $options,
             [],
             null,

@@ -1,0 +1,22 @@
+{
+    "id": 1,
+    "referenceKey": "my-warehouse",
+    "merchants": [
+        {
+            "id": 1,
+            "referenceKey": "acme",
+            "name": "ACME",
+            "priority": 1
+        }
+    ],
+    "shopCountries": [
+        {
+            "shopKey": "ms",
+            "countryCode": "de",
+            "priority": 100,
+            "packageGroup": {
+                "id": 3
+            }
+        }
+    ]
+}

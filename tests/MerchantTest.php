@@ -20,12 +20,14 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Merchant::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
         }
     }
 
@@ -40,6 +42,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testCreate()
@@ -58,6 +61,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testUpdate()
@@ -76,6 +80,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testAllContacts()
@@ -89,12 +94,14 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantContact::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
         }
     }
 
@@ -109,6 +116,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testCreateContact()
@@ -127,6 +135,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testUpdateContact()
@@ -145,6 +154,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testDeleteContact()
@@ -163,12 +173,14 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
         }
     }
 
@@ -183,6 +195,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testCreateReturnAddress()
@@ -201,6 +214,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testUpdateReturnAddress()
@@ -219,6 +233,7 @@ final class MerchantTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
     }
 
     public function testDeleteReturnAddress()
@@ -234,5 +249,37 @@ final class MerchantTest extends BaseApiTestCase
     public function testDetachCarrier()
     {
         $responseEntity = $this->api->merchants->detachCarrier(Identifier::fromId(1), Identifier::fromId(1), 'acme', []);
+    }
+
+    public function testAllWarehouses()
+    {
+        $responseEntity = $this->api->merchants->allWarehouses(Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('MerchantAllWarehousesResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WarehouseCollection::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Warehouse::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        }
+    }
+
+    public function testAttachWarehouse()
+    {
+        $responseEntity = $this->api->merchants->attachWarehouse(Identifier::fromId(1), Identifier::fromId(1), []);
+    }
+
+    public function testDetachWarehouse()
+    {
+        $responseEntity = $this->api->merchants->detachWarehouse(Identifier::fromId(1), Identifier::fromId(1), []);
     }
 }

@@ -10,6 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property MerchantContact[] $contacts A list of merchant contacts.
  * @property MerchantReturnAddress[] $returnAddresses A list of merchant return addresses.
  * @property MerchantCarrier[] $carriers A list of carriers attached to the merchant.
+ * @property Warehouse[] $warehouses A list of warehouses attached to the merchant.
  */
 class Merchant extends ApiObject
 {
@@ -23,6 +24,7 @@ class Merchant extends ApiObject
         'contacts' => \AboutYou\Cloud\AdminApi\Models\MerchantContact::class,
         'returnAddresses' => \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class,
         'carriers' => \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class,
+        'warehouses' => \AboutYou\Cloud\AdminApi\Models\Warehouse::class,
     ];
 
     protected $polymorphic = [
