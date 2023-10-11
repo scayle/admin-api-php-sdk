@@ -1,4 +1,4 @@
-# AboutYou Cloud AdminAPI SDK
+# SCAYLE AdminAPI SDK
 
 ## Contents
 
@@ -15,7 +15,7 @@
 Install the library via [Composer](https://getcomposer.org/):
 
 ```php
-composer require aboutyou-cloud/admin-api
+composer require scayle/admin-api
 ```
 
 ## Documentation

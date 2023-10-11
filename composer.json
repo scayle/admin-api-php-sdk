@@ -1,6 +1,6 @@
 {
-    "name": "aboutyou/admin-api",
-    "description": "AboutYou Cloud AdminAPI SDK",
+    "name": "scayle/admin-api",
+    "description": "SCAYLE Admin API SDK",
     "type": "library",
     "require": {
         "php": "^7.2 || ^8.0",
