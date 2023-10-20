@@ -52,10 +52,7 @@ class ApiError implements JsonSerializable
         return $this->context;
     }
 
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
             'errorKey' => $this->errorKey,

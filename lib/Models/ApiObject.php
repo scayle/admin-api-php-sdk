@@ -66,10 +66,7 @@ abstract class ApiObject implements \JsonSerializable
         return isset($this->_attributes[$name]);
     }
 
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $serialized = [];
 
