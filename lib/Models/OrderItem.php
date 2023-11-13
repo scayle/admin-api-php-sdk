@@ -6,7 +6,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $id
  * @property int $availableQuantity
  * @property OrderItemDeliveryForecast $deliveryForecast
- * @property array $legacyCustomData
+ * @property mixed $legacyCustomData Custom data added to the order item (legacy feature)
  * @property int $packageId
  * @property OrderItemPrice $price
  * @property OrderItemProduct $product

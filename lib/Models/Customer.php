@@ -18,7 +18,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property CustomerStatus $status Defines if customer isActive or not and if customer isGuestCustomer or not
  * @property Company $company Company to which the customer belongs to
  * @property CustomerAddress[] $addresses Customers address (es)
- * @property array $legacyCustomData Custom data added to the customers (legacy feature)
+ * @property mixed $legacyCustomData Custom data added to the customers (legacy feature)
  * @property string $createdAt Timestamp when the customer is created
  * @property string $updatedAt Timestamp when the customer is updated
  */
