@@ -7,6 +7,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $code
  * @property VoucherConstraints $constraints
  * @property VoucherCriterion[] $criteria
+ * @property bool $isApplicableToPromotions
  * @property string $name
  * @property string $status
  * @property string $summary

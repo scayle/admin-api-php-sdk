@@ -32,7 +32,8 @@
             "status": "active",
             "summary": "Voucher utilised for automated for testing",
             "type": "relative",
-            "value": 0.1
+            "value": 0.1,
+            "isApplicableToPromotions": true
         }
     ]
 }

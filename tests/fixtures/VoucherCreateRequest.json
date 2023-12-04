@@ -15,6 +15,7 @@
             "min": 7500
         }
     },
+    "isApplicableToPromotions": true,
     "name": "Testvoucher",
     "status": "active",
     "summary": "Voucher utilised for automated for testing",
