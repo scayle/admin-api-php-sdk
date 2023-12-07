@@ -1,0 +1,75 @@
+{
+    "id": "645e0c241a93369ff53f26e0",
+    "version": "645e0c241a93369ff53f26e0",
+    "name": "Christmas Promotion",
+    "schedule": {
+        "from": "2023-05-10T10:00:00+01:00",
+        "to": "2023-05-17T18:00:00Z"
+    },
+    "isActive": true,
+    "shopId": [
+        "139",
+        "554"
+    ],
+    "companyId": [
+        "100"
+    ],
+    "siblingPromotions": {
+        "enabled": true,
+        "allowList": [
+            "645e0c241a93369ff53f26e0",
+            "646235bf496f8f56171c3762"
+        ],
+        "level": "basket"
+    },
+    "audiences": {
+        "allowList": [
+            "645e0c241a93369ff53f26e0",
+            "646235bf496f8f56171c3762"
+        ]
+    },
+    "effect": {
+        "id": "buy_x_get_y",
+        "additionalData": {
+            "variant_ids": [
+                12389244,
+                23985437
+            ],
+            "max_count": 1,
+            "max_count_type": "per_eligible_items_quantity",
+            "eligible_items_quantity": 6
+        }
+    },
+    "globalConditions": [
+        {
+            "key": "mov_100",
+            "condition": "payload.items.exists(i, 11003 in i.variant.id)"
+        }
+    ],
+    "itemConditions": [
+        {
+            "key": "mov_100",
+            "condition": "item.color == 'yellow'"
+        }
+    ],
+    "priority": "1",
+    "additionalData": {
+        "legalText": "Supported neglected met she therefore unwilling discovery remainder. Way sentiments two indulgence uncommonly own."
+    },
+    "tiers": [
+        {
+            "id": 1,
+            "name": "Tier 1",
+            "effect": {
+                "additionalData": {
+                    "variant_ids": [
+                        12389244,
+                        23985437
+                    ],
+                    "max_count": 1
+                }
+            },
+            "mov": 10000
+        }
+    ]
+}

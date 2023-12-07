@@ -44,5 +44,6 @@ class ServiceFactory extends AbstractServiceFactory
         'carriers' => \AboutYou\Cloud\AdminApi\Services\CarrierService::class,
         'merchants' => \AboutYou\Cloud\AdminApi\Services\MerchantService::class,
         'warehouses' => \AboutYou\Cloud\AdminApi\Services\WarehouseService::class,
+        'promotions' => \AboutYou\Cloud\AdminApi\Services\PromotionService::class,
     ];
 }
