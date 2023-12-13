@@ -29,6 +29,7 @@ class ServiceFactory extends AbstractServiceFactory
         'brands' => \AboutYou\Cloud\AdminApi\Services\BrandService::class,
         'productSortings' => \AboutYou\Cloud\AdminApi\Services\ProductSortingService::class,
         'shopCountryWarehouses' => \AboutYou\Cloud\AdminApi\Services\ShopCountryWarehouseService::class,
+        'shopCountryPriceRoundings' => \AboutYou\Cloud\AdminApi\Services\ShopCountryPriceRoundingService::class,
         'packageGroups' => \AboutYou\Cloud\AdminApi\Services\PackageGroupService::class,
         'customDataConfigs' => \AboutYou\Cloud\AdminApi\Services\CustomDataConfigService::class,
         'customers' => \AboutYou\Cloud\AdminApi\Services\CustomerService::class,
