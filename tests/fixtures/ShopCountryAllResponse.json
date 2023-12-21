@@ -69,6 +69,14 @@
                     }
                 }
             ],
+            "priceRoundings": [
+                {
+                    "id": 1,
+                    "currencyCode": "EUR",
+                    "precision": "0.99",
+                    "roundingType": "nearest"
+                }
+            ],
             "customData": {
                 "isValid": true,
                 "score": 100,
