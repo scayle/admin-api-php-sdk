@@ -1,3 +1,13 @@
 {
-    "state": "live"
+    "state": "live",
+    "merchantProductStates": [
+        {
+            "merchantReferenceKey": "foo",
+            "state": "live"
+        },
+        {
+            "merchantReferenceKey": "bar",
+            "state": "blocked"
+        }
+    ]
 }
