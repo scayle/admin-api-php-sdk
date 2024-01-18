@@ -1,69 +1,13 @@
 {
     "entities": [
-        {
-            "name": "size",
-            "type": "simple",
-            "value": "M",
-            "isLocked": false
-        },
-        {
-            "name": "season",
-            "type": "simpleList",
-            "value": [
-                "autumn",
-                "winter"
-            ],
-            "isLocked": false
-        },
-        {
-            "name": "collection",
-            "type": "localizedString",
-            "value": {
-                "de_DE": "einzigartig",
-                "en_GB": "unique"
-            },
-            "isLocked": false
-        },
-        {
-            "name": "color",
-            "type": "localizedStringList",
-            "value": [
-                {
-                    "de_DE": "weiß",
-                    "en_GB": "white"
-                },
-                {
-                    "de_DE": "schwarz",
-                    "en_GB": "black"
-                }
-            ],
-            "isLocked": false
-        },
-        {
-            "name": "dimensions",
-            "type": "advanced",
-            "value": {
-                "height": 100,
-                "width": 80,
-                "unit": "cm"
-            },
-            "isLocked": false
-        },
-        {
-            "name": "material",
-            "type": "advancedList",
-            "value": [
-                {
-                    "name": "wool",
-                    "percentage": 80
-                },
-                {
-                    "name": "cotton",
-                    "percentage": 20
-                }
-            ],
-            "isLocked": false
-        }
+        "Baumwolle",
+        "Polyester",
+        "Holz",
+        "Wolle",
+        "Leder",
+        "Synthetic",
+        "Baumwolle test locked",
+        "BaumwolleOne"
     ],
     "cursor": {
         "next": null
