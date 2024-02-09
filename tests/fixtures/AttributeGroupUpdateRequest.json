@@ -6,5 +6,6 @@
     },
     "type": "simple",
     "isShared": true,
-    "level": "product"
+    "level": "product",
+    "group": "someName"
 }

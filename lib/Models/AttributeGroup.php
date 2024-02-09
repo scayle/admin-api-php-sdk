@@ -17,6 +17,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $isOverridablePerShop Defines if shop-specific attribute values are allowed for the given attribute group.
  * @property bool $isDifferentiating If an attribute group is differentiating, then every entity must have a unique attribute value.
  * This configuration is not applicable to the advanced type, neither to attribute groups marked as isShared=false.
+ * @property string $group It is used for grouping the display of attribute groups in the Panel.
  */
 class AttributeGroup extends ApiObject
 {
