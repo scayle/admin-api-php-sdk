@@ -79,4 +79,37 @@ final class AttributeGroupTest extends BaseApiTestCase
         static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ArrayCollection::class, $responseEntity);
         static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
+
+    public function testCreateAttribute()
+    {
+        $expectedRequestJson = $this->loadFixture('AttributeGroupCreateAttributeRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->attributeGroups->createAttribute('acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('AttributeGroupCreateAttributeResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+    }
+
+    public function testUpdateAttribute()
+    {
+        $expectedRequestJson = $this->loadFixture('AttributeGroupUpdateAttributeRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->attributeGroups->updateAttribute('acme', 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('AttributeGroupUpdateAttributeResponse.json');
+        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute::class, $responseEntity);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+    }
+
+    public function testDeleteAttribute()
+    {
+        $responseEntity = $this->api->attributeGroups->deleteAttribute('acme', 'acme', []);
+    }
 }

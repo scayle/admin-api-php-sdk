@@ -150,4 +150,69 @@ class AttributeGroupService extends AbstractService
             null
         );
     }
+
+    /**
+     * @param string $attributeGroupName
+     * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute
+     */
+    public function createAttribute($attributeGroupName, $model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute::class,
+            $model
+        );
+    }
+
+    /**
+     * @param string $attributeGroupName
+     * @param string $attributeValue
+     * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     *
+     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute
+     */
+    public function updateAttribute($attributeGroupName, $attributeValue, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/attribute-groups/%s/attributes/%s', $attributeGroupName, $attributeValue),
+            $options,
+            [],
+            \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute::class,
+            $model
+        );
+    }
+
+    /**
+     * @param string $attributeGroupName
+     * @param string $attributeValue
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteAttribute($attributeGroupName, $attributeValue, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/attribute-groups/%s/attributes/%s', $attributeGroupName, $attributeValue),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }
