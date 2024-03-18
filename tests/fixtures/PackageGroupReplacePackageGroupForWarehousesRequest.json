@@ -1,8 +1,8 @@
 [
     {
-        "warehouseId": 3
+        "warehouseReferenceKey": "my-warehouse"
     },
     {
-        "warehouseReferenceKey": "my-key"
+        "warehouseId": 2
     }
 ]

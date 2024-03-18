@@ -7,7 +7,7 @@
     ],
     "attributes": [
         {
-            "name": "seasoon",
+            "name": "season",
             "type": "simple",
             "isMandatory": false
         }
