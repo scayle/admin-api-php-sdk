@@ -2,5 +2,5 @@
     "id": 42,
     "event": "customer-created",
     "version": 1,
-    "url": "https:\/\/foo:bar@foobar.tld\/notifiy"
+    "url": "https:\/\/***:***@foobar.tld\/notifiy"
 }
