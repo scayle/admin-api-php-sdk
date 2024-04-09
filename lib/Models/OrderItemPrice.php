@@ -8,6 +8,10 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property OrderTax $tax
  * @property int $withTax
  * @property int $withoutTax
+ * @property int $overrideWithoutTax
+ * @property int $overrideWithTax
+ * @property int $undiscountedWithOutTax Undiscounted item price **excluding** taxes
+ * @property int $undiscountedWithTax Undiscounted item price **including** taxes
  */
 class OrderItemPrice extends ApiObject
 {

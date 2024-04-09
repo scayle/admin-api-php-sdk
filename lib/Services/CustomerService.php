@@ -148,6 +148,50 @@ class CustomerService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\CustomerPassword $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function setPassword($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
+    {
+        $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/password', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param \AboutYou\Cloud\AdminApi\Models\CustomerPasswordHash $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function setPasswordHash($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
+    {
+        $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/password-hash', $shopKey, $countryCode, $customerIdentifier),
+            $options,
+            [],
+            null,
+            $model
+        );
+    }
+
+    /**
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

@@ -7,6 +7,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $lastName
  * @property string $gender
  * @property string $title
+ * @property string $type
  */
 class CustomerAddressRecipient extends ApiObject
 {

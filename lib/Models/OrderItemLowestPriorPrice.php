@@ -3,10 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The merchant id to which the item belongs.
- * @property string $referenceKey A merchant reference key the item belongs to.
+ * @property float $relativeDifferenceToPrice
+ * @property int $withTax Lowest price including taxes
  */
-class OrderItemMerchant extends ApiObject
+class OrderItemLowestPriorPrice extends ApiObject
 {
     protected $defaultValues = [
     ];

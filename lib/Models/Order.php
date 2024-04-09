@@ -6,6 +6,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property int $id The ID of the order created
  * @property OrderAddress $address Billing and Shipping address of the customer
  * @property string $basketKey A key that uniquely identifies customer's cart
+ * @property string $campaignKey Reference to the campaign applied to this order
  * @property string $confirmedAt Timestamp when the order was confirmed
  * @property OrderContact[] $contacts Collection of contacts
  * @property OrderCost $cost Total cost of the order that includes tax, VAT, etc
@@ -20,12 +21,14 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property OrderMembershipDiscount $membershipDiscount Membership discount information
  * @property OrderPackage[] $packages Details for the package(s) part of the order
  * @property OrderPayment[] $payment Payment details
+ * @property OrderPromotion[] $promotion Order promotions
  * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails.
  * @property string $referenceKey External order reference set by the client to integrate a third party system.
  * @property OrderShipping $shipping Shipping details
  * @property string $status Status of the order e.g: invoice_completed
  * @property OrderDetailedStatus $detailedStatus
  * @property OrderVoucher[] $vouchers Applicable voucher and its details
+ * @property OrderVoucher $voucher Applicable voucher and its details
  * @property OrderLoyaltyCard $loyaltyCard
  */
 class Order extends ApiObject

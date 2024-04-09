@@ -4,9 +4,11 @@ namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
  * @property int $id
+ * @property string $shipmentKey
  * @property string $carrierKey
  * @property OrderPackageDeliveryDate $deliveryDate
  * @property string $deliveryStatus
+ * @property OrderPackageTracking $tracking
  */
 class OrderPackage extends ApiObject
 {
@@ -15,6 +17,7 @@ class OrderPackage extends ApiObject
 
     protected $classMap = [
         'deliveryDate' => \AboutYou\Cloud\AdminApi\Models\OrderPackageDeliveryDate::class,
+        'tracking' => \AboutYou\Cloud\AdminApi\Models\OrderPackageTracking::class,
     ];
 
     protected $collectionClassMap = [

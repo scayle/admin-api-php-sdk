@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
+ * @property OrderDeliverable $deliverable
  * @property OrderSubsequentDelivery $subsequentDelivery
  */
 class OrderItemDeliveryForecast extends ApiObject
@@ -12,6 +13,7 @@ class OrderItemDeliveryForecast extends ApiObject
 
     protected $classMap = [
         'subsequentDelivery' => \AboutYou\Cloud\AdminApi\Models\OrderSubsequentDelivery::class,
+        'deliverable' => \AboutYou\Cloud\AdminApi\Models\OrderDeliverable::class,
     ];
 
     protected $collectionClassMap = [

@@ -3,10 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The merchant id to which the item belongs.
- * @property string $referenceKey A merchant reference key the item belongs to.
+ * @property string $hash
  */
-class OrderItemMerchant extends ApiObject
+class OrderItemProductImage extends ApiObject
 {
     protected $defaultValues = [
     ];

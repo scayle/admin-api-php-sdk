@@ -95,6 +95,26 @@ final class CustomerTest extends BaseApiTestCase
         $responseEntity = $this->api->customers->anonymize('acme', 'acme', Identifier::fromId(1), []);
     }
 
+    public function testSetPassword()
+    {
+        $expectedRequestJson = $this->loadFixture('CustomerSetPasswordRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerPassword($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->customers->setPassword('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
+    }
+
+    public function testSetPasswordHash()
+    {
+        $expectedRequestJson = $this->loadFixture('CustomerSetPasswordHashRequest.json');
+
+        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\CustomerPasswordHash($expectedRequestJson);
+        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->customers->setPasswordHash('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
+    }
+
     public function testGetStatus()
     {
         $responseEntity = $this->api->customers->getStatus('acme', 'acme', Identifier::fromId(1), []);

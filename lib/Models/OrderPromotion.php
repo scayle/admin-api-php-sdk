@@ -3,10 +3,13 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The merchant id to which the item belongs.
- * @property string $referenceKey A merchant reference key the item belongs to.
+ * @property string $id
+ * @property string $code
+ * @property string $displayName
+ * @property string $reduction
+ * @property string $version
  */
-class OrderItemMerchant extends ApiObject
+class OrderPromotion extends ApiObject
 {
     protected $defaultValues = [
     ];
