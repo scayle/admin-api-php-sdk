@@ -46,5 +46,6 @@ class ServiceFactory extends AbstractServiceFactory
         'merchants' => \AboutYou\Cloud\AdminApi\Services\MerchantService::class,
         'warehouses' => \AboutYou\Cloud\AdminApi\Services\WarehouseService::class,
         'promotions' => \AboutYou\Cloud\AdminApi\Services\PromotionService::class,
+        'audiences' => \AboutYou\Cloud\AdminApi\Services\AudienceService::class,
     ];
 }

@@ -42,6 +42,7 @@ use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
  * @property \AboutYou\Cloud\AdminApi\Services\MerchantService $merchants
  * @property \AboutYou\Cloud\AdminApi\Services\WarehouseService $warehouses
  * @property \AboutYou\Cloud\AdminApi\Services\PromotionService $promotions
+ * @property \AboutYou\Cloud\AdminApi\Services\AudienceService $audiences
  */
 class AdminAPI extends AbstractApi
 {
