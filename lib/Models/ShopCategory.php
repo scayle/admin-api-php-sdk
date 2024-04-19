@@ -24,9 +24,9 @@ class ShopCategory extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'productSets' => \AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet::class,
-        'properties' => \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty::class,
-        'countries' => \AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry::class,
+        'productSets' => ShopCategoryProductSet::class,
+        'properties' => ShopCategoryProperty::class,
+        'countries' => ShopCategoryCountry::class,
     ];
 
     protected $polymorphic = [

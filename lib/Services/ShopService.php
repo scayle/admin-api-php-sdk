@@ -3,18 +3,20 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Shop;
+use AboutYou\Cloud\AdminApi\Models\ShopCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ShopService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Shop $model the model to create or update
+     * @param Shop $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Shop
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Shop
      */
     public function create($model, $options = [])
     {
@@ -23,7 +25,7 @@ class ShopService extends AbstractService
             $this->resolvePath('/shops'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Shop::class,
+            Shop::class,
             $model
         );
     }
@@ -31,10 +33,10 @@ class ShopService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return ShopCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCollection
      */
     public function all($options = [])
     {
@@ -43,7 +45,7 @@ class ShopService extends AbstractService
             $this->resolvePath('/shops'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCollection::class,
+            ShopCollection::class,
             null
         );
     }
@@ -52,10 +54,10 @@ class ShopService extends AbstractService
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
+     * @return Shop
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Shop
      */
     public function get($shopKey, $options = [])
     {
@@ -64,20 +66,20 @@ class ShopService extends AbstractService
             $this->resolvePath('/shops/%s', $shopKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Shop::class,
+            Shop::class,
             null
         );
     }
 
     /**
      * @param string $shopKey
-     * @param \AboutYou\Cloud\AdminApi\Models\Shop $model the model to create or update
+     * @param Shop $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Shop
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Shop
      */
     public function update($shopKey, $model, $options = [])
     {
@@ -86,7 +88,7 @@ class ShopService extends AbstractService
             $this->resolvePath('/shops/%s', $shopKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Shop::class,
+            Shop::class,
             $model
         );
     }
@@ -96,10 +98,10 @@ class ShopService extends AbstractService
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomData($shopKey, $model, $options = [])
     {
@@ -136,10 +138,10 @@ class ShopService extends AbstractService
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomData($shopKey, $options = [])
     {
@@ -159,10 +161,10 @@ class ShopService extends AbstractService
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomDataForKey($shopKey, $key, $model, $options = [])
     {
@@ -201,10 +203,10 @@ class ShopService extends AbstractService
      * @param string $key
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomDataForKey($shopKey, $key, $options = [])
     {

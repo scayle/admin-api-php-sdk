@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Cancellation;
+
 /**
  * @internal
  */
@@ -11,8 +13,8 @@ final class CancellationTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('CancellationSendRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Cancellation($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Cancellation($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->cancellations->send($requestEntity, []);
     }

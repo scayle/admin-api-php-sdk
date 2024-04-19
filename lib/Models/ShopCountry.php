@@ -24,11 +24,11 @@ class ShopCountry extends ApiObject
     ];
 
     protected $classMap = [
-        'assortment' => \AboutYou\Cloud\AdminApi\Models\Assortment::class,
+        'assortment' => Assortment::class,
     ];
 
     protected $collectionClassMap = [
-        'warehouses' => \AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse::class,
+        'warehouses' => ShopCountryWarehouse::class,
     ];
 
     protected $polymorphic = [

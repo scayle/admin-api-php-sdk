@@ -17,7 +17,7 @@ class Cancellation extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'items' => \AboutYou\Cloud\AdminApi\Models\CancellationItem::class,
+        'items' => CancellationItem::class,
     ];
 
     protected $polymorphic = [

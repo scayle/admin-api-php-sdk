@@ -17,8 +17,8 @@ class Warehouse extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'merchants' => \AboutYou\Cloud\AdminApi\Models\Merchant::class,
-        'shopCountries' => \AboutYou\Cloud\AdminApi\Models\WarehouseShopCountry::class,
+        'merchants' => Merchant::class,
+        'shopCountries' => WarehouseShopCountry::class,
     ];
 
     protected $polymorphic = [

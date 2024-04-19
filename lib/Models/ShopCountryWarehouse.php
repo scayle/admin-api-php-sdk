@@ -14,7 +14,7 @@ class ShopCountryWarehouse extends ApiObject
     ];
 
     protected $classMap = [
-        'packageGroup' => \AboutYou\Cloud\AdminApi\Models\PackageGroup::class,
+        'packageGroup' => PackageGroup::class,
     ];
 
     protected $collectionClassMap = [

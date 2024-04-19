@@ -3,18 +3,20 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Asset;
+use AboutYou\Cloud\AdminApi\Models\AssetUrl;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class AssetService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Asset $model the model to create or update
+     * @param Asset $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return AssetUrl
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AssetUrl
      */
     public function create($model, $options = [])
     {
@@ -23,7 +25,7 @@ class AssetService extends AbstractService
             $this->resolvePath('/assets'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AssetUrl::class,
+            AssetUrl::class,
             $model
         );
     }

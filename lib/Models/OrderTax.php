@@ -11,7 +11,7 @@ class OrderTax extends ApiObject
     ];
 
     protected $classMap = [
-        'vat' => \AboutYou\Cloud\AdminApi\Models\OrderVat::class,
+        'vat' => OrderVat::class,
     ];
 
     protected $collectionClassMap = [

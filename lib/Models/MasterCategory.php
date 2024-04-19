@@ -17,7 +17,7 @@ class MasterCategory extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class,
+        'attributes' => MasterCategoryAttribute::class,
     ];
 
     protected $polymorphic = [

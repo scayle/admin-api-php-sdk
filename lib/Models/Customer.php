@@ -28,11 +28,11 @@ class Customer extends ApiObject
     ];
 
     protected $classMap = [
-        'status' => \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class,
+        'status' => CustomerStatus::class,
     ];
 
     protected $collectionClassMap = [
-        'addresses' => \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+        'addresses' => CustomerAddress::class,
     ];
 
     protected $polymorphic = [

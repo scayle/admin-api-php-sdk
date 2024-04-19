@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\WebhookEventCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class WebhookEventService extends AbstractService
@@ -10,10 +11,10 @@ class WebhookEventService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return WebhookEventCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\WebhookEventCollection
      */
     public function all($options = [])
     {
@@ -22,7 +23,7 @@ class WebhookEventService extends AbstractService
             $this->resolvePath('/webhooks/events'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\WebhookEventCollection::class,
+            WebhookEventCollection::class,
             null
         );
     }

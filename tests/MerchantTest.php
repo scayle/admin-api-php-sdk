@@ -3,6 +3,15 @@
 namespace AboutYou\Cloud\AdminApi;
 
 use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\Merchant;
+use AboutYou\Cloud\AdminApi\Models\MerchantCarrier;
+use AboutYou\Cloud\AdminApi\Models\MerchantCollection;
+use AboutYou\Cloud\AdminApi\Models\MerchantContact;
+use AboutYou\Cloud\AdminApi\Models\MerchantContactCollection;
+use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress;
+use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddressCollection;
+use AboutYou\Cloud\AdminApi\Models\Warehouse;
+use AboutYou\Cloud\AdminApi\Models\WarehouseCollection;
 
 /**
  * @internal
@@ -14,20 +23,20 @@ final class MerchantTest extends BaseApiTestCase
         $responseEntity = $this->api->merchants->all([]);
 
         $expectedResponseJson = $this->loadFixture('MerchantAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Merchant::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+            self::assertInstanceOf(Merchant::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', MerchantContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', MerchantReturnAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', Warehouse::class);
         }
     }
 
@@ -36,51 +45,51 @@ final class MerchantTest extends BaseApiTestCase
         $responseEntity = $this->api->merchants->get(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('MerchantGetResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Merchant::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Merchant::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testCreate()
     {
         $expectedRequestJson = $this->loadFixture('MerchantCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Merchant($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Merchant($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Merchant::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Merchant::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testUpdate()
     {
         $expectedRequestJson = $this->loadFixture('MerchantUpdateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Merchant($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Merchant($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->update(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantUpdateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Merchant::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Merchant::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testAllContacts()
@@ -88,20 +97,20 @@ final class MerchantTest extends BaseApiTestCase
         $responseEntity = $this->api->merchants->allContacts(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('MerchantAllContactsResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantContactCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantContactCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantContact::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+            self::assertInstanceOf(MerchantContact::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', MerchantContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', MerchantReturnAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', Warehouse::class);
         }
     }
 
@@ -110,51 +119,51 @@ final class MerchantTest extends BaseApiTestCase
         $responseEntity = $this->api->merchants->getContact(Identifier::fromId(1), 1, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantGetContactResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantContact::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantContact::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testCreateContact()
     {
         $expectedRequestJson = $this->loadFixture('MerchantCreateContactRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MerchantContact($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new MerchantContact($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->createContact(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantCreateContactResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantContact::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantContact::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testUpdateContact()
     {
         $expectedRequestJson = $this->loadFixture('MerchantUpdateContactRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MerchantContact($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new MerchantContact($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->updateContact(Identifier::fromId(1), 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantUpdateContactResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantContact::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantContact::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testDeleteContact()
@@ -167,20 +176,20 @@ final class MerchantTest extends BaseApiTestCase
         $responseEntity = $this->api->merchants->allReturnAddresses(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('MerchantAllReturnAddressesResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantReturnAddressCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantReturnAddressCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+            self::assertInstanceOf(MerchantReturnAddress::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', MerchantContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', MerchantReturnAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', Warehouse::class);
         }
     }
 
@@ -189,51 +198,51 @@ final class MerchantTest extends BaseApiTestCase
         $responseEntity = $this->api->merchants->getReturnAddress(Identifier::fromId(1), 1, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantGetReturnAddressResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantReturnAddress::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testCreateReturnAddress()
     {
         $expectedRequestJson = $this->loadFixture('MerchantCreateReturnAddressRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new MerchantReturnAddress($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->createReturnAddress(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantCreateReturnAddressResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantReturnAddress::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testUpdateReturnAddress()
     {
         $expectedRequestJson = $this->loadFixture('MerchantUpdateReturnAddressRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new MerchantReturnAddress($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->updateReturnAddress(Identifier::fromId(1), 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantUpdateReturnAddressResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MerchantReturnAddress::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
     }
 
     public function testDeleteReturnAddress()
@@ -256,20 +265,20 @@ final class MerchantTest extends BaseApiTestCase
         $responseEntity = $this->api->merchants->allWarehouses(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('MerchantAllWarehousesResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WarehouseCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(WarehouseCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'returnAddresses', MerchantReturnAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'carriers', MerchantCarrier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', Warehouse::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Warehouse::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\MerchantContact::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', \AboutYou\Cloud\AdminApi\Models\Warehouse::class);
+            self::assertInstanceOf(Warehouse::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', MerchantContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'returnAddresses', MerchantReturnAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'carriers', MerchantCarrier::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', Warehouse::class);
         }
     }
 

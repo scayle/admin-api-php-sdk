@@ -4,12 +4,13 @@ namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Helpers\ArrayHelper;
+use AboutYou\Cloud\AdminApi\Models\Shipment;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ShipmentService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Shipment $model the model to create or update
+     * @param Shipment $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

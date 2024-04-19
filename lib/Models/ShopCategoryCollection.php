@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ShopCategoryCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\ShopCategory::class,
+        'entities' => ShopCategory::class,
     ];
 
     /**

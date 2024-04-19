@@ -15,8 +15,8 @@ class OrderFee extends ApiObject
     ];
 
     protected $classMap = [
-        'amount' => \AboutYou\Cloud\AdminApi\Models\OrderFeeAmount::class,
-        'tax' => \AboutYou\Cloud\AdminApi\Models\OrderTax::class,
+        'amount' => OrderFeeAmount::class,
+        'tax' => OrderTax::class,
     ];
 
     protected $collectionClassMap = [

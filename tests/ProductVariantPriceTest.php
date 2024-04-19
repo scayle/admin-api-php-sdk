@@ -3,6 +3,9 @@
 namespace AboutYou\Cloud\AdminApi;
 
 use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantPrice;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice;
 
 /**
  * @internal
@@ -13,16 +16,16 @@ final class ProductVariantPriceTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('ProductVariantPriceCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new ProductVariantPrice($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->productVariantPrices->create(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantPriceCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(ProductVariantPrice::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'unitPrice', \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'unitPrice', ProductVariantUnitPrice::class);
     }
 
     public function testAll()
@@ -30,14 +33,14 @@ final class ProductVariantPriceTest extends BaseApiTestCase
         $responseEntity = $this->api->productVariantPrices->all(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductVariantPriceAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(ProductVariantPriceCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'unitPrice', \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'unitPrice', ProductVariantUnitPrice::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'unitPrice', \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class);
+            self::assertInstanceOf(ProductVariantPrice::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'unitPrice', ProductVariantUnitPrice::class);
         }
     }
 

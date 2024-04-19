@@ -21,7 +21,7 @@ class Shipment extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'items' => \AboutYou\Cloud\AdminApi\Models\ShipmentOrderItem::class,
+        'items' => ShipmentOrderItem::class,
     ];
 
     protected $polymorphic = [

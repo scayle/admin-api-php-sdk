@@ -2,6 +2,10 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\PackageGroup;
+use AboutYou\Cloud\AdminApi\Models\PackageGroupCollection;
+use AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse;
+
 /**
  * @internal
  */
@@ -12,11 +16,11 @@ final class PackageGroupTest extends BaseApiTestCase
         $responseEntity = $this->api->packageGroups->all('acme', 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('PackageGroupAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\PackageGroupCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(PackageGroupCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\PackageGroup::class, $collectionEntity);
+            self::assertInstanceOf(PackageGroup::class, $collectionEntity);
         }
     }
 
@@ -26,7 +30,7 @@ final class PackageGroupTest extends BaseApiTestCase
 
         $requestEntity = [];
         foreach ($expectedRequestJson as $entity) {
-            $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse($entity);
+            $requestEntity[] = new PackageGroupWarehouse($entity);
         }
 
         $responseEntity = $this->api->packageGroups->assignPackageGroupToWarehouses('acme', 'acme', 1, $requestEntity, []);
@@ -38,7 +42,7 @@ final class PackageGroupTest extends BaseApiTestCase
 
         $requestEntity = [];
         foreach ($expectedRequestJson as $entity) {
-            $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse($entity);
+            $requestEntity[] = new PackageGroupWarehouse($entity);
         }
 
         $responseEntity = $this->api->packageGroups->replacePackageGroupForWarehouses('acme', 'acme', 1, $requestEntity, []);

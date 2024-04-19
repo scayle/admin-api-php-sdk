@@ -13,9 +13,9 @@ class OrderDetailedStatus extends ApiObject
     ];
 
     protected $classMap = [
-        'order' => \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatusItem::class,
-        'shipping' => \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatusItem::class,
-        'billing' => \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatusItem::class,
+        'order' => OrderDetailedStatusItem::class,
+        'shipping' => OrderDetailedStatusItem::class,
+        'billing' => OrderDetailedStatusItem::class,
     ];
 
     protected $collectionClassMap = [

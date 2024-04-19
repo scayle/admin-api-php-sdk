@@ -25,16 +25,16 @@ class Promotion extends ApiObject
     ];
 
     protected $classMap = [
-        'schedule' => \AboutYou\Cloud\AdminApi\Models\PromotionSchedule::class,
-        'siblingPromotions' => \AboutYou\Cloud\AdminApi\Models\PromotionSiblingPromotions::class,
-        'audiences' => \AboutYou\Cloud\AdminApi\Models\PromotionAudiences::class,
-        'effect' => \AboutYou\Cloud\AdminApi\Models\PromotionEffect::class,
+        'schedule' => PromotionSchedule::class,
+        'siblingPromotions' => PromotionSiblingPromotions::class,
+        'audiences' => PromotionAudiences::class,
+        'effect' => PromotionEffect::class,
     ];
 
     protected $collectionClassMap = [
-        'globalConditions' => \AboutYou\Cloud\AdminApi\Models\PromotionGlobalCondition::class,
-        'itemConditions' => \AboutYou\Cloud\AdminApi\Models\PromotionItemCondition::class,
-        'tiers' => \AboutYou\Cloud\AdminApi\Models\PromotionTier::class,
+        'globalConditions' => PromotionGlobalCondition::class,
+        'itemConditions' => PromotionItemCondition::class,
+        'tiers' => PromotionTier::class,
     ];
 
     protected $polymorphic = [

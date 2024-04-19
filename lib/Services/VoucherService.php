@@ -3,6 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Voucher;
+use AboutYou\Cloud\AdminApi\Models\VoucherCollection;
+use AboutYou\Cloud\AdminApi\Models\VoucherCriterion;
+use AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class VoucherService extends AbstractService
@@ -12,10 +16,10 @@ class VoucherService extends AbstractService
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
+     * @return VoucherCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCollection
      */
     public function all($shopKey, $countryCode, $options = [])
     {
@@ -24,7 +28,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\VoucherCollection::class,
+            VoucherCollection::class,
             null
         );
     }
@@ -35,10 +39,10 @@ class VoucherService extends AbstractService
      * @param int $voucherId
      * @param array $options additional options like limit or filters
      *
+     * @return Voucher
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Voucher
      */
     public function get($shopKey, $countryCode, $voucherId, $options = [])
     {
@@ -47,7 +51,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Voucher::class,
+            Voucher::class,
             null
         );
     }
@@ -55,13 +59,13 @@ class VoucherService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Voucher $model the model to create or update
+     * @param Voucher $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Voucher
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Voucher
      */
     public function create($shopKey, $countryCode, $model, $options = [])
     {
@@ -70,7 +74,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Voucher::class,
+            Voucher::class,
             $model
         );
     }
@@ -79,13 +83,13 @@ class VoucherService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
-     * @param \AboutYou\Cloud\AdminApi\Models\Voucher $model the model to create or update
+     * @param Voucher $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Voucher
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Voucher
      */
     public function update($shopKey, $countryCode, $voucherId, $model, $options = [])
     {
@@ -94,7 +98,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Voucher::class,
+            Voucher::class,
             $model
         );
     }
@@ -126,10 +130,10 @@ class VoucherService extends AbstractService
      * @param int $voucherId
      * @param array $options additional options like limit or filters
      *
+     * @return VoucherCriterionCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection
      */
     public function getCriteria($shopKey, $countryCode, $voucherId, $options = [])
     {
@@ -138,7 +142,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection::class,
+            VoucherCriterionCollection::class,
             null
         );
     }
@@ -150,10 +154,10 @@ class VoucherService extends AbstractService
      * @param int $voucherCriterionId
      * @param array $options additional options like limit or filters
      *
+     * @return VoucherCriterion
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterion
      */
     public function getCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $options = [])
     {
@@ -162,7 +166,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class,
+            VoucherCriterion::class,
             null
         );
     }
@@ -171,13 +175,13 @@ class VoucherService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $voucherId
-     * @param \AboutYou\Cloud\AdminApi\Models\VoucherCriterion $model the model to create or update
+     * @param VoucherCriterion $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return VoucherCriterion
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterion
      */
     public function createCriterion($shopKey, $countryCode, $voucherId, $model, $options = [])
     {
@@ -186,7 +190,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class,
+            VoucherCriterion::class,
             $model
         );
     }
@@ -196,13 +200,13 @@ class VoucherService extends AbstractService
      * @param string $countryCode
      * @param int $voucherId
      * @param int $voucherCriterionId
-     * @param \AboutYou\Cloud\AdminApi\Models\VoucherCriterion $model the model to create or update
+     * @param VoucherCriterion $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return VoucherCriterion
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\VoucherCriterion
      */
     public function updateCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $model, $options = [])
     {
@@ -211,7 +215,7 @@ class VoucherService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class,
+            VoucherCriterion::class,
             $model
         );
     }

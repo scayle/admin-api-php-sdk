@@ -22,9 +22,9 @@ class ProductVariant extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'prices' => \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class,
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
-        'relatedVariants' => \AboutYou\Cloud\AdminApi\Models\RelatedProductVariant::class,
+        'prices' => ProductVariantPrice::class,
+        'attributes' => Attribute::class,
+        'relatedVariants' => RelatedProductVariant::class,
     ];
 
     protected $polymorphic = [

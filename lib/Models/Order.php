@@ -37,22 +37,22 @@ class Order extends ApiObject
     ];
 
     protected $classMap = [
-        'shipping' => \AboutYou\Cloud\AdminApi\Models\OrderShipping::class,
-        'customer' => \AboutYou\Cloud\AdminApi\Models\Customer::class,
-        'cost' => \AboutYou\Cloud\AdminApi\Models\OrderCost::class,
-        'address' => \AboutYou\Cloud\AdminApi\Models\OrderAddress::class,
-        'membershipDiscount' => \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class,
-        'shopCountry' => \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
-        'loyaltyCard' => \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class,
-        'detailedStatus' => \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class,
+        'shipping' => OrderShipping::class,
+        'customer' => Customer::class,
+        'cost' => OrderCost::class,
+        'address' => OrderAddress::class,
+        'membershipDiscount' => OrderMembershipDiscount::class,
+        'shopCountry' => ShopCountry::class,
+        'loyaltyCard' => OrderLoyaltyCard::class,
+        'detailedStatus' => OrderDetailedStatus::class,
     ];
 
     protected $collectionClassMap = [
-        'vouchers' => \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class,
-        'payment' => \AboutYou\Cloud\AdminApi\Models\OrderPayment::class,
-        'items' => \AboutYou\Cloud\AdminApi\Models\OrderItem::class,
-        'contacts' => \AboutYou\Cloud\AdminApi\Models\OrderContact::class,
-        'packages' => \AboutYou\Cloud\AdminApi\Models\OrderPackage::class,
+        'vouchers' => OrderVoucher::class,
+        'payment' => OrderPayment::class,
+        'items' => OrderItem::class,
+        'contacts' => OrderContact::class,
+        'packages' => OrderPackage::class,
     ];
 
     protected $polymorphic = [

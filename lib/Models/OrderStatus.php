@@ -12,7 +12,7 @@ class OrderStatus extends ApiObject
     ];
 
     protected $classMap = [
-        'detailedStatus' => \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class,
+        'detailedStatus' => OrderDetailedStatus::class,
     ];
 
     protected $collectionClassMap = [

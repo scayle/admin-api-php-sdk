@@ -21,10 +21,10 @@ class Merchant extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'contacts' => \AboutYou\Cloud\AdminApi\Models\MerchantContact::class,
-        'returnAddresses' => \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class,
-        'carriers' => \AboutYou\Cloud\AdminApi\Models\MerchantCarrier::class,
-        'warehouses' => \AboutYou\Cloud\AdminApi\Models\Warehouse::class,
+        'contacts' => MerchantContact::class,
+        'returnAddresses' => MerchantReturnAddress::class,
+        'carriers' => MerchantCarrier::class,
+        'warehouses' => Warehouse::class,
     ];
 
     protected $polymorphic = [

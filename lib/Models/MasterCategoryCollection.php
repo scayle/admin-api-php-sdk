@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class MasterCategoryCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\MasterCategory::class,
+        'entities' => MasterCategory::class,
     ];
 
     /**

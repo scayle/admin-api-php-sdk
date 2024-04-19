@@ -3,6 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Audience;
+use AboutYou\Cloud\AdminApi\Models\AudienceCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class AudienceService extends AbstractService
@@ -10,10 +12,10 @@ class AudienceService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return AudienceCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AudienceCollection
      */
     public function getAudiences($options = [])
     {
@@ -22,7 +24,49 @@ class AudienceService extends AbstractService
             $this->resolvePath('/promotions/audiences'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AudienceCollection::class,
+            AudienceCollection::class,
+            null
+        );
+    }
+
+    /**
+     * @param Audience $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @return Audience
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createAudience($model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/promotions/audiences'),
+            $options,
+            [],
+            Audience::class,
+            $model
+        );
+    }
+
+    /**
+     * @param string $audienceId
+     * @param array $options additional options like limit or filters
+     *
+     * @return Audience
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function getAudience($audienceId, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/promotions/audiences/%s', $audienceId),
+            $options,
+            [],
+            Audience::class,
             null
         );
     }

@@ -19,12 +19,12 @@ class OrderItemPrice extends ApiObject
     ];
 
     protected $classMap = [
-        'tax' => \AboutYou\Cloud\AdminApi\Models\OrderTax::class,
-        'reference' => \AboutYou\Cloud\AdminApi\Models\OrderItemPriceReference::class,
+        'tax' => OrderTax::class,
+        'reference' => OrderItemPriceReference::class,
     ];
 
     protected $collectionClassMap = [
-        'appliedReductions' => \AboutYou\Cloud\AdminApi\Models\OrderReduction::class,
+        'appliedReductions' => OrderReduction::class,
     ];
 
     protected $polymorphic = [

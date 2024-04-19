@@ -3,19 +3,22 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantStock;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ProductVariantStockService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantStock $model the model to create or update
+     * @param Identifier $variantIdentifier
+     * @param ProductVariantStock $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariantStock
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantStock
      */
     public function create($variantIdentifier, $model, $options = [])
     {
@@ -24,19 +27,19 @@ class ProductVariantStockService extends AbstractService
             $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariantStock::class,
+            ProductVariantStock::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariantStockCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection
      */
     public function all($variantIdentifier, $options = [])
     {
@@ -45,7 +48,7 @@ class ProductVariantStockService extends AbstractService
             $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection::class,
+            ProductVariantStockCollection::class,
             null
         );
     }

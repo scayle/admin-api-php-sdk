@@ -19,7 +19,7 @@ class ShopCategoryProductSet extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\ShopCategoryAttributeCriterion::class,
+        'attributes' => ShopCategoryAttributeCriterion::class,
     ];
 
     protected $polymorphic = [

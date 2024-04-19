@@ -3,18 +3,20 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\WebhookSubscription;
+use AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class WebhookSubscriptionService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\WebhookSubscription $model the model to create or update
+     * @param WebhookSubscription $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return WebhookSubscription
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\WebhookSubscription
      */
     public function create($model, $options = [])
     {
@@ -23,7 +25,7 @@ class WebhookSubscriptionService extends AbstractService
             $this->resolvePath('/webhooks/subscriptions'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class,
+            WebhookSubscription::class,
             $model
         );
     }
@@ -32,10 +34,10 @@ class WebhookSubscriptionService extends AbstractService
      * @param int $subscriptionId
      * @param array $options additional options like limit or filters
      *
+     * @return WebhookSubscription
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\WebhookSubscription
      */
     public function get($subscriptionId, $options = [])
     {
@@ -44,7 +46,7 @@ class WebhookSubscriptionService extends AbstractService
             $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class,
+            WebhookSubscription::class,
             null
         );
     }
@@ -52,10 +54,10 @@ class WebhookSubscriptionService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return WebhookSubscriptionCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection
      */
     public function all($options = [])
     {
@@ -64,7 +66,7 @@ class WebhookSubscriptionService extends AbstractService
             $this->resolvePath('/webhooks/subscriptions'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection::class,
+            WebhookSubscriptionCollection::class,
             null
         );
     }

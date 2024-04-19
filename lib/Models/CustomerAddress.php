@@ -21,9 +21,9 @@ class CustomerAddress extends ApiObject
     ];
 
     protected $classMap = [
-        'collectionPoint' => \AboutYou\Cloud\AdminApi\Models\CustomerAddressCollectionPoint::class,
-        'isDefault' => \AboutYou\Cloud\AdminApi\Models\CustomerAddressDefault::class,
-        'recipient' => \AboutYou\Cloud\AdminApi\Models\CustomerAddressRecipient::class,
+        'collectionPoint' => CustomerAddressCollectionPoint::class,
+        'isDefault' => CustomerAddressDefault::class,
+        'recipient' => CustomerAddressRecipient::class,
     ];
 
     protected $collectionClassMap = [

@@ -17,11 +17,11 @@ class Brand extends ApiObject
     ];
 
     protected $classMap = [
-        'logoSource' => \AboutYou\Cloud\AdminApi\Models\AssetSource::class,
+        'logoSource' => AssetSource::class,
     ];
 
     protected $collectionClassMap = [
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+        'attributes' => Attribute::class,
     ];
 
     protected $polymorphic = [

@@ -2,47 +2,83 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Services\AssetService;
+use AboutYou\Cloud\AdminApi\Services\AttributeGroupService;
+use AboutYou\Cloud\AdminApi\Services\AttributeTranslationService;
+use AboutYou\Cloud\AdminApi\Services\AudienceService;
+use AboutYou\Cloud\AdminApi\Services\BrandService;
+use AboutYou\Cloud\AdminApi\Services\CampaignService;
+use AboutYou\Cloud\AdminApi\Services\CancellationService;
+use AboutYou\Cloud\AdminApi\Services\CarrierService;
+use AboutYou\Cloud\AdminApi\Services\CompanyService;
+use AboutYou\Cloud\AdminApi\Services\CustomDataConfigService;
+use AboutYou\Cloud\AdminApi\Services\CustomerService;
+use AboutYou\Cloud\AdminApi\Services\MasterCategoryService;
+use AboutYou\Cloud\AdminApi\Services\MasterService;
+use AboutYou\Cloud\AdminApi\Services\MerchantService;
+use AboutYou\Cloud\AdminApi\Services\OrderService;
+use AboutYou\Cloud\AdminApi\Services\PackageGroupService;
+use AboutYou\Cloud\AdminApi\Services\ProductImageService;
+use AboutYou\Cloud\AdminApi\Services\ProductService;
+use AboutYou\Cloud\AdminApi\Services\ProductSortingService;
+use AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService;
+use AboutYou\Cloud\AdminApi\Services\ProductVariantService;
+use AboutYou\Cloud\AdminApi\Services\ProductVariantStockService;
+use AboutYou\Cloud\AdminApi\Services\PromotionService;
+use AboutYou\Cloud\AdminApi\Services\ReturnItemService;
 use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
+use AboutYou\Cloud\AdminApi\Services\ShipmentService;
+use AboutYou\Cloud\AdminApi\Services\ShopCategoryProductSetUnlinkInstructionService;
+use AboutYou\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService;
+use AboutYou\Cloud\AdminApi\Services\ShopCategoryService;
+use AboutYou\Cloud\AdminApi\Services\ShopCountryPriceRoundingService;
+use AboutYou\Cloud\AdminApi\Services\ShopCountryService;
+use AboutYou\Cloud\AdminApi\Services\ShopCountryWarehouseService;
+use AboutYou\Cloud\AdminApi\Services\ShopService;
+use AboutYou\Cloud\AdminApi\Services\VoucherService;
+use AboutYou\Cloud\AdminApi\Services\WarehouseService;
+use AboutYou\Cloud\AdminApi\Services\WebhookEventService;
+use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
 
 /**
  * Allows access to AdminApi functions.
  *
- * @property \AboutYou\Cloud\AdminApi\Services\ProductService $products
- * @property \AboutYou\Cloud\AdminApi\Services\MasterService $masters
- * @property \AboutYou\Cloud\AdminApi\Services\ProductImageService $productImages
- * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantService $productVariants
- * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService $productVariantPrices
- * @property \AboutYou\Cloud\AdminApi\Services\AttributeTranslationService $attributeTranslations
- * @property \AboutYou\Cloud\AdminApi\Services\ProductVariantStockService $productVariantStocks
- * @property \AboutYou\Cloud\AdminApi\Services\ShopService $shops
- * @property \AboutYou\Cloud\AdminApi\Services\AttributeGroupService $attributeGroups
- * @property \AboutYou\Cloud\AdminApi\Services\CampaignService $campaigns
- * @property \AboutYou\Cloud\AdminApi\Services\MasterCategoryService $masterCategories
- * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryService $shopCategories
- * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService $shopCategoryPropertyKeys
- * @property \AboutYou\Cloud\AdminApi\Services\ShopCategoryProductSetUnlinkInstructionService $shopCategoryProductSetUnlinkInstructions
- * @property \AboutYou\Cloud\AdminApi\Services\ShopCountryService $shopCountries
- * @property \AboutYou\Cloud\AdminApi\Services\BrandService $brands
- * @property \AboutYou\Cloud\AdminApi\Services\ProductSortingService $productSortings
- * @property \AboutYou\Cloud\AdminApi\Services\ShopCountryWarehouseService $shopCountryWarehouses
- * @property \AboutYou\Cloud\AdminApi\Services\ShopCountryPriceRoundingService $shopCountryPriceRoundings
- * @property \AboutYou\Cloud\AdminApi\Services\PackageGroupService $packageGroups
- * @property \AboutYou\Cloud\AdminApi\Services\CustomDataConfigService $customDataConfigs
- * @property \AboutYou\Cloud\AdminApi\Services\CustomerService $customers
- * @property \AboutYou\Cloud\AdminApi\Services\OrderService $orders
- * @property \AboutYou\Cloud\AdminApi\Services\ShipmentService $shipments
- * @property \AboutYou\Cloud\AdminApi\Services\WebhookEventService $webhookEvents
- * @property \AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService $webhookSubscriptions
- * @property \AboutYou\Cloud\AdminApi\Services\CancellationService $cancellations
- * @property \AboutYou\Cloud\AdminApi\Services\ReturnItemService $returnItems
- * @property \AboutYou\Cloud\AdminApi\Services\VoucherService $vouchers
- * @property \AboutYou\Cloud\AdminApi\Services\CompanyService $companies
- * @property \AboutYou\Cloud\AdminApi\Services\AssetService $assets
- * @property \AboutYou\Cloud\AdminApi\Services\CarrierService $carriers
- * @property \AboutYou\Cloud\AdminApi\Services\MerchantService $merchants
- * @property \AboutYou\Cloud\AdminApi\Services\WarehouseService $warehouses
- * @property \AboutYou\Cloud\AdminApi\Services\PromotionService $promotions
- * @property \AboutYou\Cloud\AdminApi\Services\AudienceService $audiences
+ * @property ProductService $products
+ * @property MasterService $masters
+ * @property ProductImageService $productImages
+ * @property ProductVariantService $productVariants
+ * @property ProductVariantPriceService $productVariantPrices
+ * @property AttributeTranslationService $attributeTranslations
+ * @property ProductVariantStockService $productVariantStocks
+ * @property ShopService $shops
+ * @property AttributeGroupService $attributeGroups
+ * @property CampaignService $campaigns
+ * @property MasterCategoryService $masterCategories
+ * @property ShopCategoryService $shopCategories
+ * @property ShopCategoryPropertyKeyService $shopCategoryPropertyKeys
+ * @property ShopCategoryProductSetUnlinkInstructionService $shopCategoryProductSetUnlinkInstructions
+ * @property ShopCountryService $shopCountries
+ * @property BrandService $brands
+ * @property ProductSortingService $productSortings
+ * @property ShopCountryWarehouseService $shopCountryWarehouses
+ * @property ShopCountryPriceRoundingService $shopCountryPriceRoundings
+ * @property PackageGroupService $packageGroups
+ * @property CustomDataConfigService $customDataConfigs
+ * @property CustomerService $customers
+ * @property OrderService $orders
+ * @property ShipmentService $shipments
+ * @property WebhookEventService $webhookEvents
+ * @property WebhookSubscriptionService $webhookSubscriptions
+ * @property CancellationService $cancellations
+ * @property ReturnItemService $returnItems
+ * @property VoucherService $vouchers
+ * @property CompanyService $companies
+ * @property AssetService $assets
+ * @property CarrierService $carriers
+ * @property MerchantService $merchants
+ * @property WarehouseService $warehouses
+ * @property PromotionService $promotions
+ * @property AudienceService $audiences
  */
 class AdminAPI extends AbstractApi
 {

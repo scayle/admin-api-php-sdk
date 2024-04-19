@@ -3,18 +3,20 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Company;
+use AboutYou\Cloud\AdminApi\Models\CompanyCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class CompanyService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Company $model the model to create or update
+     * @param Company $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Company
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Company
      */
     public function create($model, $options = [])
     {
@@ -23,7 +25,7 @@ class CompanyService extends AbstractService
             $this->resolvePath('/companies'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Company::class,
+            Company::class,
             $model
         );
     }
@@ -31,10 +33,10 @@ class CompanyService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return CompanyCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CompanyCollection
      */
     public function all($options = [])
     {
@@ -43,7 +45,7 @@ class CompanyService extends AbstractService
             $this->resolvePath('/companies'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CompanyCollection::class,
+            CompanyCollection::class,
             null
         );
     }
@@ -52,10 +54,10 @@ class CompanyService extends AbstractService
      * @param int $companyId
      * @param array $options additional options like limit or filters
      *
+     * @return Company
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Company
      */
     public function get($companyId, $options = [])
     {
@@ -64,20 +66,20 @@ class CompanyService extends AbstractService
             $this->resolvePath('/companies/%s', $companyId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Company::class,
+            Company::class,
             null
         );
     }
 
     /**
      * @param int $companyId
-     * @param \AboutYou\Cloud\AdminApi\Models\Company $model the model to create or update
+     * @param Company $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Company
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Company
      */
     public function update($companyId, $model, $options = [])
     {
@@ -86,7 +88,7 @@ class CompanyService extends AbstractService
             $this->resolvePath('/companies/%s', $companyId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Company::class,
+            Company::class,
             $model
         );
     }

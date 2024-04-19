@@ -2,7 +2,24 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Customer;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\Order;
+use AboutYou\Cloud\AdminApi\Models\OrderAddress;
+use AboutYou\Cloud\AdminApi\Models\OrderCollection;
+use AboutYou\Cloud\AdminApi\Models\OrderContact;
+use AboutYou\Cloud\AdminApi\Models\OrderCost;
+use AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus;
+use AboutYou\Cloud\AdminApi\Models\OrderItem;
+use AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard;
+use AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount;
+use AboutYou\Cloud\AdminApi\Models\OrderPackage;
+use AboutYou\Cloud\AdminApi\Models\OrderPayment;
+use AboutYou\Cloud\AdminApi\Models\OrderReferenceKey;
+use AboutYou\Cloud\AdminApi\Models\OrderShipping;
+use AboutYou\Cloud\AdminApi\Models\OrderStatus;
+use AboutYou\Cloud\AdminApi\Models\OrderVoucher;
+use AboutYou\Cloud\AdminApi\Models\ShopCountry;
 
 /**
  * @internal
@@ -14,22 +31,22 @@ final class OrderTest extends BaseApiTestCase
         $responseEntity = $this->api->orders->get('acme', 'acme', Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('OrderGetResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Order::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', OrderShipping::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', OrderPayment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', OrderItem::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', OrderContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', OrderCost::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
     }
 
     public function testAll()
@@ -37,38 +54,38 @@ final class OrderTest extends BaseApiTestCase
         $responseEntity = $this->api->orders->all('acme', 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('OrderAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\OrderCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(OrderCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', OrderShipping::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', OrderPayment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', OrderItem::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', OrderContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', OrderCost::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
+            self::assertInstanceOf(Order::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'vouchers', OrderVoucher::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shipping', OrderShipping::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'payment', OrderPayment::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'items', OrderItem::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'customer', Customer::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', OrderContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'cost', OrderCost::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'address', OrderAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'packages', OrderPackage::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountry', ShopCountry::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'detailedStatus', OrderDetailedStatus::class);
         }
     }
 
@@ -76,56 +93,56 @@ final class OrderTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('OrderUpdateReferenceKeyRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\OrderReferenceKey($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new OrderReferenceKey($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->orders->updateReferenceKey('acme', 'acme', 1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('OrderUpdateReferenceKeyResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Order::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', OrderShipping::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', OrderPayment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', OrderItem::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', OrderContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', OrderCost::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
     }
 
     public function testCreate()
     {
         $expectedRequestJson = $this->loadFixture('OrderCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Order($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Order($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->orders->create('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('OrderCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Order::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Order::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', OrderShipping::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', OrderPayment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', OrderItem::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', OrderContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', OrderCost::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
     }
 
     public function testDelete()
@@ -138,21 +155,21 @@ final class OrderTest extends BaseApiTestCase
         $responseEntity = $this->api->orders->getStatus('acme', 'acme', Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('OrderGetStatusResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\OrderStatus::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(OrderStatus::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', \AboutYou\Cloud\AdminApi\Models\OrderVoucher::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', \AboutYou\Cloud\AdminApi\Models\OrderShipping::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', \AboutYou\Cloud\AdminApi\Models\OrderPayment::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', \AboutYou\Cloud\AdminApi\Models\OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', \AboutYou\Cloud\AdminApi\Models\Customer::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', \AboutYou\Cloud\AdminApi\Models\OrderContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', \AboutYou\Cloud\AdminApi\Models\OrderCost::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', \AboutYou\Cloud\AdminApi\Models\OrderAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', \AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', \AboutYou\Cloud\AdminApi\Models\OrderPackage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', \AboutYou\Cloud\AdminApi\Models\ShopCountry::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', \AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', \AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', OrderShipping::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', OrderPayment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', OrderItem::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', OrderContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', OrderCost::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
     }
 }

@@ -3,6 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\MasterCategory;
+use AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class MasterCategoryService extends AbstractService
@@ -10,10 +12,10 @@ class MasterCategoryService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return MasterCategoryCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection
      */
     public function all($options = [])
     {
@@ -22,7 +24,7 @@ class MasterCategoryService extends AbstractService
             $this->resolvePath('/master-categories'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection::class,
+            MasterCategoryCollection::class,
             null
         );
     }
@@ -31,10 +33,10 @@ class MasterCategoryService extends AbstractService
      * @param int $masterCategoryId
      * @param array $options additional options like limit or filters
      *
+     * @return MasterCategory
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MasterCategory
      */
     public function get($masterCategoryId, $options = [])
     {
@@ -43,19 +45,19 @@ class MasterCategoryService extends AbstractService
             $this->resolvePath('/master-categories/%s', $masterCategoryId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MasterCategory::class,
+            MasterCategory::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\MasterCategory $model the model to create or update
+     * @param MasterCategory $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return MasterCategory
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MasterCategory
      */
     public function create($model, $options = [])
     {
@@ -64,20 +66,20 @@ class MasterCategoryService extends AbstractService
             $this->resolvePath('/master-categories'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MasterCategory::class,
+            MasterCategory::class,
             $model
         );
     }
 
     /**
      * @param int $masterCategoryId
-     * @param \AboutYou\Cloud\AdminApi\Models\MasterCategory $model the model to create or update
+     * @param MasterCategory $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return MasterCategory
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MasterCategory
      */
     public function update($masterCategoryId, $model, $options = [])
     {
@@ -86,7 +88,7 @@ class MasterCategoryService extends AbstractService
             $this->resolvePath('/master-categories/%s', $masterCategoryId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MasterCategory::class,
+            MasterCategory::class,
             $model
         );
     }

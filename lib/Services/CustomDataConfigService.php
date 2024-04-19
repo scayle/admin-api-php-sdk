@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\CustomDataConfig;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class CustomDataConfigService extends AbstractService
@@ -11,10 +12,10 @@ class CustomDataConfigService extends AbstractService
      * @param string $entity
      * @param array $options additional options like limit or filters
      *
+     * @return CustomDataConfig
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomDataConfig
      */
     public function get($entity, $options = [])
     {
@@ -23,20 +24,20 @@ class CustomDataConfigService extends AbstractService
             $this->resolvePath('/custom-data-configs/%s', $entity),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class,
+            CustomDataConfig::class,
             null
         );
     }
 
     /**
      * @param string $entity
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomDataConfig $model the model to create or update
+     * @param CustomDataConfig $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomDataConfig
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomDataConfig
      */
     public function create($entity, $model, $options = [])
     {
@@ -45,20 +46,20 @@ class CustomDataConfigService extends AbstractService
             $this->resolvePath('/custom-data-configs/%s', $entity),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class,
+            CustomDataConfig::class,
             $model
         );
     }
 
     /**
      * @param string $entity
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomDataConfig $model the model to create or update
+     * @param CustomDataConfig $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomDataConfig
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomDataConfig
      */
     public function update($entity, $model, $options = [])
     {
@@ -67,7 +68,7 @@ class CustomDataConfigService extends AbstractService
             $this->resolvePath('/custom-data-configs/%s', $entity),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomDataConfig::class,
+            CustomDataConfig::class,
             $model
         );
     }

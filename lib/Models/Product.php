@@ -24,14 +24,14 @@ class Product extends ApiObject
     ];
 
     protected $classMap = [
-        'master' => \AboutYou\Cloud\AdminApi\Models\Master::class,
+        'master' => Master::class,
     ];
 
     protected $collectionClassMap = [
-        'variants' => \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
-        'images' => \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
-        'productSortings' => \AboutYou\Cloud\AdminApi\Models\ProductSorting::class,
+        'variants' => ProductVariant::class,
+        'images' => ProductImage::class,
+        'attributes' => Attribute::class,
+        'productSortings' => ProductSorting::class,
     ];
 
     protected $polymorphic = [

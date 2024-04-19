@@ -13,7 +13,7 @@ class OrderItemVariant extends ApiObject
     ];
 
     protected $classMap = [
-        'stock' => \AboutYou\Cloud\AdminApi\Models\OrderItemVariantStock::class,
+        'stock' => OrderItemVariantStock::class,
     ];
 
     protected $collectionClassMap = [

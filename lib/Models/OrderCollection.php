@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class OrderCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\Order::class,
+        'entities' => Order::class,
     ];
 
     /**

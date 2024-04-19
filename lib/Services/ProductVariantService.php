@@ -3,19 +3,24 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Attribute;
+use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductVariant;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ProductVariantService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param ProductVariant $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariant
      */
     public function create($productIdentifier, $model, $options = [])
     {
@@ -24,20 +29,20 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/%s/variants', $productIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            ProductVariant::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariant
      */
     public function get($productIdentifier, $variantIdentifier, $options = [])
     {
@@ -46,19 +51,19 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            ProductVariant::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param Identifier $productIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariantCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantCollection
      */
     public function all($productIdentifier, $options = [])
     {
@@ -67,21 +72,21 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/%s/variants', $productIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariantCollection::class,
+            ProductVariantCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
+     * @param ProductVariant $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariant
      */
     public function update($productIdentifier, $variantIdentifier, $model, $options = [])
     {
@@ -90,14 +95,14 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/%s/variants/%s', $productIdentifier, $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            ProductVariant::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -116,15 +121,15 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
+     * @param Attribute $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Attribute
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Attribute
      */
     public function updateOrCreateAttribute($productIdentifier, $variantIdentifier, $model, $options = [])
     {
@@ -133,14 +138,14 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/%s/variants/%s/attributes', $productIdentifier, $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            Attribute::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
@@ -160,15 +165,15 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
+     * @return Attribute
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Attribute
      */
     public function getAttribute($productIdentifier, $variantIdentifier, $attributeGroupName, $options = [])
     {
@@ -177,20 +182,20 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/%s/variants/%s/attributes/%s', $productIdentifier, $variantIdentifier, $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            Attribute::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return AttributeCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeCollection
      */
     public function allAttributes($productIdentifier, $variantIdentifier, $options = [])
     {
@@ -199,20 +204,20 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/%s/variants/%s/attributes', $productIdentifier, $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class,
+            AttributeCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomData($variantIdentifier, $model, $options = [])
     {
@@ -227,7 +232,7 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -246,13 +251,13 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return array
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomData($variantIdentifier, $options = [])
     {
@@ -267,15 +272,15 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param string $key
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomDataForKey($variantIdentifier, $key, $model, $options = [])
     {
@@ -290,7 +295,7 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param string $key
      * @param array $options additional options like limit or filters
      *
@@ -310,14 +315,14 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param string $key
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomDataForKey($variantIdentifier, $key, $options = [])
     {
@@ -332,14 +337,14 @@ class ProductVariantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param ProductVariant $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariant
      */
     public function createComposite($productIdentifier, $model, $options = [])
     {
@@ -348,21 +353,21 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/composite/%s/variants', $productIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            ProductVariant::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariant $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
+     * @param ProductVariant $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariant
      */
     public function updateComposite($productIdentifier, $variantIdentifier, $model, $options = [])
     {
@@ -371,14 +376,14 @@ class ProductVariantService extends AbstractService
             $this->resolvePath('/products/composite/%s/variants/%s', $productIdentifier, $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariant::class,
+            ProductVariant::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ShopCountryPriceRoundingCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding::class,
+        'entities' => ShopCountryPriceRounding::class,
     ];
 
     /**

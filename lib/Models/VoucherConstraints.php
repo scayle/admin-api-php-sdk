@@ -14,9 +14,9 @@ class VoucherConstraints extends ApiObject
     ];
 
     protected $classMap = [
-        'date' => \AboutYou\Cloud\AdminApi\Models\VoucherConstraintsDate::class,
-        'maxApplications' => \AboutYou\Cloud\AdminApi\Models\VoucherConstraintsApplications::class,
-        'orderValue' => \AboutYou\Cloud\AdminApi\Models\VoucherConstraintsOrder::class,
+        'date' => VoucherConstraintsDate::class,
+        'maxApplications' => VoucherConstraintsApplications::class,
+        'orderValue' => VoucherConstraintsOrder::class,
     ];
 
     protected $collectionClassMap = [

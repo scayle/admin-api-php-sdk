@@ -3,19 +3,22 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantPrice;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ProductVariantPriceService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice $model the model to create or update
+     * @param Identifier $variantIdentifier
+     * @param ProductVariantPrice $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariantPrice
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice
      */
     public function create($variantIdentifier, $model, $options = [])
     {
@@ -24,19 +27,19 @@ class ProductVariantPriceService extends AbstractService
             $this->resolvePath('/variants/%s/prices', $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariantPrice::class,
+            ProductVariantPrice::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductVariantPriceCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection
      */
     public function all($variantIdentifier, $options = [])
     {
@@ -45,13 +48,13 @@ class ProductVariantPriceService extends AbstractService
             $this->resolvePath('/variants/%s/prices', $variantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection::class,
+            ProductVariantPriceCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $variantIdentifier
+     * @param Identifier $variantIdentifier
      * @param string $priceKey
      * @param array $options additional options like limit or filters
      *

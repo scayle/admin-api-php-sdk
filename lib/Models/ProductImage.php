@@ -18,11 +18,11 @@ class ProductImage extends ApiObject
     ];
 
     protected $classMap = [
-        'source' => \AboutYou\Cloud\AdminApi\Models\AssetSource::class,
+        'source' => AssetSource::class,
     ];
 
     protected $collectionClassMap = [
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+        'attributes' => Attribute::class,
     ];
 
     protected $polymorphic = [

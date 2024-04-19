@@ -11,7 +11,7 @@ class Asset extends ApiObject
     ];
 
     protected $classMap = [
-        'source' => \AboutYou\Cloud\AdminApi\Models\AssetSource::class,
+        'source' => AssetSource::class,
     ];
 
     protected $collectionClassMap = [

@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ProductVariantStockCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\ProductVariantStock::class,
+        'entities' => ProductVariantStock::class,
     ];
 
     /**

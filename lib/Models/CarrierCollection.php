@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class CarrierCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\Carrier::class,
+        'entities' => Carrier::class,
     ];
 
     /**

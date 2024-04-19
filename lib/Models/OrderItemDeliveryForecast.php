@@ -12,8 +12,8 @@ class OrderItemDeliveryForecast extends ApiObject
     ];
 
     protected $classMap = [
-        'subsequentDelivery' => \AboutYou\Cloud\AdminApi\Models\OrderSubsequentDelivery::class,
-        'deliverable' => \AboutYou\Cloud\AdminApi\Models\OrderDeliverable::class,
+        'subsequentDelivery' => OrderSubsequentDelivery::class,
+        'deliverable' => OrderDeliverable::class,
     ];
 
     protected $collectionClassMap = [

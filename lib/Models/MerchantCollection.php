@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class MerchantCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\Merchant::class,
+        'entities' => Merchant::class,
     ];
 
     /**

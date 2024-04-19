@@ -3,6 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding;
+use AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRoundingCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ShopCountryPriceRoundingService extends AbstractService
@@ -12,10 +14,10 @@ class ShopCountryPriceRoundingService extends AbstractService
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
+     * @return ShopCountryPriceRoundingCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRoundingCollection
      */
     public function all($shopKey, $countryCode, $options = [])
     {
@@ -24,7 +26,7 @@ class ShopCountryPriceRoundingService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/price-roundings', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRoundingCollection::class,
+            ShopCountryPriceRoundingCollection::class,
             null
         );
     }
@@ -32,13 +34,13 @@ class ShopCountryPriceRoundingService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding $model the model to create or update
+     * @param ShopCountryPriceRounding $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ShopCountryPriceRounding
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding
      */
     public function create($shopKey, $countryCode, $model, $options = [])
     {
@@ -47,7 +49,7 @@ class ShopCountryPriceRoundingService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/price-roundings', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding::class,
+            ShopCountryPriceRounding::class,
             $model
         );
     }

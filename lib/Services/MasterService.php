@@ -3,19 +3,23 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Attribute;
+use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductMasterCategories;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class MasterService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories $model the model to create or update
+     * @param Identifier $productMasterIdentifier
+     * @param ProductMasterCategories $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductMasterCategories
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories
      */
     public function updateProductMasterMasterCategories($productMasterIdentifier, $model, $options = [])
     {
@@ -24,19 +28,19 @@ class MasterService extends AbstractService
             $this->resolvePath('/product-masters/%s/master-categories', $productMasterIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories::class,
+            ProductMasterCategories::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
+     * @param Identifier $productMasterIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return AttributeCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeCollection
      */
     public function allAttributes($productMasterIdentifier, $options = [])
     {
@@ -45,20 +49,20 @@ class MasterService extends AbstractService
             $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class,
+            AttributeCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
+     * @param Identifier $productMasterIdentifier
+     * @param Attribute $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Attribute
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Attribute
      */
     public function updateOrCreateAttribute($productMasterIdentifier, $model, $options = [])
     {
@@ -67,20 +71,20 @@ class MasterService extends AbstractService
             $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            Attribute::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
+     * @param Identifier $productMasterIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
+     * @return Attribute
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Attribute
      */
     public function getAttribute($productMasterIdentifier, $attributeGroupName, $options = [])
     {
@@ -89,13 +93,13 @@ class MasterService extends AbstractService
             $this->resolvePath('/product-masters/%s/attributes/%s', $productMasterIdentifier, $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            Attribute::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productMasterIdentifier
+     * @param Identifier $productMasterIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *

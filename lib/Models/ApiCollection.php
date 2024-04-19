@@ -3,16 +3,16 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Cursor $cursor
+ * @property Cursor $cursor
  */
 class ApiCollection extends ApiObject
 {
     protected $classMap = [
-        'cursor' => \AboutYou\Cloud\AdminApi\Models\Cursor::class,
+        'cursor' => Cursor::class,
     ];
 
     /**
-     * @return null|\AboutYou\Cloud\AdminApi\Models\Cursor
+     * @return null|Cursor
      */
     public function getCursor()
     {

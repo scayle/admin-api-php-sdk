@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\PackageGroupCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class PackageGroupService extends AbstractService
@@ -12,10 +13,10 @@ class PackageGroupService extends AbstractService
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
+     * @return PackageGroupCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\PackageGroupCollection
      */
     public function all($shopKey, $countryCode, $options = [])
     {
@@ -24,7 +25,7 @@ class PackageGroupService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/package-groups', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\PackageGroupCollection::class,
+            PackageGroupCollection::class,
             null
         );
     }

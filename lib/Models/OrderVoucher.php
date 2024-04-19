@@ -19,7 +19,7 @@ class OrderVoucher extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'applicableItems' => \AboutYou\Cloud\AdminApi\Models\OrderVoucherItem::class,
+        'applicableItems' => OrderVoucherItem::class,
     ];
 
     protected $polymorphic = [

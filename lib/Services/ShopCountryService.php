@@ -3,19 +3,22 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Assortment;
+use AboutYou\Cloud\AdminApi\Models\ShopCountry;
+use AboutYou\Cloud\AdminApi\Models\ShopCountryCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ShopCountryService extends AbstractService
 {
     /**
      * @param string $shopKey
-     * @param \AboutYou\Cloud\AdminApi\Models\ShopCountry $model the model to create or update
+     * @param ShopCountry $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ShopCountry
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountry
      */
     public function create($shopKey, $model, $options = [])
     {
@@ -24,7 +27,7 @@ class ShopCountryService extends AbstractService
             $this->resolvePath('/shops/%s/countries', $shopKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+            ShopCountry::class,
             $model
         );
     }
@@ -33,10 +36,10 @@ class ShopCountryService extends AbstractService
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
+     * @return ShopCountryCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountryCollection
      */
     public function all($shopKey, $options = [])
     {
@@ -45,7 +48,7 @@ class ShopCountryService extends AbstractService
             $this->resolvePath('/shops/%s/countries', $shopKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCountryCollection::class,
+            ShopCountryCollection::class,
             null
         );
     }
@@ -55,10 +58,10 @@ class ShopCountryService extends AbstractService
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
+     * @return ShopCountry
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountry
      */
     public function get($shopKey, $countryCode, $options = [])
     {
@@ -67,7 +70,7 @@ class ShopCountryService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+            ShopCountry::class,
             null
         );
     }
@@ -75,13 +78,13 @@ class ShopCountryService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\ShopCountry $model the model to create or update
+     * @param ShopCountry $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ShopCountry
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountry
      */
     public function update($shopKey, $countryCode, $model, $options = [])
     {
@@ -90,7 +93,7 @@ class ShopCountryService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+            ShopCountry::class,
             $model
         );
     }
@@ -98,13 +101,13 @@ class ShopCountryService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Assortment $model the model to create or update
+     * @param Assortment $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Assortment
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Assortment
      */
     public function updateAssortment($shopKey, $countryCode, $model, $options = [])
     {
@@ -113,7 +116,7 @@ class ShopCountryService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/assortment', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Assortment::class,
+            Assortment::class,
             $model
         );
     }
@@ -124,10 +127,10 @@ class ShopCountryService extends AbstractService
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomData($shopKey, $countryCode, $model, $options = [])
     {
@@ -166,10 +169,10 @@ class ShopCountryService extends AbstractService
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomData($shopKey, $countryCode, $options = [])
     {
@@ -190,10 +193,10 @@ class ShopCountryService extends AbstractService
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomDataForKey($shopKey, $countryCode, $key, $model, $options = [])
     {
@@ -234,10 +237,10 @@ class ShopCountryService extends AbstractService
      * @param string $key
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomDataForKey($shopKey, $countryCode, $key, $options = [])
     {

@@ -3,6 +3,19 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Customer;
+use AboutYou\Cloud\AdminApi\Models\CustomerAddress;
+use AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection;
+use AboutYou\Cloud\AdminApi\Models\CustomerAddressReferenceKey;
+use AboutYou\Cloud\AdminApi\Models\CustomerCollection;
+use AboutYou\Cloud\AdminApi\Models\CustomerGroup;
+use AboutYou\Cloud\AdminApi\Models\CustomerMembership;
+use AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection;
+use AboutYou\Cloud\AdminApi\Models\CustomerPassword;
+use AboutYou\Cloud\AdminApi\Models\CustomerPasswordHash;
+use AboutYou\Cloud\AdminApi\Models\CustomerReferenceKey;
+use AboutYou\Cloud\AdminApi\Models\CustomerStatus;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class CustomerService extends AbstractService
@@ -12,10 +25,10 @@ class CustomerService extends AbstractService
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
+     * @return CustomerCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerCollection
      */
     public function all($shopKey, $countryCode, $options = [])
     {
@@ -24,7 +37,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerCollection::class,
+            CustomerCollection::class,
             null
         );
     }
@@ -32,13 +45,13 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return Customer
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Customer
      */
     public function get($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
@@ -47,7 +60,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            Customer::class,
             null
         );
     }
@@ -55,13 +68,13 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Customer $model the model to create or update
+     * @param Customer $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Customer
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Customer
      */
     public function create($shopKey, $countryCode, $model, $options = [])
     {
@@ -70,7 +83,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            Customer::class,
             $model
         );
     }
@@ -78,14 +91,14 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Customer $model the model to create or update
+     * @param Identifier $customerIdentifier
+     * @param Customer $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Customer
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Customer
      */
     public function update($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
     {
@@ -94,7 +107,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            Customer::class,
             $model
         );
     }
@@ -103,13 +116,13 @@ class CustomerService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $customerId
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerReferenceKey $model the model to create or update
+     * @param CustomerReferenceKey $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Customer
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Customer
      */
     public function updateReferenceKey($shopKey, $countryCode, $customerId, $model, $options = [])
     {
@@ -118,7 +131,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/reference-key', $shopKey, $countryCode, $customerId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            Customer::class,
             $model
         );
     }
@@ -126,7 +139,7 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -147,8 +160,8 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerPassword $model the model to create or update
+     * @param Identifier $customerIdentifier
+     * @param CustomerPassword $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -169,8 +182,8 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerPasswordHash $model the model to create or update
+     * @param Identifier $customerIdentifier
+     * @param CustomerPasswordHash $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -191,13 +204,13 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerStatus
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerStatus
      */
     public function getStatus($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
@@ -206,7 +219,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class,
+            CustomerStatus::class,
             null
         );
     }
@@ -214,14 +227,14 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerStatus $model the model to create or update
+     * @param Identifier $customerIdentifier
+     * @param CustomerStatus $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerStatus
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerStatus
      */
     public function updateStatus($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
     {
@@ -230,7 +243,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerStatus::class,
+            CustomerStatus::class,
             $model
         );
     }
@@ -238,13 +251,13 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerAddressCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection
      */
     public function getAddresses($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
@@ -253,7 +266,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection::class,
+            CustomerAddressCollection::class,
             null
         );
     }
@@ -261,14 +274,14 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $addressIdentifier
+     * @param Identifier $customerIdentifier
+     * @param Identifier $addressIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerAddress
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerAddress
      */
     public function getAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $options = [])
     {
@@ -277,7 +290,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            CustomerAddress::class,
             null
         );
     }
@@ -285,14 +298,14 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerAddress $model the model to create or update
+     * @param Identifier $customerIdentifier
+     * @param CustomerAddress $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerAddress
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerAddress
      */
     public function createAddress($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
     {
@@ -301,7 +314,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            CustomerAddress::class,
             $model
         );
     }
@@ -309,15 +322,15 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $addressIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerAddress $model the model to create or update
+     * @param Identifier $customerIdentifier
+     * @param Identifier $addressIdentifier
+     * @param CustomerAddress $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerAddress
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerAddress
      */
     public function updateAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $model, $options = [])
     {
@@ -326,7 +339,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            CustomerAddress::class,
             $model
         );
     }
@@ -334,15 +347,15 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param int $addressId
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerAddressReferenceKey $model the model to create or update
+     * @param CustomerAddressReferenceKey $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerAddress
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerAddress
      */
     public function updateAddressReferenceKey($shopKey, $countryCode, $customerIdentifier, $addressId, $model, $options = [])
     {
@@ -351,7 +364,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/reference-key', $shopKey, $countryCode, $customerIdentifier, $addressId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+            CustomerAddress::class,
             $model
         );
     }
@@ -361,8 +374,8 @@ class CustomerService extends AbstractService
      *
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $addressIdentifier
+     * @param Identifier $customerIdentifier
+     * @param Identifier $addressIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -383,7 +396,7 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $addressIdentifier
+     * @param Identifier $addressIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -404,7 +417,7 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -425,14 +438,14 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerId
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerGroup $model the model to create or update
+     * @param Identifier $customerId
+     * @param CustomerGroup $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Customer
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Customer
      */
     public function addGroups($shopKey, $countryCode, $customerId, $model, $options = [])
     {
@@ -441,7 +454,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups', $shopKey, $countryCode, $customerId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Customer::class,
+            Customer::class,
             $model
         );
     }
@@ -449,14 +462,14 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerMembership $model the model to create or update
+     * @param Identifier $customerIdentifier
+     * @param CustomerMembership $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerMembership
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerMembership
      */
     public function createMembership($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
     {
@@ -465,7 +478,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerMembership::class,
+            CustomerMembership::class,
             $model
         );
     }
@@ -474,13 +487,13 @@ class CustomerService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $membershipId
-     * @param \AboutYou\Cloud\AdminApi\Models\CustomerMembership $model the model to create or update
+     * @param CustomerMembership $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerMembership
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerMembership
      */
     public function updateMembership($shopKey, $countryCode, $membershipId, $model, $options = [])
     {
@@ -489,7 +502,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/memberships/%s', $shopKey, $countryCode, $membershipId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerMembership::class,
+            CustomerMembership::class,
             $model
         );
     }
@@ -497,13 +510,13 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return CustomerMembershipCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection
      */
     public function getMemberships($shopKey, $countryCode, $customerIdentifier, $options = [])
     {
@@ -512,7 +525,7 @@ class CustomerService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection::class,
+            CustomerMembershipCollection::class,
             null
         );
     }
@@ -541,7 +554,7 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $customerIdentifier
+     * @param Identifier $customerIdentifier
      * @param string $customerGroup
      * @param array $options additional options like limit or filters
      *

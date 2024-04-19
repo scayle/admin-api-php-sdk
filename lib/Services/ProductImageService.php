@@ -3,19 +3,25 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Attribute;
+use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductImage;
+use AboutYou\Cloud\AdminApi\Models\ProductImageCollection;
+use AboutYou\Cloud\AdminApi\Models\ProductImagePosition;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ProductImageService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductImage $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param ProductImage $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductImage
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductImage
      */
     public function create($productIdentifier, $model, $options = [])
     {
@@ -24,19 +30,19 @@ class ProductImageService extends AbstractService
             $this->resolvePath('/products/%s/images', $productIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
+            ProductImage::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
+     * @param Identifier $productIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductImageCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductImageCollection
      */
     public function all($productIdentifier, $options = [])
     {
@@ -45,21 +51,21 @@ class ProductImageService extends AbstractService
             $this->resolvePath('/products/%s/images', $productIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductImageCollection::class,
+            ProductImageCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductImagePosition $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param Identifier $imageIdentifier
+     * @param ProductImagePosition $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ProductImage
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductImage
      */
     public function updatePosition($productIdentifier, $imageIdentifier, $model, $options = [])
     {
@@ -68,14 +74,14 @@ class ProductImageService extends AbstractService
             $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
+            ProductImage::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $imageIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -94,15 +100,15 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Attribute $model the model to create or update
+     * @param Identifier $productIdentifier
+     * @param Identifier $imageIdentifier
+     * @param Attribute $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Attribute
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Attribute
      */
     public function updateOrCreateAttribute($productIdentifier, $imageIdentifier, $model, $options = [])
     {
@@ -111,14 +117,14 @@ class ProductImageService extends AbstractService
             $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            Attribute::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $imageIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
@@ -138,15 +144,15 @@ class ProductImageService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $imageIdentifier
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
+     * @return Attribute
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Attribute
      */
     public function getAttribute($productIdentifier, $imageIdentifier, $attributeGroupName, $options = [])
     {
@@ -155,20 +161,20 @@ class ProductImageService extends AbstractService
             $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+            Attribute::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $productIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $imageIdentifier
+     * @param Identifier $productIdentifier
+     * @param Identifier $imageIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return AttributeCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeCollection
      */
     public function allAttributes($productIdentifier, $imageIdentifier, $options = [])
     {
@@ -177,7 +183,7 @@ class ProductImageService extends AbstractService
             $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeCollection::class,
+            AttributeCollection::class,
             null
         );
     }

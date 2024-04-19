@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class ProductImageCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\ProductImage::class,
+        'entities' => ProductImage::class,
     ];
 
     /**

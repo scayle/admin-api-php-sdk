@@ -4,12 +4,13 @@ namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Helpers\ArrayHelper;
+use AboutYou\Cloud\AdminApi\Models\Cancellation;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class CancellationService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Cancellation $model the model to create or update
+     * @param Cancellation $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

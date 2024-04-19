@@ -14,13 +14,13 @@ class Assortment extends ApiObject
     ];
 
     protected $classMap = [
-        'masterCategories' => \AboutYou\Cloud\AdminApi\Models\MasterCategoryAssortmentConfiguration::class,
-        'products' => \AboutYou\Cloud\AdminApi\Models\ProductAssortmentConfiguration::class,
-        'merchantReferenceKeys' => \AboutYou\Cloud\AdminApi\Models\MerchantAssortmentConfiguration::class,
+        'masterCategories' => MasterCategoryAssortmentConfiguration::class,
+        'products' => ProductAssortmentConfiguration::class,
+        'merchantReferenceKeys' => MerchantAssortmentConfiguration::class,
     ];
 
     protected $collectionClassMap = [
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\AttributeAssortmentConfiguration::class,
+        'attributes' => AttributeAssortmentConfiguration::class,
     ];
 
     protected $polymorphic = [

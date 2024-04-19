@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class BrandCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\Brand::class,
+        'entities' => Brand::class,
     ];
 
     /**

@@ -30,10 +30,10 @@ abstract class AbstractService
      * @param array $headers array of additional headers
      * @param null|ApiObject|string $body the request body object
      *
+     * @return null|mixed
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return null|mixed
      */
     protected function request($method, $relativeUrl, $query = [], $headers = [], $modelClass = null, $body = null)
     {

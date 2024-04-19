@@ -3,6 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\Warehouse;
+use AboutYou\Cloud\AdminApi\Models\WarehouseCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class WarehouseService extends AbstractService
@@ -10,10 +13,10 @@ class WarehouseService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return WarehouseCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\WarehouseCollection
      */
     public function all($options = [])
     {
@@ -22,19 +25,19 @@ class WarehouseService extends AbstractService
             $this->resolvePath('/warehouses'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\WarehouseCollection::class,
+            WarehouseCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Warehouse $model the model to create or update
+     * @param Warehouse $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Warehouse
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Warehouse
      */
     public function create($model, $options = [])
     {
@@ -43,13 +46,13 @@ class WarehouseService extends AbstractService
             $this->resolvePath('/warehouses'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Warehouse::class,
+            Warehouse::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $warehouseIdentifier
+     * @param Identifier $warehouseIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

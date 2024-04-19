@@ -15,7 +15,7 @@ class OrderReduction extends ApiObject
     ];
 
     protected $classMap = [
-        'amount' => \AboutYou\Cloud\AdminApi\Models\OrderReductionAmount::class,
+        'amount' => OrderReductionAmount::class,
     ];
 
     protected $collectionClassMap = [

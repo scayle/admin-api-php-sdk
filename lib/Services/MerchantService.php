@@ -3,6 +3,14 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\Merchant;
+use AboutYou\Cloud\AdminApi\Models\MerchantCollection;
+use AboutYou\Cloud\AdminApi\Models\MerchantContact;
+use AboutYou\Cloud\AdminApi\Models\MerchantContactCollection;
+use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress;
+use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddressCollection;
+use AboutYou\Cloud\AdminApi\Models\WarehouseCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class MerchantService extends AbstractService
@@ -10,10 +18,10 @@ class MerchantService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return MerchantCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantCollection
      */
     public function all($options = [])
     {
@@ -22,19 +30,19 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantCollection::class,
+            MerchantCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return Merchant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Merchant
      */
     public function get($merchantIdentifier, $options = [])
     {
@@ -43,19 +51,19 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s', $merchantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Merchant::class,
+            Merchant::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Merchant $model the model to create or update
+     * @param Merchant $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Merchant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Merchant
      */
     public function create($model, $options = [])
     {
@@ -64,20 +72,20 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Merchant::class,
+            Merchant::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Merchant $model the model to create or update
+     * @param Identifier $merchantIdentifier
+     * @param Merchant $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Merchant
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Merchant
      */
     public function update($merchantIdentifier, $model, $options = [])
     {
@@ -86,19 +94,19 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s', $merchantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Merchant::class,
+            Merchant::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return MerchantContactCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantContactCollection
      */
     public function allContacts($merchantIdentifier, $options = [])
     {
@@ -107,20 +115,20 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/contacts', $merchantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantContactCollection::class,
+            MerchantContactCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param int $merchantContactId
      * @param array $options additional options like limit or filters
      *
+     * @return MerchantContact
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantContact
      */
     public function getContact($merchantIdentifier, $merchantContactId, $options = [])
     {
@@ -129,20 +137,20 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/contacts/%s', $merchantIdentifier, $merchantContactId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantContact::class,
+            MerchantContact::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\MerchantContact $model the model to create or update
+     * @param Identifier $merchantIdentifier
+     * @param MerchantContact $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return MerchantContact
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantContact
      */
     public function createContact($merchantIdentifier, $model, $options = [])
     {
@@ -151,21 +159,21 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/contacts', $merchantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantContact::class,
+            MerchantContact::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param int $merchantContactId
-     * @param \AboutYou\Cloud\AdminApi\Models\MerchantContact $model the model to create or update
+     * @param MerchantContact $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return MerchantContact
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantContact
      */
     public function updateContact($merchantIdentifier, $merchantContactId, $model, $options = [])
     {
@@ -174,13 +182,13 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/contacts/%s', $merchantIdentifier, $merchantContactId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantContact::class,
+            MerchantContact::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param int $merchantContactId
      * @param array $options additional options like limit or filters
      *
@@ -200,13 +208,13 @@ class MerchantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return MerchantReturnAddressCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddressCollection
      */
     public function allReturnAddresses($merchantIdentifier, $options = [])
     {
@@ -215,20 +223,20 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/return-addresses', $merchantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddressCollection::class,
+            MerchantReturnAddressCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param int $merchantReturnAddressId
      * @param array $options additional options like limit or filters
      *
+     * @return MerchantReturnAddress
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress
      */
     public function getReturnAddress($merchantIdentifier, $merchantReturnAddressId, $options = [])
     {
@@ -237,20 +245,20 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/return-addresses/%s', $merchantIdentifier, $merchantReturnAddressId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class,
+            MerchantReturnAddress::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress $model the model to create or update
+     * @param Identifier $merchantIdentifier
+     * @param MerchantReturnAddress $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return MerchantReturnAddress
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress
      */
     public function createReturnAddress($merchantIdentifier, $model, $options = [])
     {
@@ -259,21 +267,21 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/return-addresses', $merchantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class,
+            MerchantReturnAddress::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param int $merchantReturnAddressId
-     * @param \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress $model the model to create or update
+     * @param MerchantReturnAddress $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return MerchantReturnAddress
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress
      */
     public function updateReturnAddress($merchantIdentifier, $merchantReturnAddressId, $model, $options = [])
     {
@@ -282,13 +290,13 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/return-addresses/%s', $merchantIdentifier, $merchantReturnAddressId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress::class,
+            MerchantReturnAddress::class,
             $model
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param int $merchantReturnAddressId
      * @param array $options additional options like limit or filters
      *
@@ -308,8 +316,8 @@ class MerchantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $carrierIdentifier
+     * @param Identifier $merchantIdentifier
+     * @param Identifier $carrierIdentifier
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
@@ -329,8 +337,8 @@ class MerchantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $carrierIdentifier
+     * @param Identifier $merchantIdentifier
+     * @param Identifier $carrierIdentifier
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
@@ -350,13 +358,13 @@ class MerchantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
+     * @param Identifier $merchantIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return WarehouseCollection
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\WarehouseCollection
      */
     public function allWarehouses($merchantIdentifier, $options = [])
     {
@@ -365,14 +373,14 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s/warehouses', $merchantIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\WarehouseCollection::class,
+            WarehouseCollection::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $warehouseIdentifier
+     * @param Identifier $merchantIdentifier
+     * @param Identifier $warehouseIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -391,8 +399,8 @@ class MerchantService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $merchantIdentifier
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $warehouseIdentifier
+     * @param Identifier $merchantIdentifier
+     * @param Identifier $warehouseIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

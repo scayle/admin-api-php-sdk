@@ -24,7 +24,7 @@ class ProductVariantPrice extends ApiObject
     ];
 
     protected $classMap = [
-        'unitPrice' => \AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice::class,
+        'unitPrice' => ProductVariantUnitPrice::class,
     ];
 
     protected $collectionClassMap = [

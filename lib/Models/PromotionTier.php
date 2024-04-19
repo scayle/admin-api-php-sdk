@@ -14,7 +14,7 @@ class PromotionTier extends ApiObject
     ];
 
     protected $classMap = [
-        'effect' => \AboutYou\Cloud\AdminApi\Models\PromotionTierEffect::class,
+        'effect' => PromotionTierEffect::class,
     ];
 
     protected $collectionClassMap = [

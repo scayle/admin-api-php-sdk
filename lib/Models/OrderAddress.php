@@ -13,9 +13,9 @@ class OrderAddress extends ApiObject
     ];
 
     protected $classMap = [
-        'billing' => \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
-        'forward' => \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
-        'shipping' => \AboutYou\Cloud\AdminApi\Models\CustomerAddress::class,
+        'billing' => CustomerAddress::class,
+        'forward' => CustomerAddress::class,
+        'shipping' => CustomerAddress::class,
     ];
 
     protected $collectionClassMap = [

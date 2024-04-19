@@ -3,18 +3,20 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey;
+use AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ShopCategoryPropertyKeyService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey $model the model to create or update
+     * @param ShopCategoryPropertyKey $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ShopCategoryPropertyKey
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey
      */
     public function create($model, $options = [])
     {
@@ -23,7 +25,7 @@ class ShopCategoryPropertyKeyService extends AbstractService
             $this->resolvePath('/shop-category-property-keys'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class,
+            ShopCategoryPropertyKey::class,
             $model
         );
     }
@@ -32,10 +34,10 @@ class ShopCategoryPropertyKeyService extends AbstractService
      * @param string $shopCategoryPropertyKey
      * @param array $options additional options like limit or filters
      *
+     * @return ShopCategoryPropertyKey
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey
      */
     public function get($shopCategoryPropertyKey, $options = [])
     {
@@ -44,7 +46,7 @@ class ShopCategoryPropertyKeyService extends AbstractService
             $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class,
+            ShopCategoryPropertyKey::class,
             null
         );
     }
@@ -52,10 +54,10 @@ class ShopCategoryPropertyKeyService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return ShopCategoryPropertyKeyCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection
      */
     public function all($options = [])
     {
@@ -64,20 +66,20 @@ class ShopCategoryPropertyKeyService extends AbstractService
             $this->resolvePath('/shop-category-property-keys'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection::class,
+            ShopCategoryPropertyKeyCollection::class,
             null
         );
     }
 
     /**
      * @param string $shopCategoryPropertyKey
-     * @param \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey $model the model to create or update
+     * @param ShopCategoryPropertyKey $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return ShopCategoryPropertyKey
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey
      */
     public function update($shopCategoryPropertyKey, $model, $options = [])
     {
@@ -86,7 +88,7 @@ class ShopCategoryPropertyKeyService extends AbstractService
             $this->resolvePath('/shop-category-property-keys/%s', $shopCategoryPropertyKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey::class,
+            ShopCategoryPropertyKey::class,
             $model
         );
     }

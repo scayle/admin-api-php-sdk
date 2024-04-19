@@ -3,19 +3,23 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Campaign;
+use AboutYou\Cloud\AdminApi\Models\CampaignCollection;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class CampaignService extends AbstractService
 {
     /**
      * @param string $shopKey
-     * @param \AboutYou\Cloud\AdminApi\Models\Campaign $model the model to create or update
+     * @param Campaign $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Campaign
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Campaign
      */
     public function create($shopKey, $model, $options = [])
     {
@@ -24,7 +28,7 @@ class CampaignService extends AbstractService
             $this->resolvePath('/shops/%s/campaigns', $shopKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Campaign::class,
+            Campaign::class,
             $model
         );
     }
@@ -33,10 +37,10 @@ class CampaignService extends AbstractService
      * @param string $shopKey
      * @param array $options additional options like limit or filters
      *
+     * @return CampaignCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\CampaignCollection
      */
     public function all($shopKey, $options = [])
     {
@@ -45,7 +49,7 @@ class CampaignService extends AbstractService
             $this->resolvePath('/shops/%s/campaigns', $shopKey),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\CampaignCollection::class,
+            CampaignCollection::class,
             null
         );
     }
@@ -55,10 +59,10 @@ class CampaignService extends AbstractService
      * @param int $campaignId
      * @param array $options additional options like limit or filters
      *
+     * @return Campaign
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Campaign
      */
     public function get($shopKey, $campaignId, $options = [])
     {
@@ -67,7 +71,7 @@ class CampaignService extends AbstractService
             $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Campaign::class,
+            Campaign::class,
             null
         );
     }
@@ -75,13 +79,13 @@ class CampaignService extends AbstractService
     /**
      * @param string $shopKey
      * @param int $campaignId
-     * @param \AboutYou\Cloud\AdminApi\Models\Campaign $model the model to create or update
+     * @param Campaign $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Campaign
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Campaign
      */
     public function update($shopKey, $campaignId, $model, $options = [])
     {
@@ -90,7 +94,7 @@ class CampaignService extends AbstractService
             $this->resolvePath('/shops/%s/campaigns/%s', $shopKey, $campaignId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Campaign::class,
+            Campaign::class,
             $model
         );
     }
@@ -162,10 +166,10 @@ class CampaignService extends AbstractService
      * @param int $campaignId
      * @param array $options additional options like limit or filters
      *
+     * @return ProductVariantCampaignReductionCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection
      */
     public function allReductions($shopKey, $campaignId, $options = [])
     {
@@ -174,7 +178,7 @@ class CampaignService extends AbstractService
             $this->resolvePath('/shops/%s/campaigns/%s/reductions/variants', $shopKey, $campaignId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection::class,
+            ProductVariantCampaignReductionCollection::class,
             null
         );
     }
@@ -200,14 +204,14 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param Identifier $campaignId
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomData($campaignId, $model, $options = [])
     {
@@ -222,7 +226,7 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param Identifier $campaignId
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -241,13 +245,13 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param Identifier $campaignId
      * @param array $options additional options like limit or filters
+     *
+     * @return array
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomData($campaignId, $options = [])
     {
@@ -262,15 +266,15 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param Identifier $campaignId
      * @param string $key
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomDataForKey($campaignId, $key, $model, $options = [])
     {
@@ -285,7 +289,7 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param Identifier $campaignId
      * @param string $key
      * @param array $options additional options like limit or filters
      *
@@ -305,14 +309,14 @@ class CampaignService extends AbstractService
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $campaignId
+     * @param Identifier $campaignId
      * @param string $key
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomDataForKey($campaignId, $key, $options = [])
     {

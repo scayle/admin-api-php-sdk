@@ -16,8 +16,8 @@ class OrderPayment extends ApiObject
     ];
 
     protected $classMap = [
-        'installment' => \AboutYou\Cloud\AdminApi\Models\OrderPaymentInstallment::class,
-        'options' => \AboutYou\Cloud\AdminApi\Models\OrderPaymentOptions::class,
+        'installment' => OrderPaymentInstallment::class,
+        'options' => OrderPaymentOptions::class,
     ];
 
     protected $collectionClassMap = [

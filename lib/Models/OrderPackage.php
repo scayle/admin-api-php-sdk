@@ -16,8 +16,8 @@ class OrderPackage extends ApiObject
     ];
 
     protected $classMap = [
-        'deliveryDate' => \AboutYou\Cloud\AdminApi\Models\OrderPackageDeliveryDate::class,
-        'tracking' => \AboutYou\Cloud\AdminApi\Models\OrderPackageTracking::class,
+        'deliveryDate' => OrderPackageDeliveryDate::class,
+        'tracking' => OrderPackageTracking::class,
     ];
 
     protected $collectionClassMap = [

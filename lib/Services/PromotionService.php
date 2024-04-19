@@ -3,18 +3,19 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Promotion;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class PromotionService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Promotion $model the model to create or update
+     * @param Promotion $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Promotion
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Promotion
      */
     public function create($model, $options = [])
     {
@@ -23,20 +24,20 @@ class PromotionService extends AbstractService
             $this->resolvePath('/promotions'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Promotion::class,
+            Promotion::class,
             $model
         );
     }
 
     /**
      * @param string $promotionId
-     * @param \AboutYou\Cloud\AdminApi\Models\Promotion $model the model to create or update
+     * @param Promotion $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Promotion
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Promotion
      */
     public function update($promotionId, $model, $options = [])
     {
@@ -45,7 +46,7 @@ class PromotionService extends AbstractService
             $this->resolvePath('/promotions/%s', $promotionId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Promotion::class,
+            Promotion::class,
             $model
         );
     }

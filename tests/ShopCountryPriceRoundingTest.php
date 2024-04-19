@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding;
+use AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRoundingCollection;
+
 /**
  * @internal
  */
@@ -12,11 +15,11 @@ final class ShopCountryPriceRoundingTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCountryPriceRoundings->all('acme', 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCountryPriceRoundingAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRoundingCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(ShopCountryPriceRoundingCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding::class, $collectionEntity);
+            self::assertInstanceOf(ShopCountryPriceRounding::class, $collectionEntity);
         }
     }
 
@@ -24,14 +27,14 @@ final class ShopCountryPriceRoundingTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('ShopCountryPriceRoundingCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new ShopCountryPriceRounding($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->shopCountryPriceRoundings->create('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCountryPriceRoundingCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(ShopCountryPriceRounding::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testDelete()

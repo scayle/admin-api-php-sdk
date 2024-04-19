@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\WebhookSubscription;
+use AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
+
 /**
  * @internal
  */
@@ -11,14 +14,14 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('WebhookSubscriptionCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\WebhookSubscription($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new WebhookSubscription($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->webhookSubscriptions->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(WebhookSubscription::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testGet()
@@ -26,8 +29,8 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
         $responseEntity = $this->api->webhookSubscriptions->get(1, []);
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionGetResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(WebhookSubscription::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testAll()
@@ -35,11 +38,11 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
         $responseEntity = $this->api->webhookSubscriptions->all([]);
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(WebhookSubscriptionCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookSubscription::class, $collectionEntity);
+            self::assertInstanceOf(WebhookSubscription::class, $collectionEntity);
         }
     }
 

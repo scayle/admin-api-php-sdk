@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\ArrayCollection;
+
 /**
  * @internal
  */
@@ -21,7 +23,7 @@ final class AttributeTranslationTest extends BaseApiTestCase
         $responseEntity = $this->api->attributeTranslations->all('acme', []);
 
         $expectedResponseJson = $this->loadFixture('AttributeTranslationAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\ArrayCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(ArrayCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 }

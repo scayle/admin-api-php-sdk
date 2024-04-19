@@ -2,6 +2,9 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\WebhookEvent;
+use AboutYou\Cloud\AdminApi\Models\WebhookEventCollection;
+
 /**
  * @internal
  */
@@ -12,11 +15,11 @@ final class WebhookEventTest extends BaseApiTestCase
         $responseEntity = $this->api->webhookEvents->all([]);
 
         $expectedResponseJson = $this->loadFixture('WebhookEventAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookEventCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(WebhookEventCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\WebhookEvent::class, $collectionEntity);
+            self::assertInstanceOf(WebhookEvent::class, $collectionEntity);
         }
     }
 }

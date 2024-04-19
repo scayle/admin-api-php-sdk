@@ -2,6 +2,10 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\MasterCategory;
+use AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute;
+use AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection;
+
 /**
  * @internal
  */
@@ -12,14 +16,14 @@ final class MasterCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->masterCategories->all([]);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MasterCategoryCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $collectionEntity);
-            $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+            self::assertInstanceOf(MasterCategory::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', MasterCategoryAttribute::class);
         }
     }
 
@@ -28,42 +32,42 @@ final class MasterCategoryTest extends BaseApiTestCase
         $responseEntity = $this->api->masterCategories->get(1, []);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryGetResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MasterCategory::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
     }
 
     public function testCreate()
     {
         $expectedRequestJson = $this->loadFixture('MasterCategoryCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MasterCategory($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new MasterCategory($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->masterCategories->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MasterCategory::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
     }
 
     public function testUpdate()
     {
         $expectedRequestJson = $this->loadFixture('MasterCategoryUpdateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\MasterCategory($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new MasterCategory($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->masterCategories->update(1, $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MasterCategoryUpdateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\MasterCategory::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(MasterCategory::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', \AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
     }
 
     public function testDelete()

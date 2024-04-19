@@ -3,18 +3,22 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\ArrayCollection;
+use AboutYou\Cloud\AdminApi\Models\AttributeGroup;
+use AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute;
+use AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class AttributeGroupService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroup $model the model to create or update
+     * @param AttributeGroup $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return AttributeGroup
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroup
      */
     public function create($model, $options = [])
     {
@@ -23,7 +27,7 @@ class AttributeGroupService extends AbstractService
             $this->resolvePath('/attribute-groups'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class,
+            AttributeGroup::class,
             $model
         );
     }
@@ -32,10 +36,10 @@ class AttributeGroupService extends AbstractService
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
+     * @return AttributeGroup
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroup
      */
     public function get($attributeGroupName, $options = [])
     {
@@ -44,7 +48,7 @@ class AttributeGroupService extends AbstractService
             $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class,
+            AttributeGroup::class,
             null
         );
     }
@@ -52,10 +56,10 @@ class AttributeGroupService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return AttributeGroupCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection
      */
     public function all($options = [])
     {
@@ -64,20 +68,20 @@ class AttributeGroupService extends AbstractService
             $this->resolvePath('/attribute-groups'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection::class,
+            AttributeGroupCollection::class,
             null
         );
     }
 
     /**
      * @param string $attributeGroupName
-     * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroup $model the model to create or update
+     * @param AttributeGroup $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return AttributeGroup
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroup
      */
     public function update($attributeGroupName, $model, $options = [])
     {
@@ -86,7 +90,7 @@ class AttributeGroupService extends AbstractService
             $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class,
+            AttributeGroup::class,
             $model
         );
     }
@@ -134,10 +138,10 @@ class AttributeGroupService extends AbstractService
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
+     * @return ArrayCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ArrayCollection
      */
     public function getAttributes($attributeGroupName, $options = [])
     {
@@ -146,20 +150,20 @@ class AttributeGroupService extends AbstractService
             $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class,
+            ArrayCollection::class,
             null
         );
     }
 
     /**
      * @param string $attributeGroupName
-     * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute $model the model to create or update
+     * @param AttributeGroupAttribute $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return AttributeGroupAttribute
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute
      */
     public function createAttribute($attributeGroupName, $model, $options = [])
     {
@@ -168,7 +172,7 @@ class AttributeGroupService extends AbstractService
             $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute::class,
+            AttributeGroupAttribute::class,
             $model
         );
     }
@@ -176,13 +180,13 @@ class AttributeGroupService extends AbstractService
     /**
      * @param string $attributeGroupName
      * @param string $attributeValue
-     * @param \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute $model the model to create or update
+     * @param AttributeGroupAttribute $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return AttributeGroupAttribute
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute
      */
     public function updateAttribute($attributeGroupName, $attributeValue, $model, $options = [])
     {
@@ -191,7 +195,7 @@ class AttributeGroupService extends AbstractService
             $this->resolvePath('/attribute-groups/%s/attributes/%s', $attributeGroupName, $attributeValue),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute::class,
+            AttributeGroupAttribute::class,
             $model
         );
     }

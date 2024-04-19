@@ -2,6 +2,10 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Asset;
+use AboutYou\Cloud\AdminApi\Models\AssetSource;
+use AboutYou\Cloud\AdminApi\Models\AssetUrl;
+
 /**
  * @internal
  */
@@ -11,15 +15,15 @@ final class AssetTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('AssetCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Asset($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Asset($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->assets->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('AssetCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\AssetUrl::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(AssetUrl::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', \AboutYou\Cloud\AdminApi\Models\AssetSource::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
     }
 }

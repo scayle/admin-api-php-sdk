@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\ProductSorting;
+
 /**
  * @internal
  */
@@ -13,7 +15,7 @@ final class ProductSortingTest extends BaseApiTestCase
 
         $requestEntity = [];
         foreach ($expectedRequestJson as $entity) {
-            $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\ProductSorting($entity);
+            $requestEntity[] = new ProductSorting($entity);
         }
 
         $responseEntity = $this->api->productSortings->updateOrCreate($requestEntity, []);
@@ -25,7 +27,7 @@ final class ProductSortingTest extends BaseApiTestCase
 
         $requestEntity = [];
         foreach ($expectedRequestJson as $entity) {
-            $requestEntity[] = new \AboutYou\Cloud\AdminApi\Models\ProductSorting($entity);
+            $requestEntity[] = new ProductSorting($entity);
         }
 
         $responseEntity = $this->api->productSortings->delete($requestEntity, []);

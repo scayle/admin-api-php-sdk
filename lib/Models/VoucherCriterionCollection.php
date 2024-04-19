@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class VoucherCriterionCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class,
+        'entities' => VoucherCriterion::class,
     ];
 
     /**

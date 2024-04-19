@@ -30,14 +30,14 @@ class OrderItem extends ApiObject
     ];
 
     protected $classMap = [
-        'deliveryForecast' => \AboutYou\Cloud\AdminApi\Models\OrderItemDeliveryForecast::class,
-        'price' => \AboutYou\Cloud\AdminApi\Models\OrderItemPrice::class,
-        'lowestPriorPrice' => \AboutYou\Cloud\AdminApi\Models\OrderItemLowestPriorPrice::class,
-        'product' => \AboutYou\Cloud\AdminApi\Models\OrderItemProduct::class,
-        'promotion' => \AboutYou\Cloud\AdminApi\Models\OrderItemPromotion::class,
-        'variant' => \AboutYou\Cloud\AdminApi\Models\OrderItemVariant::class,
-        'itemGroup' => \AboutYou\Cloud\AdminApi\Models\OrderItemGroup::class,
-        'merchant' => \AboutYou\Cloud\AdminApi\Models\OrderItemMerchant::class,
+        'deliveryForecast' => OrderItemDeliveryForecast::class,
+        'price' => OrderItemPrice::class,
+        'lowestPriorPrice' => OrderItemLowestPriorPrice::class,
+        'product' => OrderItemProduct::class,
+        'promotion' => OrderItemPromotion::class,
+        'variant' => OrderItemVariant::class,
+        'itemGroup' => OrderItemGroup::class,
+        'merchant' => OrderItemMerchant::class,
     ];
 
     protected $collectionClassMap = [

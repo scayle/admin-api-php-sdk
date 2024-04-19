@@ -13,11 +13,11 @@ class Master extends ApiObject
     ];
 
     protected $classMap = [
-        'categories' => \AboutYou\Cloud\AdminApi\Models\ProductMasterCategories::class,
+        'categories' => ProductMasterCategories::class,
     ];
 
     protected $collectionClassMap = [
-        'attributes' => \AboutYou\Cloud\AdminApi\Models\Attribute::class,
+        'attributes' => Attribute::class,
     ];
 
     protected $polymorphic = [

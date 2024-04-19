@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Shipment;
+
 /**
  * @internal
  */
@@ -11,8 +13,8 @@ final class ShipmentTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('ShipmentCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Shipment($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Shipment($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->shipments->create($requestEntity, []);
     }

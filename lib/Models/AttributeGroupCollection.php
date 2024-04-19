@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class AttributeGroupCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\AttributeGroup::class,
+        'entities' => AttributeGroup::class,
     ];
 
     /**

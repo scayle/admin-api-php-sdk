@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\ArrayCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class AttributeTranslationService extends AbstractService
@@ -31,10 +32,10 @@ class AttributeTranslationService extends AbstractService
      * @param string $attributeGroupName
      * @param array $options additional options like limit or filters
      *
+     * @return ArrayCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\ArrayCollection
      */
     public function all($attributeGroupName, $options = [])
     {
@@ -43,7 +44,7 @@ class AttributeTranslationService extends AbstractService
             $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\ArrayCollection::class,
+            ArrayCollection::class,
             null
         );
     }

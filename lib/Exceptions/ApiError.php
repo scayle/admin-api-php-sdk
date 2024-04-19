@@ -2,9 +2,7 @@
 
 namespace AboutYou\Cloud\AdminApi\Exceptions;
 
-use JsonSerializable;
-
-class ApiError implements JsonSerializable
+class ApiError implements \JsonSerializable
 {
     /**
      * @var string

@@ -11,7 +11,7 @@ class OrderCostTax extends ApiObject
     ];
 
     protected $classMap = [
-        'vat' => \AboutYou\Cloud\AdminApi\Models\OrderCostVat::class,
+        'vat' => OrderCostVat::class,
     ];
 
     protected $collectionClassMap = [

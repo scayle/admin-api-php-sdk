@@ -2,6 +2,8 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Carrier;
+use AboutYou\Cloud\AdminApi\Models\CarrierCollection;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
 
 /**
@@ -14,11 +16,11 @@ final class CarrierTest extends BaseApiTestCase
         $responseEntity = $this->api->carriers->all([]);
 
         $expectedResponseJson = $this->loadFixture('CarrierAllResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\CarrierCollection::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(CarrierCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
-            static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Carrier::class, $collectionEntity);
+            self::assertInstanceOf(Carrier::class, $collectionEntity);
         }
     }
 
@@ -27,35 +29,35 @@ final class CarrierTest extends BaseApiTestCase
         $responseEntity = $this->api->carriers->get(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('CarrierGetResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Carrier::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Carrier::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testCreate()
     {
         $expectedRequestJson = $this->loadFixture('CarrierCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Carrier($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Carrier($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->carriers->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CarrierCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Carrier::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Carrier::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 
     public function testUpdate()
     {
         $expectedRequestJson = $this->loadFixture('CarrierUpdateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Carrier($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Carrier($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->carriers->update(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('CarrierUpdateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Carrier::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Carrier::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 }

@@ -16,7 +16,7 @@ class OrderItemProduct extends ApiObject
     ];
 
     protected $collectionClassMap = [
-        'images' => \AboutYou\Cloud\AdminApi\Models\OrderItemProductImage::class,
+        'images' => OrderItemProductImage::class,
     ];
 
     protected $polymorphic = [

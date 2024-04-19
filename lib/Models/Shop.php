@@ -22,11 +22,11 @@ class Shop extends ApiObject
     ];
 
     protected $classMap = [
-        'logoSource' => \AboutYou\Cloud\AdminApi\Models\AssetSource::class,
+        'logoSource' => AssetSource::class,
     ];
 
     protected $collectionClassMap = [
-        'countries' => \AboutYou\Cloud\AdminApi\Models\ShopCountry::class,
+        'countries' => ShopCountry::class,
     ];
 
     protected $polymorphic = [

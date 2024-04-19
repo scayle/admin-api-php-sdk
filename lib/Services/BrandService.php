@@ -3,6 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Brand;
+use AboutYou\Cloud\AdminApi\Models\BrandCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class BrandService extends AbstractService
@@ -10,10 +12,10 @@ class BrandService extends AbstractService
     /**
      * @param array $options additional options like limit or filters
      *
+     * @return BrandCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\BrandCollection
      */
     public function all($options = [])
     {
@@ -22,7 +24,7 @@ class BrandService extends AbstractService
             $this->resolvePath('/brands'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\BrandCollection::class,
+            BrandCollection::class,
             null
         );
     }
@@ -31,10 +33,10 @@ class BrandService extends AbstractService
      * @param int $brandId
      * @param array $options additional options like limit or filters
      *
+     * @return Brand
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Brand
      */
     public function get($brandId, $options = [])
     {
@@ -43,19 +45,19 @@ class BrandService extends AbstractService
             $this->resolvePath('/brands/%s', $brandId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Brand::class,
+            Brand::class,
             null
         );
     }
 
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Brand $model the model to create or update
+     * @param Brand $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Brand
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Brand
      */
     public function create($model, $options = [])
     {
@@ -64,20 +66,20 @@ class BrandService extends AbstractService
             $this->resolvePath('/brands'),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Brand::class,
+            Brand::class,
             $model
         );
     }
 
     /**
      * @param int $brandId
-     * @param \AboutYou\Cloud\AdminApi\Models\Brand $model the model to create or update
+     * @param Brand $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Brand
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Brand
      */
     public function update($brandId, $model, $options = [])
     {
@@ -86,7 +88,7 @@ class BrandService extends AbstractService
             $this->resolvePath('/brands/%s', $brandId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Brand::class,
+            Brand::class,
             $model
         );
     }
@@ -115,10 +117,10 @@ class BrandService extends AbstractService
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomData($brandId, $model, $options = [])
     {
@@ -155,10 +157,10 @@ class BrandService extends AbstractService
      * @param int $brandId
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomData($brandId, $options = [])
     {
@@ -178,10 +180,10 @@ class BrandService extends AbstractService
      * @param array $model the model to create or update
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function createOrUpdateCustomDataForKey($brandId, $key, $model, $options = [])
     {
@@ -220,10 +222,10 @@ class BrandService extends AbstractService
      * @param string $key
      * @param array $options additional options like limit or filters
      *
+     * @return array
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return array
      */
     public function getCustomDataForKey($brandId, $key, $options = [])
     {

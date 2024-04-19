@@ -20,11 +20,11 @@ class Voucher extends ApiObject
     ];
 
     protected $classMap = [
-        'constraints' => \AboutYou\Cloud\AdminApi\Models\VoucherConstraints::class,
+        'constraints' => VoucherConstraints::class,
     ];
 
     protected $collectionClassMap = [
-        'criteria' => \AboutYou\Cloud\AdminApi\Models\VoucherCriterion::class,
+        'criteria' => VoucherCriterion::class,
     ];
 
     protected $polymorphic = [

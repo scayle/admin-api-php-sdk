@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class WebhookEventCollection extends ApiCollection
 {
     protected $collectionClassMap = [
-        'entities' => \AboutYou\Cloud\AdminApi\Models\WebhookEvent::class,
+        'entities' => WebhookEvent::class,
     ];
 
     /**

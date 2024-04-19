@@ -2,6 +2,15 @@
 
 namespace AboutYou\Cloud\AdminApi;
 
+use AboutYou\Cloud\AdminApi\Models\Promotion;
+use AboutYou\Cloud\AdminApi\Models\PromotionAudiences;
+use AboutYou\Cloud\AdminApi\Models\PromotionEffect;
+use AboutYou\Cloud\AdminApi\Models\PromotionGlobalCondition;
+use AboutYou\Cloud\AdminApi\Models\PromotionItemCondition;
+use AboutYou\Cloud\AdminApi\Models\PromotionSchedule;
+use AboutYou\Cloud\AdminApi\Models\PromotionSiblingPromotions;
+use AboutYou\Cloud\AdminApi\Models\PromotionTier;
+
 /**
  * @internal
  */
@@ -11,43 +20,43 @@ final class PromotionTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('PromotionCreateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Promotion($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Promotion($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->promotions->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('PromotionCreateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Promotion::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Promotion::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'schedule', \AboutYou\Cloud\AdminApi\Models\PromotionSchedule::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'siblingPromotions', \AboutYou\Cloud\AdminApi\Models\PromotionSiblingPromotions::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'audiences', \AboutYou\Cloud\AdminApi\Models\PromotionAudiences::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'effect', \AboutYou\Cloud\AdminApi\Models\PromotionEffect::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'globalConditions', \AboutYou\Cloud\AdminApi\Models\PromotionGlobalCondition::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'itemConditions', \AboutYou\Cloud\AdminApi\Models\PromotionItemCondition::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', \AboutYou\Cloud\AdminApi\Models\PromotionTier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'schedule', PromotionSchedule::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'siblingPromotions', PromotionSiblingPromotions::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'audiences', PromotionAudiences::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'effect', PromotionEffect::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'globalConditions', PromotionGlobalCondition::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'itemConditions', PromotionItemCondition::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTier::class);
     }
 
     public function testUpdate()
     {
         $expectedRequestJson = $this->loadFixture('PromotionUpdateRequest.json');
 
-        $requestEntity = new \AboutYou\Cloud\AdminApi\Models\Promotion($expectedRequestJson);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+        $requestEntity = new Promotion($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->promotions->update('acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('PromotionUpdateResponse.json');
-        static::assertInstanceOf(\AboutYou\Cloud\AdminApi\Models\Promotion::class, $responseEntity);
-        static::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+        self::assertInstanceOf(Promotion::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'schedule', \AboutYou\Cloud\AdminApi\Models\PromotionSchedule::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'siblingPromotions', \AboutYou\Cloud\AdminApi\Models\PromotionSiblingPromotions::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'audiences', \AboutYou\Cloud\AdminApi\Models\PromotionAudiences::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'effect', \AboutYou\Cloud\AdminApi\Models\PromotionEffect::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'globalConditions', \AboutYou\Cloud\AdminApi\Models\PromotionGlobalCondition::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'itemConditions', \AboutYou\Cloud\AdminApi\Models\PromotionItemCondition::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', \AboutYou\Cloud\AdminApi\Models\PromotionTier::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'schedule', PromotionSchedule::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'siblingPromotions', PromotionSiblingPromotions::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'audiences', PromotionAudiences::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'effect', PromotionEffect::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'globalConditions', PromotionGlobalCondition::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'itemConditions', PromotionItemCondition::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTier::class);
     }
 }

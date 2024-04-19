@@ -65,9 +65,9 @@ abstract class AbstractApi
      * @param array $headers
      * @param null|string $body
      *
-     * @throws ClientExceptionInterface
-     *
      * @return ResponseInterface
+     *
+     * @throws ClientExceptionInterface
      */
     public function request($method, $relativePath, $query = [], $headers = [], $body = null)
     {

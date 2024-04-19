@@ -3,6 +3,11 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\Order;
+use AboutYou\Cloud\AdminApi\Models\OrderCollection;
+use AboutYou\Cloud\AdminApi\Models\OrderReferenceKey;
+use AboutYou\Cloud\AdminApi\Models\OrderStatus;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class OrderService extends AbstractService
@@ -10,13 +15,13 @@ class OrderService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $orderIdentifier
+     * @param Identifier $orderIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return Order
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Order
      */
     public function get($shopKey, $countryCode, $orderIdentifier, $options = [])
     {
@@ -25,7 +30,7 @@ class OrderService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/orders/%s', $shopKey, $countryCode, $orderIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Order::class,
+            Order::class,
             null
         );
     }
@@ -35,10 +40,10 @@ class OrderService extends AbstractService
      * @param string $countryCode
      * @param array $options additional options like limit or filters
      *
+     * @return OrderCollection
+     *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\OrderCollection
      */
     public function all($shopKey, $countryCode, $options = [])
     {
@@ -47,7 +52,7 @@ class OrderService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/orders', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\OrderCollection::class,
+            OrderCollection::class,
             null
         );
     }
@@ -56,13 +61,13 @@ class OrderService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $orderId
-     * @param \AboutYou\Cloud\AdminApi\Models\OrderReferenceKey $model the model to create or update
+     * @param OrderReferenceKey $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Order
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Order
      */
     public function updateReferenceKey($shopKey, $countryCode, $orderId, $model, $options = [])
     {
@@ -71,7 +76,7 @@ class OrderService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/orders/%s/reference-key', $shopKey, $countryCode, $orderId),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Order::class,
+            Order::class,
             $model
         );
     }
@@ -79,13 +84,13 @@ class OrderService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Order $model the model to create or update
+     * @param Order $model the model to create or update
      * @param array $options additional options like limit or filters
+     *
+     * @return Order
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\Order
      */
     public function create($shopKey, $countryCode, $model, $options = [])
     {
@@ -94,7 +99,7 @@ class OrderService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/orders', $shopKey, $countryCode),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\Order::class,
+            Order::class,
             $model
         );
     }
@@ -102,7 +107,7 @@ class OrderService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $orderIdentifier
+     * @param Identifier $orderIdentifier
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -123,13 +128,13 @@ class OrderService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
-     * @param \AboutYou\Cloud\AdminApi\Models\Identifier $orderIdentifier
+     * @param Identifier $orderIdentifier
      * @param array $options additional options like limit or filters
+     *
+     * @return OrderStatus
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
-     *
-     * @return \AboutYou\Cloud\AdminApi\Models\OrderStatus
      */
     public function getStatus($shopKey, $countryCode, $orderIdentifier, $options = [])
     {
@@ -138,7 +143,7 @@ class OrderService extends AbstractService
             $this->resolvePath('/shops/%s/countries/%s/orders/%s/status', $shopKey, $countryCode, $orderIdentifier),
             $options,
             [],
-            \AboutYou\Cloud\AdminApi\Models\OrderStatus::class,
+            OrderStatus::class,
             null
         );
     }
