@@ -72,6 +72,10 @@
                 {
                     "id": 7,
                     "referenceKey": "M00012-black-M",
+                    "merchantReferenceKeys": [
+                        "merchant-1",
+                        "merchant-2"
+                    ],
                     "attributes": [
                         {
                             "name": "size",

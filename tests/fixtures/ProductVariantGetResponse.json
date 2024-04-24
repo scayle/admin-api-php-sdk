@@ -1,6 +1,10 @@
 {
     "id": 7,
     "referenceKey": "M0001-black-M",
+    "merchantReferenceKeys": [
+        "merchant-1",
+        "merchant-2"
+    ],
     "ean": "0000007619991",
     "attributes": [
         {
