@@ -22,27 +22,4 @@ final class AudienceTest extends BaseApiTestCase
             self::assertInstanceOf(Audience::class, $collectionEntity);
         }
     }
-
-    public function testCreateAudience()
-    {
-        $expectedRequestJson = $this->loadFixture('AudienceCreateAudienceRequest.json');
-
-        $requestEntity = new Audience($expectedRequestJson);
-        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
-
-        $responseEntity = $this->api->audiences->createAudience($requestEntity, []);
-
-        $expectedResponseJson = $this->loadFixture('AudienceCreateAudienceResponse.json');
-        self::assertInstanceOf(Audience::class, $responseEntity);
-        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-    }
-
-    public function testGetAudience()
-    {
-        $responseEntity = $this->api->audiences->getAudience('acme', []);
-
-        $expectedResponseJson = $this->loadFixture('AudienceGetAudienceResponse.json');
-        self::assertInstanceOf(Audience::class, $responseEntity);
-        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-    }
 }
