@@ -21,7 +21,7 @@ class PromotionService extends AbstractService
     {
         return $this->request(
             'post',
-            $this->resolvePath('/promotions'),
+            $this->resolvePath('/create-promotion'),
             $options,
             [],
             Promotion::class,
@@ -43,7 +43,7 @@ class PromotionService extends AbstractService
     {
         return $this->request(
             'put',
-            $this->resolvePath('/promotions/%s', $promotionId),
+            $this->resolvePath('/update-promotion/%s', $promotionId),
             $options,
             [],
             Promotion::class,
