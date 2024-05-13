@@ -3,10 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string[] $allowList The list of audience ids that can use this promotion
- * @property string[] $blockList The list of audience ids that can not use this promotion
+ * @property int[] $allowList The list of shop IDs where the promotion is allowed
+ * @property int[] $blockList The list of shop IDs where the promotion is blocked
  */
-class PromotionAudiences extends ApiObject
+class PromotionShopCountryId extends ApiObject
 {
     protected $defaultValues = [
     ];

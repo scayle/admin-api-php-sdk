@@ -1,0 +1,9 @@
+{
+    "name": "VIP customers",
+    "description": "German VIP Customers from Hamburg only",
+    "customerIds": [
+        345,
+        456,
+        567
+    ]
+}

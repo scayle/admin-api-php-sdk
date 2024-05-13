@@ -1,17 +1,25 @@
 {
     "name": "Christmas Promotion",
+    "displayName": {
+        "de_DE": "Weihnachtsaktion",
+        "en_US": "Christmas Promotion"
+    },
+    "status": "active",
+    "activationType": "code",
+    "level": "basket",
     "schedule": {
         "from": "2023-05-10T10:00:00+01:00",
         "to": "2024-05-10T10:00:00+01:00"
     },
-    "isActive": true,
-    "shopId": [
-        "139",
-        "554"
+    "companyIds": [
+        100
     ],
-    "companyId": [
-        "100"
-    ],
+    "shopCountryIds": {
+        "allowList": [
+            1,
+            2
+        ]
+    },
     "siblingPromotions": {
         "enabled": true,
         "allowList": [
@@ -27,31 +35,31 @@
         ]
     },
     "effect": {
-        "id": "buy_x_get_y",
+        "type": "buy_x_get_y",
         "additionalData": {
-            "variant_ids": [
+            "variantIds": [
                 12389244,
                 23985437
             ],
-            "max_count": 1,
-            "max_count_type": "per_eligible_items_quantity",
-            "eligible_items_quantity": 6
+            "maxCount": 1,
+            "maxCountType": "per_eligible_items_quantity",
+            "eligibleItemsQuantity": 6
         }
     },
-    "globalConditions": [
+    "conditions": [
         {
+            "level": "global",
             "key": "mov_100",
             "condition": "payload.items.exists(i, 11003 in i.variant.id)"
-        }
-    ],
-    "itemConditions": [
+        },
         {
+            "level": "item",
             "key": "mov_100",
             "condition": "item.color == 'yellow'"
         }
     ],
-    "priority": "1",
-    "additionalData": {
+    "priority": 1,
+    "customData": {
         "legalText": "Supported neglected met she therefore unwilling discovery remainder. Way sentiments two indulgence uncommonly own."
     },
     "tiers": [
@@ -59,14 +67,23 @@
             "name": "Tier 1",
             "effect": {
                 "additionalData": {
-                    "variant_ids": [
+                    "variantIds": [
                         12389244,
                         23985437
                     ],
-                    "max_count": 1
+                    "maxCount": 1
                 }
             },
             "mov": 10000
         }
-    ]
+    ],
+    "usageLimit": {
+        "promotion": {
+            "count": 100
+        },
+        "promotionCodes": {
+            "count": 100,
+            "type": "order"
+        }
+    }
 }

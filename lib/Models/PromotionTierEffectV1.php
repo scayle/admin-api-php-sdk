@@ -3,10 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $type Type of the promotion
- * @property PromotionEffectAutomaticDiscount|PromotionEffectBuyXGetY $additionalData Additional data of the promotion effect, maxCountType and eligibleItemsQuantity are optional
+ * @property array $additionalData Additional data of the promotion tier effect
  */
-class PromotionEffect extends ApiObject
+class PromotionTierEffectV1 extends ApiObject
 {
     protected $defaultValues = [
     ];

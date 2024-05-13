@@ -3,9 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property array $additionalData Additional data of the promotion tier effect
+ * @property string $key Key of the condition. Can be used to identify which condition failed in the validate endpoint
+ * @property string $condition
  */
-class PromotionTierEffect extends ApiObject
+class PromotionItemConditionV1 extends ApiObject
 {
     protected $defaultValues = [
     ];

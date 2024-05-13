@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string[] $blockList The list of promotion ids that can not be applied together with this promotion
  * @property string $level The level on which promotion is applied
  */
-class PromotionSiblingPromotions extends ApiObject
+class PromotionSiblingPromotionsV1 extends ApiObject
 {
     protected $defaultValues = [
     ];

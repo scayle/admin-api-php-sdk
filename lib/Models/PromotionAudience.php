@@ -3,10 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $type Type of the promotion
- * @property PromotionEffectAutomaticDiscount|PromotionEffectBuyXGetY $additionalData Additional data of the promotion effect, maxCountType and eligibleItemsQuantity are optional
+ * @property string[] $allowList The list of audience ids that can use this promotion
+ * @property string[] $blockList The list of audience ids that can not use this promotion
  */
-class PromotionEffect extends ApiObject
+class PromotionAudience extends ApiObject
 {
     protected $defaultValues = [
     ];

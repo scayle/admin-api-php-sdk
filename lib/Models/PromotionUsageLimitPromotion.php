@@ -3,10 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $key Key of the condition. Can be used to identify which condition failed in the validate endpoint
- * @property string $condition
+ * @property int $count Promotion total usage limit count
  */
-class PromotionGlobalCondition extends ApiObject
+class PromotionUsageLimitPromotion extends ApiObject
 {
     protected $defaultValues = [
     ];

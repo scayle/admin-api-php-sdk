@@ -1,25 +1,19 @@
 {
+    "id": "645e0c241a93369ff53f26e0",
+    "version": "645e0c241a93369ff53f26e0",
     "name": "Christmas Promotion",
-    "displayName": {
-        "de_DE": "Weihnachtsaktion",
-        "en_US": "Christmas Promotion"
-    },
-    "status": "active",
-    "activationType": "code",
-    "level": "basket",
     "schedule": {
         "from": "2023-05-10T10:00:00+01:00",
-        "to": "2024-05-10T10:00:00+01:00"
+        "to": "2023-05-17T18:00:00Z"
     },
-    "companyIds": [
-        100
+    "isActive": true,
+    "shopId": [
+        "139",
+        "554"
     ],
-    "shopCountryIds": {
-        "blockList": [
-            3,
-            4
-        ]
-    },
+    "companyId": [
+        "100"
+    ],
     "siblingPromotions": {
         "enabled": true,
         "allowList": [
@@ -35,55 +29,47 @@
         ]
     },
     "effect": {
-        "type": "buy_x_get_y",
+        "id": "buy_x_get_y",
         "additionalData": {
-            "variantIds": [
+            "variant_ids": [
                 12389244,
                 23985437
             ],
-            "maxCount": 1,
-            "maxCountType": "per_eligible_items_quantity",
-            "eligibleItemsQuantity": 6
+            "max_count": 1,
+            "max_count_type": "per_eligible_items_quantity",
+            "eligible_items_quantity": 6
         }
     },
-    "conditions": [
+    "globalConditions": [
         {
-            "level": "global",
             "key": "mov_100",
             "condition": "payload.items.exists(i, 11003 in i.variant.id)"
-        },
+        }
+    ],
+    "itemConditions": [
         {
-            "level": "item",
             "key": "mov_100",
             "condition": "item.color == 'yellow'"
         }
     ],
-    "priority": 1,
-    "customData": {
+    "priority": "1",
+    "additionalData": {
         "legalText": "Supported neglected met she therefore unwilling discovery remainder. Way sentiments two indulgence uncommonly own."
     },
     "tiers": [
         {
+            "id": 1,
             "name": "Tier 1",
             "effect": {
                 "additionalData": {
-                    "variantIds": [
+                    "variant_ids": [
                         12389244,
                         23985437
                     ],
-                    "maxCount": 1
+                    "max_count": 1
                 }
             },
             "mov": 10000
         }
-    ],
-    "usageLimit": {
-        "promotion": {
-            "count": 100
-        },
-        "promotionCodes": {
-            "count": 100,
-            "type": "order"
-        }
-    }
+    ]
 }

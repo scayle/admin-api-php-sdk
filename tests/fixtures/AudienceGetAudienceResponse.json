@@ -1,0 +1,15 @@
+{
+    "id": "645e0c241a93369ff53f26e0",
+    "name": "VIP customers",
+    "description": "German VIP Customers from Hamburg only",
+    "companyIds": [
+        100
+    ],
+    "customerIds": [
+        345,
+        456,
+        567
+    ],
+    "createdAt": "2023-05-10T10:00:00+01:00",
+    "updatedAt": "2023-05-10T10:00:00+01:00"
+}
