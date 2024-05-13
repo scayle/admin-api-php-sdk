@@ -1,0 +1,15 @@
+{
+    "entities": [
+        {
+            "referenceKey": "order4711-item3",
+            "id": 123
+        },
+        {
+            "referenceKey": "order4711-item4",
+            "error": {
+                "errorKey": "VARIANT_NOT_FOUND",
+                "message": "The combination of warehouseReferenceKey, variant id\/key and merchantReferenceKey was not found."
+            }
+        }
+    ]
+}

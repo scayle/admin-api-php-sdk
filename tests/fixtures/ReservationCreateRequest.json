@@ -1,0 +1,18 @@
+[
+    {
+        "referenceKey": "order4711-item3",
+        "warehouseReferenceKey": "myWarehouse",
+        "variant": {
+            "id": 123,
+            "merchantReferenceKey": "merchant-1"
+        }
+    },
+    {
+        "referenceKey": "order4711-item4",
+        "warehouseReferenceKey": "myWarehouse",
+        "variant": {
+            "referenceKey": "foo-456789",
+            "merchantReferenceKey": "merchant-1"
+        }
+    }
+]

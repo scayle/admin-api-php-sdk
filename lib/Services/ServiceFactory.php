@@ -48,5 +48,6 @@ class ServiceFactory extends AbstractServiceFactory
         'promotionV1s' => PromotionV1Service::class,
         'promotions' => PromotionService::class,
         'audiences' => AudienceService::class,
+        'reservations' => ReservationService::class,
     ];
 }
