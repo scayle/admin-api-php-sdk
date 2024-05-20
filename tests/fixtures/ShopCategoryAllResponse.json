@@ -56,6 +56,7 @@
             "countries": [
                 {
                     "countryCode": "DE",
+                    "shopCountryId": 1,
                     "path": "\/my-category",
                     "isActive": true,
                     "isVisible": true,
