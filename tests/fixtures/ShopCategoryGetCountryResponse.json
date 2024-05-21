@@ -4,6 +4,7 @@
     "path": "\/my-category",
     "isActive": true,
     "isVisible": true,
+    "isExcludedFromSearch": null,
     "properties": [
         {
             "key": "myKey",

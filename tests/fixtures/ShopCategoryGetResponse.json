@@ -58,6 +58,7 @@
             "path": "\/my-category",
             "isActive": true,
             "isVisible": true,
+            "isExcludedFromSearch": false,
             "properties": [
                 {
                     "key": "myKey",
