@@ -1,10 +1,8 @@
 {
     "countryCode": "DE",
-    "shopCountryId": 1,
     "path": "\/my-category",
     "isActive": true,
     "isVisible": true,
-    "isExcludedFromSearch": null,
     "properties": [
         {
             "key": "myKey",
