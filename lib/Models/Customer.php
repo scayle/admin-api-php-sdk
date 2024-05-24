@@ -7,7 +7,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $referenceKey External reference set by the client to integrate a third party system.
  * @property string $firstName First name of the customer
  * @property string $lastName Last name of the customer
- * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f", "d"
+ * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
  * @property string $birthDate Date of birth of the customer in YYYY-MM-DD format
  * @property string $email email address of the customer
  * @property string $phone phone number of the customer
