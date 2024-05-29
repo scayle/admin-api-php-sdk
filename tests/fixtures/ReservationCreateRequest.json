@@ -14,5 +14,12 @@
             "referenceKey": "foo-456789",
             "merchantReferenceKey": "merchant-1"
         }
+    },
+    {
+        "referenceKey": "order4711-item5",
+        "warehouseReferenceKey": "myWarehouse",
+        "variant": {
+            "referenceKey": "foo-456789"
+        }
     }
 ]
