@@ -5,14 +5,16 @@
             "warehouseReferenceKey": "myFirstWarehouse",
             "changedAt": "2020-07-23T11:30:58+00:00",
             "sellableWithoutStock": false,
-            "merchantReferenceKey": "merchant-1"
+            "merchantReferenceKey": "merchant-1",
+            "expectedAvailabilityAt": null
         },
         {
             "quantity": 3,
             "warehouseReferenceKey": "mySecondWarehouse",
             "changedAt": "2020-07-23T11:30:58+00:00",
             "sellableWithoutStock": true,
-            "merchantReferenceKey": "merchant-1"
+            "merchantReferenceKey": "merchant-1",
+            "expectedAvailabilityAt": "2020-07-24"
         }
     ]
 }

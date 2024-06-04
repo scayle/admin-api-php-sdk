@@ -8,6 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $changedAt Date time when the stock changed in Iso8601 format.
  * @property bool $sellableWithoutStock Defines if the variant can be sold even when the available stock is 0.
  * @property string $merchantReferenceKey A merchant reference key the stock belongs to.
+ * @property string $expectedAvailabilityAt Date when the stock is expected to be available. If provided, it MUST be in the future.
  */
 class ProductVariantStock extends ApiObject
 {
