@@ -13,7 +13,7 @@
   The SCAYLE <strong>Admin API SDK</strong> streamlines interactions with Admin REST APIs.
 </p>
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="SCAYLE's **Admin API SDK is released under the MIT license." /></a>
+  <a href="#"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="SCAYLE's **Admin API SDK is released under the MIT license."/></a>
 </p>
 
 ## Getting Started
