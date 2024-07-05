@@ -49,5 +49,6 @@ class ServiceFactory extends AbstractServiceFactory
         'promotions' => PromotionService::class,
         'audiences' => AudienceService::class,
         'reservations' => ReservationService::class,
+        'redirects' => RedirectService::class,
     ];
 }

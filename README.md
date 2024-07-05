@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-  <a href="https://scayle.dev/en/">Documentation</a> |
+  <a href="https://new.scayle.dev/en/">Documentation</a> |
   <a href="https://www.scayle.com/">Website</a>
 </h4>
 
@@ -18,9 +18,9 @@
 
 ## Getting Started
 
-Visit the [Quickstart Guide](https://scayle.dev/en/developer-guide/introduction/apis#admin-api) to set up the Admin API PHP SDK
+Visit the [Quickstart Guide](https://new.scayle.dev/en/developer-guide/introduction/apis#admin-api) to set up the Admin API PHP SDK
 
-Visit the [Docs](https://scayle.dev/en/) to learn more about our system requirements.
+Visit the [Docs](https://new.scayle.dev/en/) to learn more about our system requirements.
 
 ## Requirements
 
@@ -38,7 +38,7 @@ composer require scayle/admin-api
 
 [SCAYLE](https://scayle.com) is a full-featured e-commerce software solution that comes with flexible APIs. Within SCAYLE, you can manage all aspects of your shop, such as products, stocks, customers, and transactions.
 
-Learn more about Scayles’s architecture and commerce modules in the [Docs](https://scayle.dev/en/developer-guide).
+Learn more about Scayles’s architecture and commerce modules in the [Docs](https://new.scayle.dev/en/developer-guide).
 
 ##  Community
 

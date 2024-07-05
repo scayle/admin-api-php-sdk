@@ -1,0 +1,49 @@
+{
+    "entities": [
+        {
+            "id": 83070,
+            "source": "https:\/\/forceful-poem.net\/",
+            "target": "https:\/\/extra-small-mouser.net\/",
+            "statusCode": 302,
+            "isRegex": false,
+            "parent": {
+                "id": 83069,
+                "source": "https:\/\/forceful-poem.net\/",
+                "target": "https:\/\/extra-small-mouser.net\/",
+                "statusCode": 302,
+                "isRegex": false,
+                "priority": 754,
+                "createdAt": "2024-06-20T13:20:21.000000Z",
+                "updatedAt": "2024-06-20T13:20:21.000000Z"
+            },
+            "priority": 754,
+            "createdAt": "2024-06-20T13:20:21.000000Z",
+            "updatedAt": "2024-06-20T13:20:21.000000Z"
+        },
+        {
+            "id": 83081,
+            "source": "https:\/\/distinct-hold.com\/",
+            "target": "https:\/\/defiant-event.org\/",
+            "statusCode": 300,
+            "isRegex": false,
+            "parent": null,
+            "priority": 214,
+            "createdAt": "2024-06-20T13:20:21.000000Z",
+            "updatedAt": "2024-06-20T13:20:21.000000Z"
+        },
+        {
+            "id": 83080,
+            "source": "https:\/\/short-offence.name",
+            "target": "https:\/\/cooked-senate.info",
+            "statusCode": 302,
+            "isRegex": false,
+            "parent": null,
+            "priority": 345,
+            "createdAt": "2024-06-20T13:20:21.000000Z",
+            "updatedAt": "2024-06-20T13:20:21.000000Z"
+        }
+    ],
+    "cursor": {
+        "next": "100"
+    }
+}

@@ -26,6 +26,7 @@ use AboutYou\Cloud\AdminApi\Services\ProductVariantService;
 use AboutYou\Cloud\AdminApi\Services\ProductVariantStockService;
 use AboutYou\Cloud\AdminApi\Services\PromotionService;
 use AboutYou\Cloud\AdminApi\Services\PromotionV1Service;
+use AboutYou\Cloud\AdminApi\Services\RedirectService;
 use AboutYou\Cloud\AdminApi\Services\ReservationService;
 use AboutYou\Cloud\AdminApi\Services\ReturnItemService;
 use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
@@ -83,6 +84,7 @@ use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property PromotionService $promotions
  * @property AudienceService $audiences
  * @property ReservationService $reservations
+ * @property RedirectService $redirects
  */
 class AdminAPI extends AbstractApi
 {
