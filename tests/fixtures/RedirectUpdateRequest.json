@@ -1,0 +1,7 @@
+{
+    "source": "https:\/\/google.com",
+    "target": "https:\/\/google2.com",
+    "isRegex": false,
+    "statusCode": 302,
+    "priority": 1
+}

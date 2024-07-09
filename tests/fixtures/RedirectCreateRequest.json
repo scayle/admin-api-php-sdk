@@ -1,0 +1,10 @@
+{
+    "source": "https:\/\/google.com",
+    "target": "https:\/\/google2.com",
+    "statusCode": 302,
+    "parent": {
+        "id": 2
+    },
+    "isRegex": false,
+    "priority": 1
+}

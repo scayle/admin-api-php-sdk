@@ -1,0 +1,20 @@
+[
+    {
+        "source": "https:\/\/example.com",
+        "target": "https:\/\/example2.com",
+        "statusCode": 301,
+        "parent": {
+            "id": 2
+        },
+        "isRegex": false,
+        "priority": 1
+    },
+    {
+        "redirectId": 1,
+        "source": "https:\/\/example2.com",
+        "target": "https:\/\/example3.com",
+        "statusCode": 302,
+        "isRegex": false,
+        "priority": 1
+    }
+]

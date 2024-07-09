@@ -1,0 +1,15 @@
+{
+    "entities": [
+        {
+            "source": "https:\/\/example2.com",
+            "target": "https:\/\/example2.com",
+            "statusCode": 302,
+            "isRegex": false,
+            "priority": 1,
+            "error": {
+                "errorKey": "validation_error",
+                "message": "Some validation error"
+            }
+        }
+    ]
+}
