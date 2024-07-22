@@ -1,0 +1,5 @@
+{
+    "warehouseReferenceKey": "myWarehouse",
+    "sellableWithoutStock": true,
+    "merchantReferenceKey": "merchant-1"
+}

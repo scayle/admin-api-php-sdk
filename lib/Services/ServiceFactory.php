@@ -18,6 +18,7 @@ class ServiceFactory extends AbstractServiceFactory
         'productVariantPrices' => ProductVariantPriceService::class,
         'attributeTranslations' => AttributeTranslationService::class,
         'productVariantStocks' => ProductVariantStockService::class,
+        'sellableWithoutStocks' => SellableWithoutStockService::class,
         'shops' => ShopService::class,
         'attributeGroups' => AttributeGroupService::class,
         'campaigns' => CampaignService::class,

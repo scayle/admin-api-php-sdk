@@ -29,6 +29,7 @@ use AboutYou\Cloud\AdminApi\Services\PromotionV1Service;
 use AboutYou\Cloud\AdminApi\Services\RedirectService;
 use AboutYou\Cloud\AdminApi\Services\ReservationService;
 use AboutYou\Cloud\AdminApi\Services\ReturnItemService;
+use AboutYou\Cloud\AdminApi\Services\SellableWithoutStockService;
 use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
 use AboutYou\Cloud\AdminApi\Services\ShipmentService;
 use AboutYou\Cloud\AdminApi\Services\ShopCategoryProductSetUnlinkInstructionService;
@@ -53,6 +54,7 @@ use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property ProductVariantPriceService $productVariantPrices
  * @property AttributeTranslationService $attributeTranslations
  * @property ProductVariantStockService $productVariantStocks
+ * @property SellableWithoutStockService $sellableWithoutStocks
  * @property ShopService $shops
  * @property AttributeGroupService $attributeGroups
  * @property CampaignService $campaigns
