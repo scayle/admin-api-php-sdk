@@ -10,7 +10,7 @@
         "priority": 1
     },
     {
-        "redirectId": 1,
+        "id": 1,
         "source": "https:\/\/example2.com",
         "target": "https:\/\/example3.com",
         "statusCode": 302,

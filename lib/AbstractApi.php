@@ -126,13 +126,13 @@ abstract class AbstractApi
     private function validateConfig($config)
     {
         if (empty($config[self::API_URL])) {
-            $message = sprintf('%s cannot be empty', self::API_URL);
+            $message = \sprintf('%s cannot be empty', self::API_URL);
 
             throw new InvalidArgumentException($message);
         }
 
         if (empty($config[self::ACCESS_TOKEN])) {
-            $message = sprintf('%s cannot be empty', self::ACCESS_TOKEN);
+            $message = \sprintf('%s cannot be empty', self::ACCESS_TOKEN);
 
             throw new InvalidArgumentException($message);
         }
