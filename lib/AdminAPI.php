@@ -13,6 +13,8 @@ use AboutYou\Cloud\AdminApi\Services\CarrierService;
 use AboutYou\Cloud\AdminApi\Services\CompanyService;
 use AboutYou\Cloud\AdminApi\Services\CustomDataConfigService;
 use AboutYou\Cloud\AdminApi\Services\CustomerService;
+use AboutYou\Cloud\AdminApi\Services\EmailKeyService;
+use AboutYou\Cloud\AdminApi\Services\EmailService;
 use AboutYou\Cloud\AdminApi\Services\MasterCategoryService;
 use AboutYou\Cloud\AdminApi\Services\MasterService;
 use AboutYou\Cloud\AdminApi\Services\MerchantService;
@@ -87,6 +89,8 @@ use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property AudienceService $audiences
  * @property ReservationService $reservations
  * @property RedirectService $redirects
+ * @property EmailKeyService $emailKeys
+ * @property EmailService $emails
  */
 class AdminAPI extends AbstractApi
 {

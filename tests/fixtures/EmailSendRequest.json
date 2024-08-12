@@ -1,0 +1,9 @@
+{
+    "key": "subscription-order-created-email",
+    "payload": {
+        "property1": "value1",
+        "property2": "value2"
+    },
+    "recipient": "viachaslau.kuptsou@scayle.com",
+    "orderId": 123
+}
