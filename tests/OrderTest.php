@@ -20,6 +20,7 @@ use AboutYou\Cloud\AdminApi\Models\OrderShipping;
 use AboutYou\Cloud\AdminApi\Models\OrderStatus;
 use AboutYou\Cloud\AdminApi\Models\OrderVoucher;
 use AboutYou\Cloud\AdminApi\Models\ShopCountry;
+use AboutYou\Cloud\AdminApi\Models\SubscriptionOrder;
 
 /**
  * @internal
@@ -156,6 +157,34 @@ final class OrderTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('OrderGetStatusResponse.json');
         self::assertInstanceOf(OrderStatus::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', OrderShipping::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', OrderPayment::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', OrderItem::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', Customer::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', OrderContact::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', OrderCost::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', OrderAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', OrderPackage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
+    }
+
+    public function testCreateSubscriptionOrder()
+    {
+        $expectedRequestJson = $this->loadFixture('OrderCreateSubscriptionOrderRequest.json');
+
+        $requestEntity = new SubscriptionOrder($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->orders->createSubscriptionOrder('acme', 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('OrderCreateSubscriptionOrderResponse.json');
+        self::assertInstanceOf(Order::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);

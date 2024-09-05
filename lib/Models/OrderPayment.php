@@ -9,6 +9,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $transactionKey
  * @property OrderPaymentInstallment[] $installment Details about installments, included as a listing of the values involved in the Installments transaction.
  * @property OrderPaymentOptions $options
+ * @property bool $isGiftCard
  */
 class OrderPayment extends ApiObject
 {

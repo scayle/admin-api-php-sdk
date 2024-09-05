@@ -3,13 +3,10 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $id
- * @property string $name
- * @property string $version
- * @property string $displayName
- * @property string $code
+ * @property string $checkout
+ * @property string $device
  */
-class OrderItemPromotion extends ApiObject
+class SubscriptionOrderApplication extends ApiObject
 {
     protected $defaultValues = [
     ];

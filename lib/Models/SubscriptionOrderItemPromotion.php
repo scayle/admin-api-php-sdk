@@ -4,12 +4,9 @@ namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
  * @property string $id
- * @property string $name
- * @property string $version
- * @property string $displayName
  * @property string $code
  */
-class OrderItemPromotion extends ApiObject
+class SubscriptionOrderItemPromotion extends ApiObject
 {
     protected $defaultValues = [
     ];

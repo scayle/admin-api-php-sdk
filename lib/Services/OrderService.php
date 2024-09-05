@@ -8,6 +8,7 @@ use AboutYou\Cloud\AdminApi\Models\Order;
 use AboutYou\Cloud\AdminApi\Models\OrderCollection;
 use AboutYou\Cloud\AdminApi\Models\OrderReferenceKey;
 use AboutYou\Cloud\AdminApi\Models\OrderStatus;
+use AboutYou\Cloud\AdminApi\Models\SubscriptionOrder;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class OrderService extends AbstractService
@@ -145,6 +146,29 @@ class OrderService extends AbstractService
             [],
             OrderStatus::class,
             null
+        );
+    }
+
+    /**
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param SubscriptionOrder $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @return Order
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createSubscriptionOrder($shopKey, $countryCode, $model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/shops/%s/countries/%s/orders/subscription-orders', $shopKey, $countryCode),
+            $options,
+            [],
+            Order::class,
+            $model
         );
     }
 }

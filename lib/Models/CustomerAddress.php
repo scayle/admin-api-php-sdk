@@ -14,6 +14,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property CustomerAddressCollectionPoint $collectionPoint Details of the point where the parcel is received (if used)
  * @property CustomerAddressDefault $isDefault Defines whether the address is the default billing and shipping address
  * @property CustomerAddressRecipient $recipient Recipient personal details
+ * @property string $phone
+ * @property string $state
  */
 class CustomerAddress extends ApiObject
 {

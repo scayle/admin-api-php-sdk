@@ -1,0 +1,51 @@
+{
+    "address": {
+        "billing": {
+            "city": "New York",
+            "countryCode": "DEU",
+            "firstName": "Michael",
+            "gender": "m",
+            "houseNumber": "1650",
+            "lastName": "Jackson",
+            "phone": "0049\/1234567890",
+            "street": "Bedford Ave",
+            "zipCode": "11225"
+        },
+        "shipping": {
+            "city": "New York",
+            "countryCode": "DEU",
+            "firstName": "Michael",
+            "gender": "m",
+            "houseNumber": "1650",
+            "lastName": "Jackson",
+            "phone": "0049\/1234567890",
+            "street": "Bedford Ave",
+            "zipCode": "11225"
+        }
+    },
+    "legacyCustomData": {
+        "basketId": "mop_basket_ID"
+    },
+    "customerId": 1263116,
+    "ipAddress": "127.0.0.1",
+    "items": [
+        {
+            "variantId": 46892617
+        }
+    ],
+    "paymentTypes": [
+        {
+            "authorizedValue": 2990,
+            "confirmationData": {
+                "descriptor": "DG0452755Z3",
+                "profileId": "ABOUTYOU_TE_DE",
+                "subscriptionPaymentReference": "74-201507071360201",
+                "transactionId": "74-201507071360201",
+                "type": "accounting"
+            },
+            "transactionId": "74-201507071360201",
+            "type": "accounting"
+        }
+    ],
+    "subscriptionId": "1234567abcdef"
+}
