@@ -15,7 +15,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property OrderItemPromotion $promotion
  * @property string $key
  * @property string $reservationKey
- * @property string $status
+ * @property string $status Possible values: available, unavailable, deliverable, undeliverable, cancelled, returned.
  * @property OrderItemVariant $variant
  * @property int $warehouseId
  * @property OrderItemGroup $itemGroup

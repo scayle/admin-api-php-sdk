@@ -3,9 +3,9 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property OrderDetailedStatusItem $order
- * @property OrderDetailedStatusItem $shipping
- * @property OrderDetailedStatusItem $billing
+ * @property mixed $order
+ * @property mixed $shipping
+ * @property mixed $billing
  */
 class OrderDetailedStatus extends ApiObject
 {
