@@ -8,6 +8,7 @@ use AboutYou\Cloud\AdminApi\Models\Merchant;
 use AboutYou\Cloud\AdminApi\Models\MerchantCollection;
 use AboutYou\Cloud\AdminApi\Models\MerchantContact;
 use AboutYou\Cloud\AdminApi\Models\MerchantContactCollection;
+use AboutYou\Cloud\AdminApi\Models\MerchantCreateOrUpdate;
 use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress;
 use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddressCollection;
 use AboutYou\Cloud\AdminApi\Models\WarehouseCollection;
@@ -57,10 +58,10 @@ class MerchantService extends AbstractService
     }
 
     /**
-     * @param Merchant $model the model to create or update
+     * @param MerchantCreateOrUpdate $model the model to create or update
      * @param array $options additional options like limit or filters
      *
-     * @return Merchant
+     * @return MerchantCreateOrUpdate
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
@@ -72,17 +73,17 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants'),
             $options,
             [],
-            Merchant::class,
+            MerchantCreateOrUpdate::class,
             $model
         );
     }
 
     /**
      * @param Identifier $merchantIdentifier
-     * @param Merchant $model the model to create or update
+     * @param MerchantCreateOrUpdate $model the model to create or update
      * @param array $options additional options like limit or filters
      *
-     * @return Merchant
+     * @return MerchantCreateOrUpdate
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
@@ -94,7 +95,7 @@ class MerchantService extends AbstractService
             $this->resolvePath('/merchants/%s', $merchantIdentifier),
             $options,
             [],
-            Merchant::class,
+            MerchantCreateOrUpdate::class,
             $model
         );
     }

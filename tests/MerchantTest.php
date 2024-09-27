@@ -8,6 +8,7 @@ use AboutYou\Cloud\AdminApi\Models\MerchantCarrier;
 use AboutYou\Cloud\AdminApi\Models\MerchantCollection;
 use AboutYou\Cloud\AdminApi\Models\MerchantContact;
 use AboutYou\Cloud\AdminApi\Models\MerchantContactCollection;
+use AboutYou\Cloud\AdminApi\Models\MerchantCreateOrUpdate;
 use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress;
 use AboutYou\Cloud\AdminApi\Models\MerchantReturnAddressCollection;
 use AboutYou\Cloud\AdminApi\Models\Warehouse;
@@ -58,13 +59,13 @@ final class MerchantTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('MerchantCreateRequest.json');
 
-        $requestEntity = new Merchant($expectedRequestJson);
+        $requestEntity = new MerchantCreateOrUpdate($expectedRequestJson);
         self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantCreateResponse.json');
-        self::assertInstanceOf(Merchant::class, $responseEntity);
+        self::assertInstanceOf(MerchantCreateOrUpdate::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);
@@ -77,13 +78,13 @@ final class MerchantTest extends BaseApiTestCase
     {
         $expectedRequestJson = $this->loadFixture('MerchantUpdateRequest.json');
 
-        $requestEntity = new Merchant($expectedRequestJson);
+        $requestEntity = new MerchantCreateOrUpdate($expectedRequestJson);
         self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
         $responseEntity = $this->api->merchants->update(Identifier::fromId(1), $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('MerchantUpdateResponse.json');
-        self::assertInstanceOf(Merchant::class, $responseEntity);
+        self::assertInstanceOf(MerchantCreateOrUpdate::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', MerchantContact::class);

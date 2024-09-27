@@ -37,5 +37,11 @@
                 "trackingUrl": "http:\/\/nolp.dhl.de\/nextt-online-public\/set_identcodes.do"
             }
         }
+    ],
+    "warehouses": [
+        {
+            "id": 1,
+            "referenceKey": "my-warehouse"
+        }
     ]
 }

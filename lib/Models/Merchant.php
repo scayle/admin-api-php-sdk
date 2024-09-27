@@ -10,7 +10,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property MerchantContact[] $contacts A list of merchant contacts.
  * @property MerchantReturnAddress[] $returnAddresses A list of merchant return addresses.
  * @property MerchantCarrier[] $carriers A list of carriers attached to the merchant.
- * @property Warehouse[] $warehouses A list of warehouses attached to the merchant.
+ * @property array[] $warehouses A list of warehouses attached to the merchant.
  */
 class Merchant extends ApiObject
 {
