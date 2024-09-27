@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property string $shopKey Description of why the return is initiated
+ * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem.
  * @property string $countryCode ISO 3166 alpha 2 country code; use shop country ID instead of country code when a country is ambiguous within a shop
  * @property string $carrier Defines the carrier key used, e.g. DHL
  * @property string $deliveryDate Defines the timestamp of the package leaving the warehouse
