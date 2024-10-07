@@ -1,5 +1,7 @@
 {
     "referenceKey": "acme",
     "name": "ACME",
-    "priority": 1
+    "priority": 1,
+    "orderDelegationUrl": "https:\/\/merchant.com\/order-service\/delegate-order",
+    "cancellationUrl": "https:\/\/merchant.com\/order-service\/cancel-order"
 }

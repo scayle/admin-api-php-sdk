@@ -96,6 +96,7 @@ abstract class ApiObject implements \JsonSerializable
      */
     private function mergeDefaultValues($attributes)
     {
+        $attributes = !\is_array($attributes) ? [] : $attributes;
         $diff = array_diff_key($this->defaultValues, $attributes);
 
         return array_merge($attributes, $diff);

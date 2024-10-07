@@ -5,6 +5,8 @@
             "referenceKey": "acme",
             "name": "ACME",
             "priority": 1,
+            "orderDelegationUrl": "https:\/\/acme.com\/order-service\/delegate-order",
+            "cancellationUrl": "https:\/\/acme.com\/order-service\/cancel-order",
             "contacts": [
                 {
                     "id": 1,
