@@ -5,6 +5,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 /**
  * @property int $id The ID of the attribute group created by SCAYLE.
  * @property string $name A name that uniquely identifies an attribute group.
+ * Please ensure the input is URL-encoded, avoid using special characters like `%`, `&`, `#` directly.
  * @property array $frontendName The localized attribute group name. It must include at least the default language that is configured in SCAYLE.
  * @property string $type An attribute group type.
  * @property bool $isShared Specifies whether an attribute value is shared among multiple entities or if each entity has its own unique value.
