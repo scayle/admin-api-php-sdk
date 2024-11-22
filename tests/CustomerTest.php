@@ -8,6 +8,7 @@ use AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection;
 use AboutYou\Cloud\AdminApi\Models\CustomerAddressReferenceKey;
 use AboutYou\Cloud\AdminApi\Models\CustomerCollection;
 use AboutYou\Cloud\AdminApi\Models\CustomerGroup;
+use AboutYou\Cloud\AdminApi\Models\CustomerIdentityProvider;
 use AboutYou\Cloud\AdminApi\Models\CustomerMembership;
 use AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection;
 use AboutYou\Cloud\AdminApi\Models\CustomerPassword;
@@ -31,11 +32,13 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Customer::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', CustomerStatus::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', CustomerAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'identities', CustomerIdentityProvider::class);
         }
     }
 
@@ -49,6 +52,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testCreate()
@@ -66,6 +70,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testUpdate()
@@ -83,6 +88,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testUpdateReferenceKey()
@@ -100,6 +106,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testAnonymize()
@@ -137,6 +144,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testUpdateStatus()
@@ -154,6 +162,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testGetAddresses()
@@ -166,11 +175,13 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(CustomerAddress::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', CustomerStatus::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', CustomerAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'identities', CustomerIdentityProvider::class);
         }
     }
 
@@ -184,6 +195,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testCreateAddress()
@@ -201,6 +213,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testUpdateAddress()
@@ -218,6 +231,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testUpdateAddressReferenceKey()
@@ -235,6 +249,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testAnonymizeAddress()
@@ -267,6 +282,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testCreateMembership()
@@ -284,6 +300,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testUpdateMembership()
@@ -301,6 +318,7 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
     public function testGetMemberships()
@@ -313,11 +331,13 @@ final class CustomerTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(CustomerMembership::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', CustomerStatus::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', CustomerAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'identities', CustomerIdentityProvider::class);
         }
     }
 

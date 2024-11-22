@@ -2,7 +2,7 @@
 
 namespace AboutYou\Cloud\AdminApi\Models;
 
-abstract class ApiObject implements \JsonSerializable
+abstract class ApiObject implements \JsonSerializable, \Stringable
 {
     /**
      * @var array
@@ -87,6 +87,14 @@ abstract class ApiObject implements \JsonSerializable
     public function toJson()
     {
         return json_encode($this->_attributes);
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->toJson() ?: '';
     }
 
     /**

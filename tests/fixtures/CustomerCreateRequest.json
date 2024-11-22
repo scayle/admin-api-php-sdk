@@ -10,5 +10,15 @@
     "title": "Prof.",
     "groups": [
         "employee"
+    ],
+    "identities": [
+        {
+            "identityProviderCode": "keycloak",
+            "externalUserId": "qwerty"
+        },
+        {
+            "identityProviderCode": "apple",
+            "externalUserId": null
+        }
     ]
 }

@@ -15,6 +15,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $title User defined title. It can be set to NULL otherwise
  * @property string $type Type of customer (like personal)
  * @property string[] $groups Group to which the customer belongs to
+ * @property CustomerIdentityProvider[] $identities A list of Identity Providers (IDP)
  * @property CustomerStatus $status Defines if customer isActive or not and if customer isGuestCustomer or not
  * @property Company $company Company to which the customer belongs to
  * @property CustomerAddress[] $addresses Customers address (es)
@@ -33,6 +34,7 @@ class Customer extends ApiObject
 
     protected $collectionClassMap = [
         'addresses' => CustomerAddress::class,
+        'identities' => CustomerIdentityProvider::class,
     ];
 
     protected $polymorphic = [

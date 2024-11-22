@@ -13,6 +13,16 @@
     "groups": [
         "employee"
     ],
+    "identities": [
+        {
+            "identityProviderCode": "keycloak",
+            "externalUserId": null
+        },
+        {
+            "identityProviderCode": "apple",
+            "externalUserId": "qwerty"
+        }
+    ],
     "status": {
         "isActive": true,
         "isGuestCustomer": false
