@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Reservation[] $entities
+ * @property Reservation[] $entities
  */
 class ReservationCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class ReservationCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Reservation[]
+     * @return Reservation[]
      */
     public function getEntities()
     {

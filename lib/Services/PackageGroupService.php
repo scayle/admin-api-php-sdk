@@ -4,6 +4,7 @@ namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Models\PackageGroupCollection;
+use AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class PackageGroupService extends AbstractService
@@ -34,7 +35,7 @@ class PackageGroupService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $packageGroupId
-     * @param \AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse[] $model the model to create or update
+     * @param PackageGroupWarehouse[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -56,7 +57,7 @@ class PackageGroupService extends AbstractService
      * @param string $shopKey
      * @param string $countryCode
      * @param int $packageGroupId
-     * @param \AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse[] $model the model to create or update
+     * @param PackageGroupWarehouse[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

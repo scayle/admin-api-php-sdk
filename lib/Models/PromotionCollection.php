@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Promotion[] $entities
+ * @property Promotion[] $entities
  */
 class PromotionCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class PromotionCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Promotion[]
+     * @return Promotion[]
      */
     public function getEntities()
     {

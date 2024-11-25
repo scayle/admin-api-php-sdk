@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction[] $entities
+ * @property ProductVariantCampaignReduction[] $entities
  */
 class ProductVariantCampaignReductionCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class ProductVariantCampaignReductionCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction[]
+     * @return ProductVariantCampaignReduction[]
      */
     public function getEntities()
     {

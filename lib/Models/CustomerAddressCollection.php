@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\CustomerAddress[] $entities
+ * @property CustomerAddress[] $entities
  */
 class CustomerAddressCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class CustomerAddressCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\CustomerAddress[]
+     * @return CustomerAddress[]
      */
     public function getEntities()
     {

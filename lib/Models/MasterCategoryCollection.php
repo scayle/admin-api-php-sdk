@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\MasterCategory[] $entities
+ * @property MasterCategory[] $entities
  */
 class MasterCategoryCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class MasterCategoryCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\MasterCategory[]
+     * @return MasterCategory[]
      */
     public function getEntities()
     {

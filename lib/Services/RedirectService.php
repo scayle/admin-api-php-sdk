@@ -32,7 +32,7 @@ class RedirectService extends AbstractService
 
     /**
      * @param string $shopKey
-     * @param \AboutYou\Cloud\AdminApi\Models\Redirect[] $model the model to create or update
+     * @param Redirect[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @return RedirectCollection
@@ -54,7 +54,7 @@ class RedirectService extends AbstractService
 
     /**
      * @param string $shopKey
-     * @param \AboutYou\Cloud\AdminApi\Models\Redirect[] $model the model to create or update
+     * @param Redirect[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

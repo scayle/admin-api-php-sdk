@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\ProductImage[] $entities
+ * @property ProductImage[] $entities
  */
 class ProductImageCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class ProductImageCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductImage[]
+     * @return ProductImage[]
      */
     public function getEntities()
     {

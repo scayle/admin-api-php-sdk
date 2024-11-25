@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress[] $entities
+ * @property MerchantReturnAddress[] $entities
  */
 class MerchantReturnAddressCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class MerchantReturnAddressCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\MerchantReturnAddress[]
+     * @return MerchantReturnAddress[]
      */
     public function getEntities()
     {

@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\AttributeGroup[] $entities
+ * @property AttributeGroup[] $entities
  */
 class AttributeGroupCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class AttributeGroupCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\AttributeGroup[]
+     * @return AttributeGroup[]
      */
     public function getEntities()
     {

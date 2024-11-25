@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Voucher[] $entities
+ * @property Voucher[] $entities
  */
 class VoucherCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class VoucherCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Voucher[]
+     * @return Voucher[]
      */
     public function getEntities()
     {

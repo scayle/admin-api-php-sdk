@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\WebhookEvent[] $entities
+ * @property WebhookEvent[] $entities
  */
 class WebhookEventCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class WebhookEventCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\WebhookEvent[]
+     * @return WebhookEvent[]
      */
     public function getEntities()
     {

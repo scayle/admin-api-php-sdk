@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Campaign[] $entities
+ * @property Campaign[] $entities
  */
 class CampaignCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class CampaignCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Campaign[]
+     * @return Campaign[]
      */
     public function getEntities()
     {

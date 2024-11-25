@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\EmailKey[] $entities
+ * @property EmailKey[] $entities
  */
 class EmailKeyCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class EmailKeyCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\EmailKey[]
+     * @return EmailKey[]
      */
     public function getEntities()
     {

@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Carrier[] $entities
+ * @property Carrier[] $entities
  */
 class CarrierCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class CarrierCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Carrier[]
+     * @return Carrier[]
      */
     public function getEntities()
     {

@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\PackageGroup[] $entities
+ * @property PackageGroup[] $entities
  */
 class PackageGroupCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class PackageGroupCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\PackageGroup[]
+     * @return PackageGroup[]
      */
     public function getEntities()
     {

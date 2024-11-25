@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Brand[] $entities
+ * @property Brand[] $entities
  */
 class BrandCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class BrandCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Brand[]
+     * @return Brand[]
      */
     public function getEntities()
     {

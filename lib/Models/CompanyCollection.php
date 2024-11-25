@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Company[] $entities
+ * @property Company[] $entities
  */
 class CompanyCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class CompanyCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Company[]
+     * @return Company[]
      */
     public function getEntities()
     {

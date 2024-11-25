@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding[] $entities
+ * @property ShopCountryPriceRounding[] $entities
  */
 class ShopCountryPriceRoundingCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class ShopCountryPriceRoundingCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding[]
+     * @return ShopCountryPriceRounding[]
      */
     public function getEntities()
     {

@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\ProductVariantStock[] $entities
+ * @property ProductVariantStock[] $entities
  */
 class ProductVariantStockCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class ProductVariantStockCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\ProductVariantStock[]
+     * @return ProductVariantStock[]
      */
     public function getEntities()
     {

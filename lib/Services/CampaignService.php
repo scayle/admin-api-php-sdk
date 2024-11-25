@@ -6,6 +6,8 @@ use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Models\Campaign;
 use AboutYou\Cloud\AdminApi\Models\CampaignCollection;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction;
+use AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction;
 use AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
@@ -122,7 +124,7 @@ class CampaignService extends AbstractService
     /**
      * @param string $shopKey
      * @param int $campaignId
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction[] $model the model to create or update
+     * @param ProductVariantCampaignReduction[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -143,7 +145,7 @@ class CampaignService extends AbstractService
     /**
      * @param string $shopKey
      * @param int $campaignId
-     * @param \AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction[] $model the model to create or update
+     * @param ProductCampaignReduction[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Redirect[] $entities
+ * @property Redirect[] $entities
  */
 class RedirectCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class RedirectCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Redirect[]
+     * @return Redirect[]
      */
     public function getEntities()
     {

@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\Audience[] $entities
+ * @property Audience[] $entities
  */
 class AudienceCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class AudienceCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\Audience[]
+     * @return Audience[]
      */
     public function getEntities()
     {

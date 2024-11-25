@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty[] $entities
+ * @property ShopCategoryProperty[] $entities
  */
 class ShopCategoryPropertyCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class ShopCategoryPropertyCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty[]
+     * @return ShopCategoryProperty[]
      */
     public function getEntities()
     {

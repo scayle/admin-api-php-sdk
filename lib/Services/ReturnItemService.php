@@ -4,12 +4,13 @@ namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Helpers\ArrayHelper;
+use AboutYou\Cloud\AdminApi\Models\ReturnItem;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ReturnItemService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\ReturnItem[] $model the model to create or update
+     * @param ReturnItem[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

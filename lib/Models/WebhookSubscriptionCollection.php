@@ -3,7 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Models;
 
 /**
- * @property \AboutYou\Cloud\AdminApi\Models\WebhookSubscription[] $entities
+ * @property WebhookSubscription[] $entities
  */
 class WebhookSubscriptionCollection extends ApiCollection
 {
@@ -12,7 +12,7 @@ class WebhookSubscriptionCollection extends ApiCollection
     ];
 
     /**
-     * @return \AboutYou\Cloud\AdminApi\Models\WebhookSubscription[]
+     * @return WebhookSubscription[]
      */
     public function getEntities()
     {

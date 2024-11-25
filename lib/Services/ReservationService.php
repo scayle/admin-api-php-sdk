@@ -4,13 +4,14 @@ namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\Reservation;
 use AboutYou\Cloud\AdminApi\Models\ReservationCollection;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class ReservationService extends AbstractService
 {
     /**
-     * @param \AboutYou\Cloud\AdminApi\Models\Reservation[] $model the model to create or update
+     * @param Reservation[] $model the model to create or update
      * @param array $options additional options like limit or filters
      *
      * @return ReservationCollection
