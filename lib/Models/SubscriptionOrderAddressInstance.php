@@ -8,7 +8,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $countryCode
  * @property string $firstName
  * @property bool $forwardToCollectionPoint
- * @property string $gender
+ * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
  * @property string $houseNumber
  * @property string $lastName
  * @property string $phone

@@ -86,7 +86,7 @@
         "origin": "data-importer"
     },
     "customer": {
-        "createdAt": "2021-11-29T16:39:02+01:00",
+        "createdAt": "2021-11-29T16:39:02+00:00",
         "email": "ada75@hotmail.com",
         "firstName": "Sylvia",
         "gender": "m",
@@ -104,7 +104,7 @@
         },
         "title": "Dr.",
         "type": "personal",
-        "updatedAt": "2021-12-03T10:58:37+01:00"
+        "updatedAt": "2021-12-03T10:58:37+00:00"
     },
     "detailedStatus": {
         "billing": {

@@ -5,7 +5,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 /**
  * @property string $firstName
  * @property string $lastName
- * @property string $gender
+ * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
  * @property string $title
  * @property string $type
  */

@@ -9,6 +9,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
 class CustomerPasswordHash extends ApiObject
 {
     protected $defaultValues = [
+        'hashingType' => 'internal',
     ];
 
     protected $classMap = [
