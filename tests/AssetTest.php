@@ -3,7 +3,6 @@
 namespace AboutYou\Cloud\AdminApi;
 
 use AboutYou\Cloud\AdminApi\Models\Asset;
-use AboutYou\Cloud\AdminApi\Models\AssetSource;
 use AboutYou\Cloud\AdminApi\Models\AssetUrl;
 
 /**
@@ -23,7 +22,5 @@ final class AssetTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('AssetCreateResponse.json');
         self::assertInstanceOf(AssetUrl::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
     }
 }

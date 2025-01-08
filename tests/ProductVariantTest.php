@@ -101,10 +101,6 @@ final class ProductVariantTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductVariantUpdateOrCreateAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', ProductVariantPrice::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', RelatedProductVariant::class);
     }
 
     public function testDeleteAttribute()
@@ -119,10 +115,6 @@ final class ProductVariantTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductVariantGetAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', ProductVariantPrice::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', RelatedProductVariant::class);
     }
 
     public function testAllAttributes()
@@ -132,10 +124,6 @@ final class ProductVariantTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductVariantAllAttributesResponse.json');
         self::assertInstanceOf(AttributeCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'prices', ProductVariantPrice::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'relatedVariants', RelatedProductVariant::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Attribute::class, $collectionEntity);

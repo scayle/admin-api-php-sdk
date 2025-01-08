@@ -3,6 +3,10 @@
 namespace AboutYou\Cloud\AdminApi;
 
 use AboutYou\Cloud\AdminApi\Models\Assortment;
+use AboutYou\Cloud\AdminApi\Models\AttributeAssortmentConfiguration;
+use AboutYou\Cloud\AdminApi\Models\MasterCategoryAssortmentConfiguration;
+use AboutYou\Cloud\AdminApi\Models\MerchantAssortmentConfiguration;
+use AboutYou\Cloud\AdminApi\Models\ProductAssortmentConfiguration;
 use AboutYou\Cloud\AdminApi\Models\ShopCountry;
 use AboutYou\Cloud\AdminApi\Models\ShopCountryCollection;
 use AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse;
@@ -89,8 +93,10 @@ final class ShopCountryTest extends BaseApiTestCase
         self::assertInstanceOf(Assortment::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', Assortment::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', ShopCountryWarehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'masterCategories', MasterCategoryAssortmentConfiguration::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', ProductAssortmentConfiguration::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', AttributeAssortmentConfiguration::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'merchantReferenceKeys', MerchantAssortmentConfiguration::class);
     }
 
     public function testCreateOrUpdateCustomData()

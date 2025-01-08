@@ -84,9 +84,6 @@ final class ProductImageTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductImageUpdateOrCreateAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
     }
 
     public function testDeleteAttribute()
@@ -101,9 +98,6 @@ final class ProductImageTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductImageGetAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
     }
 
     public function testAllAttributes()
@@ -113,9 +107,6 @@ final class ProductImageTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductImageAllAttributesResponse.json');
         self::assertInstanceOf(AttributeCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Attribute::class, $collectionEntity);

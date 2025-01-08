@@ -115,12 +115,6 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductUpdateOrCreateAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
     }
 
     public function testDeleteAttribute()
@@ -135,12 +129,6 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductGetAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
     }
 
     public function testAllAttributes()
@@ -150,12 +138,6 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductAllAttributesResponse.json');
         self::assertInstanceOf(AttributeCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Attribute::class, $collectionEntity);
@@ -179,12 +161,6 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductUpdateMasterCategoriesResponse.json');
         self::assertInstanceOf(ProductMasterCategories::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
     }
 
     public function testCreateOrUpdateCustomData()
@@ -294,11 +270,5 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductUpdateStateResponse.json');
         self::assertInstanceOf(ProductState::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
     }
 }

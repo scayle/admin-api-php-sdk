@@ -100,10 +100,6 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCategoryUpdateOrCreatePropertyResponse.json');
         self::assertInstanceOf(ShopCategoryProperty::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
     }
 
     public function testDeleteProperty()
@@ -118,10 +114,6 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetPropertyResponse.json');
         self::assertInstanceOf(ShopCategoryProperty::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
     }
 
     public function testAllProperties()
@@ -131,10 +123,6 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCategoryAllPropertiesResponse.json');
         self::assertInstanceOf(ShopCategoryPropertyCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ShopCategoryProperty::class, $collectionEntity);
@@ -252,9 +240,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         self::assertInstanceOf(ShopCategoryCountry::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
     }
 
     public function testUpdateOrCreateCountry()
@@ -270,8 +256,6 @@ final class ShopCategoryTest extends BaseApiTestCase
         self::assertInstanceOf(ShopCategoryCountry::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
     }
 }

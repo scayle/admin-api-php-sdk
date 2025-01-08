@@ -159,18 +159,6 @@ final class OrderTest extends BaseApiTestCase
         self::assertInstanceOf(OrderStatus::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'vouchers', OrderVoucher::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shipping', OrderShipping::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'payment', OrderPayment::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'items', OrderItem::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'customer', Customer::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'contacts', OrderContact::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'cost', OrderCost::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'address', OrderAddress::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'membershipDiscount', OrderMembershipDiscount::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'packages', OrderPackage::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
     }
 

@@ -90,9 +90,6 @@ final class VoucherTest extends BaseApiTestCase
         self::assertInstanceOf(VoucherCriterionCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
-
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(VoucherCriterion::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'constraints', VoucherConstraints::class);
@@ -107,9 +104,6 @@ final class VoucherTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('VoucherGetCriterionResponse.json');
         self::assertInstanceOf(VoucherCriterion::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
     }
 
     public function testCreateCriterion()
@@ -124,9 +118,6 @@ final class VoucherTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('VoucherCreateCriterionResponse.json');
         self::assertInstanceOf(VoucherCriterion::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
     }
 
     public function testUpdateCriterion()
@@ -141,9 +132,6 @@ final class VoucherTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('VoucherUpdateCriterionResponse.json');
         self::assertInstanceOf(VoucherCriterion::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
     }
 
     public function testDeleteCriterion()

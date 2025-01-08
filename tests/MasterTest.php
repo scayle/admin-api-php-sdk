@@ -24,9 +24,6 @@ final class MasterTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('MasterUpdateProductMasterMasterCategoriesResponse.json');
         self::assertInstanceOf(ProductMasterCategories::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'categories', ProductMasterCategories::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
     }
 
     public function testAllAttributes()
@@ -36,9 +33,6 @@ final class MasterTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('MasterAllAttributesResponse.json');
         self::assertInstanceOf(AttributeCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'categories', ProductMasterCategories::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Attribute::class, $collectionEntity);
@@ -59,9 +53,6 @@ final class MasterTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('MasterUpdateOrCreateAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'categories', ProductMasterCategories::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
     }
 
     public function testGetAttribute()
@@ -71,9 +62,6 @@ final class MasterTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('MasterGetAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
-
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'categories', ProductMasterCategories::class);
-        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
     }
 
     public function testDeleteAttribute()
