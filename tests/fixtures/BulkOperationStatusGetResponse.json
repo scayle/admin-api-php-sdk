@@ -1,0 +1,21 @@
+{
+    "key": "eligendi67672eae50723",
+    "status": "processed",
+    "response": {
+        "body": {
+            "key": "test_color",
+            "level": "product",
+            "isAdvanced": true
+        },
+        "statusCode": 201
+    },
+    "bulkRequest": {
+        "key": 123,
+        "status": "processing",
+        "progress": {
+            "totalOperations": 0,
+            "processedOperations": 0,
+            "failedOperations": 0
+        }
+    }
+}

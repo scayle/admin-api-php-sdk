@@ -54,5 +54,8 @@ class ServiceFactory extends AbstractServiceFactory
         'redirects' => RedirectService::class,
         'emailKeys' => EmailKeyService::class,
         'emails' => EmailService::class,
+        'bulkRequests' => BulkRequestService::class,
+        'bulkRequestStatuses' => BulkRequestStatusService::class,
+        'bulkOperationStatuses' => BulkOperationStatusService::class,
     ];
 }

@@ -1,0 +1,9 @@
+{
+    "key": 123,
+    "status": "cancelled",
+    "progress": {
+        "totalOperations": 0,
+        "processedOperations": 0,
+        "failedOperations": 0
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "callbacks": {
+        "requestUrl": "https:\/\/example.com\/api\/internal\/callback\/request",
+        "operationUrl": "https:\/\/client.aboutyou.cloud\/api\/internal\/callback\/operation",
+        "requestStatus": "complete"
+    },
+    "operations": [
+        {
+            "key": "create-product-variant-price",
+            "url": "\/variants\/123\/prices",
+            "method": "POST",
+            "headers": {
+                "X-Merchant-Key": "M0001-black"
+            },
+            "body": {
+                "price": 80,
+                "oldPrice": 100,
+                "recommendedRetailPrice": 90,
+                "buyingPrice": 70,
+                "tax": 19,
+                "countryCode": "DE",
+                "currencyCode": "EUR",
+                "groupKey": "myGroupKey",
+                "promotionKey": "myPromotionKey",
+                "unitPrice": {
+                    "unit": "ml",
+                    "amount": 100,
+                    "price": 399
+                },
+                "validFrom": "2021-09-23T11:30:58+00:00",
+                "validTo": null,
+                "merchantReferenceKey": "merchant-1"
+            }
+        }
+    ]
+}

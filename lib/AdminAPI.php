@@ -7,6 +7,9 @@ use AboutYou\Cloud\AdminApi\Services\AttributeGroupService;
 use AboutYou\Cloud\AdminApi\Services\AttributeTranslationService;
 use AboutYou\Cloud\AdminApi\Services\AudienceService;
 use AboutYou\Cloud\AdminApi\Services\BrandService;
+use AboutYou\Cloud\AdminApi\Services\BulkOperationStatusService;
+use AboutYou\Cloud\AdminApi\Services\BulkRequestService;
+use AboutYou\Cloud\AdminApi\Services\BulkRequestStatusService;
 use AboutYou\Cloud\AdminApi\Services\CampaignService;
 use AboutYou\Cloud\AdminApi\Services\CancellationService;
 use AboutYou\Cloud\AdminApi\Services\CarrierService;
@@ -93,6 +96,9 @@ use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property RedirectService $redirects
  * @property EmailKeyService $emailKeys
  * @property EmailService $emails
+ * @property BulkRequestService $bulkRequests
+ * @property BulkRequestStatusService $bulkRequestStatuses
+ * @property BulkOperationStatusService $bulkOperationStatuses
  */
 class AdminAPI extends AbstractApi
 {

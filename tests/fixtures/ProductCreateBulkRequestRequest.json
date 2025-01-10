@@ -1,0 +1,37 @@
+{
+    "callbacks": {
+        "requestUrl": "https:\/\/example.com\/api\/internal\/callback\/request",
+        "operationUrl": "https:\/\/client.aboutyou.cloud\/api\/internal\/callback\/operation",
+        "requestStatus": "complete"
+    },
+    "operations": [
+        {
+            "key": "create-product",
+            "url": "\/products",
+            "method": "POST",
+            "headers": {
+                "X-Merchant-Key": "M0001-black"
+            },
+            "body": {
+                "referenceKey": "M0001-black",
+                "name": {
+                    "de_DE": "Blaues Shirt",
+                    "en_GB": "Blue Shirt"
+                },
+                "state": "draft",
+                "master": {
+                    "referenceKey": "M0001",
+                    "categories": {
+                        "paths": [
+                            [
+                                "Fashion",
+                                "Men",
+                                "Shirts"
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

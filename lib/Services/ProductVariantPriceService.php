@@ -3,6 +3,8 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\BulkRequest;
+use AboutYou\Cloud\AdminApi\Models\CreateBulkRequest;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
 use AboutYou\Cloud\AdminApi\Models\ProductVariantPrice;
 use AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection;
@@ -70,6 +72,27 @@ class ProductVariantPriceService extends AbstractService
             [],
             null,
             null
+        );
+    }
+
+    /**
+     * @param CreateBulkRequest $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @return BulkRequest
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createBulkRequest($model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/variants/prices/bulk-requests'),
+            $options,
+            [],
+            BulkRequest::class,
+            $model
         );
     }
 }

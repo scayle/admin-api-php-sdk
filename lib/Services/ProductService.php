@@ -5,6 +5,8 @@ namespace AboutYou\Cloud\AdminApi\Services;
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Models\Attribute;
 use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
+use AboutYou\Cloud\AdminApi\Models\BulkRequest;
+use AboutYou\Cloud\AdminApi\Models\CreateBulkRequest;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
 use AboutYou\Cloud\AdminApi\Models\Product;
 use AboutYou\Cloud\AdminApi\Models\ProductCollection;
@@ -431,6 +433,48 @@ class ProductService extends AbstractService
             $options,
             [],
             ProductState::class,
+            $model
+        );
+    }
+
+    /**
+     * @param CreateBulkRequest $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @return BulkRequest
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createBulkRequest($model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/bulk-requests'),
+            $options,
+            [],
+            BulkRequest::class,
+            $model
+        );
+    }
+
+    /**
+     * @param CreateBulkRequest $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @return BulkRequest
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createCompositeProductBulkRequest($model, $options = [])
+    {
+        return $this->request(
+            'post',
+            $this->resolvePath('/products/composite/bulk-requests'),
+            $options,
+            [],
+            BulkRequest::class,
             $model
         );
     }

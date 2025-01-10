@@ -4,6 +4,8 @@ namespace AboutYou\Cloud\AdminApi;
 
 use AboutYou\Cloud\AdminApi\Models\Attribute;
 use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
+use AboutYou\Cloud\AdminApi\Models\BulkRequest;
+use AboutYou\Cloud\AdminApi\Models\CreateBulkRequest;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
 use AboutYou\Cloud\AdminApi\Models\Master;
 use AboutYou\Cloud\AdminApi\Models\Product;
@@ -269,6 +271,34 @@ final class ProductTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ProductUpdateStateResponse.json');
         self::assertInstanceOf(ProductState::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+    }
+
+    public function testCreateBulkRequest()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductCreateBulkRequestRequest.json');
+
+        $requestEntity = new CreateBulkRequest($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->products->createBulkRequest($requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductCreateBulkRequestResponse.json');
+        self::assertInstanceOf(BulkRequest::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+    }
+
+    public function testCreateCompositeProductBulkRequest()
+    {
+        $expectedRequestJson = $this->loadFixture('ProductCreateCompositeProductBulkRequestRequest.json');
+
+        $requestEntity = new CreateBulkRequest($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->products->createCompositeProductBulkRequest($requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductCreateCompositeProductBulkRequestResponse.json');
+        self::assertInstanceOf(BulkRequest::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
 }
