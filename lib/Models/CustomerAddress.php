@@ -16,6 +16,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property CustomerAddressRecipient $recipient Recipient personal details
  * @property string $phone
  * @property string $state
+ * @property string $type Defines the type of the address.
+ * @property ShopCountry $shopCountry
  */
 class CustomerAddress extends ApiObject
 {

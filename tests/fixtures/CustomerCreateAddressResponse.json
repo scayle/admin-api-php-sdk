@@ -22,5 +22,18 @@
         "gender": "m",
         "lastName": "Doe",
         "title": "Prof."
+    },
+    "type": "shipping",
+    "shopCountry": {
+        "id": 998,
+        "shopKey": "msde",
+        "countryCode": "DE",
+        "defaultLanguageCode": "en_GB",
+        "supportedLanguageCodes": [],
+        "priceGroupKey": null,
+        "url": "www.example.com",
+        "active": true,
+        "currencyCode": null,
+        "deleted": false
     }
 }
