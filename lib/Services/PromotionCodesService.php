@@ -29,4 +29,23 @@ class PromotionCodesService extends AbstractService
             $model
         );
     }
+
+    /**
+     * @param string $promotionId
+     * @param array $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function delete($promotionId, $options = [])
+    {
+        $this->request(
+            'delete',
+            $this->resolvePath('/promotions/%s/codes', $promotionId),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }

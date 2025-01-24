@@ -22,4 +22,9 @@ final class PromotionCodesTest extends BaseApiTestCase
         self::assertInstanceOf(PromotionCodes::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
     }
+
+    public function testDelete()
+    {
+        $responseEntity = $this->api->promotionCodess->delete('645e0c241a93369ff53f26e0', []);
+    }
 }
