@@ -112,6 +112,23 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
     }
 
+    public function testCreateOrUpdateLegacyCustomData()
+    {
+        $expectedRequestJson = $this->loadFixture('CustomerCreateOrUpdateLegacyCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->customers->createOrUpdateLegacyCustomData('acme', 'acme', 1, $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('CustomerCreateOrUpdateLegacyCustomDataResponse.json');
+        self::assertInstanceOf(Customer::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
+    }
+
     public function testAnonymize()
     {
         $responseEntity = $this->api->customers->anonymize('acme', 'acme', Identifier::fromId(1), []);

@@ -139,6 +139,30 @@ class CustomerService extends AbstractService
     /**
      * @param string $shopKey
      * @param string $countryCode
+     * @param int $customerId
+     * @param array $model the model to create or update
+     * @param array $options additional options like limit or filters
+     *
+     * @return Customer
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createOrUpdateLegacyCustomData($shopKey, $countryCode, $customerId, $model, $options = [])
+    {
+        return $this->request(
+            'put',
+            $this->resolvePath('/shops/%s/countries/%s/customers/%s/legacy-custom-data', $shopKey, $countryCode, $customerId),
+            $options,
+            [],
+            Customer::class,
+            $model
+        );
+    }
+
+    /**
+     * @param string $shopKey
+     * @param string $countryCode
      * @param Identifier $customerIdentifier
      * @param array $options additional options like limit or filters
      *
