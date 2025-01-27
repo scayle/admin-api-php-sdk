@@ -1,0 +1,11 @@
+{
+    "entities": [
+        {
+            "code": "XMAS24",
+            "enabled": true
+        }
+    ],
+    "cursor": {
+        "next": "Mgo="
+    }
+}

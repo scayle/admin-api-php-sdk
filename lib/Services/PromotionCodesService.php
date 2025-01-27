@@ -3,6 +3,7 @@
 namespace AboutYou\Cloud\AdminApi\Services;
 
 use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
+use AboutYou\Cloud\AdminApi\Models\PromotionCodeCollection;
 use AboutYou\Cloud\AdminApi\Models\PromotionCodes;
 use Psr\Http\Client\ClientExceptionInterface;
 
@@ -27,6 +28,27 @@ class PromotionCodesService extends AbstractService
             [],
             PromotionCodes::class,
             $model
+        );
+    }
+
+    /**
+     * @param string $promotionId
+     * @param array $options additional options like limit or filters
+     *
+     * @return PromotionCodeCollection
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function all($promotionId, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/promotions/%s/codes', $promotionId),
+            $options,
+            [],
+            PromotionCodeCollection::class,
+            null
         );
     }
 
