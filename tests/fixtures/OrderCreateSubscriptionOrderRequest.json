@@ -47,5 +47,14 @@
             "type": "accounting"
         }
     ],
-    "subscriptionId": "1234567abcdef"
+    "subscriptionId": "1234567abcdef",
+    "carrier": {
+        "carrierKey": "dhl",
+        "deliveryDate": {
+            "maximum": "2025-01-09",
+            "minimum": "2025-01-15"
+        },
+        "shippingPolicyKey": "standard_delivery"
+    },
+    "referenceKey": "abc0123"
 }

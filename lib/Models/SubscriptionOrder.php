@@ -15,6 +15,8 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $subscriptionId
  * @property string $userAgent
  * @property SubscriptionOrderVoucher $voucher
+ * @property SubscriptionOrderCarrier $carrier
+ * @property string $referenceKey External reference set by the client to integrate 3rd party system
  */
 class SubscriptionOrder extends ApiObject
 {
@@ -26,6 +28,7 @@ class SubscriptionOrder extends ApiObject
         'application' => SubscriptionOrderApplication::class,
         'membershipCard' => SubscriptionOrderMembershipCard::class,
         'voucher' => SubscriptionOrderVoucher::class,
+        'carrier' => SubscriptionOrderCarrier::class,
     ];
 
     protected $collectionClassMap = [
