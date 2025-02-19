@@ -1,0 +1,17 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "createdAt": "2025-01-29T16:39:53+00:00",
+            "type": "partial_invoice",
+            "invoice": {
+                "number": 5,
+                "fullNumber": "ayou-24-5"
+            },
+            "available": true
+        }
+    ],
+    "cursor": {
+        "next": "Mgo="
+    }
+}

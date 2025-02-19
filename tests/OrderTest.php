@@ -4,12 +4,15 @@ namespace AboutYou\Cloud\AdminApi;
 
 use AboutYou\Cloud\AdminApi\Models\Customer;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
+use AboutYou\Cloud\AdminApi\Models\Invoice;
 use AboutYou\Cloud\AdminApi\Models\Order;
 use AboutYou\Cloud\AdminApi\Models\OrderAddress;
 use AboutYou\Cloud\AdminApi\Models\OrderCollection;
 use AboutYou\Cloud\AdminApi\Models\OrderContact;
 use AboutYou\Cloud\AdminApi\Models\OrderCost;
 use AboutYou\Cloud\AdminApi\Models\OrderDetailedStatus;
+use AboutYou\Cloud\AdminApi\Models\OrderInvoice;
+use AboutYou\Cloud\AdminApi\Models\OrderInvoiceCollection;
 use AboutYou\Cloud\AdminApi\Models\OrderItem;
 use AboutYou\Cloud\AdminApi\Models\OrderLoyaltyCard;
 use AboutYou\Cloud\AdminApi\Models\OrderMembershipDiscount;
@@ -188,5 +191,33 @@ final class OrderTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountry', ShopCountry::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'loyaltyCard', OrderLoyaltyCard::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'detailedStatus', OrderDetailedStatus::class);
+    }
+
+    public function testGetOrderInvoices()
+    {
+        $responseEntity = $this->api->orders->getOrderInvoices('acme', 'acme', Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('OrderGetOrderInvoicesResponse.json');
+        self::assertInstanceOf(OrderInvoiceCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'invoice', Invoice::class);
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            self::assertInstanceOf(OrderInvoice::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'vouchers', OrderVoucher::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shipping', OrderShipping::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'payment', OrderPayment::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'items', OrderItem::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'customer', Customer::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', OrderContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'cost', OrderCost::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'address', OrderAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'packages', OrderPackage::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountry', ShopCountry::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'detailedStatus', OrderDetailedStatus::class);
+        }
     }
 }

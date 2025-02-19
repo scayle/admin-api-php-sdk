@@ -6,6 +6,7 @@ use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
 use AboutYou\Cloud\AdminApi\Models\Identifier;
 use AboutYou\Cloud\AdminApi\Models\Order;
 use AboutYou\Cloud\AdminApi\Models\OrderCollection;
+use AboutYou\Cloud\AdminApi\Models\OrderInvoiceCollection;
 use AboutYou\Cloud\AdminApi\Models\OrderReferenceKey;
 use AboutYou\Cloud\AdminApi\Models\OrderStatus;
 use AboutYou\Cloud\AdminApi\Models\SubscriptionOrder;
@@ -169,6 +170,29 @@ class OrderService extends AbstractService
             [],
             Order::class,
             $model
+        );
+    }
+
+    /**
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param Identifier $orderIdentifier
+     * @param array $options additional options like limit or filters
+     *
+     * @return OrderInvoiceCollection
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function getOrderInvoices($shopKey, $countryCode, $orderIdentifier, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/orders/%s/invoices', $shopKey, $countryCode, $orderIdentifier),
+            $options,
+            [],
+            OrderInvoiceCollection::class,
+            null
         );
     }
 }
