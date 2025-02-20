@@ -25,7 +25,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails.
  * @property string $referenceKey External order reference set by the client to integrate a third party system.
  * @property OrderShipping $shipping Shipping details
- * @property string $status Status of the order e.g: invoice_completed
+ * @property string $status Status of the order, e.g. invoice_completed
  * @property OrderDetailedStatus $detailedStatus
  * @property OrderVoucher[] $vouchers Applicable voucher and its details
  * @property OrderVoucher $voucher Applicable voucher and its details
