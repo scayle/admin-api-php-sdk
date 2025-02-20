@@ -220,4 +220,11 @@ final class OrderTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'detailedStatus', OrderDetailedStatus::class);
         }
     }
+
+    public function testGetOrderInvoice()
+    {
+        $responseEntity = $this->api->orders->getOrderInvoice('acme', 'acme', Identifier::fromId(1), 1, []);
+
+        self::assertIsString($responseEntity);
+    }
 }

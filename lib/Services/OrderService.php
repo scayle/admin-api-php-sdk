@@ -195,4 +195,28 @@ class OrderService extends AbstractService
             null
         );
     }
+
+    /**
+     * @param string $shopKey
+     * @param string $countryCode
+     * @param Identifier $orderIdentifier
+     * @param int $invoiceId
+     * @param array $options additional options like limit or filters
+     *
+     * @return string
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function getOrderInvoice($shopKey, $countryCode, $orderIdentifier, $invoiceId, $options = [])
+    {
+        return $this->request(
+            'get',
+            $this->resolvePath('/shops/%s/countries/%s/orders/%s/invoices/%s', $shopKey, $countryCode, $orderIdentifier, $invoiceId),
+            $options,
+            [],
+            null,
+            null
+        );
+    }
 }
