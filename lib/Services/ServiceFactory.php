@@ -47,6 +47,7 @@ class ServiceFactory extends AbstractServiceFactory
         'merchants' => MerchantService::class,
         'warehouses' => WarehouseService::class,
         'promotionCodess' => PromotionCodesService::class,
+        'promotionItemSets' => PromotionItemSetService::class,
         'promotionV1s' => PromotionV1Service::class,
         'promotions' => PromotionService::class,
         'audiences' => AudienceService::class,

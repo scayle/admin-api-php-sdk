@@ -30,6 +30,7 @@ use AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService;
 use AboutYou\Cloud\AdminApi\Services\ProductVariantService;
 use AboutYou\Cloud\AdminApi\Services\ProductVariantStockService;
 use AboutYou\Cloud\AdminApi\Services\PromotionCodesService;
+use AboutYou\Cloud\AdminApi\Services\PromotionItemSetService;
 use AboutYou\Cloud\AdminApi\Services\PromotionService;
 use AboutYou\Cloud\AdminApi\Services\PromotionV1Service;
 use AboutYou\Cloud\AdminApi\Services\RedirectService;
@@ -89,6 +90,7 @@ use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property MerchantService $merchants
  * @property WarehouseService $warehouses
  * @property PromotionCodesService $promotionCodess
+ * @property PromotionItemSetService $promotionItemSets
  * @property PromotionV1Service $promotionV1s
  * @property PromotionService $promotions
  * @property AudienceService $audiences

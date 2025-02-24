@@ -17,6 +17,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property PromotionAudience $audiences Audiences allow/block list. Use it to restrict promotions to specific customer groups
  * @property PromotionEffect $effect The effect that will be applied if all conditions are satisfied
  * @property PromotionCondition[] $conditions The list of conditions ('payload.*') that determines whether the promotion is applicable or not
+ * @property string[] $itemSetIds The list of itemSet IDs that can be applied into the promotion
  * @property int $priority Priority of the promotion
  * @property array $customData Additional data of the promotion. Can be legal text or some other info, that will be shown to customer
  * @property PromotionTier[] $tiers The list of promotion tiers. Tiers must be sent in ascending order

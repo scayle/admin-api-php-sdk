@@ -67,11 +67,8 @@
             "name": "Tier 1",
             "effect": {
                 "additionalData": {
-                    "variantIds": [
-                        12389244,
-                        23985437
-                    ],
-                    "maxCount": 1
+                    "type": "relative",
+                    "value": 10
                 }
             },
             "mov": 10000

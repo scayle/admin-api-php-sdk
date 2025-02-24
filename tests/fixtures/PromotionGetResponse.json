@@ -64,6 +64,10 @@
             "condition": "item.color == 'yellow'"
         }
     ],
+    "itemSetIds": [
+        "645e0c241a93369ff53f26e0",
+        "646235bf496f8f56171c3762"
+    ],
     "priority": 1,
     "customData": {
         "legalText": "Supported neglected met she therefore unwilling discovery remainder. Way sentiments two indulgence uncommonly own."
@@ -73,11 +77,8 @@
             "name": "Tier 1",
             "effect": {
                 "additionalData": {
-                    "variantIds": [
-                        12389244,
-                        23985437
-                    ],
-                    "maxCount": 1
+                    "type": "relative",
+                    "value": 10
                 }
             },
             "mov": 10000

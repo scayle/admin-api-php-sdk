@@ -1,0 +1,18 @@
+{
+    "entities": [
+        {
+            "id": "64cbc70225ae598c0d0d0334",
+            "name": "T-Shirts",
+            "variantIds": [
+                1,
+                2,
+                3
+            ],
+            "condition": "payload.items.exists(i, 11003 in i.variant.id)",
+            "eligibleItemsQuantity": 1
+        }
+    ],
+    "cursor": {
+        "next": "Mgo="
+    }
+}

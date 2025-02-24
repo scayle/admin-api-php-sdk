@@ -1,0 +1,10 @@
+{
+    "name": "T-Shirts",
+    "variantIds": [
+        1,
+        2,
+        3
+    ],
+    "condition": "payload.items.exists(i, 11003 in i.variant.id)",
+    "eligibleItemsQuantity": 1
+}
