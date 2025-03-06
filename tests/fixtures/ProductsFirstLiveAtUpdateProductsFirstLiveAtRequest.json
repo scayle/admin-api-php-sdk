@@ -1,0 +1,18 @@
+{
+    "shopKey": "ms",
+    "countryCodes": [
+        "DE",
+        "AT",
+        "CH"
+    ],
+    "products": [
+        {
+            "productId": 1,
+            "firstLiveAt": "2023-07-20T11:30:58+00:00"
+        },
+        {
+            "productId": 2,
+            "firstLiveAt": "2020-07-19T12:20:11+00:00"
+        }
+    ]
+}

@@ -12,6 +12,7 @@ class ServiceFactory extends AbstractServiceFactory
      */
     protected $classMap = [
         'products' => ProductService::class,
+        'productsFirstLiveAts' => ProductsFirstLiveAtService::class,
         'masters' => MasterService::class,
         'productImages' => ProductImageService::class,
         'productVariants' => ProductVariantService::class,

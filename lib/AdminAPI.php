@@ -25,6 +25,7 @@ use AboutYou\Cloud\AdminApi\Services\OrderService;
 use AboutYou\Cloud\AdminApi\Services\PackageGroupService;
 use AboutYou\Cloud\AdminApi\Services\ProductImageService;
 use AboutYou\Cloud\AdminApi\Services\ProductService;
+use AboutYou\Cloud\AdminApi\Services\ProductsFirstLiveAtService;
 use AboutYou\Cloud\AdminApi\Services\ProductSortingService;
 use AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService;
 use AboutYou\Cloud\AdminApi\Services\ProductVariantService;
@@ -55,6 +56,7 @@ use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * Allows access to AdminApi functions.
  *
  * @property ProductService $products
+ * @property ProductsFirstLiveAtService $productsFirstLiveAts
  * @property MasterService $masters
  * @property ProductImageService $productImages
  * @property ProductVariantService $productVariants
