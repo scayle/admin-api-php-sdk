@@ -1,16 +1,27 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Company;
-use AboutYou\Cloud\AdminApi\Models\CompanyCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Company;
+use Scayle\Cloud\AdminApi\Models\CompanyCollection;
 
 /**
  * @internal
  */
 final class CompanyTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('CompanyCreateRequest.json');
 
@@ -22,9 +33,13 @@ final class CompanyTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('CompanyCreateResponse.json');
         self::assertInstanceOf(Company::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->companies->all([]);
 
@@ -32,21 +47,28 @@ final class CompanyTest extends BaseApiTestCase
         self::assertInstanceOf(CompanyCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Company::class, $collectionEntity);
+
         }
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->companies->get(1, []);
 
         $expectedResponseJson = $this->loadFixture('CompanyGetResponse.json');
         self::assertInstanceOf(Company::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('CompanyUpdateRequest.json');
 
@@ -58,5 +80,9 @@ final class CompanyTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('CompanyUpdateResponse.json');
         self::assertInstanceOf(Company::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 }

@@ -1,16 +1,27 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\EmailKey;
-use AboutYou\Cloud\AdminApi\Models\EmailKeyCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\EmailKey;
+use Scayle\Cloud\AdminApi\Models\EmailKeyCollection;
 
 /**
  * @internal
  */
 final class EmailKeyTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('EmailKeyCreateRequest.json');
 
@@ -22,9 +33,13 @@ final class EmailKeyTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('EmailKeyCreateResponse.json');
         self::assertInstanceOf(EmailKey::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('EmailKeyUpdateRequest.json');
 
@@ -36,23 +51,34 @@ final class EmailKeyTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('EmailKeyUpdateResponse.json');
         self::assertInstanceOf(EmailKey::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->emailKeys->delete('acme', 'acme', 1, []);
+        $this->api->emailKeys->delete('acme', 'acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->emailKeys->get('acme', 'acme', 1, []);
 
         $expectedResponseJson = $this->loadFixture('EmailKeyGetResponse.json');
         self::assertInstanceOf(EmailKey::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->emailKeys->all('acme', 'acme', []);
 
@@ -60,8 +86,11 @@ final class EmailKeyTest extends BaseApiTestCase
         self::assertInstanceOf(EmailKeyCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(EmailKey::class, $collectionEntity);
+
         }
     }
 }

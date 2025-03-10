@@ -1,244 +1,253 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Voucher;
-use AboutYou\Cloud\AdminApi\Models\VoucherCollection;
-use AboutYou\Cloud\AdminApi\Models\VoucherCriterion;
-use AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Voucher;
+use Scayle\Cloud\AdminApi\Models\VoucherCollection;
+use Scayle\Cloud\AdminApi\Models\VoucherCriterion;
+use Scayle\Cloud\AdminApi\Models\VoucherCriterionCollection;
 
 class VoucherService extends AbstractService
 {
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param array $options additional options like limit or filters
-     *
-     * @return VoucherCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($shopKey, $countryCode, $options = [])
-    {
+    public function all(
+        string $shopKey,
+        string $countryCode,
+        array $options = []
+    ): VoucherCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers', $shopKey, $countryCode),
-            $options,
-            [],
-            VoucherCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: VoucherCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
-     * @param array $options additional options like limit or filters
-     *
-     * @return Voucher
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($shopKey, $countryCode, $voucherId, $options = [])
-    {
+    public function get(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        array $options = []
+    ): Voucher {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
-            $options,
-            [],
-            Voucher::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
+            query: $options,
+            headers: [],
+            modelClass: Voucher::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
      * @param Voucher $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Voucher
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($shopKey, $countryCode, $model, $options = [])
-    {
+    public function create(
+        string $shopKey,
+        string $countryCode,
+        Voucher $model,
+        array $options = []
+    ): Voucher {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers', $shopKey, $countryCode),
-            $options,
-            [],
-            Voucher::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: Voucher::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
      * @param Voucher $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Voucher
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($shopKey, $countryCode, $voucherId, $model, $options = [])
-    {
+    public function update(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        Voucher $model,
+        array $options = []
+    ): Voucher {
         return $this->request(
-            'patch',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
-            $options,
-            [],
-            Voucher::class,
-            $model
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
+            query: $options,
+            headers: [],
+            modelClass: Voucher::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $countryCode, $voucherId, $options = [])
-    {
+    public function delete(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s', $shopKey, $countryCode, $voucherId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
-     * @param array $options additional options like limit or filters
-     *
-     * @return VoucherCriterionCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCriteria($shopKey, $countryCode, $voucherId, $options = [])
-    {
+    public function getCriteria(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        array $options = []
+    ): VoucherCriterionCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId),
-            $options,
-            [],
-            VoucherCriterionCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId),
+            query: $options,
+            headers: [],
+            modelClass: VoucherCriterionCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
-     * @param int $voucherCriterionId
-     * @param array $options additional options like limit or filters
-     *
-     * @return VoucherCriterion
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $options = [])
-    {
+    public function getCriterion(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        int $voucherCriterionId,
+        array $options = []
+    ): VoucherCriterion {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
-            $options,
-            [],
-            VoucherCriterion::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
+            query: $options,
+            headers: [],
+            modelClass: VoucherCriterion::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
      * @param VoucherCriterion $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return VoucherCriterion
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createCriterion($shopKey, $countryCode, $voucherId, $model, $options = [])
-    {
+    public function createCriterion(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        VoucherCriterion $model,
+        array $options = []
+    ): VoucherCriterion {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId),
-            $options,
-            [],
-            VoucherCriterion::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria', $shopKey, $countryCode, $voucherId),
+            query: $options,
+            headers: [],
+            modelClass: VoucherCriterion::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
-     * @param int $voucherCriterionId
      * @param VoucherCriterion $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return VoucherCriterion
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $model, $options = [])
-    {
+    public function updateCriterion(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        int $voucherCriterionId,
+        VoucherCriterion $model,
+        array $options = []
+    ): VoucherCriterion {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
-            $options,
-            [],
-            VoucherCriterion::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
+            query: $options,
+            headers: [],
+            modelClass: VoucherCriterion::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $voucherId
-     * @param int $voucherCriterionId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCriterion($shopKey, $countryCode, $voucherId, $voucherCriterionId, $options = [])
-    {
+    public function deleteCriterion(
+        string $shopKey,
+        string $countryCode,
+        int $voucherId,
+        int $voucherCriterionId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/vouchers/%s/criteria/%s', $shopKey, $countryCode, $voucherId, $voucherCriterionId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

@@ -1,72 +1,83 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\Warehouse;
-use AboutYou\Cloud\AdminApi\Models\WarehouseCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\Warehouse;
+use Scayle\Cloud\AdminApi\Models\WarehouseCollection;
 
 class WarehouseService extends AbstractService
 {
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return WarehouseCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): WarehouseCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/warehouses'),
-            $options,
-            [],
-            WarehouseCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/warehouses'),
+            query: $options,
+            headers: [],
+            modelClass: WarehouseCollection::class,
+            body: null
         );
     }
 
     /**
      * @param Warehouse $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Warehouse
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        Warehouse $model,
+        array $options = []
+    ): Warehouse {
         return $this->request(
-            'post',
-            $this->resolvePath('/warehouses'),
-            $options,
-            [],
-            Warehouse::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/warehouses'),
+            query: $options,
+            headers: [],
+            modelClass: Warehouse::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $warehouseIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($warehouseIdentifier, $options = [])
-    {
+    public function delete(
+        Identifier $warehouseIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/warehouses/%s', $warehouseIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/warehouses/%s', $warehouseIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

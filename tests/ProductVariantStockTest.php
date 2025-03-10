@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantStock;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\ProductVariantStock;
+use Scayle\Cloud\AdminApi\Models\ProductVariantStockCollection;
 
 /**
  * @internal
  */
 final class ProductVariantStockTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductVariantStockCreateRequest.json');
 
@@ -23,9 +34,13 @@ final class ProductVariantStockTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductVariantStockCreateResponse.json');
         self::assertInstanceOf(ProductVariantStock::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->productVariantStocks->all(Identifier::fromId(1), []);
 
@@ -33,8 +48,11 @@ final class ProductVariantStockTest extends BaseApiTestCase
         self::assertInstanceOf(ProductVariantStockCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ProductVariantStock::class, $collectionEntity);
+
         }
     }
 }

@@ -1,40 +1,33 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 class Identifier
 {
-    /**
-     * @var string
-     */
-    private $identifier;
+    private function __construct(private string $identifier) {}
 
-    private function __construct(string $identifier)
+    public static function fromId(int $id): self
     {
-        $this->identifier = $identifier;
+        return new self((string) $id);
     }
 
-    /**
-     * @param int $id
-     *
-     * @return Identifier
-     */
-    public static function fromId($id)
-    {
-        return new self('' . $id);
-    }
-
-    /**
-     * @param string $referenceKey
-     *
-     * @return Identifier
-     */
-    public static function fromKey($referenceKey)
+    public static function fromKey(string $referenceKey): self
     {
         return new self(urlencode('key=' . $referenceKey));
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->identifier;
     }

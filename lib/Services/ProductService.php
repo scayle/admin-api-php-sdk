@@ -1,481 +1,499 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Attribute;
-use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
-use AboutYou\Cloud\AdminApi\Models\BulkRequest;
-use AboutYou\Cloud\AdminApi\Models\CreateBulkRequest;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\Product;
-use AboutYou\Cloud\AdminApi\Models\ProductCollection;
-use AboutYou\Cloud\AdminApi\Models\ProductMasterCategories;
-use AboutYou\Cloud\AdminApi\Models\ProductState;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Attribute;
+use Scayle\Cloud\AdminApi\Models\AttributeCollection;
+use Scayle\Cloud\AdminApi\Models\BulkRequest;
+use Scayle\Cloud\AdminApi\Models\CreateBulkRequest;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\Product;
+use Scayle\Cloud\AdminApi\Models\ProductCollection;
+use Scayle\Cloud\AdminApi\Models\ProductMasterCategories;
+use Scayle\Cloud\AdminApi\Models\ProductState;
 
 class ProductService extends AbstractService
 {
     /**
      * @param Product $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Product
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        Product $model,
+        array $options = []
+    ): Product {
         return $this->request(
-            'post',
-            $this->resolvePath('/products'),
-            $options,
-            [],
-            Product::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products'),
+            query: $options,
+            headers: [],
+            modelClass: Product::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return Product
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($productIdentifier, $options = [])
-    {
+    public function get(
+        Identifier $productIdentifier,
+        array $options = []
+    ): Product {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s', $productIdentifier),
-            $options,
-            [],
-            Product::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Product::class,
+            body: null
         );
     }
 
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): ProductCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/products'),
-            $options,
-            [],
-            ProductCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products'),
+            query: $options,
+            headers: [],
+            modelClass: ProductCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
      * @param Product $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Product
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($productIdentifier, $model, $options = [])
-    {
+    public function update(
+        Identifier $productIdentifier,
+        Product $model,
+        array $options = []
+    ): Product {
         return $this->request(
-            'put',
-            $this->resolvePath('/products/%s', $productIdentifier),
-            $options,
-            [],
-            Product::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/products/%s', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Product::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($productIdentifier, $options = [])
-    {
+    public function delete(
+        Identifier $productIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/products/%s', $productIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/products/%s', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
      * @param Attribute $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Attribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateOrCreateAttribute($productIdentifier, $model, $options = [])
-    {
+    public function updateOrCreateAttribute(
+        Identifier $productIdentifier,
+        Attribute $model,
+        array $options = []
+    ): Attribute {
         return $this->request(
-            'post',
-            $this->resolvePath('/products/%s/attributes', $productIdentifier),
-            $options,
-            [],
-            Attribute::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/%s/attributes', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Attribute::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteAttribute($productIdentifier, $attributeGroupName, $options = [])
-    {
+    public function deleteAttribute(
+        Identifier $productIdentifier,
+        string $attributeGroupName,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/products/%s/attributes/%s', $productIdentifier, $attributeGroupName),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/products/%s/attributes/%s', $productIdentifier, $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
-     *
-     * @return Attribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAttribute($productIdentifier, $attributeGroupName, $options = [])
-    {
+    public function getAttribute(
+        Identifier $productIdentifier,
+        string $attributeGroupName,
+        array $options = []
+    ): Attribute {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s/attributes/%s', $productIdentifier, $attributeGroupName),
-            $options,
-            [],
-            Attribute::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s/attributes/%s', $productIdentifier, $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: Attribute::class,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function allAttributes($productIdentifier, $options = [])
-    {
+    public function allAttributes(
+        Identifier $productIdentifier,
+        array $options = []
+    ): AttributeCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s/attributes', $productIdentifier),
-            $options,
-            [],
-            AttributeCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s/attributes', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: AttributeCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
      * @param ProductMasterCategories $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductMasterCategories
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateMasterCategories($productIdentifier, $model, $options = [])
-    {
+    public function updateMasterCategories(
+        Identifier $productIdentifier,
+        ProductMasterCategories $model,
+        array $options = []
+    ): ProductMasterCategories {
         return $this->request(
-            'put',
-            $this->resolvePath('/products/%s/master-categories', $productIdentifier),
-            $options,
-            [],
-            ProductMasterCategories::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/products/%s/master-categories', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductMasterCategories::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomData($productIdentifier, $model, $options = [])
-    {
+    public function createOrUpdateCustomData(
+        Identifier $productIdentifier,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/products/%s/custom-data', $productIdentifier),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/products/%s/custom-data', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomData($productIdentifier, $options = [])
-    {
+    public function deleteCustomData(
+        Identifier $productIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/products/%s/custom-data', $productIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/products/%s/custom-data', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomData($productIdentifier, $options = [])
-    {
+    public function getCustomData(
+        Identifier $productIdentifier,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s/custom-data', $productIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s/custom-data', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param string $key
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomDataForKey($productIdentifier, $key, $model, $options = [])
-    {
+    public function createOrUpdateCustomDataForKey(
+        Identifier $productIdentifier,
+        string $key,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomDataForKey($productIdentifier, $key, $options = [])
-    {
+    public function deleteCustomDataForKey(
+        Identifier $productIdentifier,
+        string $key,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomDataForKey($productIdentifier, $key, $options = [])
-    {
+    public function getCustomDataForKey(
+        Identifier $productIdentifier,
+        string $key,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s/custom-data/%s', $productIdentifier, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
      * @param Product $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Product
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createComposite($model, $options = [])
-    {
+    public function createComposite(
+        Product $model,
+        array $options = []
+    ): Product {
         return $this->request(
-            'post',
-            $this->resolvePath('/products/composite'),
-            $options,
-            [],
-            Product::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/composite'),
+            query: $options,
+            headers: [],
+            modelClass: Product::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
      * @param Product $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Product
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateComposite($productIdentifier, $model, $options = [])
-    {
+    public function updateComposite(
+        Identifier $productIdentifier,
+        Product $model,
+        array $options = []
+    ): Product {
         return $this->request(
-            'put',
-            $this->resolvePath('/products/composite/%s', $productIdentifier),
-            $options,
-            [],
-            Product::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/products/composite/%s', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Product::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteComposite($productIdentifier, $options = [])
-    {
+    public function deleteComposite(
+        Identifier $productIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/products/composite/%s', $productIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/products/composite/%s', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
      * @param ProductState $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductState
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateState($productIdentifier, $model, $options = [])
-    {
+    public function updateState(
+        Identifier $productIdentifier,
+        ProductState $model,
+        array $options = []
+    ): ProductState {
         return $this->request(
-            'put',
-            $this->resolvePath('/products/%s/state', $productIdentifier),
-            $options,
-            [],
-            ProductState::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/products/%s/state', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductState::class,
+            body: $model
         );
     }
 
     /**
      * @param CreateBulkRequest $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return BulkRequest
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createBulkRequest($model, $options = [])
-    {
+    public function createBulkRequest(
+        CreateBulkRequest $model,
+        array $options = []
+    ): BulkRequest {
         return $this->request(
-            'post',
-            $this->resolvePath('/products/bulk-requests'),
-            $options,
-            [],
-            BulkRequest::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/bulk-requests'),
+            query: $options,
+            headers: [],
+            modelClass: BulkRequest::class,
+            body: $model
         );
     }
 
     /**
      * @param CreateBulkRequest $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return BulkRequest
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createCompositeProductBulkRequest($model, $options = [])
-    {
+    public function createCompositeProductBulkRequest(
+        CreateBulkRequest $model,
+        array $options = []
+    ): BulkRequest {
         return $this->request(
-            'post',
-            $this->resolvePath('/products/composite/bulk-requests'),
-            $options,
-            [],
-            BulkRequest::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/composite/bulk-requests'),
+            query: $options,
+            headers: [],
+            modelClass: BulkRequest::class,
+            body: $model
         );
     }
 }

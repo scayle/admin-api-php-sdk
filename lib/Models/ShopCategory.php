@@ -1,12 +1,23 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property int $id The ID of the shop category.
  * @property int $parentId The ID of the parent shop category.
  * @property int $leftSiblingId The ID of the left sibling shop category. It defines the shop category position in the category tree.
- * @property array $name The localized category name.
+ * @property array<string> $name The localized category name.
  * @property ShopCategoryProductSet[] $productSets Product sets define which products to include in the shop category.
  * @property string[] $supportedFilterGroups List of supported filter groups.
  * @property ShopCategoryProperty[] $properties The properties assigned to the shop category. Can be specified on creation only.
@@ -18,21 +29,30 @@ namespace AboutYou\Cloud\AdminApi\Models;
  */
 class ShopCategory extends ApiObject
 {
-    protected $defaultValues = [
+    /** @var array<string, string> */
+    protected array $defaultValues = [
     ];
 
-    protected $classMap = [
+    /** @var array<string, string> */
+    protected array $classMap = [
     ];
 
-    protected $collectionClassMap = [
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [
         'productSets' => ShopCategoryProductSet::class,
         'properties' => ShopCategoryProperty::class,
         'countries' => ShopCategoryCountry::class,
     ];
 
-    protected $polymorphic = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphic = [
     ];
 
-    protected $polymorphicCollections = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphicCollections = [
     ];
 }

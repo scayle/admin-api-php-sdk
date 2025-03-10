@@ -1,92 +1,102 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\PromotionItemSet;
-use AboutYou\Cloud\AdminApi\Models\PromotionItemSetCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\PromotionItemSet;
+use Scayle\Cloud\AdminApi\Models\PromotionItemSetCollection;
 
 class PromotionItemSetService extends AbstractService
 {
     /**
      * @param PromotionItemSet $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return PromotionItemSet
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        PromotionItemSet $model,
+        array $options = []
+    ): PromotionItemSet {
         return $this->request(
-            'post',
-            $this->resolvePath('/promotions/item-sets'),
-            $options,
-            [],
-            PromotionItemSet::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/promotions/item-sets'),
+            query: $options,
+            headers: [],
+            modelClass: PromotionItemSet::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $id
-     * @param array $options additional options like limit or filters
-     *
-     * @return PromotionItemSet
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($id, $options = [])
-    {
+    public function get(
+        string $id,
+        array $options = []
+    ): PromotionItemSet {
         return $this->request(
-            'get',
-            $this->resolvePath('/promotions/item-sets/%s', $id),
-            $options,
-            [],
-            PromotionItemSet::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/promotions/item-sets/%s', $id),
+            query: $options,
+            headers: [],
+            modelClass: PromotionItemSet::class,
+            body: null
         );
     }
 
     /**
-     * @param string $promotionItemSetId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($promotionItemSetId, $options = [])
-    {
+    public function delete(
+        string $promotionItemSetId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/promotions/item-sets/%s', $promotionItemSetId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/promotions/item-sets/%s', $promotionItemSetId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return PromotionItemSetCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): PromotionItemSetCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/promotions/item-sets'),
-            $options,
-            [],
-            PromotionItemSetCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/promotions/item-sets'),
+            query: $options,
+            headers: [],
+            modelClass: PromotionItemSetCollection::class,
+            body: null
         );
     }
 }

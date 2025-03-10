@@ -1,51 +1,64 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 abstract class ApiObject implements \JsonSerializable, \Stringable
 {
-    /**
-     * @var array
-     */
-    protected $_attributes;
+    /** @var array<string, mixed> */
+    protected array $_attributes;
+
+    /** @var array<string, string> */
+    protected array $defaultValues = [];
+
+    /** @var array<string, string> */
+    protected array $classMap = [];
+
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [];
 
     /**
-     * @var array
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
      */
-    protected $defaultValues = [];
+    protected array $polymorphic = [];
 
     /**
-     * @var array
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
      */
-    protected $classMap = [];
+    protected array $polymorphicCollections = [];
 
     /**
-     * @var array
+     * @param array<string, mixed> $attributes
      */
-    protected $polymorphic = [];
-
-    /**
-     * @var array
-     */
-    protected $polymorphicCollections = [];
-
-    /**
-     * @var array
-     */
-    protected $collectionClassMap = [];
-
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         $attributes = $this->mergeDefaultValues($attributes);
+
         $this->_attributes = $this->unserialize($attributes);
     }
 
-    public function __set($name, $value)
+    /**
+     * @param mixed $value
+     */
+    public function __set(string $name, $value): void
     {
         $this->_attributes[$name] = $value;
     }
 
-    public function &__get($name)
+    /**
+     * @phpstan-ignore missingType.return
+     */
+    public function &__get(string $name)
     {
         $attribute = null;
 
@@ -56,16 +69,19 @@ abstract class ApiObject implements \JsonSerializable, \Stringable
         return $attribute;
     }
 
-    public function __unset($name)
+    public function __unset(string $name): void
     {
         unset($this->_attributes[$name]);
     }
 
-    public function __isset($name)
+    public function __isset(string $name): bool
     {
         return isset($this->_attributes[$name]);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function jsonSerialize(): array
     {
         $serialized = [];
@@ -81,41 +97,34 @@ abstract class ApiObject implements \JsonSerializable, \Stringable
         return $serialized;
     }
 
-    /**
-     * @return false|string
-     */
-    public function toJson()
+    public function toJson(): string
     {
-        return json_encode($this->_attributes);
+        return json_encode($this->_attributes, JSON_THROW_ON_ERROR);
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->toJson() ?: '';
     }
 
     /**
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      *
-     * @return array mixed
+     * @return array<string, mixed>
      */
-    private function mergeDefaultValues($attributes)
+    private function mergeDefaultValues(array $attributes): array
     {
-        $attributes = !\is_array($attributes) ? [] : $attributes;
         $diff = array_diff_key($this->defaultValues, $attributes);
 
         return array_merge($attributes, $diff);
     }
 
     /**
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    private function unserialize($attributes)
+    private function unserialize(array $attributes): array
     {
         $unserialized = [];
 

@@ -1,114 +1,124 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\MasterCategory;
-use AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\MasterCategory;
+use Scayle\Cloud\AdminApi\Models\MasterCategoryCollection;
 
 class MasterCategoryService extends AbstractService
 {
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return MasterCategoryCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): MasterCategoryCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/master-categories'),
-            $options,
-            [],
-            MasterCategoryCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/master-categories'),
+            query: $options,
+            headers: [],
+            modelClass: MasterCategoryCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param int $masterCategoryId
-     * @param array $options additional options like limit or filters
-     *
-     * @return MasterCategory
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($masterCategoryId, $options = [])
-    {
+    public function get(
+        int $masterCategoryId,
+        array $options = []
+    ): MasterCategory {
         return $this->request(
-            'get',
-            $this->resolvePath('/master-categories/%s', $masterCategoryId),
-            $options,
-            [],
-            MasterCategory::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/master-categories/%s', $masterCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: MasterCategory::class,
+            body: null
         );
     }
 
     /**
      * @param MasterCategory $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return MasterCategory
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        MasterCategory $model,
+        array $options = []
+    ): MasterCategory {
         return $this->request(
-            'post',
-            $this->resolvePath('/master-categories'),
-            $options,
-            [],
-            MasterCategory::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/master-categories'),
+            query: $options,
+            headers: [],
+            modelClass: MasterCategory::class,
+            body: $model
         );
     }
 
     /**
-     * @param int $masterCategoryId
      * @param MasterCategory $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return MasterCategory
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($masterCategoryId, $model, $options = [])
-    {
+    public function update(
+        int $masterCategoryId,
+        MasterCategory $model,
+        array $options = []
+    ): MasterCategory {
         return $this->request(
-            'put',
-            $this->resolvePath('/master-categories/%s', $masterCategoryId),
-            $options,
-            [],
-            MasterCategory::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/master-categories/%s', $masterCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: MasterCategory::class,
+            body: $model
         );
     }
 
     /**
-     * @param int $masterCategoryId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($masterCategoryId, $options = [])
-    {
+    public function delete(
+        int $masterCategoryId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/master-categories/%s', $masterCategoryId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/master-categories/%s', $masterCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

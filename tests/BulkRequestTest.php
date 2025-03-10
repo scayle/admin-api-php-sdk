@@ -1,16 +1,27 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\BulkRequestProgress;
-use AboutYou\Cloud\AdminApi\Models\BulkRequestStatus;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\BulkRequestProgress;
+use Scayle\Cloud\AdminApi\Models\BulkRequestStatus;
 
 /**
  * @internal
  */
 final class BulkRequestTest extends BaseApiTestCase
 {
-    public function testCancel()
+    public function testCancel(): void
     {
         $responseEntity = $this->api->bulkRequests->cancel(1, []);
 
@@ -19,5 +30,8 @@ final class BulkRequestTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'progress', BulkRequestProgress::class);
+
+
+
     }
 }

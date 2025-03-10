@@ -1,19 +1,30 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Voucher;
-use AboutYou\Cloud\AdminApi\Models\VoucherCollection;
-use AboutYou\Cloud\AdminApi\Models\VoucherConstraints;
-use AboutYou\Cloud\AdminApi\Models\VoucherCriterion;
-use AboutYou\Cloud\AdminApi\Models\VoucherCriterionCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Voucher;
+use Scayle\Cloud\AdminApi\Models\VoucherCollection;
+use Scayle\Cloud\AdminApi\Models\VoucherConstraints;
+use Scayle\Cloud\AdminApi\Models\VoucherCriterion;
+use Scayle\Cloud\AdminApi\Models\VoucherCriterionCollection;
 
 /**
  * @internal
  */
 final class VoucherTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->vouchers->all('acme', 'acme', []);
 
@@ -24,14 +35,16 @@ final class VoucherTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Voucher::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'constraints', VoucherConstraints::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'criteria', VoucherCriterion::class);
+
         }
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->vouchers->get('acme', 'acme', 1, []);
 
@@ -41,9 +54,12 @@ final class VoucherTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
+
+
+
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('VoucherCreateRequest.json');
 
@@ -58,9 +74,12 @@ final class VoucherTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('VoucherUpdateRequest.json');
 
@@ -75,14 +94,20 @@ final class VoucherTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'constraints', VoucherConstraints::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'criteria', VoucherCriterion::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->vouchers->delete('acme', 'acme', 1, []);
+        $this->api->vouchers->delete('acme', 'acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCriteria()
+    public function testGetCriteria(): void
     {
         $responseEntity = $this->api->vouchers->getCriteria('acme', 'acme', 1, []);
 
@@ -90,23 +115,30 @@ final class VoucherTest extends BaseApiTestCase
         self::assertInstanceOf(VoucherCriterionCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(VoucherCriterion::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'constraints', VoucherConstraints::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'criteria', VoucherCriterion::class);
+
         }
     }
 
-    public function testGetCriterion()
+    public function testGetCriterion(): void
     {
         $responseEntity = $this->api->vouchers->getCriterion('acme', 'acme', 1, 1, []);
 
         $expectedResponseJson = $this->loadFixture('VoucherGetCriterionResponse.json');
         self::assertInstanceOf(VoucherCriterion::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testCreateCriterion()
+    public function testCreateCriterion(): void
     {
         $expectedRequestJson = $this->loadFixture('VoucherCreateCriterionRequest.json');
 
@@ -118,9 +150,13 @@ final class VoucherTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('VoucherCreateCriterionResponse.json');
         self::assertInstanceOf(VoucherCriterion::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testUpdateCriterion()
+    public function testUpdateCriterion(): void
     {
         $expectedRequestJson = $this->loadFixture('VoucherUpdateCriterionRequest.json');
 
@@ -132,10 +168,17 @@ final class VoucherTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('VoucherUpdateCriterionResponse.json');
         self::assertInstanceOf(VoucherCriterion::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDeleteCriterion()
+    public function testDeleteCriterion(): void
     {
-        $responseEntity = $this->api->vouchers->deleteCriterion('acme', 'acme', 1, 1, []);
+        $this->api->vouchers->deleteCriterion('acme', 'acme', 1, 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

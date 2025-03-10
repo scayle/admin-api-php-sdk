@@ -1,222 +1,239 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Shop;
-use AboutYou\Cloud\AdminApi\Models\ShopCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Shop;
+use Scayle\Cloud\AdminApi\Models\ShopCollection;
 
 class ShopService extends AbstractService
 {
     /**
      * @param Shop $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Shop
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        Shop $model,
+        array $options = []
+    ): Shop {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops'),
-            $options,
-            [],
-            Shop::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops'),
+            query: $options,
+            headers: [],
+            modelClass: Shop::class,
+            body: $model
         );
     }
 
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): ShopCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops'),
-            $options,
-            [],
-            ShopCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops'),
+            query: $options,
+            headers: [],
+            modelClass: ShopCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param array $options additional options like limit or filters
-     *
-     * @return Shop
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($shopKey, $options = [])
-    {
+    public function get(
+        string $shopKey,
+        array $options = []
+    ): Shop {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s', $shopKey),
-            $options,
-            [],
-            Shop::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: Shop::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
      * @param Shop $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Shop
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($shopKey, $model, $options = [])
-    {
+    public function update(
+        string $shopKey,
+        Shop $model,
+        array $options = []
+    ): Shop {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s', $shopKey),
-            $options,
-            [],
-            Shop::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: Shop::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomData($shopKey, $model, $options = [])
-    {
+    public function createOrUpdateCustomData(
+        string $shopKey,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/custom-data', $shopKey),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/custom-data', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomData($shopKey, $options = [])
-    {
+    public function deleteCustomData(
+        string $shopKey,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/custom-data', $shopKey),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/custom-data', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomData($shopKey, $options = [])
-    {
+    public function getCustomData(
+        string $shopKey,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/custom-data', $shopKey),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/custom-data', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $key
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomDataForKey($shopKey, $key, $model, $options = [])
-    {
+    public function createOrUpdateCustomDataForKey(
+        string $shopKey,
+        string $key,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomDataForKey($shopKey, $key, $options = [])
-    {
+    public function deleteCustomDataForKey(
+        string $shopKey,
+        string $key,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomDataForKey($shopKey, $key, $options = [])
-    {
+    public function getCustomDataForKey(
+        string $shopKey,
+        string $key,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/custom-data/%s', $shopKey, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

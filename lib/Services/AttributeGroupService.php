@@ -1,222 +1,234 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\ArrayCollection;
-use AboutYou\Cloud\AdminApi\Models\AttributeGroup;
-use AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute;
-use AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\ArrayCollection;
+use Scayle\Cloud\AdminApi\Models\AttributeGroup;
+use Scayle\Cloud\AdminApi\Models\AttributeGroupAttribute;
+use Scayle\Cloud\AdminApi\Models\AttributeGroupCollection;
 
 class AttributeGroupService extends AbstractService
 {
     /**
      * @param AttributeGroup $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeGroup
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        AttributeGroup $model,
+        array $options = []
+    ): AttributeGroup {
         return $this->request(
-            'post',
-            $this->resolvePath('/attribute-groups'),
-            $options,
-            [],
-            AttributeGroup::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/attribute-groups'),
+            query: $options,
+            headers: [],
+            modelClass: AttributeGroup::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeGroup
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($attributeGroupName, $options = [])
-    {
+    public function get(
+        string $attributeGroupName,
+        array $options = []
+    ): AttributeGroup {
         return $this->request(
-            'get',
-            $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
-            $options,
-            [],
-            AttributeGroup::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: AttributeGroup::class,
+            body: null
         );
     }
 
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeGroupCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): AttributeGroupCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/attribute-groups'),
-            $options,
-            [],
-            AttributeGroupCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/attribute-groups'),
+            query: $options,
+            headers: [],
+            modelClass: AttributeGroupCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $attributeGroupName
      * @param AttributeGroup $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeGroup
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($attributeGroupName, $model, $options = [])
-    {
+    public function update(
+        string $attributeGroupName,
+        AttributeGroup $model,
+        array $options = []
+    ): AttributeGroup {
         return $this->request(
-            'put',
-            $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
-            $options,
-            [],
-            AttributeGroup::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: AttributeGroup::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($attributeGroupName, $options = [])
-    {
+    public function delete(
+        string $attributeGroupName,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $attributeGroupName
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateFrontendName($attributeGroupName, $model, $options = [])
-    {
+    public function updateFrontendName(
+        string $attributeGroupName,
+        array $model,
+        array $options = []
+    ): void {
         $this->request(
-            'put',
-            $this->resolvePath('/attribute-groups/%s/frontend-name', $attributeGroupName),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s/frontend-name', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
-     *
-     * @return ArrayCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAttributes($attributeGroupName, $options = [])
-    {
+    public function getAttributes(
+        string $attributeGroupName,
+        array $options = []
+    ): ArrayCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
-            $options,
-            [],
-            ArrayCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: ArrayCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $attributeGroupName
      * @param AttributeGroupAttribute $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeGroupAttribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createAttribute($attributeGroupName, $model, $options = [])
-    {
+    public function createAttribute(
+        string $attributeGroupName,
+        AttributeGroupAttribute $model,
+        array $options = []
+    ): AttributeGroupAttribute {
         return $this->request(
-            'post',
-            $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
-            $options,
-            [],
-            AttributeGroupAttribute::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s/attributes', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: AttributeGroupAttribute::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $attributeGroupName
-     * @param string $attributeValue
      * @param AttributeGroupAttribute $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeGroupAttribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateAttribute($attributeGroupName, $attributeValue, $model, $options = [])
-    {
+    public function updateAttribute(
+        string $attributeGroupName,
+        string $attributeValue,
+        AttributeGroupAttribute $model,
+        array $options = []
+    ): AttributeGroupAttribute {
         return $this->request(
-            'put',
-            $this->resolvePath('/attribute-groups/%s/attributes/%s', $attributeGroupName, $attributeValue),
-            $options,
-            [],
-            AttributeGroupAttribute::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s/attributes/%s', $attributeGroupName, $attributeValue),
+            query: $options,
+            headers: [],
+            modelClass: AttributeGroupAttribute::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $attributeGroupName
-     * @param string $attributeValue
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteAttribute($attributeGroupName, $attributeValue, $options = [])
-    {
+    public function deleteAttribute(
+        string $attributeGroupName,
+        string $attributeValue,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/attribute-groups/%s/attributes/%s', $attributeGroupName, $attributeValue),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/attribute-groups/%s/attributes/%s', $attributeGroupName, $attributeValue),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

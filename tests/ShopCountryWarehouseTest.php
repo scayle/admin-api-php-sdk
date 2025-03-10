@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\PackageGroup;
-use AboutYou\Cloud\AdminApi\Models\ShopCountryWarehouse;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\PackageGroup;
+use Scayle\Cloud\AdminApi\Models\ShopCountryWarehouse;
 
 /**
  * @internal
  */
 final class ShopCountryWarehouseTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCountryWarehouseCreateRequest.json');
 
@@ -25,9 +36,12 @@ final class ShopCountryWarehouseTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packageGroup', PackageGroup::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCountryWarehouseUpdateRequest.json');
 
@@ -41,10 +55,16 @@ final class ShopCountryWarehouseTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'packageGroup', PackageGroup::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->shopCountryWarehouses->delete('acme', 'acme', Identifier::fromId(1), []);
+        $this->api->shopCountryWarehouses->delete('acme', 'acme', Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

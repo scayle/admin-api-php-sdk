@@ -1,19 +1,30 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\Reservation;
-use AboutYou\Cloud\AdminApi\Models\ReservationCollection;
-use AboutYou\Cloud\AdminApi\Models\ReservationError;
-use AboutYou\Cloud\AdminApi\Models\ReservationVariant;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\Reservation;
+use Scayle\Cloud\AdminApi\Models\ReservationCollection;
+use Scayle\Cloud\AdminApi\Models\ReservationError;
+use Scayle\Cloud\AdminApi\Models\ReservationVariant;
 
 /**
  * @internal
  */
 final class ReservationTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ReservationCreateRequest.json');
 
@@ -31,15 +42,20 @@ final class ReservationTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variant', ReservationVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'error', ReservationError::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Reservation::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'variant', ReservationVariant::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'error', ReservationError::class);
+
         }
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->reservations->delete(Identifier::fromId(1), []);
+        $this->api->reservations->delete(Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

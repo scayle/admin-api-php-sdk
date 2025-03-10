@@ -1,29 +1,42 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\ProductsFirstLiveAt;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\ProductsFirstLiveAt;
 
 class ProductsFirstLiveAtService extends AbstractService
 {
     /**
      * @param ProductsFirstLiveAt $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateProductsFirstLiveAt($model, $options = [])
-    {
+    public function updateProductsFirstLiveAt(
+        ProductsFirstLiveAt $model,
+        array $options = []
+    ): void {
         $this->request(
-            'put',
-            $this->resolvePath('/products/first-live-at'),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/products/first-live-at'),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 }

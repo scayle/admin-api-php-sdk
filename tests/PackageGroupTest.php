@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\PackageGroup;
-use AboutYou\Cloud\AdminApi\Models\PackageGroupCollection;
-use AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\PackageGroup;
+use Scayle\Cloud\AdminApi\Models\PackageGroupCollection;
+use Scayle\Cloud\AdminApi\Models\PackageGroupWarehouse;
 
 /**
  * @internal
  */
 final class PackageGroupTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->packageGroups->all('acme', 'acme', []);
 
@@ -19,12 +30,15 @@ final class PackageGroupTest extends BaseApiTestCase
         self::assertInstanceOf(PackageGroupCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(PackageGroup::class, $collectionEntity);
+
         }
     }
 
-    public function testAssignPackageGroupToWarehouses()
+    public function testAssignPackageGroupToWarehouses(): void
     {
         $expectedRequestJson = $this->loadFixture('PackageGroupAssignPackageGroupToWarehousesRequest.json');
 
@@ -33,10 +47,13 @@ final class PackageGroupTest extends BaseApiTestCase
             $requestEntity[] = new PackageGroupWarehouse($entity);
         }
 
-        $responseEntity = $this->api->packageGroups->assignPackageGroupToWarehouses('acme', 'acme', 1, $requestEntity, []);
+        $this->api->packageGroups->assignPackageGroupToWarehouses('acme', 'acme', 1, $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testReplacePackageGroupForWarehouses()
+    public function testReplacePackageGroupForWarehouses(): void
     {
         $expectedRequestJson = $this->loadFixture('PackageGroupReplacePackageGroupForWarehousesRequest.json');
 
@@ -45,11 +62,17 @@ final class PackageGroupTest extends BaseApiTestCase
             $requestEntity[] = new PackageGroupWarehouse($entity);
         }
 
-        $responseEntity = $this->api->packageGroups->replacePackageGroupForWarehouses('acme', 'acme', 1, $requestEntity, []);
+        $this->api->packageGroups->replacePackageGroupForWarehouses('acme', 'acme', 1, $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->packageGroups->delete('acme', 'acme', 1, []);
+        $this->api->packageGroups->delete('acme', 'acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

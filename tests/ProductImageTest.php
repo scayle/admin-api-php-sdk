@@ -1,21 +1,32 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\AssetSource;
-use AboutYou\Cloud\AdminApi\Models\Attribute;
-use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\ProductImage;
-use AboutYou\Cloud\AdminApi\Models\ProductImageCollection;
-use AboutYou\Cloud\AdminApi\Models\ProductImagePosition;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\AssetSource;
+use Scayle\Cloud\AdminApi\Models\Attribute;
+use Scayle\Cloud\AdminApi\Models\AttributeCollection;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\ProductImage;
+use Scayle\Cloud\AdminApi\Models\ProductImageCollection;
+use Scayle\Cloud\AdminApi\Models\ProductImagePosition;
 
 /**
  * @internal
  */
 final class ProductImageTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductImageCreateRequest.json');
 
@@ -30,9 +41,12 @@ final class ProductImageTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->productImages->all(Identifier::fromId(1), []);
 
@@ -43,14 +57,16 @@ final class ProductImageTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ProductImage::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', AssetSource::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
+
         }
     }
 
-    public function testUpdatePosition()
+    public function testUpdatePosition(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductImageUpdatePositionRequest.json');
 
@@ -65,14 +81,20 @@ final class ProductImageTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->productImages->delete(Identifier::fromId(1), Identifier::fromId(1), []);
+        $this->api->productImages->delete(Identifier::fromId(1), Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateOrCreateAttribute()
+    public function testUpdateOrCreateAttribute(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductImageUpdateOrCreateAttributeRequest.json');
 
@@ -84,23 +106,34 @@ final class ProductImageTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductImageUpdateOrCreateAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDeleteAttribute()
+    public function testDeleteAttribute(): void
     {
-        $responseEntity = $this->api->productImages->deleteAttribute(Identifier::fromId(1), Identifier::fromId(1), 'acme', []);
+        $this->api->productImages->deleteAttribute(Identifier::fromId(1), Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetAttribute()
+    public function testGetAttribute(): void
     {
         $responseEntity = $this->api->productImages->getAttribute(Identifier::fromId(1), Identifier::fromId(1), 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ProductImageGetAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAllAttributes()
+    public function testAllAttributes(): void
     {
         $responseEntity = $this->api->productImages->allAttributes(Identifier::fromId(1), Identifier::fromId(1), []);
 
@@ -108,10 +141,13 @@ final class ProductImageTest extends BaseApiTestCase
         self::assertInstanceOf(AttributeCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Attribute::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', AssetSource::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
+
         }
     }
 }

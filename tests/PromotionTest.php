@@ -1,23 +1,34 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Promotion;
-use AboutYou\Cloud\AdminApi\Models\PromotionAudience;
-use AboutYou\Cloud\AdminApi\Models\PromotionCollection;
-use AboutYou\Cloud\AdminApi\Models\PromotionCondition;
-use AboutYou\Cloud\AdminApi\Models\PromotionEffect;
-use AboutYou\Cloud\AdminApi\Models\PromotionSchedule;
-use AboutYou\Cloud\AdminApi\Models\PromotionSiblingPromotion;
-use AboutYou\Cloud\AdminApi\Models\PromotionTier;
-use AboutYou\Cloud\AdminApi\Models\PromotionUsageLimit;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Promotion;
+use Scayle\Cloud\AdminApi\Models\PromotionAudience;
+use Scayle\Cloud\AdminApi\Models\PromotionCollection;
+use Scayle\Cloud\AdminApi\Models\PromotionCondition;
+use Scayle\Cloud\AdminApi\Models\PromotionEffect;
+use Scayle\Cloud\AdminApi\Models\PromotionSchedule;
+use Scayle\Cloud\AdminApi\Models\PromotionSiblingPromotion;
+use Scayle\Cloud\AdminApi\Models\PromotionTier;
+use Scayle\Cloud\AdminApi\Models\PromotionUsageLimit;
 
 /**
  * @internal
  */
 final class PromotionTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->promotions->all([]);
 
@@ -33,6 +44,7 @@ final class PromotionTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTier::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'usageLimit', PromotionUsageLimit::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Promotion::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'schedule', PromotionSchedule::class);
@@ -42,10 +54,11 @@ final class PromotionTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'conditions', PromotionCondition::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'tiers', PromotionTier::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'usageLimit', PromotionUsageLimit::class);
+
         }
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('PromotionCreateRequest.json');
 
@@ -65,9 +78,12 @@ final class PromotionTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'conditions', PromotionCondition::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTier::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'usageLimit', PromotionUsageLimit::class);
+
+
+
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->promotions->get('645e0c241a93369ff53f26e0', []);
 
@@ -82,14 +98,20 @@ final class PromotionTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'conditions', PromotionCondition::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTier::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'usageLimit', PromotionUsageLimit::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->promotions->delete('645e0c241a93369ff53f26e0', []);
+        $this->api->promotions->delete('645e0c241a93369ff53f26e0', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('PromotionUpdateRequest.json');
 
@@ -109,5 +131,8 @@ final class PromotionTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'conditions', PromotionCondition::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTier::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'usageLimit', PromotionUsageLimit::class);
+
+
+
     }
 }

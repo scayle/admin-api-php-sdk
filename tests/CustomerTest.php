@@ -1,31 +1,42 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Customer;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddress;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddressCollectionPoint;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddressDefault;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddressRecipient;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddressReferenceKey;
-use AboutYou\Cloud\AdminApi\Models\CustomerCollection;
-use AboutYou\Cloud\AdminApi\Models\CustomerGroup;
-use AboutYou\Cloud\AdminApi\Models\CustomerIdentityProvider;
-use AboutYou\Cloud\AdminApi\Models\CustomerMembership;
-use AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection;
-use AboutYou\Cloud\AdminApi\Models\CustomerPassword;
-use AboutYou\Cloud\AdminApi\Models\CustomerPasswordHash;
-use AboutYou\Cloud\AdminApi\Models\CustomerReferenceKey;
-use AboutYou\Cloud\AdminApi\Models\CustomerStatus;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Customer;
+use Scayle\Cloud\AdminApi\Models\CustomerAddress;
+use Scayle\Cloud\AdminApi\Models\CustomerAddressCollection;
+use Scayle\Cloud\AdminApi\Models\CustomerAddressCollectionPoint;
+use Scayle\Cloud\AdminApi\Models\CustomerAddressDefault;
+use Scayle\Cloud\AdminApi\Models\CustomerAddressRecipient;
+use Scayle\Cloud\AdminApi\Models\CustomerAddressReferenceKey;
+use Scayle\Cloud\AdminApi\Models\CustomerCollection;
+use Scayle\Cloud\AdminApi\Models\CustomerGroup;
+use Scayle\Cloud\AdminApi\Models\CustomerIdentityProvider;
+use Scayle\Cloud\AdminApi\Models\CustomerMembership;
+use Scayle\Cloud\AdminApi\Models\CustomerMembershipCollection;
+use Scayle\Cloud\AdminApi\Models\CustomerPassword;
+use Scayle\Cloud\AdminApi\Models\CustomerPasswordHash;
+use Scayle\Cloud\AdminApi\Models\CustomerReferenceKey;
+use Scayle\Cloud\AdminApi\Models\CustomerStatus;
+use Scayle\Cloud\AdminApi\Models\Identifier;
 
 /**
  * @internal
  */
 final class CustomerTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->customers->all('acme', 'acme', []);
 
@@ -37,15 +48,17 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Customer::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', CustomerStatus::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', CustomerAddress::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'identities', CustomerIdentityProvider::class);
+
         }
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->customers->get('acme', 'acme', Identifier::fromId(1), []);
 
@@ -56,9 +69,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
+
+
+
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerCreateRequest.json');
 
@@ -74,9 +90,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerUpdateRequest.json');
 
@@ -92,9 +111,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
+
+
+
     }
 
-    public function testUpdateReferenceKey()
+    public function testUpdateReferenceKey(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerUpdateReferenceKeyRequest.json');
 
@@ -110,9 +132,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
+
+
+
     }
 
-    public function testCreateOrUpdateLegacyCustomData()
+    public function testCreateOrUpdateLegacyCustomData(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerCreateOrUpdateLegacyCustomDataRequest.json');
 
@@ -127,43 +152,59 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
+
+
+
     }
 
-    public function testAnonymize()
+    public function testAnonymize(): void
     {
-        $responseEntity = $this->api->customers->anonymize('acme', 'acme', Identifier::fromId(1), []);
+        $this->api->customers->anonymize('acme', 'acme', Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testSetPassword()
+    public function testSetPassword(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerSetPasswordRequest.json');
 
         $requestEntity = new CustomerPassword($expectedRequestJson);
         self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->customers->setPassword('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
+        $this->api->customers->setPassword('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testSetPasswordHash()
+    public function testSetPasswordHash(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerSetPasswordHashRequest.json');
 
         $requestEntity = new CustomerPasswordHash($expectedRequestJson);
         self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
 
-        $responseEntity = $this->api->customers->setPasswordHash('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
+        $this->api->customers->setPasswordHash('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetStatus()
+    public function testGetStatus(): void
     {
         $responseEntity = $this->api->customers->getStatus('acme', 'acme', Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('CustomerGetStatusResponse.json');
         self::assertInstanceOf(CustomerStatus::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testUpdateStatus()
+    public function testUpdateStatus(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerUpdateStatusRequest.json');
 
@@ -175,9 +216,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('CustomerUpdateStatusResponse.json');
         self::assertInstanceOf(CustomerStatus::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testGetAddresses()
+    public function testGetAddresses(): void
     {
         $responseEntity = $this->api->customers->getAddresses('acme', 'acme', Identifier::fromId(1), []);
 
@@ -189,15 +234,17 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'isDefault', CustomerAddressDefault::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'recipient', CustomerAddressRecipient::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(CustomerAddress::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', CustomerStatus::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', CustomerAddress::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'identities', CustomerIdentityProvider::class);
+
         }
     }
 
-    public function testGetAddress()
+    public function testGetAddress(): void
     {
         $responseEntity = $this->api->customers->getAddress('acme', 'acme', Identifier::fromId(1), Identifier::fromId(1), []);
 
@@ -208,9 +255,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'collectionPoint', CustomerAddressCollectionPoint::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'isDefault', CustomerAddressDefault::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'recipient', CustomerAddressRecipient::class);
+
+
+
     }
 
-    public function testCreateAddress()
+    public function testCreateAddress(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerCreateAddressRequest.json');
 
@@ -226,9 +276,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'collectionPoint', CustomerAddressCollectionPoint::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'isDefault', CustomerAddressDefault::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'recipient', CustomerAddressRecipient::class);
+
+
+
     }
 
-    public function testUpdateAddress()
+    public function testUpdateAddress(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerUpdateAddressRequest.json');
 
@@ -244,9 +297,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'collectionPoint', CustomerAddressCollectionPoint::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'isDefault', CustomerAddressDefault::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'recipient', CustomerAddressRecipient::class);
+
+
+
     }
 
-    public function testUpdateAddressReferenceKey()
+    public function testUpdateAddressReferenceKey(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerUpdateAddressReferenceKeyRequest.json');
 
@@ -262,24 +318,36 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'collectionPoint', CustomerAddressCollectionPoint::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'isDefault', CustomerAddressDefault::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'recipient', CustomerAddressRecipient::class);
+
+
+
     }
 
-    public function testAnonymizeAddress()
+    public function testAnonymizeAddress(): void
     {
-        $responseEntity = $this->api->customers->anonymizeAddress('acme', 'acme', Identifier::fromId(1), Identifier::fromId(1), []);
+        $this->api->customers->anonymizeAddress('acme', 'acme', Identifier::fromId(1), Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testAnonymizeAddressByIdentifier()
+    public function testAnonymizeAddressByIdentifier(): void
     {
-        $responseEntity = $this->api->customers->anonymizeAddressByIdentifier('acme', 'acme', Identifier::fromId(1), []);
+        $this->api->customers->anonymizeAddressByIdentifier('acme', 'acme', Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testResetPassword()
+    public function testResetPassword(): void
     {
-        $responseEntity = $this->api->customers->resetPassword('acme', 'acme', Identifier::fromId(1), []);
+        $this->api->customers->resetPassword('acme', 'acme', Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testAddGroups()
+    public function testAddGroups(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerAddGroupsRequest.json');
 
@@ -295,9 +363,12 @@ final class CustomerTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'status', CustomerStatus::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'addresses', CustomerAddress::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'identities', CustomerIdentityProvider::class);
+
+
+
     }
 
-    public function testCreateMembership()
+    public function testCreateMembership(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerCreateMembershipRequest.json');
 
@@ -309,9 +380,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('CustomerCreateMembershipResponse.json');
         self::assertInstanceOf(CustomerMembership::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testUpdateMembership()
+    public function testUpdateMembership(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerUpdateMembershipRequest.json');
 
@@ -323,9 +398,13 @@ final class CustomerTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('CustomerUpdateMembershipResponse.json');
         self::assertInstanceOf(CustomerMembership::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testGetMemberships()
+    public function testGetMemberships(): void
     {
         $responseEntity = $this->api->customers->getMemberships('acme', 'acme', Identifier::fromId(1), []);
 
@@ -333,21 +412,30 @@ final class CustomerTest extends BaseApiTestCase
         self::assertInstanceOf(CustomerMembershipCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(CustomerMembership::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'status', CustomerStatus::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'addresses', CustomerAddress::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'identities', CustomerIdentityProvider::class);
+
         }
     }
 
-    public function testDeleteMembership()
+    public function testDeleteMembership(): void
     {
-        $responseEntity = $this->api->customers->deleteMembership('acme', 'acme', 1, []);
+        $this->api->customers->deleteMembership('acme', 'acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testDeleteGroup()
+    public function testDeleteGroup(): void
     {
-        $responseEntity = $this->api->customers->deleteGroup('acme', 'acme', Identifier::fromId(1), 'acme', []);
+        $this->api->customers->deleteGroup('acme', 'acme', Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

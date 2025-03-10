@@ -1,98 +1,113 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\PackageGroupCollection;
-use AboutYou\Cloud\AdminApi\Models\PackageGroupWarehouse;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\PackageGroupCollection;
+use Scayle\Cloud\AdminApi\Models\PackageGroupWarehouse;
 
 class PackageGroupService extends AbstractService
 {
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param array $options additional options like limit or filters
-     *
-     * @return PackageGroupCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($shopKey, $countryCode, $options = [])
-    {
+    public function all(
+        string $shopKey,
+        string $countryCode,
+        array $options = []
+    ): PackageGroupCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/package-groups', $shopKey, $countryCode),
-            $options,
-            [],
-            PackageGroupCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/package-groups', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: PackageGroupCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $packageGroupId
      * @param PackageGroupWarehouse[] $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function assignPackageGroupToWarehouses($shopKey, $countryCode, $packageGroupId, $model, $options = [])
-    {
+    public function assignPackageGroupToWarehouses(
+        string $shopKey,
+        string $countryCode,
+        int $packageGroupId,
+        array $model,
+        array $options = []
+    ): void {
         $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
-            $options,
-            [],
-            null,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $packageGroupId
      * @param PackageGroupWarehouse[] $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function replacePackageGroupForWarehouses($shopKey, $countryCode, $packageGroupId, $model, $options = [])
-    {
+    public function replacePackageGroupForWarehouses(
+        string $shopKey,
+        string $countryCode,
+        int $packageGroupId,
+        array $model,
+        array $options = []
+    ): void {
         $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $packageGroupId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $countryCode, $packageGroupId, $options = [])
-    {
+    public function delete(
+        string $shopKey,
+        string $countryCode,
+        int $packageGroupId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/package-groups/%s', $shopKey, $countryCode, $packageGroupId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

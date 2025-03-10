@@ -1,115 +1,125 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Audience;
-use AboutYou\Cloud\AdminApi\Models\AudienceCollection;
-use AboutYou\Cloud\AdminApi\Models\AudienceUpdateRequest;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Audience;
+use Scayle\Cloud\AdminApi\Models\AudienceCollection;
+use Scayle\Cloud\AdminApi\Models\AudienceUpdateRequest;
 
 class AudienceService extends AbstractService
 {
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return AudienceCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAudiences($options = [])
-    {
+    public function getAudiences(
+        array $options = []
+    ): AudienceCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/promotions/audiences'),
-            $options,
-            [],
-            AudienceCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/promotions/audiences'),
+            query: $options,
+            headers: [],
+            modelClass: AudienceCollection::class,
+            body: null
         );
     }
 
     /**
      * @param Audience $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Audience
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createAudience($model, $options = [])
-    {
+    public function createAudience(
+        Audience $model,
+        array $options = []
+    ): Audience {
         return $this->request(
-            'post',
-            $this->resolvePath('/promotions/audiences'),
-            $options,
-            [],
-            Audience::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/promotions/audiences'),
+            query: $options,
+            headers: [],
+            modelClass: Audience::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $audienceId
-     * @param array $options additional options like limit or filters
-     *
-     * @return Audience
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAudience($audienceId, $options = [])
-    {
+    public function getAudience(
+        string $audienceId,
+        array $options = []
+    ): Audience {
         return $this->request(
-            'get',
-            $this->resolvePath('/promotions/audiences/%s', $audienceId),
-            $options,
-            [],
-            Audience::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/promotions/audiences/%s', $audienceId),
+            query: $options,
+            headers: [],
+            modelClass: Audience::class,
+            body: null
         );
     }
 
     /**
-     * @param string $audienceId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteAudience($audienceId, $options = [])
-    {
+    public function deleteAudience(
+        string $audienceId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/promotions/audiences/%s', $audienceId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/promotions/audiences/%s', $audienceId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $audienceId
      * @param AudienceUpdateRequest $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Audience
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateAudience($audienceId, $model, $options = [])
-    {
+    public function updateAudience(
+        string $audienceId,
+        AudienceUpdateRequest $model,
+        array $options = []
+    ): Audience {
         return $this->request(
-            'put',
-            $this->resolvePath('/promotions/audiences/%s', $audienceId),
-            $options,
-            [],
-            Audience::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/promotions/audiences/%s', $audienceId),
+            query: $options,
+            headers: [],
+            modelClass: Audience::class,
+            body: $model
         );
     }
 }

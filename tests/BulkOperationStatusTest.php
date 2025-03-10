@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\BulkOperationResponse;
-use AboutYou\Cloud\AdminApi\Models\BulkOperationStatus;
-use AboutYou\Cloud\AdminApi\Models\BulkRequestStatus;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\BulkOperationResponse;
+use Scayle\Cloud\AdminApi\Models\BulkOperationStatus;
+use Scayle\Cloud\AdminApi\Models\BulkRequestStatus;
 
 /**
  * @internal
  */
 final class BulkOperationStatusTest extends BaseApiTestCase
 {
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->bulkOperationStatuses->get(1, 'acme', []);
 
@@ -21,5 +32,8 @@ final class BulkOperationStatusTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'response', BulkOperationResponse::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'bulkRequest', BulkRequestStatus::class);
+
+
+
     }
 }

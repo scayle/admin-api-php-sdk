@@ -1,55 +1,65 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantStock;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantStockCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\ProductVariantStock;
+use Scayle\Cloud\AdminApi\Models\ProductVariantStockCollection;
 
 class ProductVariantStockService extends AbstractService
 {
     /**
-     * @param Identifier $variantIdentifier
      * @param ProductVariantStock $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductVariantStock
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($variantIdentifier, $model, $options = [])
-    {
+    public function create(
+        Identifier $variantIdentifier,
+        ProductVariantStock $model,
+        array $options = []
+    ): ProductVariantStock {
         return $this->request(
-            'post',
-            $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
-            $options,
-            [],
-            ProductVariantStock::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductVariantStock::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $variantIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductVariantStockCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($variantIdentifier, $options = [])
-    {
+    public function all(
+        Identifier $variantIdentifier,
+        array $options = []
+    ): ProductVariantStockCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
-            $options,
-            [],
-            ProductVariantStockCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/variants/%s/stocks', $variantIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductVariantStockCollection::class,
+            body: null
         );
     }
 }

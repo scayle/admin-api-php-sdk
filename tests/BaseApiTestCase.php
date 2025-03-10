@@ -1,16 +1,24 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\ApiObject;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
 use PHPUnit\Framework\TestCase;
+use Scayle\Cloud\AdminApi\Models\ApiObject;
 
 abstract class BaseApiTestCase extends TestCase
 {
-    /**
-     * @var AdminAPI
-     */
-    protected $api;
+    protected AdminAPI $api;
 
     protected function setUp(): void
     {
@@ -26,14 +34,11 @@ abstract class BaseApiTestCase extends TestCase
     /**
      * Gets a protected property from an ApiObject.
      *
-     * @param ApiObject $apiObject
-     * @param string $propertyName
-     *
      * @return null|mixed
      *
      * @throws \ReflectionException
      */
-    private function getProtectedProperty($apiObject, $propertyName)
+    private function getProtectedProperty(ApiObject $apiObject, string $propertyName)
     {
         $reflect = new \ReflectionClass($apiObject);
 
@@ -57,8 +62,11 @@ abstract class BaseApiTestCase extends TestCase
      *
      * @throws \ReflectionException
      */
-    protected function assertPropertyHasTheCorrectType($apiObject, $propertyName, $className)
-    {
+    protected function assertPropertyHasTheCorrectType(
+        ApiObject $apiObject,
+        string $propertyName,
+        string $className
+    ): void {
         $attributes = $this->getProtectedProperty($apiObject, '_attributes');
 
         foreach ($attributes as $objPropertyName => $objPropertyValue) {
@@ -84,8 +92,12 @@ abstract class BaseApiTestCase extends TestCase
      *
      * @throws \ReflectionException
      */
-    protected function assertPropertyHasCorrectPolymorphicType($apiObject, $propertyName, $discriminator, $mapping)
-    {
+    protected function assertPropertyHasCorrectPolymorphicType(
+        ApiObject $apiObject,
+        string $propertyName,
+        string $discriminator,
+        array $mapping
+    ): void {
         $attributes = $this->getProtectedProperty($apiObject, '_attributes');
 
         foreach ($attributes as $objPropertyName => $objPropertyValue) {
@@ -109,6 +121,9 @@ abstract class BaseApiTestCase extends TestCase
         }
     }
 
+    /**
+     * @return array<mixed>
+     */
     protected function loadFixture(string $filename): array
     {
         $filename = __DIR__ . '/fixtures/' . $filename;

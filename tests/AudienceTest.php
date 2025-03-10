@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Audience;
-use AboutYou\Cloud\AdminApi\Models\AudienceCollection;
-use AboutYou\Cloud\AdminApi\Models\AudienceUpdateRequest;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Audience;
+use Scayle\Cloud\AdminApi\Models\AudienceCollection;
+use Scayle\Cloud\AdminApi\Models\AudienceUpdateRequest;
 
 /**
  * @internal
  */
 final class AudienceTest extends BaseApiTestCase
 {
-    public function testGetAudiences()
+    public function testGetAudiences(): void
     {
         $responseEntity = $this->api->audiences->getAudiences([]);
 
@@ -19,12 +30,15 @@ final class AudienceTest extends BaseApiTestCase
         self::assertInstanceOf(AudienceCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Audience::class, $collectionEntity);
+
         }
     }
 
-    public function testCreateAudience()
+    public function testCreateAudience(): void
     {
         $expectedRequestJson = $this->loadFixture('AudienceCreateAudienceRequest.json');
 
@@ -36,23 +50,34 @@ final class AudienceTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('AudienceCreateAudienceResponse.json');
         self::assertInstanceOf(Audience::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testGetAudience()
+    public function testGetAudience(): void
     {
         $responseEntity = $this->api->audiences->getAudience('645e0c241a93369ff53f26e0', []);
 
         $expectedResponseJson = $this->loadFixture('AudienceGetAudienceResponse.json');
         self::assertInstanceOf(Audience::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDeleteAudience()
+    public function testDeleteAudience(): void
     {
-        $responseEntity = $this->api->audiences->deleteAudience('645e0c241a93369ff53f26e0', []);
+        $this->api->audiences->deleteAudience('645e0c241a93369ff53f26e0', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateAudience()
+    public function testUpdateAudience(): void
     {
         $expectedRequestJson = $this->loadFixture('AudienceUpdateAudienceRequest.json');
 
@@ -64,5 +89,9 @@ final class AudienceTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('AudienceUpdateAudienceResponse.json');
         self::assertInstanceOf(Audience::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 }

@@ -1,22 +1,33 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\PromotionAudiencesV1;
-use AboutYou\Cloud\AdminApi\Models\PromotionEffectV1;
-use AboutYou\Cloud\AdminApi\Models\PromotionGlobalConditionV1;
-use AboutYou\Cloud\AdminApi\Models\PromotionItemConditionV1;
-use AboutYou\Cloud\AdminApi\Models\PromotionScheduleV1;
-use AboutYou\Cloud\AdminApi\Models\PromotionSiblingPromotionsV1;
-use AboutYou\Cloud\AdminApi\Models\PromotionTierV1;
-use AboutYou\Cloud\AdminApi\Models\PromotionV1;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\PromotionAudiencesV1;
+use Scayle\Cloud\AdminApi\Models\PromotionEffectV1;
+use Scayle\Cloud\AdminApi\Models\PromotionGlobalConditionV1;
+use Scayle\Cloud\AdminApi\Models\PromotionItemConditionV1;
+use Scayle\Cloud\AdminApi\Models\PromotionScheduleV1;
+use Scayle\Cloud\AdminApi\Models\PromotionSiblingPromotionsV1;
+use Scayle\Cloud\AdminApi\Models\PromotionTierV1;
+use Scayle\Cloud\AdminApi\Models\PromotionV1;
 
 /**
  * @internal
  */
 final class PromotionV1Test extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('PromotionV1CreateRequest.json');
 
@@ -36,9 +47,12 @@ final class PromotionV1Test extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'globalConditions', PromotionGlobalConditionV1::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'itemConditions', PromotionItemConditionV1::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTierV1::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('PromotionV1UpdateRequest.json');
 
@@ -58,5 +72,8 @@ final class PromotionV1Test extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'globalConditions', PromotionGlobalConditionV1::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'itemConditions', PromotionItemConditionV1::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'tiers', PromotionTierV1::class);
+
+
+
     }
 }

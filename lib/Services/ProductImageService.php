@@ -1,190 +1,200 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Attribute;
-use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\ProductImage;
-use AboutYou\Cloud\AdminApi\Models\ProductImageCollection;
-use AboutYou\Cloud\AdminApi\Models\ProductImagePosition;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Attribute;
+use Scayle\Cloud\AdminApi\Models\AttributeCollection;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\ProductImage;
+use Scayle\Cloud\AdminApi\Models\ProductImageCollection;
+use Scayle\Cloud\AdminApi\Models\ProductImagePosition;
 
 class ProductImageService extends AbstractService
 {
     /**
-     * @param Identifier $productIdentifier
      * @param ProductImage $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductImage
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($productIdentifier, $model, $options = [])
-    {
+    public function create(
+        Identifier $productIdentifier,
+        ProductImage $model,
+        array $options = []
+    ): ProductImage {
         return $this->request(
-            'post',
-            $this->resolvePath('/products/%s/images', $productIdentifier),
-            $options,
-            [],
-            ProductImage::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/%s/images', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductImage::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductImageCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($productIdentifier, $options = [])
-    {
+    public function all(
+        Identifier $productIdentifier,
+        array $options = []
+    ): ProductImageCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s/images', $productIdentifier),
-            $options,
-            [],
-            ProductImageCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s/images', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductImageCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param Identifier $imageIdentifier
      * @param ProductImagePosition $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductImage
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updatePosition($productIdentifier, $imageIdentifier, $model, $options = [])
-    {
+    public function updatePosition(
+        Identifier $productIdentifier,
+        Identifier $imageIdentifier,
+        ProductImagePosition $model,
+        array $options = []
+    ): ProductImage {
         return $this->request(
-            'patch',
-            $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier),
-            $options,
-            [],
-            ProductImage::class,
-            $model
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductImage::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param Identifier $imageIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($productIdentifier, $imageIdentifier, $options = [])
-    {
+    public function delete(
+        Identifier $productIdentifier,
+        Identifier $imageIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/products/%s/images/%s', $productIdentifier, $imageIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param Identifier $imageIdentifier
      * @param Attribute $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Attribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateOrCreateAttribute($productIdentifier, $imageIdentifier, $model, $options = [])
-    {
+    public function updateOrCreateAttribute(
+        Identifier $productIdentifier,
+        Identifier $imageIdentifier,
+        Attribute $model,
+        array $options = []
+    ): Attribute {
         return $this->request(
-            'post',
-            $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
-            $options,
-            [],
-            Attribute::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Attribute::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param Identifier $imageIdentifier
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteAttribute($productIdentifier, $imageIdentifier, $attributeGroupName, $options = [])
-    {
+    public function deleteAttribute(
+        Identifier $productIdentifier,
+        Identifier $imageIdentifier,
+        string $attributeGroupName,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param Identifier $imageIdentifier
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
-     *
-     * @return Attribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAttribute($productIdentifier, $imageIdentifier, $attributeGroupName, $options = [])
-    {
+    public function getAttribute(
+        Identifier $productIdentifier,
+        Identifier $imageIdentifier,
+        string $attributeGroupName,
+        array $options = []
+    ): Attribute {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName),
-            $options,
-            [],
-            Attribute::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s/images/%s/attributes/%s', $productIdentifier, $imageIdentifier, $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: Attribute::class,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productIdentifier
-     * @param Identifier $imageIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function allAttributes($productIdentifier, $imageIdentifier, $options = [])
-    {
+    public function allAttributes(
+        Identifier $productIdentifier,
+        Identifier $imageIdentifier,
+        array $options = []
+    ): AttributeCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
-            $options,
-            [],
-            AttributeCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/products/%s/images/%s/attributes', $productIdentifier, $imageIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: AttributeCollection::class,
+            body: null
         );
     }
 }

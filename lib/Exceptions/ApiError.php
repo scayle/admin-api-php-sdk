@@ -1,55 +1,50 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Exceptions;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Exceptions;
 
 class ApiError implements \JsonSerializable
 {
     /**
-     * @var string
+     * @param array<mixed> $context
      */
-    private $errorKey;
+    public function __construct(
+        private string $errorKey = '',
+        private string $message = '',
+        private array $context = []
+    ) {}
 
-    /**
-     * @var string
-     */
-    private $message;
-
-    /**
-     * @var array
-     */
-    private $context;
-
-    public function __construct($errorKey, $message, $context)
-    {
-        $this->errorKey = $errorKey;
-        $this->message = $message;
-        $this->context = $context;
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorKey()
+    public function getErrorKey(): string
     {
         return $this->errorKey;
     }
 
-    /**
-     * @return string
-     */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->message;
     }
 
     /**
-     * @return array
+     * @return array<mixed>
      */
-    public function getContext()
+    public function getContext(): array
     {
         return $this->context;
     }
 
+    /**
+     * @return array{errorKey: string, message: string, context: array<mixed>}
+     */
     public function jsonSerialize(): array
     {
         return [

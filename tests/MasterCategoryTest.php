@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\MasterCategory;
-use AboutYou\Cloud\AdminApi\Models\MasterCategoryAttribute;
-use AboutYou\Cloud\AdminApi\Models\MasterCategoryCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\MasterCategory;
+use Scayle\Cloud\AdminApi\Models\MasterCategoryAttribute;
+use Scayle\Cloud\AdminApi\Models\MasterCategoryCollection;
 
 /**
  * @internal
  */
 final class MasterCategoryTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->masterCategories->all([]);
 
@@ -21,13 +32,15 @@ final class MasterCategoryTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(MasterCategory::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', MasterCategoryAttribute::class);
+
         }
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->masterCategories->get(1, []);
 
@@ -36,9 +49,12 @@ final class MasterCategoryTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
+
+
+
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('MasterCategoryCreateRequest.json');
 
@@ -52,9 +68,12 @@ final class MasterCategoryTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('MasterCategoryUpdateRequest.json');
 
@@ -68,10 +87,16 @@ final class MasterCategoryTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', MasterCategoryAttribute::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->masterCategories->delete(1, []);
+        $this->api->masterCategories->delete(1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

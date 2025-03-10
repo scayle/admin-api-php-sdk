@@ -1,56 +1,67 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Services\AssetService;
-use AboutYou\Cloud\AdminApi\Services\AttributeGroupService;
-use AboutYou\Cloud\AdminApi\Services\AttributeTranslationService;
-use AboutYou\Cloud\AdminApi\Services\AudienceService;
-use AboutYou\Cloud\AdminApi\Services\BrandService;
-use AboutYou\Cloud\AdminApi\Services\BulkOperationStatusService;
-use AboutYou\Cloud\AdminApi\Services\BulkRequestService;
-use AboutYou\Cloud\AdminApi\Services\BulkRequestStatusService;
-use AboutYou\Cloud\AdminApi\Services\CampaignService;
-use AboutYou\Cloud\AdminApi\Services\CancellationService;
-use AboutYou\Cloud\AdminApi\Services\CarrierService;
-use AboutYou\Cloud\AdminApi\Services\CompanyService;
-use AboutYou\Cloud\AdminApi\Services\CustomDataConfigService;
-use AboutYou\Cloud\AdminApi\Services\CustomerService;
-use AboutYou\Cloud\AdminApi\Services\EmailKeyService;
-use AboutYou\Cloud\AdminApi\Services\EmailService;
-use AboutYou\Cloud\AdminApi\Services\MasterCategoryService;
-use AboutYou\Cloud\AdminApi\Services\MasterService;
-use AboutYou\Cloud\AdminApi\Services\MerchantService;
-use AboutYou\Cloud\AdminApi\Services\OrderService;
-use AboutYou\Cloud\AdminApi\Services\PackageGroupService;
-use AboutYou\Cloud\AdminApi\Services\ProductImageService;
-use AboutYou\Cloud\AdminApi\Services\ProductService;
-use AboutYou\Cloud\AdminApi\Services\ProductsFirstLiveAtService;
-use AboutYou\Cloud\AdminApi\Services\ProductSortingService;
-use AboutYou\Cloud\AdminApi\Services\ProductVariantPriceService;
-use AboutYou\Cloud\AdminApi\Services\ProductVariantService;
-use AboutYou\Cloud\AdminApi\Services\ProductVariantStockService;
-use AboutYou\Cloud\AdminApi\Services\PromotionCodesService;
-use AboutYou\Cloud\AdminApi\Services\PromotionItemSetService;
-use AboutYou\Cloud\AdminApi\Services\PromotionService;
-use AboutYou\Cloud\AdminApi\Services\PromotionV1Service;
-use AboutYou\Cloud\AdminApi\Services\RedirectService;
-use AboutYou\Cloud\AdminApi\Services\ReservationService;
-use AboutYou\Cloud\AdminApi\Services\ReturnItemService;
-use AboutYou\Cloud\AdminApi\Services\SellableWithoutStockService;
-use AboutYou\Cloud\AdminApi\Services\ServiceFactory;
-use AboutYou\Cloud\AdminApi\Services\ShipmentService;
-use AboutYou\Cloud\AdminApi\Services\ShopCategoryProductSetUnlinkInstructionService;
-use AboutYou\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService;
-use AboutYou\Cloud\AdminApi\Services\ShopCategoryService;
-use AboutYou\Cloud\AdminApi\Services\ShopCountryPriceRoundingService;
-use AboutYou\Cloud\AdminApi\Services\ShopCountryService;
-use AboutYou\Cloud\AdminApi\Services\ShopCountryWarehouseService;
-use AboutYou\Cloud\AdminApi\Services\ShopService;
-use AboutYou\Cloud\AdminApi\Services\VoucherService;
-use AboutYou\Cloud\AdminApi\Services\WarehouseService;
-use AboutYou\Cloud\AdminApi\Services\WebhookEventService;
-use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Services\AssetService;
+use Scayle\Cloud\AdminApi\Services\AttributeGroupService;
+use Scayle\Cloud\AdminApi\Services\AttributeTranslationService;
+use Scayle\Cloud\AdminApi\Services\AudienceService;
+use Scayle\Cloud\AdminApi\Services\BrandService;
+use Scayle\Cloud\AdminApi\Services\BulkOperationStatusService;
+use Scayle\Cloud\AdminApi\Services\BulkRequestService;
+use Scayle\Cloud\AdminApi\Services\BulkRequestStatusService;
+use Scayle\Cloud\AdminApi\Services\CampaignService;
+use Scayle\Cloud\AdminApi\Services\CancellationService;
+use Scayle\Cloud\AdminApi\Services\CarrierService;
+use Scayle\Cloud\AdminApi\Services\CompanyService;
+use Scayle\Cloud\AdminApi\Services\CustomDataConfigService;
+use Scayle\Cloud\AdminApi\Services\CustomerService;
+use Scayle\Cloud\AdminApi\Services\EmailKeyService;
+use Scayle\Cloud\AdminApi\Services\EmailService;
+use Scayle\Cloud\AdminApi\Services\MasterCategoryService;
+use Scayle\Cloud\AdminApi\Services\MasterService;
+use Scayle\Cloud\AdminApi\Services\MerchantService;
+use Scayle\Cloud\AdminApi\Services\OrderService;
+use Scayle\Cloud\AdminApi\Services\PackageGroupService;
+use Scayle\Cloud\AdminApi\Services\ProductImageService;
+use Scayle\Cloud\AdminApi\Services\ProductService;
+use Scayle\Cloud\AdminApi\Services\ProductsFirstLiveAtService;
+use Scayle\Cloud\AdminApi\Services\ProductSortingService;
+use Scayle\Cloud\AdminApi\Services\ProductVariantPriceService;
+use Scayle\Cloud\AdminApi\Services\ProductVariantService;
+use Scayle\Cloud\AdminApi\Services\ProductVariantStockService;
+use Scayle\Cloud\AdminApi\Services\PromotionCodesService;
+use Scayle\Cloud\AdminApi\Services\PromotionItemSetService;
+use Scayle\Cloud\AdminApi\Services\PromotionService;
+use Scayle\Cloud\AdminApi\Services\PromotionV1Service;
+use Scayle\Cloud\AdminApi\Services\RedirectService;
+use Scayle\Cloud\AdminApi\Services\ReservationService;
+use Scayle\Cloud\AdminApi\Services\ReturnItemService;
+use Scayle\Cloud\AdminApi\Services\SellableWithoutStockService;
+use Scayle\Cloud\AdminApi\Services\ServiceFactory;
+use Scayle\Cloud\AdminApi\Services\ShipmentService;
+use Scayle\Cloud\AdminApi\Services\ShopCategoryProductSetUnlinkInstructionService;
+use Scayle\Cloud\AdminApi\Services\ShopCategoryPropertyKeyService;
+use Scayle\Cloud\AdminApi\Services\ShopCategoryService;
+use Scayle\Cloud\AdminApi\Services\ShopCountryPriceRoundingService;
+use Scayle\Cloud\AdminApi\Services\ShopCountryService;
+use Scayle\Cloud\AdminApi\Services\ShopCountryWarehouseService;
+use Scayle\Cloud\AdminApi\Services\ShopService;
+use Scayle\Cloud\AdminApi\Services\VoucherService;
+use Scayle\Cloud\AdminApi\Services\WarehouseService;
+use Scayle\Cloud\AdminApi\Services\WebhookEventService;
+use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
 
 /**
  * Allows access to AdminApi functions.
@@ -106,14 +117,14 @@ use AboutYou\Cloud\AdminApi\Services\WebhookSubscriptionService;
  */
 class AdminAPI extends AbstractApi
 {
-    /**
-     * @var ServiceFactory
-     */
-    private $serviceFactory;
+    private ServiceFactory $serviceFactory;
 
-    public function __get($name)
+    /**
+     * @phpstan-ignore missingType.return
+     */
+    public function __get(string $name)
     {
-        if (null === $this->serviceFactory) {
+        if (!isset($this->serviceFactory)) {
             $this->serviceFactory = new ServiceFactory($this);
         }
 

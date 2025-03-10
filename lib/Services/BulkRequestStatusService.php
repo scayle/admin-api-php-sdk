@@ -1,52 +1,61 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\BulkRequestStatus;
-use AboutYou\Cloud\AdminApi\Models\BulkRequestStatusCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\BulkRequestStatus;
+use Scayle\Cloud\AdminApi\Models\BulkRequestStatusCollection;
 
 class BulkRequestStatusService extends AbstractService
 {
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return BulkRequestStatusCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): BulkRequestStatusCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/bulk-requests'),
-            $options,
-            [],
-            BulkRequestStatusCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/bulk-requests'),
+            query: $options,
+            headers: [],
+            modelClass: BulkRequestStatusCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param int $requestKey
-     * @param array $options additional options like limit or filters
-     *
-     * @return BulkRequestStatus
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($requestKey, $options = [])
-    {
+    public function get(
+        int $requestKey,
+        array $options = []
+    ): BulkRequestStatus {
         return $this->request(
-            'get',
-            $this->resolvePath('/bulk-requests/%s/status', $requestKey),
-            $options,
-            [],
-            BulkRequestStatus::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/bulk-requests/%s/status', $requestKey),
+            query: $options,
+            headers: [],
+            modelClass: BulkRequestStatus::class,
+            body: null
         );
     }
 }

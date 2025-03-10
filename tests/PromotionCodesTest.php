@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\PromotionCode;
-use AboutYou\Cloud\AdminApi\Models\PromotionCodeCollection;
-use AboutYou\Cloud\AdminApi\Models\PromotionCodes;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\PromotionCode;
+use Scayle\Cloud\AdminApi\Models\PromotionCodeCollection;
+use Scayle\Cloud\AdminApi\Models\PromotionCodes;
 
 /**
  * @internal
  */
 final class PromotionCodesTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('PromotionCodesCreateRequest.json');
 
@@ -23,9 +34,13 @@ final class PromotionCodesTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('PromotionCodesCreateResponse.json');
         self::assertInstanceOf(PromotionCodes::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->promotionCodess->all('645e0c241a93369ff53f26e0', []);
 
@@ -33,13 +48,19 @@ final class PromotionCodesTest extends BaseApiTestCase
         self::assertInstanceOf(PromotionCodeCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(PromotionCode::class, $collectionEntity);
+
         }
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->promotionCodess->delete('645e0c241a93369ff53f26e0', []);
+        $this->api->promotionCodess->delete('645e0c241a93369ff53f26e0', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

@@ -1,51 +1,63 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\ArrayCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\ArrayCollection;
 
 class AttributeTranslationService extends AbstractService
 {
     /**
-     * @param string $attributeGroupName
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateOrCreate($attributeGroupName, $model, $options = [])
-    {
+    public function updateOrCreate(
+        string $attributeGroupName,
+        array $model,
+        array $options = []
+    ): void {
         $this->request(
-            'post',
-            $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
-            $options,
-            [],
-            null,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
-     *
-     * @return ArrayCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($attributeGroupName, $options = [])
-    {
+    public function all(
+        string $attributeGroupName,
+        array $options = []
+    ): ArrayCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
-            $options,
-            [],
-            ArrayCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: ArrayCollection::class,
+            body: null
         );
     }
 }

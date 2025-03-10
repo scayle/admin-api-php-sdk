@@ -1,120 +1,130 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Attribute;
-use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\ProductMasterCategories;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Attribute;
+use Scayle\Cloud\AdminApi\Models\AttributeCollection;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\ProductMasterCategories;
 
 class MasterService extends AbstractService
 {
     /**
-     * @param Identifier $productMasterIdentifier
      * @param ProductMasterCategories $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ProductMasterCategories
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateProductMasterMasterCategories($productMasterIdentifier, $model, $options = [])
-    {
+    public function updateProductMasterMasterCategories(
+        Identifier $productMasterIdentifier,
+        ProductMasterCategories $model,
+        array $options = []
+    ): ProductMasterCategories {
         return $this->request(
-            'put',
-            $this->resolvePath('/product-masters/%s/master-categories', $productMasterIdentifier),
-            $options,
-            [],
-            ProductMasterCategories::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/product-masters/%s/master-categories', $productMasterIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: ProductMasterCategories::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productMasterIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return AttributeCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function allAttributes($productMasterIdentifier, $options = [])
-    {
+    public function allAttributes(
+        Identifier $productMasterIdentifier,
+        array $options = []
+    ): AttributeCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
-            $options,
-            [],
-            AttributeCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: AttributeCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productMasterIdentifier
      * @param Attribute $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Attribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateOrCreateAttribute($productMasterIdentifier, $model, $options = [])
-    {
+    public function updateOrCreateAttribute(
+        Identifier $productMasterIdentifier,
+        Attribute $model,
+        array $options = []
+    ): Attribute {
         return $this->request(
-            'post',
-            $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
-            $options,
-            [],
-            Attribute::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/product-masters/%s/attributes', $productMasterIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Attribute::class,
+            body: $model
         );
     }
 
     /**
-     * @param Identifier $productMasterIdentifier
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
-     *
-     * @return Attribute
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAttribute($productMasterIdentifier, $attributeGroupName, $options = [])
-    {
+    public function getAttribute(
+        Identifier $productMasterIdentifier,
+        string $attributeGroupName,
+        array $options = []
+    ): Attribute {
         return $this->request(
-            'get',
-            $this->resolvePath('/product-masters/%s/attributes/%s', $productMasterIdentifier, $attributeGroupName),
-            $options,
-            [],
-            Attribute::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/product-masters/%s/attributes/%s', $productMasterIdentifier, $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: Attribute::class,
+            body: null
         );
     }
 
     /**
-     * @param Identifier $productMasterIdentifier
-     * @param string $attributeGroupName
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteAttribute($productMasterIdentifier, $attributeGroupName, $options = [])
-    {
+    public function deleteAttribute(
+        Identifier $productMasterIdentifier,
+        string $attributeGroupName,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/product-masters/%s/attributes/%s', $productMasterIdentifier, $attributeGroupName),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/product-masters/%s/attributes/%s', $productMasterIdentifier, $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

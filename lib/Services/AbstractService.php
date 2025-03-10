@@ -1,42 +1,48 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\AbstractApi;
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\ApiObject;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\AbstractApi;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\ApiObject;
 
 abstract class AbstractService
 {
-    /**
-     * @var AbstractApi
-     */
-    private $client;
-
-    /**
-     * @param AbstractApi $client
-     */
-    public function __construct($client)
-    {
-        $this->client = $client;
-    }
+    public function __construct(private AbstractApi $client) {}
 
     /**
      * @param string $method the http method
      * @param string $relativeUrl the relative url of endpoint
      * @param null|string $modelClass the classname of which the response gets transformed to
-     * @param array $query array of additional query parameters
-     * @param array $headers array of additional headers
-     * @param null|ApiObject|string $body the request body object
+     * @param array<string, mixed> $query array of additional query parameters
+     * @param array<string, mixed> $headers array of additional headers
+     * @param null|ApiObject|array<mixed>|string $body the request body object
      *
      * @return null|mixed
      *
-     * @throws ClientExceptionInterface
      * @throws ApiErrorException
+     * @throws ClientExceptionInterface
      */
-    protected function request($method, $relativeUrl, $query = [], $headers = [], $modelClass = null, $body = null)
-    {
+    protected function request(
+        string $method,
+        string $relativeUrl,
+        array $query = [],
+        array $headers = [],
+        ?string $modelClass = null,
+        $body = null
+    ) {
         try {
             if ($body instanceof ApiObject) {
                 $body = $body->toJson();
@@ -74,12 +80,9 @@ abstract class AbstractService
     }
 
     /**
-     * @param string $path
      * @param mixed ...$params
-     *
-     * @return string
      */
-    protected function resolvePath($path, ...$params)
+    protected function resolvePath(string $path, ...$params): string
     {
         return vsprintf($path, $params);
     }

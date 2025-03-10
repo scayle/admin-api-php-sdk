@@ -1,534 +1,558 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\ShopCategory;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryCollection;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\ShopCategory;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryCollection;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryCountry;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryProperty;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryPropertyCollection;
 
 class ShopCategoryService extends AbstractService
 {
     /**
-     * @param string $shopKey
      * @param ShopCategory $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategory
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($shopKey, $model, $options = [])
-    {
+    public function create(
+        string $shopKey,
+        ShopCategory $model,
+        array $options = []
+    ): ShopCategory {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/categories', $shopKey),
-            $options,
-            [],
-            ShopCategory::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/categories', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategory::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategoryCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($shopKey, $options = [])
-    {
+    public function all(
+        string $shopKey,
+        array $options = []
+    ): ShopCategoryCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/categories', $shopKey),
-            $options,
-            [],
-            ShopCategoryCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/categories', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategoryCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategory
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($shopKey, $shopCategoryId, $options = [])
-    {
+    public function get(
+        string $shopKey,
+        int $shopCategoryId,
+        array $options = []
+    ): ShopCategory {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
-            $options,
-            [],
-            ShopCategory::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategory::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
      * @param ShopCategory $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategory
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($shopKey, $shopCategoryId, $model, $options = [])
-    {
+    public function update(
+        string $shopKey,
+        int $shopCategoryId,
+        ShopCategory $model,
+        array $options = []
+    ): ShopCategory {
         return $this->request(
-            'patch',
-            $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
-            $options,
-            [],
-            ShopCategory::class,
-            $model
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategory::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $shopCategoryId, $options = [])
-    {
+    public function delete(
+        string $shopKey,
+        int $shopCategoryId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s', $shopKey, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $shopCategoryId
      * @param ShopCategoryProperty $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategoryProperty
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateOrCreateProperty($shopKey, $countryCode, $shopCategoryId, $model, $options = [])
-    {
+    public function updateOrCreateProperty(
+        string $shopKey,
+        string $countryCode,
+        int $shopCategoryId,
+        ShopCategoryProperty $model,
+        array $options = []
+    ): ShopCategoryProperty {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId),
-            $options,
-            [],
-            ShopCategoryProperty::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategoryProperty::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $shopCategoryId
-     * @param string $shopCategoryPropertyKey
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteProperty($shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
-    {
+    public function deleteProperty(
+        string $shopKey,
+        string $countryCode,
+        int $shopCategoryId,
+        string $shopCategoryPropertyKey,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $shopCategoryId
-     * @param string $shopCategoryPropertyKey
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategoryProperty
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getProperty($shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey, $options = [])
-    {
+    public function getProperty(
+        string $shopKey,
+        string $countryCode,
+        int $shopCategoryId,
+        string $shopCategoryPropertyKey,
+        array $options = []
+    ): ShopCategoryProperty {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey),
-            $options,
-            [],
-            ShopCategoryProperty::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties/%s', $shopKey, $countryCode, $shopCategoryId, $shopCategoryPropertyKey),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategoryProperty::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $shopCategoryId
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategoryPropertyCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function allProperties($shopKey, $countryCode, $shopCategoryId, $options = [])
-    {
+    public function allProperties(
+        string $shopKey,
+        string $countryCode,
+        int $shopCategoryId,
+        array $options = []
+    ): ShopCategoryPropertyCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId),
-            $options,
-            [],
-            ShopCategoryPropertyCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/categories/%s/properties', $shopKey, $countryCode, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategoryPropertyCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomData($shopKey, $shopCategoryId, $model, $options = [])
-    {
+    public function createOrUpdateCustomData(
+        string $shopKey,
+        int $shopCategoryId,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomData($shopKey, $shopCategoryId, $options = [])
-    {
+    public function deleteCustomData(
+        string $shopKey,
+        int $shopCategoryId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomData($shopKey, $shopCategoryId, $options = [])
-    {
+    public function getCustomData(
+        string $shopKey,
+        int $shopCategoryId,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/custom-data', $shopKey, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $key
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomDataForKey($shopKey, $shopCategoryId, $key, $model, $options = [])
-    {
+    public function createOrUpdateCustomDataForKey(
+        string $shopKey,
+        int $shopCategoryId,
+        string $key,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomDataForKey($shopKey, $shopCategoryId, $key, $options = [])
-    {
+    public function deleteCustomDataForKey(
+        string $shopKey,
+        int $shopCategoryId,
+        string $key,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomDataForKey($shopKey, $shopCategoryId, $key, $options = [])
-    {
+    public function getCustomDataForKey(
+        string $shopKey,
+        int $shopCategoryId,
+        string $key,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/custom-data/%s', $shopKey, $shopCategoryId, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $countryCode
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomDataForCountry($shopKey, $shopCategoryId, $countryCode, $model, $options = [])
-    {
+    public function createOrUpdateCustomDataForCountry(
+        string $shopKey,
+        int $shopCategoryId,
+        string $countryCode,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $countryCode
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomDataForCountry($shopKey, $shopCategoryId, $countryCode, $options = [])
-    {
+    public function deleteCustomDataForCountry(
+        string $shopKey,
+        int $shopCategoryId,
+        string $countryCode,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $countryCode
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomDataForCountry($shopKey, $shopCategoryId, $countryCode, $options = [])
-    {
+    public function getCustomDataForCountry(
+        string $shopKey,
+        int $shopCategoryId,
+        string $countryCode,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data', $shopKey, $shopCategoryId, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $countryCode
-     * @param string $key
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomDataKeyForCountry($shopKey, $shopCategoryId, $countryCode, $key, $model, $options = [])
-    {
+    public function createOrUpdateCustomDataKeyForCountry(
+        string $shopKey,
+        int $shopCategoryId,
+        string $countryCode,
+        string $key,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $countryCode
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomDataKeyForCountry($shopKey, $shopCategoryId, $countryCode, $key, $options = [])
-    {
+    public function deleteCustomDataKeyForCountry(
+        string $shopKey,
+        int $shopCategoryId,
+        string $countryCode,
+        string $key,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $shopCategoryId
-     * @param string $countryCode
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomDataKeyForCountry($shopKey, $shopCategoryId, $countryCode, $key, $options = [])
-    {
+    public function getCustomDataKeyForCountry(
+        string $shopKey,
+        int $shopCategoryId,
+        string $countryCode,
+        string $key,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/categories/%s/countries/%s/custom-data/%s', $shopKey, $shopCategoryId, $countryCode, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $shopCategoryId
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategoryCountry
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCountry($shopKey, $countryCode, $shopCategoryId, $options = [])
-    {
+    public function getCountry(
+        string $shopKey,
+        string $countryCode,
+        int $shopCategoryId,
+        array $options = []
+    ): ShopCategoryCountry {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId),
-            $options,
-            [],
-            ShopCategoryCountry::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategoryCountry::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $shopCategoryId
      * @param ShopCategoryCountry $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return ShopCategoryCountry
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateOrCreateCountry($shopKey, $countryCode, $shopCategoryId, $model, $options = [])
-    {
+    public function updateOrCreateCountry(
+        string $shopKey,
+        string $countryCode,
+        int $shopCategoryId,
+        ShopCategoryCountry $model,
+        array $options = []
+    ): ShopCategoryCountry {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId),
-            $options,
-            [],
-            ShopCategoryCountry::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/categories/%s', $shopKey, $countryCode, $shopCategoryId),
+            query: $options,
+            headers: [],
+            modelClass: ShopCategoryCountry::class,
+            body: $model
         );
     }
 }

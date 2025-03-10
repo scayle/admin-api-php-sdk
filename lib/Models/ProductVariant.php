@@ -1,6 +1,17 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property int $id ID assigned by SCAYLE.
@@ -16,21 +27,30 @@ namespace AboutYou\Cloud\AdminApi\Models;
  */
 class ProductVariant extends ApiObject
 {
-    protected $defaultValues = [
+    /** @var array<string, string> */
+    protected array $defaultValues = [
     ];
 
-    protected $classMap = [
+    /** @var array<string, string> */
+    protected array $classMap = [
     ];
 
-    protected $collectionClassMap = [
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [
         'prices' => ProductVariantPrice::class,
         'attributes' => Attribute::class,
         'relatedVariants' => RelatedProductVariant::class,
     ];
 
-    protected $polymorphic = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphic = [
     ];
 
-    protected $polymorphicCollections = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphicCollections = [
     ];
 }

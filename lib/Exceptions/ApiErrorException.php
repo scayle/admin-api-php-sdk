@@ -1,34 +1,34 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Exceptions;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Exceptions;
 
 class ApiErrorException extends \Exception
 {
-    /**
-     * @var ApiError[]
-     */
-    private $errors = [];
+    /** @var ApiError[] */
+    private array $errors;
 
     /**
-     * @var int
+     * @param array<array{errorKey: string, message: string, context: array<mixed>}> $errorResponse
      */
-    private $statusCode;
-
-    /**
-     * @param array $errorResponse
-     * @param int $statusCode
-     */
-    public function __construct($errorResponse, $statusCode)
+    public function __construct(array $errorResponse, private int $statusCode)
     {
         $this->errors = $this->parseErrors($errorResponse);
-        $this->statusCode = $statusCode;
+
         parent::__construct('Errors occurred while handling the API request ', $statusCode);
     }
 
-    /**
-     * @return null|ApiError
-     */
-    public function getFirstError()
+    public function getFirstError(): ?ApiError
     {
         return empty($this->errors) ? null : $this->errors[0];
     }
@@ -36,25 +36,22 @@ class ApiErrorException extends \Exception
     /**
      * @return ApiError[]
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }
 
-    /**
-     * @return int
-     */
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
     /**
-     * @param array $errorResponse
+     * @param array{errors?: array{errorKey: string, message: string, context: array<mixed>}} $errorResponse
      *
      * @return ApiError[]
      */
-    private function parseErrors($errorResponse)
+    private function parseErrors($errorResponse): array
     {
         $adminApiErrors = [];
 

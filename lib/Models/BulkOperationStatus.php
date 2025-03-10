@@ -1,6 +1,17 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property string $key Operation key, that is unique within the given bulk request
@@ -10,20 +21,29 @@ namespace AboutYou\Cloud\AdminApi\Models;
  */
 class BulkOperationStatus extends ApiObject
 {
-    protected $defaultValues = [
+    /** @var array<string, string> */
+    protected array $defaultValues = [
     ];
 
-    protected $classMap = [
+    /** @var array<string, string> */
+    protected array $classMap = [
         'response' => BulkOperationResponse::class,
         'bulkRequest' => BulkRequestStatus::class,
     ];
 
-    protected $collectionClassMap = [
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [
     ];
 
-    protected $polymorphic = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphic = [
     ];
 
-    protected $polymorphicCollections = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphicCollections = [
     ];
 }

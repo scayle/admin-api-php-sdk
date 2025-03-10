@@ -1,20 +1,31 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\ShopCategory;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryCollection;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryCountry;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryProductSet;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryProperty;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\ShopCategory;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryCollection;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryCountry;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryProductSet;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryProperty;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryPropertyCollection;
 
 /**
  * @internal
  */
 final class ShopCategoryTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryCreateRequest.json');
 
@@ -30,9 +41,12 @@ final class ShopCategoryTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->shopCategories->all('acme', []);
 
@@ -44,15 +58,17 @@ final class ShopCategoryTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ShopCategory::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSets', ShopCategoryProductSet::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'properties', ShopCategoryProperty::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'countries', ShopCategoryCountry::class);
+
         }
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->shopCategories->get('acme', 1, []);
 
@@ -63,9 +79,12 @@ final class ShopCategoryTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateRequest.json');
 
@@ -81,14 +100,20 @@ final class ShopCategoryTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSets', ShopCategoryProductSet::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCategoryCountry::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->shopCategories->delete('acme', 1, []);
+        $this->api->shopCategories->delete('acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateOrCreateProperty()
+    public function testUpdateOrCreateProperty(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateOrCreatePropertyRequest.json');
 
@@ -100,23 +125,34 @@ final class ShopCategoryTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCategoryUpdateOrCreatePropertyResponse.json');
         self::assertInstanceOf(ShopCategoryProperty::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDeleteProperty()
+    public function testDeleteProperty(): void
     {
-        $responseEntity = $this->api->shopCategories->deleteProperty('acme', 'acme', 1, 'acme', []);
+        $this->api->shopCategories->deleteProperty('acme', 'acme', 1, 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetProperty()
+    public function testGetProperty(): void
     {
         $responseEntity = $this->api->shopCategories->getProperty('acme', 'acme', 1, 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetPropertyResponse.json');
         self::assertInstanceOf(ShopCategoryProperty::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAllProperties()
+    public function testAllProperties(): void
     {
         $responseEntity = $this->api->shopCategories->allProperties('acme', 'acme', 1, []);
 
@@ -124,15 +160,18 @@ final class ShopCategoryTest extends BaseApiTestCase
         self::assertInstanceOf(ShopCategoryPropertyCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ShopCategoryProperty::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSets', ShopCategoryProductSet::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'properties', ShopCategoryProperty::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'countries', ShopCategoryCountry::class);
+
         }
     }
 
-    public function testCreateOrUpdateCustomData()
+    public function testCreateOrUpdateCustomData(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataRequest.json');
 
@@ -142,22 +181,31 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomData()
+    public function testDeleteCustomData(): void
     {
-        $responseEntity = $this->api->shopCategories->deleteCustomData('acme', 1, []);
+        $this->api->shopCategories->deleteCustomData('acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomData()
+    public function testGetCustomData(): void
     {
         $responseEntity = $this->api->shopCategories->getCustomData('acme', 1, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testCreateOrUpdateCustomDataForKey()
+    public function testCreateOrUpdateCustomDataForKey(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForKeyRequest.json');
 
@@ -167,22 +215,31 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomDataForKey()
+    public function testDeleteCustomDataForKey(): void
     {
-        $responseEntity = $this->api->shopCategories->deleteCustomDataForKey('acme', 1, 'acme', []);
+        $this->api->shopCategories->deleteCustomDataForKey('acme', 1, 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomDataForKey()
+    public function testGetCustomDataForKey(): void
     {
         $responseEntity = $this->api->shopCategories->getCustomDataForKey('acme', 1, 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testCreateOrUpdateCustomDataForCountry()
+    public function testCreateOrUpdateCustomDataForCountry(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForCountryRequest.json');
 
@@ -192,22 +249,31 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataForCountryResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomDataForCountry()
+    public function testDeleteCustomDataForCountry(): void
     {
-        $responseEntity = $this->api->shopCategories->deleteCustomDataForCountry('acme', 1, 'acme', []);
+        $this->api->shopCategories->deleteCustomDataForCountry('acme', 1, 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomDataForCountry()
+    public function testGetCustomDataForCountry(): void
     {
         $responseEntity = $this->api->shopCategories->getCustomDataForCountry('acme', 1, 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataForCountryResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testCreateOrUpdateCustomDataKeyForCountry()
+    public function testCreateOrUpdateCustomDataKeyForCountry(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataKeyForCountryRequest.json');
 
@@ -217,22 +283,31 @@ final class ShopCategoryTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryCreateOrUpdateCustomDataKeyForCountryResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomDataKeyForCountry()
+    public function testDeleteCustomDataKeyForCountry(): void
     {
-        $responseEntity = $this->api->shopCategories->deleteCustomDataKeyForCountry('acme', 1, 'acme', 'acme', []);
+        $this->api->shopCategories->deleteCustomDataKeyForCountry('acme', 1, 'acme', 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomDataKeyForCountry()
+    public function testGetCustomDataKeyForCountry(): void
     {
         $responseEntity = $this->api->shopCategories->getCustomDataKeyForCountry('acme', 1, 'acme', 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryGetCustomDataKeyForCountryResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testGetCountry()
+    public function testGetCountry(): void
     {
         $responseEntity = $this->api->shopCategories->getCountry('acme', 'acme', 1, []);
 
@@ -241,9 +316,12 @@ final class ShopCategoryTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
+
+
+
     }
 
-    public function testUpdateOrCreateCountry()
+    public function testUpdateOrCreateCountry(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryUpdateOrCreateCountryRequest.json');
 
@@ -257,5 +335,8 @@ final class ShopCategoryTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
+
+
+
     }
 }

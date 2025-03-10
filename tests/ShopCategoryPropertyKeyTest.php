@@ -1,16 +1,27 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKey;
-use AboutYou\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\ShopCategoryPropertyKey;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryPropertyKeyCollection;
 
 /**
  * @internal
  */
 final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryPropertyKeyCreateRequest.json');
 
@@ -22,18 +33,26 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCategoryPropertyKeyCreateResponse.json');
         self::assertInstanceOf(ShopCategoryPropertyKey::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->shopCategoryPropertyKeys->get('acme', []);
 
         $expectedResponseJson = $this->loadFixture('ShopCategoryPropertyKeyGetResponse.json');
         self::assertInstanceOf(ShopCategoryPropertyKey::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->shopCategoryPropertyKeys->all([]);
 
@@ -41,12 +60,15 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
         self::assertInstanceOf(ShopCategoryPropertyKeyCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ShopCategoryPropertyKey::class, $collectionEntity);
+
         }
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCategoryPropertyKeyUpdateRequest.json');
 
@@ -58,10 +80,17 @@ final class ShopCategoryPropertyKeyTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCategoryPropertyKeyUpdateResponse.json');
         self::assertInstanceOf(ShopCategoryPropertyKey::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->shopCategoryPropertyKeys->delete('acme', []);
+        $this->api->shopCategoryPropertyKeys->delete('acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

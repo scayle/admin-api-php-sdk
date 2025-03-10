@@ -1,20 +1,31 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\BulkRequest;
-use AboutYou\Cloud\AdminApi\Models\CreateBulkRequest;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantPrice;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantPriceCollection;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantUnitPrice;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\BulkRequest;
+use Scayle\Cloud\AdminApi\Models\CreateBulkRequest;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\ProductVariantPrice;
+use Scayle\Cloud\AdminApi\Models\ProductVariantPriceCollection;
+use Scayle\Cloud\AdminApi\Models\ProductVariantUnitPrice;
 
 /**
  * @internal
  */
 final class ProductVariantPriceTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductVariantPriceCreateRequest.json');
 
@@ -28,9 +39,12 @@ final class ProductVariantPriceTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'unitPrice', ProductVariantUnitPrice::class);
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->productVariantPrices->all(Identifier::fromId(1), []);
 
@@ -40,18 +54,23 @@ final class ProductVariantPriceTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'unitPrice', ProductVariantUnitPrice::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ProductVariantPrice::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'unitPrice', ProductVariantUnitPrice::class);
+
         }
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->productVariantPrices->delete(Identifier::fromId(1), 'acme', []);
+        $this->api->productVariantPrices->delete(Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testCreateBulkRequest()
+    public function testCreateBulkRequest(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductVariantPriceCreateBulkRequestRequest.json');
 
@@ -63,5 +82,9 @@ final class ProductVariantPriceTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductVariantPriceCreateBulkRequestResponse.json');
         self::assertInstanceOf(BulkRequest::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 }

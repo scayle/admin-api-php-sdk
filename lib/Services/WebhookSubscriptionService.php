@@ -1,92 +1,102 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\WebhookSubscription;
-use AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\WebhookSubscription;
+use Scayle\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
 
 class WebhookSubscriptionService extends AbstractService
 {
     /**
      * @param WebhookSubscription $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return WebhookSubscription
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        WebhookSubscription $model,
+        array $options = []
+    ): WebhookSubscription {
         return $this->request(
-            'post',
-            $this->resolvePath('/webhooks/subscriptions'),
-            $options,
-            [],
-            WebhookSubscription::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/webhooks/subscriptions'),
+            query: $options,
+            headers: [],
+            modelClass: WebhookSubscription::class,
+            body: $model
         );
     }
 
     /**
-     * @param int $subscriptionId
-     * @param array $options additional options like limit or filters
-     *
-     * @return WebhookSubscription
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($subscriptionId, $options = [])
-    {
+    public function get(
+        int $subscriptionId,
+        array $options = []
+    ): WebhookSubscription {
         return $this->request(
-            'get',
-            $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
-            $options,
-            [],
-            WebhookSubscription::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
+            query: $options,
+            headers: [],
+            modelClass: WebhookSubscription::class,
+            body: null
         );
     }
 
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return WebhookSubscriptionCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): WebhookSubscriptionCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/webhooks/subscriptions'),
-            $options,
-            [],
-            WebhookSubscriptionCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/webhooks/subscriptions'),
+            query: $options,
+            headers: [],
+            modelClass: WebhookSubscriptionCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param int $subscriptionId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($subscriptionId, $options = [])
-    {
+    public function delete(
+        int $subscriptionId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

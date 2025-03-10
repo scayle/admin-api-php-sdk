@@ -1,16 +1,27 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\SellableWithoutStock;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\SellableWithoutStock;
 
 /**
  * @internal
  */
 final class SellableWithoutStockTest extends BaseApiTestCase
 {
-    public function testSetSellableWithoutStock()
+    public function testSetSellableWithoutStock(): void
     {
         $expectedRequestJson = $this->loadFixture('SellableWithoutStockSetSellableWithoutStockRequest.json');
 
@@ -22,5 +33,9 @@ final class SellableWithoutStockTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('SellableWithoutStockSetSellableWithoutStockResponse.json');
         self::assertInstanceOf(SellableWithoutStock::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 }

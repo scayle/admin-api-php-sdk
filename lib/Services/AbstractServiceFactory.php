@@ -1,36 +1,34 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\AbstractApi;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
+use Scayle\Cloud\AdminApi\AbstractApi;
 
 abstract class AbstractServiceFactory
 {
-    /**
-     * @var array<string, string>
-     */
-    protected $classMap = [];
+    /** @var array<string, string> */
+    protected array $classMap = [];
 
     /**
-     * @var array<string, AbstractService>
+     *  @param array<string, AbstractService> $services
      */
-    private $services;
+    public function __construct(private AbstractApi $client, private array $services = []) {}
 
     /**
-     * @var AbstractApi
+     * @phpstan-ignore missingType.return
      */
-    private $client;
-
-    /**
-     * @param AbstractApi $client
-     */
-    public function __construct($client)
-    {
-        $this->client = $client;
-        $this->services = [];
-    }
-
-    public function get($name)
+    public function get(string $name)
     {
         if (!\array_key_exists($name, $this->services)) {
             $this->services[$name] = new $this->classMap[$name]($this->client);

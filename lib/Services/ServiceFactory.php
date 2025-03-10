@@ -1,16 +1,22 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-/**
- * Factory to create API services.
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 class ServiceFactory extends AbstractServiceFactory
 {
-    /**
-     * @var array<string, string>
-     */
-    protected $classMap = [
+    /** @var array<string, string> */
+    protected array $classMap = [
         'products' => ProductService::class,
         'productsFirstLiveAts' => ProductsFirstLiveAtService::class,
         'masters' => MasterService::class,

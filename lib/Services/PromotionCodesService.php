@@ -1,73 +1,84 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\PromotionCodeCollection;
-use AboutYou\Cloud\AdminApi\Models\PromotionCodes;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\PromotionCodeCollection;
+use Scayle\Cloud\AdminApi\Models\PromotionCodes;
 
 class PromotionCodesService extends AbstractService
 {
     /**
-     * @param string $promotionId
      * @param PromotionCodes $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return PromotionCodes
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($promotionId, $model, $options = [])
-    {
+    public function create(
+        string $promotionId,
+        PromotionCodes $model,
+        array $options = []
+    ): PromotionCodes {
         return $this->request(
-            'post',
-            $this->resolvePath('/promotions/%s/codes', $promotionId),
-            $options,
-            [],
-            PromotionCodes::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/promotions/%s/codes', $promotionId),
+            query: $options,
+            headers: [],
+            modelClass: PromotionCodes::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $promotionId
-     * @param array $options additional options like limit or filters
-     *
-     * @return PromotionCodeCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($promotionId, $options = [])
-    {
+    public function all(
+        string $promotionId,
+        array $options = []
+    ): PromotionCodeCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/promotions/%s/codes', $promotionId),
-            $options,
-            [],
-            PromotionCodeCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/promotions/%s/codes', $promotionId),
+            query: $options,
+            headers: [],
+            modelClass: PromotionCodeCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $promotionId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($promotionId, $options = [])
-    {
+    public function delete(
+        string $promotionId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/promotions/%s/codes', $promotionId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/promotions/%s/codes', $promotionId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

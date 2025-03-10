@@ -1,241 +1,259 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Brand;
-use AboutYou\Cloud\AdminApi\Models\BrandCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Brand;
+use Scayle\Cloud\AdminApi\Models\BrandCollection;
 
 class BrandService extends AbstractService
 {
     /**
-     * @param array $options additional options like limit or filters
-     *
-     * @return BrandCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($options = [])
-    {
+    public function all(
+        array $options = []
+    ): BrandCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/brands'),
-            $options,
-            [],
-            BrandCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/brands'),
+            query: $options,
+            headers: [],
+            modelClass: BrandCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param int $brandId
-     * @param array $options additional options like limit or filters
-     *
-     * @return Brand
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($brandId, $options = [])
-    {
+    public function get(
+        int $brandId,
+        array $options = []
+    ): Brand {
         return $this->request(
-            'get',
-            $this->resolvePath('/brands/%s', $brandId),
-            $options,
-            [],
-            Brand::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/brands/%s', $brandId),
+            query: $options,
+            headers: [],
+            modelClass: Brand::class,
+            body: null
         );
     }
 
     /**
      * @param Brand $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Brand
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($model, $options = [])
-    {
+    public function create(
+        Brand $model,
+        array $options = []
+    ): Brand {
         return $this->request(
-            'post',
-            $this->resolvePath('/brands'),
-            $options,
-            [],
-            Brand::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/brands'),
+            query: $options,
+            headers: [],
+            modelClass: Brand::class,
+            body: $model
         );
     }
 
     /**
-     * @param int $brandId
      * @param Brand $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Brand
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($brandId, $model, $options = [])
-    {
+    public function update(
+        int $brandId,
+        Brand $model,
+        array $options = []
+    ): Brand {
         return $this->request(
-            'put',
-            $this->resolvePath('/brands/%s', $brandId),
-            $options,
-            [],
-            Brand::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/brands/%s', $brandId),
+            query: $options,
+            headers: [],
+            modelClass: Brand::class,
+            body: $model
         );
     }
 
     /**
-     * @param int $brandId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($brandId, $options = [])
-    {
+    public function delete(
+        int $brandId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/brands/%s', $brandId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/brands/%s', $brandId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param int $brandId
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomData($brandId, $model, $options = [])
-    {
+    public function createOrUpdateCustomData(
+        int $brandId,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/brands/%s/custom-data', $brandId),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/brands/%s/custom-data', $brandId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param int $brandId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomData($brandId, $options = [])
-    {
+    public function deleteCustomData(
+        int $brandId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/brands/%s/custom-data', $brandId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/brands/%s/custom-data', $brandId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param int $brandId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomData($brandId, $options = [])
-    {
+    public function getCustomData(
+        int $brandId,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/brands/%s/custom-data', $brandId),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/brands/%s/custom-data', $brandId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param int $brandId
-     * @param string $key
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateCustomDataForKey($brandId, $key, $model, $options = [])
-    {
+    public function createOrUpdateCustomDataForKey(
+        int $brandId,
+        string $key,
+        array $model,
+        array $options = []
+    ): array {
         return $this->request(
-            'put',
-            $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param int $brandId
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteCustomDataForKey($brandId, $key, $options = [])
-    {
+    public function deleteCustomDataForKey(
+        int $brandId,
+        string $key,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param int $brandId
-     * @param string $key
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
-     * @return array
+     * @return array<mixed>
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getCustomDataForKey($brandId, $key, $options = [])
-    {
+    public function getCustomDataForKey(
+        int $brandId,
+        string $key,
+        array $options = []
+    ): array {
         return $this->request(
-            'get',
-            $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/brands/%s/custom-data/%s', $brandId, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

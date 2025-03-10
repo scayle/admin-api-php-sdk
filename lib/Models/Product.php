@@ -1,12 +1,23 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property int $id The ID of the product created by SCAYLE.
  * @property string[] $problems If product is in problem state, the reasons are listed here.
  * @property string $referenceKey A key that uniquely identifies the product (e.g., a shirt in a specific color) within the tenant's ecosystem.
- * @property array $name The localized product name. At least the base language that is configured in SCAYLE is mandatory.
+ * @property array<string> $name The localized product name. At least the base language that is configured in SCAYLE is mandatory.
  * @property Master $master The master the product is attached to.
  * @property string $state The state of the product determined by the state evaluation process. The only possible values to request are `live`, `draft` and `blocked`. The `problem` state can only be the result of the state evaluation process. If product is in problem state, the reasons are listed in read-only 'problems' field. The `new` and `inApproval` states can be set in the SCAYLE Panel. If a product belongs to multiple merchants, the state is returned based on the hierarchical order live, inApproval, problem, blocked, draft
  * @property Attribute[] $attributes A list of attributes attached to the product.
@@ -19,24 +30,33 @@ namespace AboutYou\Cloud\AdminApi\Models;
  */
 class Product extends ApiObject
 {
-    protected $defaultValues = [
+    /** @var array<string, string> */
+    protected array $defaultValues = [
         'state' => 'live',
     ];
 
-    protected $classMap = [
+    /** @var array<string, string> */
+    protected array $classMap = [
         'master' => Master::class,
     ];
 
-    protected $collectionClassMap = [
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [
         'variants' => ProductVariant::class,
         'images' => ProductImage::class,
         'attributes' => Attribute::class,
         'productSortings' => ProductSorting::class,
     ];
 
-    protected $polymorphic = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphic = [
     ];
 
-    protected $polymorphicCollections = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphicCollections = [
     ];
 }

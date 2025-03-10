@@ -1,27 +1,38 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Attribute;
-use AboutYou\Cloud\AdminApi\Models\AttributeCollection;
-use AboutYou\Cloud\AdminApi\Models\BulkRequest;
-use AboutYou\Cloud\AdminApi\Models\CreateBulkRequest;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\Master;
-use AboutYou\Cloud\AdminApi\Models\Product;
-use AboutYou\Cloud\AdminApi\Models\ProductCollection;
-use AboutYou\Cloud\AdminApi\Models\ProductImage;
-use AboutYou\Cloud\AdminApi\Models\ProductMasterCategories;
-use AboutYou\Cloud\AdminApi\Models\ProductSorting;
-use AboutYou\Cloud\AdminApi\Models\ProductState;
-use AboutYou\Cloud\AdminApi\Models\ProductVariant;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Attribute;
+use Scayle\Cloud\AdminApi\Models\AttributeCollection;
+use Scayle\Cloud\AdminApi\Models\BulkRequest;
+use Scayle\Cloud\AdminApi\Models\CreateBulkRequest;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\Master;
+use Scayle\Cloud\AdminApi\Models\Product;
+use Scayle\Cloud\AdminApi\Models\ProductCollection;
+use Scayle\Cloud\AdminApi\Models\ProductImage;
+use Scayle\Cloud\AdminApi\Models\ProductMasterCategories;
+use Scayle\Cloud\AdminApi\Models\ProductSorting;
+use Scayle\Cloud\AdminApi\Models\ProductState;
+use Scayle\Cloud\AdminApi\Models\ProductVariant;
 
 /**
  * @internal
  */
 final class ProductTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductCreateRequest.json');
 
@@ -39,9 +50,12 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+
+
+
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->products->get(Identifier::fromId(1), []);
 
@@ -54,9 +68,12 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->products->all([]);
 
@@ -70,6 +87,7 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Product::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'master', Master::class);
@@ -77,10 +95,11 @@ final class ProductTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', ProductImage::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSortings', ProductSorting::class);
+
         }
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductUpdateRequest.json');
 
@@ -98,14 +117,20 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->products->delete(Identifier::fromId(1), []);
+        $this->api->products->delete(Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateOrCreateAttribute()
+    public function testUpdateOrCreateAttribute(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductUpdateOrCreateAttributeRequest.json');
 
@@ -117,29 +142,42 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductUpdateOrCreateAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDeleteAttribute()
+    public function testDeleteAttribute(): void
     {
-        $responseEntity = $this->api->products->deleteAttribute(Identifier::fromId(1), 'acme', []);
+        $this->api->products->deleteAttribute(Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetAttribute()
+    public function testGetAttribute(): void
     {
         $responseEntity = $this->api->products->getAttribute(Identifier::fromId(1), 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ProductGetAttributeResponse.json');
         self::assertInstanceOf(Attribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAllAttributes()
+    public function testAllAttributes(): void
     {
         $responseEntity = $this->api->products->allAttributes(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductAllAttributesResponse.json');
         self::assertInstanceOf(AttributeCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Attribute::class, $collectionEntity);
@@ -148,10 +186,11 @@ final class ProductTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', ProductImage::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSortings', ProductSorting::class);
+
         }
     }
 
-    public function testUpdateMasterCategories()
+    public function testUpdateMasterCategories(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductUpdateMasterCategoriesRequest.json');
 
@@ -163,9 +202,13 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductUpdateMasterCategoriesResponse.json');
         self::assertInstanceOf(ProductMasterCategories::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testCreateOrUpdateCustomData()
+    public function testCreateOrUpdateCustomData(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductCreateOrUpdateCustomDataRequest.json');
 
@@ -175,22 +218,31 @@ final class ProductTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ProductCreateOrUpdateCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomData()
+    public function testDeleteCustomData(): void
     {
-        $responseEntity = $this->api->products->deleteCustomData(Identifier::fromId(1), []);
+        $this->api->products->deleteCustomData(Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomData()
+    public function testGetCustomData(): void
     {
         $responseEntity = $this->api->products->getCustomData(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('ProductGetCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testCreateOrUpdateCustomDataForKey()
+    public function testCreateOrUpdateCustomDataForKey(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductCreateOrUpdateCustomDataForKeyRequest.json');
 
@@ -200,22 +252,31 @@ final class ProductTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('ProductCreateOrUpdateCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomDataForKey()
+    public function testDeleteCustomDataForKey(): void
     {
-        $responseEntity = $this->api->products->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+        $this->api->products->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomDataForKey()
+    public function testGetCustomDataForKey(): void
     {
         $responseEntity = $this->api->products->getCustomDataForKey(Identifier::fromId(1), 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('ProductGetCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testCreateComposite()
+    public function testCreateComposite(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductCreateCompositeRequest.json');
 
@@ -233,9 +294,12 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+
+
+
     }
 
-    public function testUpdateComposite()
+    public function testUpdateComposite(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductUpdateCompositeRequest.json');
 
@@ -253,14 +317,20 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+
+
+
     }
 
-    public function testDeleteComposite()
+    public function testDeleteComposite(): void
     {
-        $responseEntity = $this->api->products->deleteComposite(Identifier::fromId(1), []);
+        $this->api->products->deleteComposite(Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateState()
+    public function testUpdateState(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductUpdateStateRequest.json');
 
@@ -272,9 +342,13 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductUpdateStateResponse.json');
         self::assertInstanceOf(ProductState::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testCreateBulkRequest()
+    public function testCreateBulkRequest(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductCreateBulkRequestRequest.json');
 
@@ -286,9 +360,13 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductCreateBulkRequestResponse.json');
         self::assertInstanceOf(BulkRequest::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testCreateCompositeProductBulkRequest()
+    public function testCreateCompositeProductBulkRequest(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductCreateCompositeProductBulkRequestRequest.json');
 
@@ -300,5 +378,9 @@ final class ProductTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ProductCreateCompositeProductBulkRequestResponse.json');
         self::assertInstanceOf(BulkRequest::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 }

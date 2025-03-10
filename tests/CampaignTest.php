@@ -1,20 +1,31 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Campaign;
-use AboutYou\Cloud\AdminApi\Models\CampaignCollection;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\ProductCampaignReduction;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReduction;
-use AboutYou\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Campaign;
+use Scayle\Cloud\AdminApi\Models\CampaignCollection;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\ProductCampaignReduction;
+use Scayle\Cloud\AdminApi\Models\ProductVariantCampaignReduction;
+use Scayle\Cloud\AdminApi\Models\ProductVariantCampaignReductionCollection;
 
 /**
  * @internal
  */
 final class CampaignTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('CampaignCreateRequest.json');
 
@@ -26,9 +37,13 @@ final class CampaignTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('CampaignCreateResponse.json');
         self::assertInstanceOf(Campaign::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->campaigns->all('acme', []);
 
@@ -36,21 +51,28 @@ final class CampaignTest extends BaseApiTestCase
         self::assertInstanceOf(CampaignCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Campaign::class, $collectionEntity);
+
         }
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->campaigns->get('acme', 1, []);
 
         $expectedResponseJson = $this->loadFixture('CampaignGetResponse.json');
         self::assertInstanceOf(Campaign::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('CampaignUpdateRequest.json');
 
@@ -62,14 +84,21 @@ final class CampaignTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('CampaignUpdateResponse.json');
         self::assertInstanceOf(Campaign::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->campaigns->delete('acme', 1, []);
+        $this->api->campaigns->delete('acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateOrCreateVariantReductions()
+    public function testUpdateOrCreateVariantReductions(): void
     {
         $expectedRequestJson = $this->loadFixture('CampaignUpdateOrCreateVariantReductionsRequest.json');
 
@@ -78,10 +107,13 @@ final class CampaignTest extends BaseApiTestCase
             $requestEntity[] = new ProductVariantCampaignReduction($entity);
         }
 
-        $responseEntity = $this->api->campaigns->updateOrCreateVariantReductions('acme', 1, $requestEntity, []);
+        $this->api->campaigns->updateOrCreateVariantReductions('acme', 1, $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateOrCreateProductReductions()
+    public function testUpdateOrCreateProductReductions(): void
     {
         $expectedRequestJson = $this->loadFixture('CampaignUpdateOrCreateProductReductionsRequest.json');
 
@@ -90,10 +122,13 @@ final class CampaignTest extends BaseApiTestCase
             $requestEntity[] = new ProductCampaignReduction($entity);
         }
 
-        $responseEntity = $this->api->campaigns->updateOrCreateProductReductions('acme', 1, $requestEntity, []);
+        $this->api->campaigns->updateOrCreateProductReductions('acme', 1, $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testAllReductions()
+    public function testAllReductions(): void
     {
         $responseEntity = $this->api->campaigns->allReductions('acme', 1, []);
 
@@ -101,17 +136,23 @@ final class CampaignTest extends BaseApiTestCase
         self::assertInstanceOf(ProductVariantCampaignReductionCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ProductVariantCampaignReduction::class, $collectionEntity);
+
         }
     }
 
-    public function testDeleteReductions()
+    public function testDeleteReductions(): void
     {
-        $responseEntity = $this->api->campaigns->deleteReductions('acme', 1, []);
+        $this->api->campaigns->deleteReductions('acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testCreateOrUpdateCustomData()
+    public function testCreateOrUpdateCustomData(): void
     {
         $expectedRequestJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataRequest.json');
 
@@ -121,22 +162,31 @@ final class CampaignTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomData()
+    public function testDeleteCustomData(): void
     {
-        $responseEntity = $this->api->campaigns->deleteCustomData(Identifier::fromId(1), []);
+        $this->api->campaigns->deleteCustomData(Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomData()
+    public function testGetCustomData(): void
     {
         $responseEntity = $this->api->campaigns->getCustomData(Identifier::fromId(1), []);
 
         $expectedResponseJson = $this->loadFixture('CampaignGetCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testCreateOrUpdateCustomDataForKey()
+    public function testCreateOrUpdateCustomDataForKey(): void
     {
         $expectedRequestJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataForKeyRequest.json');
 
@@ -146,18 +196,27 @@ final class CampaignTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('CampaignCreateOrUpdateCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomDataForKey()
+    public function testDeleteCustomDataForKey(): void
     {
-        $responseEntity = $this->api->campaigns->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+        $this->api->campaigns->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomDataForKey()
+    public function testGetCustomDataForKey(): void
     {
         $responseEntity = $this->api->campaigns->getCustomDataForKey(Identifier::fromId(1), 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('CampaignGetCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 }

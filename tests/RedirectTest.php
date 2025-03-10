@@ -1,17 +1,28 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\Redirect;
-use AboutYou\Cloud\AdminApi\Models\RedirectCollection;
-use AboutYou\Cloud\AdminApi\Models\RedirectError;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\Redirect;
+use Scayle\Cloud\AdminApi\Models\RedirectCollection;
+use Scayle\Cloud\AdminApi\Models\RedirectError;
 
 /**
  * @internal
  */
 final class RedirectTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->redirects->all('acme', []);
 
@@ -22,14 +33,16 @@ final class RedirectTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'parent', Redirect::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'error', RedirectError::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Redirect::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'parent', Redirect::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'error', RedirectError::class);
+
         }
     }
 
-    public function testCreateOrUpdateBulk()
+    public function testCreateOrUpdateBulk(): void
     {
         $expectedRequestJson = $this->loadFixture('RedirectCreateOrUpdateBulkRequest.json');
 
@@ -47,14 +60,16 @@ final class RedirectTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'parent', Redirect::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'error', RedirectError::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Redirect::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'parent', Redirect::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'error', RedirectError::class);
+
         }
     }
 
-    public function testDeleteBulk()
+    public function testDeleteBulk(): void
     {
         $expectedRequestJson = $this->loadFixture('RedirectDeleteBulkRequest.json');
 
@@ -63,15 +78,21 @@ final class RedirectTest extends BaseApiTestCase
             $requestEntity[] = new Redirect($entity);
         }
 
-        $responseEntity = $this->api->redirects->deleteBulk('acme', $requestEntity, []);
+        $this->api->redirects->deleteBulk('acme', $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->redirects->delete('acme', 1, []);
+        $this->api->redirects->delete('acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('RedirectCreateRequest.json');
 
@@ -86,9 +107,12 @@ final class RedirectTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'parent', Redirect::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'error', RedirectError::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('RedirectUpdateRequest.json');
 
@@ -103,5 +127,8 @@ final class RedirectTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'parent', Redirect::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'error', RedirectError::class);
+
+
+
     }
 }

@@ -1,599 +1,614 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Customer;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddress;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddressCollection;
-use AboutYou\Cloud\AdminApi\Models\CustomerAddressReferenceKey;
-use AboutYou\Cloud\AdminApi\Models\CustomerCollection;
-use AboutYou\Cloud\AdminApi\Models\CustomerGroup;
-use AboutYou\Cloud\AdminApi\Models\CustomerMembership;
-use AboutYou\Cloud\AdminApi\Models\CustomerMembershipCollection;
-use AboutYou\Cloud\AdminApi\Models\CustomerPassword;
-use AboutYou\Cloud\AdminApi\Models\CustomerPasswordHash;
-use AboutYou\Cloud\AdminApi\Models\CustomerReferenceKey;
-use AboutYou\Cloud\AdminApi\Models\CustomerStatus;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Customer;
+use Scayle\Cloud\AdminApi\Models\CustomerAddress;
+use Scayle\Cloud\AdminApi\Models\CustomerAddressCollection;
+use Scayle\Cloud\AdminApi\Models\CustomerAddressReferenceKey;
+use Scayle\Cloud\AdminApi\Models\CustomerCollection;
+use Scayle\Cloud\AdminApi\Models\CustomerGroup;
+use Scayle\Cloud\AdminApi\Models\CustomerMembership;
+use Scayle\Cloud\AdminApi\Models\CustomerMembershipCollection;
+use Scayle\Cloud\AdminApi\Models\CustomerPassword;
+use Scayle\Cloud\AdminApi\Models\CustomerPasswordHash;
+use Scayle\Cloud\AdminApi\Models\CustomerReferenceKey;
+use Scayle\Cloud\AdminApi\Models\CustomerStatus;
+use Scayle\Cloud\AdminApi\Models\Identifier;
 
 class CustomerService extends AbstractService
 {
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($shopKey, $countryCode, $options = [])
-    {
+    public function all(
+        string $shopKey,
+        string $countryCode,
+        array $options = []
+    ): CustomerCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
-            $options,
-            [],
-            CustomerCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: CustomerCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return Customer
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($shopKey, $countryCode, $customerIdentifier, $options = [])
-    {
+    public function get(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): Customer {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            Customer::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Customer::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
      * @param Customer $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Customer
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($shopKey, $countryCode, $model, $options = [])
-    {
+    public function create(
+        string $shopKey,
+        string $countryCode,
+        Customer $model,
+        array $options = []
+    ): Customer {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
-            $options,
-            [],
-            Customer::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: Customer::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
      * @param Customer $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Customer
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
-    {
+    public function update(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        Customer $model,
+        array $options = []
+    ): Customer {
         return $this->request(
-            'patch',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            Customer::class,
-            $model
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Customer::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $customerId
      * @param CustomerReferenceKey $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Customer
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateReferenceKey($shopKey, $countryCode, $customerId, $model, $options = [])
-    {
+    public function updateReferenceKey(
+        string $shopKey,
+        string $countryCode,
+        int $customerId,
+        CustomerReferenceKey $model,
+        array $options = []
+    ): Customer {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/reference-key', $shopKey, $countryCode, $customerId),
-            $options,
-            [],
-            Customer::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/reference-key', $shopKey, $countryCode, $customerId),
+            query: $options,
+            headers: [],
+            modelClass: Customer::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $customerId
-     * @param array $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Customer
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateLegacyCustomData($shopKey, $countryCode, $customerId, $model, $options = [])
-    {
+    public function createOrUpdateLegacyCustomData(
+        string $shopKey,
+        string $countryCode,
+        int $customerId,
+        array $model,
+        array $options = []
+    ): Customer {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/legacy-custom-data', $shopKey, $countryCode, $customerId),
-            $options,
-            [],
-            Customer::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/legacy-custom-data', $shopKey, $countryCode, $customerId),
+            query: $options,
+            headers: [],
+            modelClass: Customer::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function anonymize($shopKey, $countryCode, $customerIdentifier, $options = [])
-    {
+    public function anonymize(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/anonymize', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/anonymize', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
      * @param CustomerPassword $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function setPassword($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
-    {
+    public function setPassword(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        CustomerPassword $model,
+        array $options = []
+    ): void {
         $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/password', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/password', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
      * @param CustomerPasswordHash $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function setPasswordHash($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
-    {
+    public function setPasswordHash(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        CustomerPasswordHash $model,
+        array $options = []
+    ): void {
         $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/password-hash', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            null,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/password-hash', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerStatus
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getStatus($shopKey, $countryCode, $customerIdentifier, $options = [])
-    {
+    public function getStatus(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): CustomerStatus {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            CustomerStatus::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerStatus::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
      * @param CustomerStatus $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerStatus
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateStatus($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
-    {
+    public function updateStatus(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        CustomerStatus $model,
+        array $options = []
+    ): CustomerStatus {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            CustomerStatus::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/status', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerStatus::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerAddressCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAddresses($shopKey, $countryCode, $customerIdentifier, $options = [])
-    {
+    public function getAddresses(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): CustomerAddressCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            CustomerAddressCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerAddressCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param Identifier $addressIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerAddress
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $options = [])
-    {
+    public function getAddress(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        Identifier $addressIdentifier,
+        array $options = []
+    ): CustomerAddress {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
-            $options,
-            [],
-            CustomerAddress::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerAddress::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
      * @param CustomerAddress $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerAddress
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createAddress($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
-    {
+    public function createAddress(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        CustomerAddress $model,
+        array $options = []
+    ): CustomerAddress {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            CustomerAddress::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerAddress::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param Identifier $addressIdentifier
      * @param CustomerAddress $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerAddress
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $model, $options = [])
-    {
+    public function updateAddress(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        Identifier $addressIdentifier,
+        CustomerAddress $model,
+        array $options = []
+    ): CustomerAddress {
         return $this->request(
-            'patch',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
-            $options,
-            [],
-            CustomerAddress::class,
-            $model
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerAddress::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param int $addressId
      * @param CustomerAddressReferenceKey $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerAddress
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateAddressReferenceKey($shopKey, $countryCode, $customerIdentifier, $addressId, $model, $options = [])
-    {
+    public function updateAddressReferenceKey(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        int $addressId,
+        CustomerAddressReferenceKey $model,
+        array $options = []
+    ): CustomerAddress {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/reference-key', $shopKey, $countryCode, $customerIdentifier, $addressId),
-            $options,
-            [],
-            CustomerAddress::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/reference-key', $shopKey, $countryCode, $customerIdentifier, $addressId),
+            query: $options,
+            headers: [],
+            modelClass: CustomerAddress::class,
+            body: $model
         );
     }
 
     /**
-     * @deprecated
+     * @deprecated This method is deprecated. It will be removed in a future version.
      *
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param Identifier $addressIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function anonymizeAddress($shopKey, $countryCode, $customerIdentifier, $addressIdentifier, $options = [])
-    {
+    public function anonymizeAddress(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        Identifier $addressIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/anonymize', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/addresses/%s/anonymize', $shopKey, $countryCode, $customerIdentifier, $addressIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $addressIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function anonymizeAddressByIdentifier($shopKey, $countryCode, $addressIdentifier, $options = [])
-    {
+    public function anonymizeAddressByIdentifier(
+        string $shopKey,
+        string $countryCode,
+        Identifier $addressIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/customers/addresses/%s/anonymize', $shopKey, $countryCode, $addressIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/addresses/%s/anonymize', $shopKey, $countryCode, $addressIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function resetPassword($shopKey, $countryCode, $customerIdentifier, $options = [])
-    {
+    public function resetPassword(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/send-reset-password-email', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/send-reset-password-email', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerId
      * @param CustomerGroup $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Customer
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function addGroups($shopKey, $countryCode, $customerId, $model, $options = [])
-    {
+    public function addGroups(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerId,
+        CustomerGroup $model,
+        array $options = []
+    ): Customer {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups', $shopKey, $countryCode, $customerId),
-            $options,
-            [],
-            Customer::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups', $shopKey, $countryCode, $customerId),
+            query: $options,
+            headers: [],
+            modelClass: Customer::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
      * @param CustomerMembership $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerMembership
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createMembership($shopKey, $countryCode, $customerIdentifier, $model, $options = [])
-    {
+    public function createMembership(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        CustomerMembership $model,
+        array $options = []
+    ): CustomerMembership {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            CustomerMembership::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerMembership::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $membershipId
      * @param CustomerMembership $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerMembership
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateMembership($shopKey, $countryCode, $membershipId, $model, $options = [])
-    {
+    public function updateMembership(
+        string $shopKey,
+        string $countryCode,
+        int $membershipId,
+        CustomerMembership $model,
+        array $options = []
+    ): CustomerMembership {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/customers/memberships/%s', $shopKey, $countryCode, $membershipId),
-            $options,
-            [],
-            CustomerMembership::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/memberships/%s', $shopKey, $countryCode, $membershipId),
+            query: $options,
+            headers: [],
+            modelClass: CustomerMembership::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomerMembershipCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getMemberships($shopKey, $countryCode, $customerIdentifier, $options = [])
-    {
+    public function getMemberships(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): CustomerMembershipCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
-            $options,
-            [],
-            CustomerMembershipCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/memberships', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: CustomerMembershipCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $membershipId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteMembership($shopKey, $countryCode, $membershipId, $options = [])
-    {
+    public function deleteMembership(
+        string $shopKey,
+        string $countryCode,
+        int $membershipId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/customers/memberships/%s', $shopKey, $countryCode, $membershipId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/memberships/%s', $shopKey, $countryCode, $membershipId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $customerIdentifier
-     * @param string $customerGroup
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteGroup($shopKey, $countryCode, $customerIdentifier, $customerGroup, $options = [])
-    {
+    public function deleteGroup(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        string $customerGroup,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups/%s', $shopKey, $countryCode, $customerIdentifier, $customerGroup),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/customer-groups/%s', $shopKey, $countryCode, $customerIdentifier, $customerGroup),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

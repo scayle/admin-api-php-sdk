@@ -1,6 +1,17 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property float $amount
@@ -19,7 +30,7 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property string $orderId
  * @property string $orderNumber
  * @property string $payId
- * @property array $paymentMeans
+ * @property array<mixed> $paymentMeans
  * @property string $paymentPurpose
  * @property string $paymentSubType
  * @property string $profileId
@@ -29,23 +40,32 @@ namespace AboutYou\Cloud\AdminApi\Models;
  * @property bool $success
  * @property string $transactionId
  * @property string $type
- * @property array $userData
+ * @property array<mixed> $userData
  * @property string[] $XID
  */
 class SubscriptionOrderPaymentTypeConfirmationData extends ApiObject
 {
-    protected $defaultValues = [
+    /** @var array<string, string> */
+    protected array $defaultValues = [
     ];
 
-    protected $classMap = [
+    /** @var array<string, string> */
+    protected array $classMap = [
     ];
 
-    protected $collectionClassMap = [
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [
     ];
 
-    protected $polymorphic = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphic = [
     ];
 
-    protected $polymorphicCollections = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphicCollections = [
     ];
 }

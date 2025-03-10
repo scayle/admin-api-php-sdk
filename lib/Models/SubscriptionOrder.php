@@ -1,12 +1,23 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Models;
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property array $additionalMetaData
+ * @property array<mixed> $additionalMetaData
  * @property SubscriptionOrderAddress $address
  * @property SubscriptionOrderApplication $application
- * @property array $legacyCustomData
+ * @property array<mixed> $legacyCustomData
  * @property int $customerId
  * @property string $ipAddress
  * @property SubscriptionOrderItem[] $items
@@ -20,10 +31,12 @@ namespace AboutYou\Cloud\AdminApi\Models;
  */
 class SubscriptionOrder extends ApiObject
 {
-    protected $defaultValues = [
+    /** @var array<string, string> */
+    protected array $defaultValues = [
     ];
 
-    protected $classMap = [
+    /** @var array<string, string> */
+    protected array $classMap = [
         'address' => SubscriptionOrderAddress::class,
         'application' => SubscriptionOrderApplication::class,
         'membershipCard' => SubscriptionOrderMembershipCard::class,
@@ -31,14 +44,21 @@ class SubscriptionOrder extends ApiObject
         'carrier' => SubscriptionOrderCarrier::class,
     ];
 
-    protected $collectionClassMap = [
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [
         'items' => SubscriptionOrderItem::class,
         'paymentTypes' => SubscriptionOrderPaymentType::class,
     ];
 
-    protected $polymorphic = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphic = [
     ];
 
-    protected $polymorphicCollections = [
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphicCollections = [
     ];
 }

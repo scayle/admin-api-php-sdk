@@ -1,16 +1,27 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\WebhookSubscription;
-use AboutYou\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\WebhookSubscription;
+use Scayle\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
 
 /**
  * @internal
  */
 final class WebhookSubscriptionTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('WebhookSubscriptionCreateRequest.json');
 
@@ -22,18 +33,26 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionCreateResponse.json');
         self::assertInstanceOf(WebhookSubscription::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->webhookSubscriptions->get(1, []);
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionGetResponse.json');
         self::assertInstanceOf(WebhookSubscription::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->webhookSubscriptions->all([]);
 
@@ -41,13 +60,19 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
         self::assertInstanceOf(WebhookSubscriptionCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(WebhookSubscription::class, $collectionEntity);
+
         }
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->webhookSubscriptions->delete(1, []);
+        $this->api->webhookSubscriptions->delete(1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

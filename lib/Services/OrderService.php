@@ -1,222 +1,229 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Identifier;
-use AboutYou\Cloud\AdminApi\Models\Order;
-use AboutYou\Cloud\AdminApi\Models\OrderCollection;
-use AboutYou\Cloud\AdminApi\Models\OrderInvoiceCollection;
-use AboutYou\Cloud\AdminApi\Models\OrderReferenceKey;
-use AboutYou\Cloud\AdminApi\Models\OrderStatus;
-use AboutYou\Cloud\AdminApi\Models\SubscriptionOrder;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Identifier;
+use Scayle\Cloud\AdminApi\Models\Order;
+use Scayle\Cloud\AdminApi\Models\OrderCollection;
+use Scayle\Cloud\AdminApi\Models\OrderInvoiceCollection;
+use Scayle\Cloud\AdminApi\Models\OrderReferenceKey;
+use Scayle\Cloud\AdminApi\Models\OrderStatus;
+use Scayle\Cloud\AdminApi\Models\SubscriptionOrder;
 
 class OrderService extends AbstractService
 {
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $orderIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return Order
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($shopKey, $countryCode, $orderIdentifier, $options = [])
-    {
+    public function get(
+        string $shopKey,
+        string $countryCode,
+        Identifier $orderIdentifier,
+        array $options = []
+    ): Order {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/orders/%s', $shopKey, $countryCode, $orderIdentifier),
-            $options,
-            [],
-            Order::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s', $shopKey, $countryCode, $orderIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Order::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param array $options additional options like limit or filters
-     *
-     * @return OrderCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($shopKey, $countryCode, $options = [])
-    {
+    public function all(
+        string $shopKey,
+        string $countryCode,
+        array $options = []
+    ): OrderCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/orders', $shopKey, $countryCode),
-            $options,
-            [],
-            OrderCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: OrderCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $orderId
      * @param OrderReferenceKey $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Order
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function updateReferenceKey($shopKey, $countryCode, $orderId, $model, $options = [])
-    {
+    public function updateReferenceKey(
+        string $shopKey,
+        string $countryCode,
+        int $orderId,
+        OrderReferenceKey $model,
+        array $options = []
+    ): Order {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/countries/%s/orders/%s/reference-key', $shopKey, $countryCode, $orderId),
-            $options,
-            [],
-            Order::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/reference-key', $shopKey, $countryCode, $orderId),
+            query: $options,
+            headers: [],
+            modelClass: Order::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
      * @param Order $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Order
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($shopKey, $countryCode, $model, $options = [])
-    {
+    public function create(
+        string $shopKey,
+        string $countryCode,
+        Order $model,
+        array $options = []
+    ): Order {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/orders', $shopKey, $countryCode),
-            $options,
-            [],
-            Order::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: Order::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $orderIdentifier
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $countryCode, $orderIdentifier, $options = [])
-    {
+    public function delete(
+        string $shopKey,
+        string $countryCode,
+        Identifier $orderIdentifier,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/orders/%s', $shopKey, $countryCode, $orderIdentifier),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s', $shopKey, $countryCode, $orderIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $orderIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return OrderStatus
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getStatus($shopKey, $countryCode, $orderIdentifier, $options = [])
-    {
+    public function getStatus(
+        string $shopKey,
+        string $countryCode,
+        Identifier $orderIdentifier,
+        array $options = []
+    ): OrderStatus {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/orders/%s/status', $shopKey, $countryCode, $orderIdentifier),
-            $options,
-            [],
-            OrderStatus::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/status', $shopKey, $countryCode, $orderIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: OrderStatus::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
      * @param SubscriptionOrder $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Order
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createSubscriptionOrder($shopKey, $countryCode, $model, $options = [])
-    {
+    public function createSubscriptionOrder(
+        string $shopKey,
+        string $countryCode,
+        SubscriptionOrder $model,
+        array $options = []
+    ): Order {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/orders/subscription-orders', $shopKey, $countryCode),
-            $options,
-            [],
-            Order::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/subscription-orders', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: Order::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $orderIdentifier
-     * @param array $options additional options like limit or filters
-     *
-     * @return OrderInvoiceCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getOrderInvoices($shopKey, $countryCode, $orderIdentifier, $options = [])
-    {
+    public function getOrderInvoices(
+        string $shopKey,
+        string $countryCode,
+        Identifier $orderIdentifier,
+        array $options = []
+    ): OrderInvoiceCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/orders/%s/invoices', $shopKey, $countryCode, $orderIdentifier),
-            $options,
-            [],
-            OrderInvoiceCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/invoices', $shopKey, $countryCode, $orderIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: OrderInvoiceCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param Identifier $orderIdentifier
-     * @param int $invoiceId
-     * @param array $options additional options like limit or filters
-     *
-     * @return string
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function getOrderInvoice($shopKey, $countryCode, $orderIdentifier, $invoiceId, $options = [])
-    {
+    public function getOrderInvoice(
+        string $shopKey,
+        string $countryCode,
+        Identifier $orderIdentifier,
+        int $invoiceId,
+        array $options = []
+    ): string {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/orders/%s/invoices/%s', $shopKey, $countryCode, $orderIdentifier, $invoiceId),
-            $options,
-            [],
-            null,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/invoices/%s', $shopKey, $countryCode, $orderIdentifier, $invoiceId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

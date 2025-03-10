@@ -1,31 +1,41 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\BulkRequestStatus;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\BulkRequestStatus;
 
 class BulkRequestService extends AbstractService
 {
     /**
-     * @param int $requestKey
-     * @param array $options additional options like limit or filters
-     *
-     * @return BulkRequestStatus
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function cancel($requestKey, $options = [])
-    {
+    public function cancel(
+        int $requestKey,
+        array $options = []
+    ): BulkRequestStatus {
         return $this->request(
-            'put',
-            $this->resolvePath('/bulk-requests/%s/cancel', $requestKey),
-            $options,
-            [],
-            BulkRequestStatus::class,
-            null
+            method: 'put',
+            relativeUrl: $this->resolvePath('/bulk-requests/%s/cancel', $requestKey),
+            query: $options,
+            headers: [],
+            modelClass: BulkRequestStatus::class,
+            body: null
         );
     }
 }

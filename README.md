@@ -24,7 +24,7 @@ Visit the [Docs](https://scayle.dev/en/) to learn more about our system requirem
 
 ## Requirements
 
-* PHP 7.2 or higher
+* PHP 8.1 or higher
 
 ## Installation
 
@@ -34,7 +34,7 @@ Install the library via [Composer](https://getcomposer.org/):
 composer require scayle/admin-api
 ```
 
-## What is Scayle ?
+## What is SCAYLE ?
 
 [SCAYLE](https://scayle.com) is a full-featured e-commerce software solution that comes with flexible APIs. Within SCAYLE, you can manage all aspects of your shop, such as products, stocks, customers, and transactions.
 

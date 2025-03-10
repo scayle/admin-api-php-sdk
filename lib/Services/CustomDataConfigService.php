@@ -1,94 +1,105 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\CustomDataConfig;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\CustomDataConfig;
 
 class CustomDataConfigService extends AbstractService
 {
     /**
-     * @param string $entity
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomDataConfig
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($entity, $options = [])
-    {
+    public function get(
+        string $entity,
+        array $options = []
+    ): CustomDataConfig {
         return $this->request(
-            'get',
-            $this->resolvePath('/custom-data-configs/%s', $entity),
-            $options,
-            [],
-            CustomDataConfig::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/custom-data-configs/%s', $entity),
+            query: $options,
+            headers: [],
+            modelClass: CustomDataConfig::class,
+            body: null
         );
     }
 
     /**
-     * @param string $entity
      * @param CustomDataConfig $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomDataConfig
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($entity, $model, $options = [])
-    {
+    public function create(
+        string $entity,
+        CustomDataConfig $model,
+        array $options = []
+    ): CustomDataConfig {
         return $this->request(
-            'post',
-            $this->resolvePath('/custom-data-configs/%s', $entity),
-            $options,
-            [],
-            CustomDataConfig::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/custom-data-configs/%s', $entity),
+            query: $options,
+            headers: [],
+            modelClass: CustomDataConfig::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $entity
      * @param CustomDataConfig $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return CustomDataConfig
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($entity, $model, $options = [])
-    {
+    public function update(
+        string $entity,
+        CustomDataConfig $model,
+        array $options = []
+    ): CustomDataConfig {
         return $this->request(
-            'put',
-            $this->resolvePath('/custom-data-configs/%s', $entity),
-            $options,
-            [],
-            CustomDataConfig::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/custom-data-configs/%s', $entity),
+            query: $options,
+            headers: [],
+            modelClass: CustomDataConfig::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $entity
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($entity, $options = [])
-    {
+    public function delete(
+        string $entity,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/custom-data-configs/%s', $entity),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/custom-data-configs/%s', $entity),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 }

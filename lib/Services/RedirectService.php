@@ -1,139 +1,152 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\Redirect;
-use AboutYou\Cloud\AdminApi\Models\RedirectCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\Redirect;
+use Scayle\Cloud\AdminApi\Models\RedirectCollection;
 
 class RedirectService extends AbstractService
 {
     /**
-     * @param string $shopKey
-     * @param array $options additional options like limit or filters
-     *
-     * @return RedirectCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($shopKey, $options = [])
-    {
+    public function all(
+        string $shopKey,
+        array $options = []
+    ): RedirectCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/redirects', $shopKey),
-            $options,
-            [],
-            RedirectCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/redirects', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: RedirectCollection::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
      * @param Redirect[] $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return RedirectCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function createOrUpdateBulk($shopKey, $model, $options = [])
-    {
+    public function createOrUpdateBulk(
+        string $shopKey,
+        array $model,
+        array $options = []
+    ): RedirectCollection {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/redirects/bulk', $shopKey),
-            $options,
-            [],
-            RedirectCollection::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/redirects/bulk', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: RedirectCollection::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
      * @param Redirect[] $model the model to create or update
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function deleteBulk($shopKey, $model, $options = [])
-    {
+    public function deleteBulk(
+        string $shopKey,
+        array $model,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/redirects/bulk', $shopKey),
-            $options,
-            [],
-            null,
-            $model
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/redirects/bulk', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $redirectId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $redirectId, $options = [])
-    {
+    public function delete(
+        string $shopKey,
+        int $redirectId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/redirects/%s', $shopKey, $redirectId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/redirects/%s', $shopKey, $redirectId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
      * @param Redirect $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Redirect
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($shopKey, $model, $options = [])
-    {
+    public function create(
+        string $shopKey,
+        Redirect $model,
+        array $options = []
+    ): Redirect {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/redirects', $shopKey),
-            $options,
-            [],
-            Redirect::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/redirects', $shopKey),
+            query: $options,
+            headers: [],
+            modelClass: Redirect::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param int $redirectId
      * @param Redirect $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return Redirect
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($shopKey, $redirectId, $model, $options = [])
-    {
+    public function update(
+        string $shopKey,
+        int $redirectId,
+        Redirect $model,
+        array $options = []
+    ): Redirect {
         return $this->request(
-            'put',
-            $this->resolvePath('/shops/%s/redirects/%s', $shopKey, $redirectId),
-            $options,
-            [],
-            Redirect::class,
-            $model
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/redirects/%s', $shopKey, $redirectId),
+            query: $options,
+            headers: [],
+            modelClass: Redirect::class,
+            body: $model
         );
     }
 }

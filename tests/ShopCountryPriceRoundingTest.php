@@ -1,16 +1,27 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRounding;
-use AboutYou\Cloud\AdminApi\Models\ShopCountryPriceRoundingCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\ShopCountryPriceRounding;
+use Scayle\Cloud\AdminApi\Models\ShopCountryPriceRoundingCollection;
 
 /**
  * @internal
  */
 final class ShopCountryPriceRoundingTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->shopCountryPriceRoundings->all('acme', 'acme', []);
 
@@ -18,12 +29,15 @@ final class ShopCountryPriceRoundingTest extends BaseApiTestCase
         self::assertInstanceOf(ShopCountryPriceRoundingCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ShopCountryPriceRounding::class, $collectionEntity);
+
         }
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('ShopCountryPriceRoundingCreateRequest.json');
 
@@ -35,10 +49,17 @@ final class ShopCountryPriceRoundingTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('ShopCountryPriceRoundingCreateResponse.json');
         self::assertInstanceOf(ShopCountryPriceRounding::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->shopCountryPriceRoundings->delete('acme', 'acme', 1, []);
+        $this->api->shopCountryPriceRoundings->delete('acme', 'acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

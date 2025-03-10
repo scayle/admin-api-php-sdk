@@ -1,18 +1,29 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\ArrayCollection;
-use AboutYou\Cloud\AdminApi\Models\AttributeGroup;
-use AboutYou\Cloud\AdminApi\Models\AttributeGroupAttribute;
-use AboutYou\Cloud\AdminApi\Models\AttributeGroupCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\ArrayCollection;
+use Scayle\Cloud\AdminApi\Models\AttributeGroup;
+use Scayle\Cloud\AdminApi\Models\AttributeGroupAttribute;
+use Scayle\Cloud\AdminApi\Models\AttributeGroupCollection;
 
 /**
  * @internal
  */
 final class AttributeGroupTest extends BaseApiTestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('AttributeGroupCreateRequest.json');
 
@@ -24,18 +35,26 @@ final class AttributeGroupTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('AttributeGroupCreateResponse.json');
         self::assertInstanceOf(AttributeGroup::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->attributeGroups->get('acme', []);
 
         $expectedResponseJson = $this->loadFixture('AttributeGroupGetResponse.json');
         self::assertInstanceOf(AttributeGroup::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->attributeGroups->all([]);
 
@@ -43,12 +62,15 @@ final class AttributeGroupTest extends BaseApiTestCase
         self::assertInstanceOf(AttributeGroupCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
+
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(AttributeGroup::class, $collectionEntity);
+
         }
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('AttributeGroupUpdateRequest.json');
 
@@ -60,32 +82,45 @@ final class AttributeGroupTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('AttributeGroupUpdateResponse.json');
         self::assertInstanceOf(AttributeGroup::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->attributeGroups->delete('acme', []);
+        $this->api->attributeGroups->delete('acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testUpdateFrontendName()
+    public function testUpdateFrontendName(): void
     {
         $expectedRequestJson = $this->loadFixture('AttributeGroupUpdateFrontendNameRequest.json');
 
         $requestEntity = $expectedRequestJson;
 
-        $responseEntity = $this->api->attributeGroups->updateFrontendName('acme', $requestEntity, []);
+        $this->api->attributeGroups->updateFrontendName('acme', $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetAttributes()
+    public function testGetAttributes(): void
     {
         $responseEntity = $this->api->attributeGroups->getAttributes('acme', []);
 
         $expectedResponseJson = $this->loadFixture('AttributeGroupGetAttributesResponse.json');
         self::assertInstanceOf(ArrayCollection::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
     }
 
-    public function testCreateAttribute()
+    public function testCreateAttribute(): void
     {
         $expectedRequestJson = $this->loadFixture('AttributeGroupCreateAttributeRequest.json');
 
@@ -97,9 +132,13 @@ final class AttributeGroupTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('AttributeGroupCreateAttributeResponse.json');
         self::assertInstanceOf(AttributeGroupAttribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testUpdateAttribute()
+    public function testUpdateAttribute(): void
     {
         $expectedRequestJson = $this->loadFixture('AttributeGroupUpdateAttributeRequest.json');
 
@@ -111,10 +150,17 @@ final class AttributeGroupTest extends BaseApiTestCase
         $expectedResponseJson = $this->loadFixture('AttributeGroupUpdateAttributeResponse.json');
         self::assertInstanceOf(AttributeGroupAttribute::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
-    public function testDeleteAttribute()
+    public function testDeleteAttribute(): void
     {
-        $responseEntity = $this->api->attributeGroups->deleteAttribute('acme', 'acme', []);
+        $this->api->attributeGroups->deleteAttribute('acme', 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

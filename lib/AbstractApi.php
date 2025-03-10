@@ -1,13 +1,24 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\InvalidArgumentException;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
+use Scayle\Cloud\AdminApi\Exceptions\InvalidArgumentException;
 
 abstract class AbstractApi
 {
@@ -15,62 +26,41 @@ abstract class AbstractApi
     public const ACCESS_TOKEN = 'accessToken';
     public const AUTH_HEADER_NAME = 'X-Access-Token';
 
-    /**
-     * @var ClientInterface
-     */
-    private $httpClient;
+    private ClientInterface $httpClient;
 
     /**
-     * @var array<string, string>
+     * @param array{apiUrl: string, accessToken: string} $config ['apiUrl' => 'http://scayle.cloud', 'accessToken' => 'myToken']
      */
-    private $config;
-
-    /**
-     * AbstractAdminApi constructor.
-     *
-     * @param array<string, string> $config
-     *
-     * @example ['apiUrl' => 'http://cloud.aboutyou.com', 'accessToken' => 'myToken']
-     *
-     * @param ClientInterface $httpClient
-     */
-    public function __construct($config = [], $httpClient = null)
+    public function __construct(private array $config, ?ClientInterface $httpClient = null)
     {
         $this->validateConfig($config);
 
-        $this->config = $config;
         $this->httpClient = $httpClient ?: new Client();
     }
 
-    /**
-     * @return string
-     */
-    public function getApiUrl()
+    public function getApiUrl(): string
     {
         return $this->config[self::API_URL];
     }
 
-    /**
-     * @return string
-     */
-    public function getAccessToken()
+    public function getAccessToken(): string
     {
         return $this->config[self::ACCESS_TOKEN];
     }
 
     /**
-     * @param string $method
-     * @param string $relativePath
-     * @param array $query
-     * @param array $headers
-     * @param null|string $body
-     *
-     * @return ResponseInterface
+     * @param array<string, bool|int|string> $query
+     * @param array<string, string> $headers
      *
      * @throws ClientExceptionInterface
      */
-    public function request($method, $relativePath, $query = [], $headers = [], $body = null)
-    {
+    public function request(
+        string $method,
+        string $relativePath,
+        array $query = [],
+        array $headers = [],
+        ?string $body = null
+    ): ResponseInterface {
         $url = $this->getApiUrl() . $relativePath . $this->makeQueryString($query);
         $headers = $this->makeHeaders($headers, null !== $body);
         $request = new Request($method, $url, $headers, $body);
@@ -79,12 +69,11 @@ abstract class AbstractApi
     }
 
     /**
-     * @param array $headers
-     * @param bool $withContentType
+     * @param array<string, string> $headers
      *
-     * @return array
+     * @return array<string, string>
      */
-    private function makeHeaders($headers, $withContentType)
+    private function makeHeaders(array $headers, bool $withContentType)
     {
         $headers[self::AUTH_HEADER_NAME] = $this->getAccessToken();
         $headers['Accept'] = 'application/json, */*';
@@ -97,11 +86,9 @@ abstract class AbstractApi
     }
 
     /**
-     * @param array $query
-     *
-     * @return string
+     * @param array<string, bool|int|string> $query
      */
-    private function makeQueryString($query)
+    private function makeQueryString(array $query): string
     {
         if (empty($query)) {
             return '';
@@ -119,22 +106,18 @@ abstract class AbstractApi
     }
 
     /**
-     * @param array<string, string> $config
+     * @param array{apiUrl: string, accessToken: string} $config
      *
      * @throws InvalidArgumentException
      */
-    private function validateConfig($config)
+    private function validateConfig($config): void
     {
         if (empty($config[self::API_URL])) {
-            $message = \sprintf('%s cannot be empty', self::API_URL);
-
-            throw new InvalidArgumentException($message);
+            throw new InvalidArgumentException(\sprintf('%s cannot be empty', self::API_URL));
         }
 
         if (empty($config[self::ACCESS_TOKEN])) {
-            $message = \sprintf('%s cannot be empty', self::ACCESS_TOKEN);
-
-            throw new InvalidArgumentException($message);
+            throw new InvalidArgumentException(\sprintf('%s cannot be empty', self::ACCESS_TOKEN));
         }
     }
 }

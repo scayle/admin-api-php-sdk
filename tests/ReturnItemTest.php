@@ -1,15 +1,26 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\ReturnItem;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\ReturnItem;
 
 /**
  * @internal
  */
 final class ReturnItemTest extends BaseApiTestCase
 {
-    public function testSend()
+    public function testSend(): void
     {
         $expectedRequestJson = $this->loadFixture('ReturnItemSendRequest.json');
 
@@ -18,6 +29,9 @@ final class ReturnItemTest extends BaseApiTestCase
             $requestEntity[] = new ReturnItem($entity);
         }
 
-        $responseEntity = $this->api->returnItems->send($requestEntity, []);
+        $this->api->returnItems->send($requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 }

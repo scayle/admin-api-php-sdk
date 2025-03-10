@@ -1,124 +1,134 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi\Services;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Exceptions\ApiErrorException;
-use AboutYou\Cloud\AdminApi\Models\EmailKey;
-use AboutYou\Cloud\AdminApi\Models\EmailKeyCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Services;
+
 use Psr\Http\Client\ClientExceptionInterface;
+use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\EmailKey;
+use Scayle\Cloud\AdminApi\Models\EmailKeyCollection;
 
 class EmailKeyService extends AbstractService
 {
     /**
-     * @param string $shopKey
-     * @param string $countryCode
      * @param EmailKey $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return EmailKey
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function create($shopKey, $countryCode, $model, $options = [])
-    {
+    public function create(
+        string $shopKey,
+        string $countryCode,
+        EmailKey $model,
+        array $options = []
+    ): EmailKey {
         return $this->request(
-            'post',
-            $this->resolvePath('/shops/%s/countries/%s/emails/keys', $shopKey, $countryCode),
-            $options,
-            [],
-            EmailKey::class,
-            $model
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/emails/keys', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: EmailKey::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $emailKeyId
      * @param EmailKey $model the model to create or update
-     * @param array $options additional options like limit or filters
-     *
-     * @return EmailKey
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function update($shopKey, $countryCode, $emailKeyId, $model, $options = [])
-    {
+    public function update(
+        string $shopKey,
+        string $countryCode,
+        int $emailKeyId,
+        EmailKey $model,
+        array $options = []
+    ): EmailKey {
         return $this->request(
-            'patch',
-            $this->resolvePath('/shops/%s/countries/%s/emails/keys/%s', $shopKey, $countryCode, $emailKeyId),
-            $options,
-            [],
-            EmailKey::class,
-            $model
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/emails/keys/%s', $shopKey, $countryCode, $emailKeyId),
+            query: $options,
+            headers: [],
+            modelClass: EmailKey::class,
+            body: $model
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $emailKeyId
-     * @param array $options additional options like limit or filters
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function delete($shopKey, $countryCode, $emailKeyId, $options = [])
-    {
+    public function delete(
+        string $shopKey,
+        string $countryCode,
+        int $emailKeyId,
+        array $options = []
+    ): void {
         $this->request(
-            'delete',
-            $this->resolvePath('/shops/%s/countries/%s/emails/keys/%s', $shopKey, $countryCode, $emailKeyId),
-            $options,
-            [],
-            null,
-            null
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/emails/keys/%s', $shopKey, $countryCode, $emailKeyId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param int $emailKeyId
-     * @param array $options additional options like limit or filters
-     *
-     * @return EmailKey
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function get($shopKey, $countryCode, $emailKeyId, $options = [])
-    {
+    public function get(
+        string $shopKey,
+        string $countryCode,
+        int $emailKeyId,
+        array $options = []
+    ): EmailKey {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/emails/keys/%s', $shopKey, $countryCode, $emailKeyId),
-            $options,
-            [],
-            EmailKey::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/emails/keys/%s', $shopKey, $countryCode, $emailKeyId),
+            query: $options,
+            headers: [],
+            modelClass: EmailKey::class,
+            body: null
         );
     }
 
     /**
-     * @param string $shopKey
-     * @param string $countryCode
-     * @param array $options additional options like limit or filters
-     *
-     * @return EmailKeyCollection
+     * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
      * @throws ApiErrorException
      */
-    public function all($shopKey, $countryCode, $options = [])
-    {
+    public function all(
+        string $shopKey,
+        string $countryCode,
+        array $options = []
+    ): EmailKeyCollection {
         return $this->request(
-            'get',
-            $this->resolvePath('/shops/%s/countries/%s/emails/keys', $shopKey, $countryCode),
-            $options,
-            [],
-            EmailKeyCollection::class,
-            null
+            method: 'get',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/emails/keys', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: EmailKeyCollection::class,
+            body: null
         );
     }
 }

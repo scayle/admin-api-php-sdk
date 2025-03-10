@@ -1,18 +1,29 @@
 <?php
 
-namespace AboutYou\Cloud\AdminApi;
+declare(strict_types=1);
 
-use AboutYou\Cloud\AdminApi\Models\AssetSource;
-use AboutYou\Cloud\AdminApi\Models\Attribute;
-use AboutYou\Cloud\AdminApi\Models\Brand;
-use AboutYou\Cloud\AdminApi\Models\BrandCollection;
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi;
+
+use Scayle\Cloud\AdminApi\Models\AssetSource;
+use Scayle\Cloud\AdminApi\Models\Attribute;
+use Scayle\Cloud\AdminApi\Models\Brand;
+use Scayle\Cloud\AdminApi\Models\BrandCollection;
 
 /**
  * @internal
  */
 final class BrandTest extends BaseApiTestCase
 {
-    public function testAll()
+    public function testAll(): void
     {
         $responseEntity = $this->api->brands->all([]);
 
@@ -23,14 +34,16 @@ final class BrandTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
 
+
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Brand::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'logoSource', AssetSource::class);
+
         }
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $responseEntity = $this->api->brands->get(1, []);
 
@@ -40,9 +53,12 @@ final class BrandTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
+
+
+
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $expectedRequestJson = $this->loadFixture('BrandCreateRequest.json');
 
@@ -57,9 +73,12 @@ final class BrandTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
+
+
+
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $expectedRequestJson = $this->loadFixture('BrandUpdateRequest.json');
 
@@ -74,14 +93,20 @@ final class BrandTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
+
+
+
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
-        $responseEntity = $this->api->brands->delete(1, []);
+        $this->api->brands->delete(1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testCreateOrUpdateCustomData()
+    public function testCreateOrUpdateCustomData(): void
     {
         $expectedRequestJson = $this->loadFixture('BrandCreateOrUpdateCustomDataRequest.json');
 
@@ -91,22 +116,31 @@ final class BrandTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('BrandCreateOrUpdateCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomData()
+    public function testDeleteCustomData(): void
     {
-        $responseEntity = $this->api->brands->deleteCustomData(1, []);
+        $this->api->brands->deleteCustomData(1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomData()
+    public function testGetCustomData(): void
     {
         $responseEntity = $this->api->brands->getCustomData(1, []);
 
         $expectedResponseJson = $this->loadFixture('BrandGetCustomDataResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testCreateOrUpdateCustomDataForKey()
+    public function testCreateOrUpdateCustomDataForKey(): void
     {
         $expectedRequestJson = $this->loadFixture('BrandCreateOrUpdateCustomDataForKeyRequest.json');
 
@@ -116,18 +150,27 @@ final class BrandTest extends BaseApiTestCase
 
         $expectedResponseJson = $this->loadFixture('BrandCreateOrUpdateCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 
-    public function testDeleteCustomDataForKey()
+    public function testDeleteCustomDataForKey(): void
     {
-        $responseEntity = $this->api->brands->deleteCustomDataForKey(1, 'acme', []);
+        $this->api->brands->deleteCustomDataForKey(1, 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
-    public function testGetCustomDataForKey()
+    public function testGetCustomDataForKey(): void
     {
         $responseEntity = $this->api->brands->getCustomDataForKey(1, 'acme', []);
 
         $expectedResponseJson = $this->loadFixture('BrandGetCustomDataForKeyResponse.json');
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
     }
 }

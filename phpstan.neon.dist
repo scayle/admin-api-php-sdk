@@ -1,5 +1,13 @@
 parameters:
-    level: 4
+    level: 6
     paths:
         - lib
         - tests
+
+    ignoreErrors:
+        - # needs to be fixed
+            identifier: missingType.iterableValue
+            path: lib/Models/ErrorResponse.php
+        - # needs to be fixed
+            identifier: missingType.iterableValue
+            path: lib/Models/CustomDataConfigProperty.php
