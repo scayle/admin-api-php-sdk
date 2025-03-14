@@ -226,4 +226,28 @@ class OrderService extends AbstractService
             body: null
         );
     }
+
+    /**
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createOrUpdateLegacyCustomData(
+        string $shopKey,
+        string $countryCode,
+        Identifier $orderIdentifier,
+        array $model,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/legacy-custom-data', $shopKey, $countryCode, $orderIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
 }

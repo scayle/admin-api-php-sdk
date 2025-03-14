@@ -264,4 +264,16 @@ final class OrderTest extends BaseApiTestCase
 
 
     }
+
+    public function testCreateOrUpdateLegacyCustomData(): void
+    {
+        $expectedRequestJson = $this->loadFixture('OrderCreateOrUpdateLegacyCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $this->api->orders->createOrUpdateLegacyCustomData('acme', 'acme', Identifier::fromId(1), $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
 }
