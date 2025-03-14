@@ -25,6 +25,7 @@ abstract class AbstractApi
     public const API_URL = 'apiUrl';
     public const ACCESS_TOKEN = 'accessToken';
     public const AUTH_HEADER_NAME = 'X-Access-Token';
+    public const SDK_VERSION = 'X-SDK-Version';
 
     private ClientInterface $httpClient;
 
@@ -76,6 +77,7 @@ abstract class AbstractApi
     private function makeHeaders(array $headers, bool $withContentType)
     {
         $headers[self::AUTH_HEADER_NAME] = $this->getAccessToken();
+        $headers[self::SDK_VERSION] = 'SDK_VERSION_PLACEHOLDER';
         $headers['Accept'] = 'application/json, */*';
 
         if ($withContentType) {
