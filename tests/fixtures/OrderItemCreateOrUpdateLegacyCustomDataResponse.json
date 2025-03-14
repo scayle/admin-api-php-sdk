@@ -1,0 +1,52 @@
+{
+    "deliveryForecast": {
+        "subsequentDelivery": {
+            "key": "christmas"
+        }
+    },
+    "legacyCustomData": {
+        "key": "value"
+    },
+    "packageId": 1,
+    "price": {
+        "appliedReductions": [
+            {
+                "amount": {
+                    "absoluteWithTax": 100,
+                    "relative": 0.5
+                },
+                "category": "sale",
+                "type": "relative"
+            }
+        ],
+        "tax": {
+            "vat": {
+                "amount": 190,
+                "rate": 0.19
+            }
+        },
+        "reference": {
+            "withTax": 595,
+            "size": "100",
+            "unit": "ml"
+        },
+        "withTax": 1190,
+        "withoutTax": 11
+    },
+    "product": {
+        "id": 4564545
+    },
+    "key": "test",
+    "reservationKey": "6nq69bzzkd5xufxliwg8",
+    "status": "available",
+    "variant": {
+        "id": 1234567,
+        "referenceKey": "563843898",
+        "stock": {
+            "supplierId": 1
+        }
+    },
+    "warehouseId": 12345,
+    "createdAt": "2018-01-20T09:30:15+00:00",
+    "updatedAt": "2018-01-20T09:30:15+00:00"
+}

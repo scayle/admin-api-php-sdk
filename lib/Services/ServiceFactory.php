@@ -42,6 +42,7 @@ class ServiceFactory extends AbstractServiceFactory
         'customDataConfigs' => CustomDataConfigService::class,
         'customers' => CustomerService::class,
         'orders' => OrderService::class,
+        'orderItems' => OrderItemService::class,
         'shipments' => ShipmentService::class,
         'webhookEvents' => WebhookEventService::class,
         'webhookSubscriptions' => WebhookSubscriptionService::class,
