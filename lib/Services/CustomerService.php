@@ -122,6 +122,28 @@ class CustomerService extends AbstractService
     }
 
     /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function delete(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
      * @param CustomerReferenceKey $model the model to create or update
      * @param array<string, mixed> $options additional options like limit or filters
      *
@@ -184,6 +206,28 @@ class CustomerService extends AbstractService
         $this->request(
             method: 'delete',
             relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/anonymize', $shopKey, $countryCode, $customerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function cancelQueuedDeletion(
+        string $shopKey,
+        string $countryCode,
+        Identifier $customerIdentifier,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/customers/%s/queued-deletion', $shopKey, $countryCode, $customerIdentifier),
             query: $options,
             headers: [],
             modelClass: null,
