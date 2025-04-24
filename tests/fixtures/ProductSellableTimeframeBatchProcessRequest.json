@@ -1,0 +1,23 @@
+[
+    {
+        "productId": 1,
+        "shopKey": "ay",
+        "countryCode": "de",
+        "sellableFrom": "2022-01-20T00:00:00+02:00",
+        "sellableTo": "2022-02-20T00:00:00+02:00"
+    },
+    {
+        "productId": 1,
+        "shopKey": "ay",
+        "countryCode": "at",
+        "sellableFrom": "2022-01-20T00:00:00+02:00",
+        "sellableTo": "2022-02-20T00:00:00+02:00"
+    },
+    {
+        "productId": 1,
+        "shopKey": "ay",
+        "countryCode": "ch",
+        "sellableFrom": "2022-01-20T00:00:00+02:00",
+        "sellableTo": "2022-02-20T00:00:00+02:00"
+    }
+]

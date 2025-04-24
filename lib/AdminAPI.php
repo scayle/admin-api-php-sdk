@@ -36,6 +36,7 @@ use Scayle\Cloud\AdminApi\Services\OrderItemService;
 use Scayle\Cloud\AdminApi\Services\OrderService;
 use Scayle\Cloud\AdminApi\Services\PackageGroupService;
 use Scayle\Cloud\AdminApi\Services\ProductImageService;
+use Scayle\Cloud\AdminApi\Services\ProductSellableTimeframeService;
 use Scayle\Cloud\AdminApi\Services\ProductService;
 use Scayle\Cloud\AdminApi\Services\ProductsFirstLiveAtService;
 use Scayle\Cloud\AdminApi\Services\ProductSortingService;
@@ -116,6 +117,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property BulkRequestService $bulkRequests
  * @property BulkRequestStatusService $bulkRequestStatuses
  * @property BulkOperationStatusService $bulkOperationStatuses
+ * @property ProductSellableTimeframeService $productSellableTimeframes
  */
 class AdminAPI extends AbstractApi
 {
