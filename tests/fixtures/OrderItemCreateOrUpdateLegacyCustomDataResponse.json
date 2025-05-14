@@ -5,7 +5,13 @@
         }
     },
     "legacyCustomData": {
-        "key": "value"
+        "propA": 1,
+        "propB": true,
+        "propC": "test23",
+        "propD": {
+            "propD1": "45"
+        },
+        "propE": null
     },
     "packageId": 1,
     "price": {

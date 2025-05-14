@@ -116,6 +116,14 @@ final class CustomerTest extends BaseApiTestCase
 
     }
 
+    public function testDelete(): void
+    {
+        $this->api->customers->delete('acme', 'acme', Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
     public function testUpdateReferenceKey(): void
     {
         $expectedRequestJson = $this->loadFixture('CustomerUpdateReferenceKeyRequest.json');
@@ -160,6 +168,14 @@ final class CustomerTest extends BaseApiTestCase
     public function testAnonymize(): void
     {
         $this->api->customers->anonymize('acme', 'acme', Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testCancelQueuedDeletion(): void
+    {
+        $this->api->customers->cancelQueuedDeletion('acme', 'acme', Identifier::fromId(1), []);
 
         // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertTrue(true, 'Reached end of test');

@@ -1,0 +1,93 @@
+{
+    "masterCategories": {
+        "include": {
+            "add": [
+                [
+                    "root",
+                    "leaf"
+                ]
+            ],
+            "remove": [
+                [
+                    "root2",
+                    "leaf"
+                ]
+            ]
+        },
+        "exclude": {
+            "add": [
+                [
+                    "root",
+                    "leaf"
+                ]
+            ],
+            "remove": [
+                [
+                    "root2",
+                    "leaf"
+                ]
+            ]
+        }
+    },
+    "products": {
+        "include": {
+            "add": [
+                1,
+                2
+            ],
+            "remove": [
+                3
+            ]
+        },
+        "exclude": {
+            "add": [
+                4,
+                5
+            ],
+            "remove": [
+                6
+            ]
+        }
+    },
+    "attributes": [
+        {
+            "name": "color",
+            "include": {
+                "add": [
+                    "red"
+                ],
+                "remove": [
+                    "blue"
+                ]
+            },
+            "exclude": {
+                "add": [
+                    "yellow"
+                ],
+                "remove": [
+                    "green"
+                ]
+            }
+        }
+    ],
+    "merchantReferenceKeys": {
+        "include": {
+            "add": [
+                "merchant-1",
+                "merchant-2"
+            ],
+            "remove": [
+                "merchant-3"
+            ]
+        },
+        "exclude": {
+            "add": [
+                "merchant-4",
+                "merchant-5"
+            ],
+            "remove": [
+                "merchant-6"
+            ]
+        }
+    }
+}
