@@ -1,5 +1,9 @@
 {
-    "subsequentDelivery": {
-        "key": "christmas"
-    }
+    "propA": 1,
+    "propB": true,
+    "propC": "test23",
+    "propD": {
+        "propD1": "45"
+    },
+    "propE": null
 }

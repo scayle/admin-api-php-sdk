@@ -23,6 +23,7 @@ use Scayle\Cloud\AdminApi\Models\Product;
 use Scayle\Cloud\AdminApi\Models\ProductCollection;
 use Scayle\Cloud\AdminApi\Models\ProductImage;
 use Scayle\Cloud\AdminApi\Models\ProductMasterCategories;
+use Scayle\Cloud\AdminApi\Models\ProductSellableTimeframe;
 use Scayle\Cloud\AdminApi\Models\ProductSorting;
 use Scayle\Cloud\AdminApi\Models\ProductState;
 use Scayle\Cloud\AdminApi\Models\ProductVariant;
@@ -50,6 +51,7 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
 
 
@@ -68,6 +70,7 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
 
 
@@ -86,6 +89,7 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
@@ -95,6 +99,7 @@ final class ProductTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', ProductImage::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSortings', ProductSorting::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
         }
     }
@@ -117,6 +122,7 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
 
 
@@ -186,6 +192,7 @@ final class ProductTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', ProductImage::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSortings', ProductSorting::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
         }
     }
@@ -294,6 +301,7 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
 
 
@@ -317,6 +325,7 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
 
 
 

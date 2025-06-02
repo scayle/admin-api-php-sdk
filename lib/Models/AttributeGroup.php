@@ -21,6 +21,8 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $type An attribute group type.
  * @property bool $isShared Specifies whether an attribute value is shared among multiple entities or if each entity has its own unique value.
  * It's important to note that attributes of advanced types cannot be shared, so 'isShared' must always be set to false in such cases.
+ * @property string $simpleValueType Value type. It can only be set for non-shared simple attribute groups and defaults to 'text' if not specified.
+ * @property array<mixed>|array<mixed> $simpleValueTypeConfig
  * @property string $level Defines the attribute group level, specifying the type of entity it is applicable to.
  * @property array<mixed> $structure A structure, which describes advanced attribute values.
  * Mandatory for the advanced type.
