@@ -16,6 +16,8 @@ namespace Scayle\Cloud\AdminApi\Models;
 /**
  * @property string $type Depicts if the discount should be % of item cost or absolute amount that can be reduced from the item cost.
  * @property float $value Integer value that depicts relative (percentage) or absolute amount - currency is considered from the shop settings.
+ * @property string $discountDistribution - **none**: Applies the promotion reduction only to unit items specified in `promotionGroups.*.applicableUnitItemIds`. Items in `promotionGroups.*.eligibleUnitItemIds` receive a reduction of 0.
+ * - **pro_rata**: Distributes the promotion reduction proportionally among all `promotionGroups` and unit items within them.
  */
 class PromotionEffectAutomaticDiscount extends ApiObject
 {
