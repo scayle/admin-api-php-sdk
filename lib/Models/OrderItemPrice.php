@@ -15,6 +15,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property OrderReduction[] $appliedReductions
+ * @property OrderItemAbsoluteVoucherReducedPrice $absoluteVoucherReducedPrice
  * @property OrderItemPriceReference $reference
  * @property OrderTax $tax
  * @property int $withTax
@@ -34,6 +35,7 @@ class OrderItemPrice extends ApiObject
     protected array $classMap = [
         'tax' => OrderTax::class,
         'reference' => OrderItemPriceReference::class,
+        'absoluteVoucherReducedPrice' => OrderItemAbsoluteVoucherReducedPrice::class,
     ];
 
     /** @var array<string, string> */
