@@ -20,6 +20,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property OrderPackageDeliveryDate $deliveryDate
  * @property string $deliveryStatus
  * @property OrderPackageTracking $tracking
+ * @property string $returnIdentCode
  */
 class OrderPackage extends ApiObject
 {

@@ -250,4 +250,26 @@ class OrderService extends AbstractService
             body: $model
         );
     }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function triggerManualCapture(
+        string $shopKey,
+        string $countryCode,
+        Identifier $orderIdentifier,
+        array $options = []
+    ): Order {
+        return $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/payment/manual-capture', $shopKey, $countryCode, $orderIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Order::class,
+            body: null
+        );
+    }
 }

@@ -6,5 +6,6 @@
         "de_DE",
         "en_GB"
     ],
-    "url": "https:\/\/www.shop.de"
+    "url": "https:\/\/www.shop.de",
+    "smartSortingKey": "scayle:v1:inventory-optimization"
 }

@@ -1,0 +1,14 @@
+{
+    "url": "https:\/\/foo:bar@foobar.tld\/notify\/v2",
+    "filters": [
+        {
+            "merchantReferenceKeys": {
+                "include": {
+                    "add": [
+                        "merchant-3"
+                    ]
+                }
+            }
+        }
+    ]
+}

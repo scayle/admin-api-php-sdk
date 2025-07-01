@@ -25,6 +25,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property ProductImage[] $images A list of product images attached to the product.
  * @property ProductSorting[] $productSortings A list of product sortings.
  * @property mixed $customData
+ * @property ProductSellableTimeframe[] $sellableTimeframes A list of product sellable timeframes.
  * @property bool $isComposite Indicates whether the product is composite.
  * @property string[] $merchantReferenceKeys A list of merchant reference keys the product belongs to.
  */
@@ -46,6 +47,7 @@ class Product extends ApiObject
         'images' => ProductImage::class,
         'attributes' => Attribute::class,
         'productSortings' => ProductSorting::class,
+        'sellableTimeframes' => ProductSellableTimeframe::class,
     ];
 
     /**

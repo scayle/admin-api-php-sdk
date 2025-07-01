@@ -5,6 +5,8 @@
     "isActive": true,
     "isVisible": true,
     "isExcludedFromSearch": null,
+    "smartSortingKey": "scayle:v1:inventory-optimization",
+    "customSortingKey": "most:sale",
     "properties": [
         {
             "key": "myKey",

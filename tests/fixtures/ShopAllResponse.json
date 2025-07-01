@@ -90,7 +90,8 @@
                         "color": "white"
                     }
                 }
-            }
+            },
+            "smartSortingKey": "scayle:v1:inventory-optimization"
         }
     ],
     "cursor": {
