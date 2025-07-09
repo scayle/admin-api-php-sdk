@@ -193,5 +193,19 @@
     "merchantReferenceKeys": [
         "merchant-1",
         "merchant-2"
+    ],
+    "sellableTimeframes": [
+        {
+            "shopKey": "ay",
+            "countryCode": "DE",
+            "sellableFrom": "2022-01-20T00:00:00+00:00",
+            "sellableTo": "2022-02-20T00:00:00+00:00"
+        },
+        {
+            "shopKey": "ay",
+            "countryCode": "AT",
+            "sellableFrom": "2022-01-20T00:00:00+00:00",
+            "sellableTo": "2022-02-20T00:00:00+00:00"
+        }
     ]
 }

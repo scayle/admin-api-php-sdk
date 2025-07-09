@@ -26,6 +26,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property int $companyId The ID of the company the shop is assigned to.
  * @property ShopCountry[] $countries The countries assigned to the shop. Can be set only on creation.
  * @property mixed $customData Arbitrary fields assigned to Shop
+ * @property mixed $smartSortingKey
  */
 class Shop extends ApiObject
 {

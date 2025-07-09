@@ -1,5 +1,12 @@
 {
+    "id": 4898484,
+    "availableQuantity": 20,
+    "basketItemKey": "563843898-234324",
+    "currency": "EUR",
     "deliveryForecast": {
+        "deliverable": {
+            "key": "directShipping"
+        },
         "subsequentDelivery": {
             "key": "christmas"
         }
@@ -16,25 +23,58 @@
                     "relative": 0.5
                 },
                 "category": "sale",
-                "type": "relative"
+                "type": "relative",
+                "code": "ayou123",
+                "displayName": "Summer Sale"
             }
         ],
+        "absoluteVoucherReducedPrice": {
+            "tax": {
+                "vat": {
+                    "amount": 190,
+                    "rate": 0.19
+                }
+            },
+            "withOutTax": 11,
+            "withTax": 1190
+        },
+        "reference": {
+            "size": "100",
+            "unit": "ml",
+            "withTax": 595
+        },
         "tax": {
             "vat": {
                 "amount": 190,
                 "rate": 0.19
             }
         },
-        "reference": {
-            "withTax": 595,
-            "size": "100",
-            "unit": "ml"
-        },
         "withTax": 1190,
-        "withoutTax": 11
+        "withoutTax": 11,
+        "overrideWithoutTax": 1000,
+        "overrideWithTax": 1190,
+        "undiscountedWithOutTax": 1000,
+        "undiscountedWithTax": 1190
+    },
+    "lowestPriorPrice": {
+        "relativeDifferenceToPrice": -0.25,
+        "withTax": 1000
     },
     "product": {
-        "id": 4564545
+        "id": 4564545,
+        "name": "Chelsea Boots",
+        "images": [
+            {
+                "hash": "9f6c628a98106dcce2bc5a4ac1de9c14"
+            }
+        ]
+    },
+    "promotion": {
+        "id": "649178aa530da10426f3f8d1",
+        "name": "PromoABC",
+        "version": "649178aa530da10426f3f8d2",
+        "displayName": "Winter sales 2024",
+        "code": "PROMO0124"
     },
     "key": "test",
     "reservationKey": "6nq69bzzkd5xufxliwg8",
@@ -43,10 +83,19 @@
         "id": 1234567,
         "referenceKey": "563843898",
         "stock": {
-            "supplierId": 1
+            "supplierId": 271
         }
     },
-    "warehouseId": 12345,
+    "warehouseId": 1,
+    "itemGroup": {
+        "id": "ab123",
+        "isMainItem": true,
+        "isRequired": true
+    },
+    "campaignKey": "fooCampaign",
+    "merchant": {
+        "referenceKey": "default"
+    },
     "createdAt": "2018-01-20T09:30:15+00:00",
     "updatedAt": "2018-01-20T09:30:15+00:00"
 }

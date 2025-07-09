@@ -16,6 +16,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 /**
  * @property int $id
  * @property int $availableQuantity
+ * @property string $basketItemKey
  * @property string $currency The three character [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency code that identifies the currency. The currency is defined on the configuration of the shop, and can be modified in the cloud panel.
  * @property OrderItemDeliveryForecast $deliveryForecast
  * @property mixed $legacyCustomData Custom data added to the order item (legacy feature)
@@ -23,7 +24,8 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property OrderItemPrice $price
  * @property OrderItemLowestPriorPrice $lowestPriorPrice
  * @property OrderItemProduct $product
- * @property OrderItemPromotion $promotion
+ * @property OrderItemPromotion $promotion Order item promotion; will be soon deprecated.
+ * @property OrderItemPromotion[] $promotions Order item promotions
  * @property string $key
  * @property string $reservationKey
  * @property string $status Possible values: available, unavailable, deliverable, undeliverable, cancelled, returned.

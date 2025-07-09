@@ -27,6 +27,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property Assortment $assortment Rules that defines what products can be sold within which Shop country
  * @property ShopCountryWarehouse[] $warehouses A list of warehouses attached to the shop country.
  * @property ShopCountryPriceRounding[] $priceRoundings List of price rounding configurations.
+ * @property mixed $smartSortingKey
  * @property mixed $customData Arbitrary fields assigned to Shop countries
  */
 class ShopCountry extends ApiObject

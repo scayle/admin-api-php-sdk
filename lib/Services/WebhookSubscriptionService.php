@@ -17,6 +17,7 @@ use Psr\Http\Client\ClientExceptionInterface;
 use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
 use Scayle\Cloud\AdminApi\Models\WebhookSubscription;
 use Scayle\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
+use Scayle\Cloud\AdminApi\Models\WebhookSubscriptionPatch;
 
 class WebhookSubscriptionService extends AbstractService
 {
@@ -34,6 +35,28 @@ class WebhookSubscriptionService extends AbstractService
         return $this->request(
             method: 'post',
             relativeUrl: $this->resolvePath('/webhooks/subscriptions'),
+            query: $options,
+            headers: [],
+            modelClass: WebhookSubscription::class,
+            body: $model
+        );
+    }
+
+    /**
+     * @param WebhookSubscriptionPatch $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function update(
+        int $subscriptionId,
+        WebhookSubscriptionPatch $model,
+        array $options = []
+    ): WebhookSubscription {
+        return $this->request(
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/webhooks/subscriptions/%s', $subscriptionId),
             query: $options,
             headers: [],
             modelClass: WebhookSubscription::class,
