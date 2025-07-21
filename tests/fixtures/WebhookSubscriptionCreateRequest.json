@@ -1,5 +1,15 @@
 {
     "event": "customer-created",
     "version": 1,
-    "url": "https:\/\/foo:bar@foobar.tld\/notifiy"
+    "url": "https:\/\/foo:bar@foobar.tld\/notifiy",
+    "filters": [
+        {
+            "merchantReferenceKeys": {
+                "include": [
+                    "merchant-1",
+                    "merchant-2"
+                ]
+            }
+        }
+    ]
 }

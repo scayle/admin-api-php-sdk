@@ -42,6 +42,28 @@ class AttributeTranslationService extends AbstractService
     }
 
     /**
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function partialUpdateOrCreate(
+        string $attributeGroupName,
+        array $model,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/attributes/%s/translations', $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
+
+    /**
      * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface

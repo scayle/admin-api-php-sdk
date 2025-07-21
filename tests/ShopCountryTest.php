@@ -17,6 +17,7 @@ use Scayle\Cloud\AdminApi\Models\Assortment;
 use Scayle\Cloud\AdminApi\Models\AttributeAssortmentConfiguration;
 use Scayle\Cloud\AdminApi\Models\MasterCategoryAssortmentConfiguration;
 use Scayle\Cloud\AdminApi\Models\MerchantAssortmentConfiguration;
+use Scayle\Cloud\AdminApi\Models\PartialAssortment;
 use Scayle\Cloud\AdminApi\Models\ProductAssortmentConfiguration;
 use Scayle\Cloud\AdminApi\Models\ShopCountry;
 use Scayle\Cloud\AdminApi\Models\ShopCountryCollection;
@@ -112,6 +113,28 @@ final class ShopCountryTest extends BaseApiTestCase
         $responseEntity = $this->api->shopCountries->updateAssortment('acme', 'acme', $requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('ShopCountryUpdateAssortmentResponse.json');
+        self::assertInstanceOf(Assortment::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'masterCategories', MasterCategoryAssortmentConfiguration::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'products', ProductAssortmentConfiguration::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', AttributeAssortmentConfiguration::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'merchantReferenceKeys', MerchantAssortmentConfiguration::class);
+
+
+
+    }
+
+    public function testPartiallyUpdateAssortment(): void
+    {
+        $expectedRequestJson = $this->loadFixture('ShopCountryPartiallyUpdateAssortmentRequest.json');
+
+        $requestEntity = new PartialAssortment($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->shopCountries->partiallyUpdateAssortment('acme', 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ShopCountryPartiallyUpdateAssortmentResponse.json');
         self::assertInstanceOf(Assortment::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 

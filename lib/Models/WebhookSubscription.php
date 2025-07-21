@@ -18,6 +18,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $event Name of the hook event.
  * @property int $version The version of the hook.
  * @property string $url The URL that will be called whenever the hook is triggered. Sensitive data will be obfuscated in responses.
+ * @property WebhookSubscriptionFilter[] $filters
  */
 class WebhookSubscription extends ApiObject
 {

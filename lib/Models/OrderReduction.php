@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
+ * @property string $id Reduction identifier
  * @property OrderReductionAmount $amount
  * @property string $category
  * @property string $type

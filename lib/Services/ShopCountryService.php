@@ -16,6 +16,7 @@ namespace Scayle\Cloud\AdminApi\Services;
 use Psr\Http\Client\ClientExceptionInterface;
 use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
 use Scayle\Cloud\AdminApi\Models\Assortment;
+use Scayle\Cloud\AdminApi\Models\PartialAssortment;
 use Scayle\Cloud\AdminApi\Models\ShopCountry;
 use Scayle\Cloud\AdminApi\Models\ShopCountryCollection;
 
@@ -122,6 +123,29 @@ class ShopCountryService extends AbstractService
     ): Assortment {
         return $this->request(
             method: 'put',
+            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/assortment', $shopKey, $countryCode),
+            query: $options,
+            headers: [],
+            modelClass: Assortment::class,
+            body: $model
+        );
+    }
+
+    /**
+     * @param PartialAssortment $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function partiallyUpdateAssortment(
+        string $shopKey,
+        string $countryCode,
+        PartialAssortment $model,
+        array $options = []
+    ): Assortment {
+        return $this->request(
+            method: 'patch',
             relativeUrl: $this->resolvePath('/shops/%s/countries/%s/assortment', $shopKey, $countryCode),
             query: $options,
             headers: [],

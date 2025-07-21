@@ -19,6 +19,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $description Explaination for the hook.
  * @property bool $isDeprecated The webhook event is deprecated and is not allowed for new subscriptions.
  * @property bool $isBlocking Indicates whether the event triggers a blocking or non-blocking webhook.
+ * @property WebhookEventSupportedFilters $supportedFilters
  */
 class WebhookEvent extends ApiObject
 {

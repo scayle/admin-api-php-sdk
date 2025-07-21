@@ -15,6 +15,7 @@ namespace Scayle\Cloud\AdminApi;
 
 use Scayle\Cloud\AdminApi\Models\WebhookSubscription;
 use Scayle\Cloud\AdminApi\Models\WebhookSubscriptionCollection;
+use Scayle\Cloud\AdminApi\Models\WebhookSubscriptionPatch;
 
 /**
  * @internal
@@ -31,6 +32,24 @@ final class WebhookSubscriptionTest extends BaseApiTestCase
         $responseEntity = $this->api->webhookSubscriptions->create($requestEntity, []);
 
         $expectedResponseJson = $this->loadFixture('WebhookSubscriptionCreateResponse.json');
+        self::assertInstanceOf(WebhookSubscription::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
+    }
+
+    public function testUpdate(): void
+    {
+        $expectedRequestJson = $this->loadFixture('WebhookSubscriptionUpdateRequest.json');
+
+        $requestEntity = new WebhookSubscriptionPatch($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->webhookSubscriptions->update(1, $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('WebhookSubscriptionUpdateResponse.json');
         self::assertInstanceOf(WebhookSubscription::class, $responseEntity);
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 

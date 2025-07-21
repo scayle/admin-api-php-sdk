@@ -31,6 +31,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property Company $company Company to which the customer belongs to
  * @property CustomerAddress[] $addresses Customers address (es)
  * @property mixed $legacyCustomData Custom data added to the customers (legacy feature)
+ * @property bool $hasPassword Defines if the customer has a password set.
  * @property string $createdAt Timestamp when the customer is created
  * @property string $updatedAt Timestamp when the customer is updated
  */

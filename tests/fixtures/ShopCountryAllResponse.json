@@ -13,6 +13,7 @@
             "url": "https:\/\/www.shop.de",
             "active": true,
             "deleted": false,
+            "smartSortingKey": "scayle:v1:inventory-optimization",
             "assortment": {
                 "masterCategories": {
                     "include": [
