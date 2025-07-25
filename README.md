@@ -34,10 +34,6 @@ Install the library via [Composer](https://getcomposer.org/):
 composer require scayle/admin-api
 ```
 
-> Using the specific versions (tags) is preferable.
->
-> The changes in the master branch are in development and might not be released yet in the API, which can lead to the errors.
-
 ## What is SCAYLE ?
 
 [SCAYLE](https://scayle.com) is a full-featured e-commerce software solution that comes with flexible APIs. Within SCAYLE, you can manage all aspects of your shop, such as products, stocks, customers, and transactions.

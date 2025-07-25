@@ -197,4 +197,26 @@ class ProductImageService extends AbstractService
             body: null
         );
     }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function unlockAttributeGroup(
+        Identifier $productIdentifier,
+        Identifier $imageIdentifier,
+        string $attributeGroupName,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/%s/images/%s/attributes/%s/unlock', $productIdentifier, $imageIdentifier, $attributeGroupName),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
 }

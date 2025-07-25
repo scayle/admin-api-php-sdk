@@ -14,12 +14,9 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem.
- * @property string $countryCode ISO 3166 alpha 2 country code.
- * @property mixed $value The attribute value where the datatype is defined by the type property.
- * @property bool $isLocked Specifies if the attribute group should be locked for the shopCountry.
+ * @property ShopCountryToUnlock[] $shopCountries
  */
-class AttributeShopCountrySpecific extends ApiObject
+class ShopCountriesToUnlock extends ApiObject
 {
     /** @var array<string, string> */
     protected array $defaultValues = [
@@ -31,6 +28,7 @@ class AttributeShopCountrySpecific extends ApiObject
 
     /** @var array<string, string> */
     protected array $collectionClassMap = [
+        'shopCountries' => ShopCountryToUnlock::class,
     ];
 
     /**
