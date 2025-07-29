@@ -21,7 +21,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
  * @property string $birthDate Date of birth of the customer in YYYY-MM-DD format
  * @property string $email email address of the customer
- * @property string $phone phone number of the customer
+ * @property string|string $phone
  * @property string $publicKey Public reference set by the client to display to customers in account areas and transactional emails.
  * @property string $title User defined title. It can be set to NULL otherwise
  * @property string $type Type of customer (like personal)

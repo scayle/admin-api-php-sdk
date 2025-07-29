@@ -14,22 +14,10 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property string $additional
- * @property string $city
- * @property string $countryCode
- * @property string $firstName
- * @property bool $forwardToCollectionPoint
- * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
- * @property string $houseNumber
- * @property string $lastName
- * @property 1|string $phone
- * @property string $state
- * @property string $street
- * @property string $title
- * @property string $zipCode
- * @property SubscriptionOrderAddressInstanceParcelShop $parcelShop
+ * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem.
+ * @property string $countryCode ISO 3166 alpha 2 country code.
  */
-class SubscriptionOrderAddressInstance extends ApiObject
+class ShopCountryToUnlock extends ApiObject
 {
     /** @var array<string, string> */
     protected array $defaultValues = [
@@ -37,7 +25,6 @@ class SubscriptionOrderAddressInstance extends ApiObject
 
     /** @var array<string, string> */
     protected array $classMap = [
-        'parcelShop' => SubscriptionOrderAddressInstanceParcelShop::class,
     ];
 
     /** @var array<string, string> */
