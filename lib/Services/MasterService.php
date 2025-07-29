@@ -127,25 +127,4 @@ class MasterService extends AbstractService
             body: null
         );
     }
-
-    /**
-     * @param array<string, mixed> $options additional options like limit or filters
-     *
-     * @throws ClientExceptionInterface
-     * @throws ApiErrorException
-     */
-    public function unlockAttributeGroup(
-        Identifier $productMasterIdentifier,
-        string $attributeGroupName,
-        array $options = []
-    ): void {
-        $this->request(
-            method: 'post',
-            relativeUrl: $this->resolvePath('/product-masters/%s/attributes/%s/unlock', $productMasterIdentifier, $attributeGroupName),
-            query: $options,
-            headers: [],
-            modelClass: null,
-            body: null
-        );
-    }
 }

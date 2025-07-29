@@ -25,7 +25,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property CustomerAddressCollectionPoint $collectionPoint Details of the point where the parcel is received (if used)
  * @property CustomerAddressDefault $isDefault Defines whether the address is the default billing and shipping address
  * @property CustomerAddressRecipient $recipient Recipient personal details
- * @property 1|string $phone
+ * @property string $phone
  * @property string $state
  * @property string $type Defines the type of the address.
  * @property ShopCountry $shopCountry

@@ -18,6 +18,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $countryCode ISO 3166 alpha 2 country code; use shop country ID instead of country code when a country is ambiguous within a shop
  * @property CancellationItem[] $items Collection of items requested for cancellation
  * @property int $orderId Unique identity of the order for which the cancellation was requested
+ * @property string $merchantReferenceKey Reference key of the merchant to which the cancellation belongs to.
  */
 class Cancellation extends ApiObject
 {

@@ -7,7 +7,6 @@
     "city": "Hamburg",
     "countryCode": "DEU",
     "state": "Hamburg",
-    "phone": "+49123456789",
     "collectionPoint": {
         "customerKey": "bced-234-234",
         "description": "Kiosk",

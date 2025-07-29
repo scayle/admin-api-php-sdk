@@ -97,12 +97,4 @@ final class MasterTest extends BaseApiTestCase
         // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertTrue(true, 'Reached end of test');
     }
-
-    public function testUnlockAttributeGroup(): void
-    {
-        $this->api->masters->unlockAttributeGroup(Identifier::fromId(1), 'acme', []);
-
-        // @phpstan-ignore staticMethod.alreadyNarrowedType
-        self::assertTrue(true, 'Reached end of test');
-    }
 }

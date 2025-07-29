@@ -17,6 +17,8 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $received Timestamp when the product return is received
  * @property string $returnKey A key that is assigned to uniquely identify a return request
  * @property string $returnReason Description of why the return is initiated
+ * @property string $merchantReferenceKey Reference key of the merchant to which the return belongs to.
+ * Please note that all items in the request should belong to same merchant.
  */
 class ReturnItem extends ApiObject
 {

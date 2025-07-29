@@ -22,7 +22,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $gender Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
  * @property string $houseNumber
  * @property string $lastName
- * @property 1|string $phone
+ * @property string $phone
  * @property string $state
  * @property string $street
  * @property string $title

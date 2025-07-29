@@ -22,6 +22,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property int $orderId Unique identity of the order the shipment was part of
  * @property string $returnIdentCode Unique ID generated for product return (in case the customer prefers to return the product in later point of time)
  * @property string $shipmentKey A key that is assigned to uniquely identify a Shipment
+ * @property string $merchantReferenceKey Reference key of the merchant to which the shipment belongs to.
  */
 class Shipment extends ApiObject
 {

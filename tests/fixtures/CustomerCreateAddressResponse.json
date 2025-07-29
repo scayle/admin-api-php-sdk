@@ -7,7 +7,6 @@
     "zipCode": "123456",
     "city": "Hamburg",
     "countryCode": "DEU",
-    "phone": "+49123456789",
     "collectionPoint": {
         "customerKey": "bced-234-234",
         "description": "Kiosk",

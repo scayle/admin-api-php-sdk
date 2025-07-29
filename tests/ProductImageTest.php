@@ -150,12 +150,4 @@ final class ProductImageTest extends BaseApiTestCase
 
         }
     }
-
-    public function testUnlockAttributeGroup(): void
-    {
-        $this->api->productImages->unlockAttributeGroup(Identifier::fromId(1), Identifier::fromId(1), 'acme', []);
-
-        // @phpstan-ignore staticMethod.alreadyNarrowedType
-        self::assertTrue(true, 'Reached end of test');
-    }
 }
