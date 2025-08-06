@@ -82,4 +82,25 @@ class AttributeTranslationService extends AbstractService
             body: null
         );
     }
+
+    /**
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function updateOrCreateAdvanced(
+        array $model,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/attributes/translations'),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
 }

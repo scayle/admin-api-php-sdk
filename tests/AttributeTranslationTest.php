@@ -55,4 +55,16 @@ final class AttributeTranslationTest extends BaseApiTestCase
 
 
     }
+
+    public function testUpdateOrCreateAdvanced(): void
+    {
+        $expectedRequestJson = $this->loadFixture('AttributeTranslationUpdateOrCreateAdvancedRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $this->api->attributeTranslations->updateOrCreateAdvanced($requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
 }
