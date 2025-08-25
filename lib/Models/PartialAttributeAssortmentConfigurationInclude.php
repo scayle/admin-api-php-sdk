@@ -19,7 +19,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  */
 class PartialAttributeAssortmentConfigurationInclude extends ApiObject
 {
-    /** @var array<string, string> */
+    /** @var array<string, bool|string> */
     protected array $defaultValues = [
     ];
 

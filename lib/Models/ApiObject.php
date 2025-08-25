@@ -18,7 +18,7 @@ abstract class ApiObject implements \JsonSerializable, \Stringable
     /** @var array<string, mixed> */
     protected array $_attributes;
 
-    /** @var array<string, string> */
+    /** @var array<string, bool|string> */
     protected array $defaultValues = [];
 
     /** @var array<string, string> */

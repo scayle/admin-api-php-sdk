@@ -16,12 +16,13 @@ namespace Scayle\Cloud\AdminApi\Models;
 /**
  * @property int $id The ID of the warehouse created by SCAYLE.
  * @property string $referenceKey A key that uniquely identifies the warehouse within the tenant's ecosystem.
+ * @property bool $isZeosWarehouse This flag should be set to true only when warehouse is a Zeos warehouse. It is not allowed to update this field after creation of the warehouse
  * @property Merchant[] $merchants A list of merchants the warehouse is attached to.
  * @property WarehouseShopCountry[] $shopCountries Shop country information related to the warehouse.
  */
 class Warehouse extends ApiObject
 {
-    /** @var array<string, string> */
+    /** @var array<string, bool|string> */
     protected array $defaultValues = [
     ];
 

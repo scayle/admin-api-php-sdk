@@ -24,7 +24,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  */
 class CustomDataConfigProperty extends ApiObject
 {
-    /** @var array<string, string> */
+    /** @var array<string, bool|string> */
     protected array $defaultValues = [
     ];
 

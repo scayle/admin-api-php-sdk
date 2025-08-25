@@ -18,7 +18,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  */
 class PromotionUsageLimitPromotion extends ApiObject
 {
-    /** @var array<string, string> */
+    /** @var array<string, bool|string> */
     protected array $defaultValues = [
     ];
 
