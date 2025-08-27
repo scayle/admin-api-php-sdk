@@ -14,9 +14,10 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property OrderFeeAmount $amount
- * @property string $category
- * @property string $key
+ * @property OrderFeeAmount $amount If the order has an external price, this field becomes optional.
+ * @property string $category Valid values in case of non-external order: [ payment, delivery, percentage_payment, return, additional]
+ * If the order has an external price, this field becomes optional and can contain any string value defined by the client.
+ * @property string $key If the order has an external price, this field becomes optional and can contain any string value defined by the client.
  * @property string $option
  * @property OrderTax $tax
  */

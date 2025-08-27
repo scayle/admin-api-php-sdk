@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property OrderCostVat $vat
+ * @property OrderVat $vat
  */
-class OrderCostTax extends ApiObject
+class OrderTaxWithMandatoryVat extends ApiObject
 {
     /** @var array<string, bool|string> */
     protected array $defaultValues = [
@@ -24,7 +24,6 @@ class OrderCostTax extends ApiObject
 
     /** @var array<string, string> */
     protected array $classMap = [
-        'vat' => OrderCostVat::class,
     ];
 
     /** @var array<string, string> */

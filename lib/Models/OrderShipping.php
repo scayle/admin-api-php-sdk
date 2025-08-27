@@ -16,8 +16,8 @@ namespace Scayle\Cloud\AdminApi\Models;
 /**
  * @property string $policy
  * @property string $deliveredOn
- * @property int $deliveryCosts
- * @property int $expressDeliveryCosts
+ * @property int $deliveryCosts If the order has an external price, this field will not be included in the response payload.
+ * @property int $expressDeliveryCosts If the order has an external price, this field will not be included in the response payload.
  */
 class OrderShipping extends ApiObject
 {

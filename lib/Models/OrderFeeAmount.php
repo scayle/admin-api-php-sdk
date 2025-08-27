@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property int $withoutTax
- * @property int $withTax
+ * @property int $withoutTax If the order has an external price, this field becomes optional.
+ * @property int $withTax If the order has an external price, this field becomes optional.
  */
 class OrderFeeAmount extends ApiObject
 {

@@ -22,7 +22,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property mixed $legacyCustomData Custom data added to the order item (legacy feature)
  * @property int $packageId
  * @property OrderItemPrice $price
- * @property OrderItemLowestPriorPrice $lowestPriorPrice
+ * @property OrderItemLowestPriorPrice $lowestPriorPrice If the order has an external price, this field will not be included in the response payload.
  * @property OrderItemProduct $product
  * @property OrderItemPromotion $promotion Order item promotion; will be soon deprecated.
  * @property OrderItemPromotion[] $promotions Order item promotions

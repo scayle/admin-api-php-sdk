@@ -14,16 +14,18 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property OrderReduction[] $appliedReductions
- * @property OrderItemAbsoluteVoucherReducedPrice $absoluteVoucherReducedPrice
- * @property OrderItemPriceReference $reference
+ * @property OrderReduction[] $appliedReductions If the order has an external price, this field will not be included in the response payload.
+ * @property OrderItemAbsoluteVoucherReducedPrice $absoluteVoucherReducedPrice If the order has an external price, this field will not be included in the response payload.
+ * @property OrderItemPriceReference $reference If the order has an external price, this field will not be included in the response payload.
  * @property OrderTax $tax
  * @property int $withTax
- * @property int $withoutTax
- * @property int $overrideWithoutTax
- * @property int $overrideWithTax
- * @property int $undiscountedWithOutTax Undiscounted item price **excluding** taxes
- * @property int $undiscountedWithTax Undiscounted item price **including** taxes
+ * @property int $withoutTax If the order has an external price, this field becomes optional.
+ * @property int $overrideWithoutTax If the order has an external price, this field will not be included in the response payload.
+ * @property int $overrideWithTax If the order has an external price, this field will not be included in the response payload.
+ * @property int $undiscountedWithOutTax Un-discounted item price **excluding** taxes
+ * If the order has an external price, this field will not be included in the response payload.
+ * @property int $undiscountedWithTax Un-discounted item price **including** taxes
+ * If the order has an external price, this field will not be included in the response payload.
  */
 class OrderItemPrice extends ApiObject
 {

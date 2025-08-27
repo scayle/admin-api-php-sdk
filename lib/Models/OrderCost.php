@@ -15,14 +15,17 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property OrderFee[] $appliedFees
- * @property OrderReduction[] $appliedReductions
- * @property OrderCostTax $tax
+ * @property OrderReduction[] $appliedReductions If the order has an external price, this field will not be included in the response payload.
+ * @property OrderTax $tax
  * @property int $withTax The price is calculated including taxes and all applicable reductions such as discounts for sale and campaigns (should a campaign key be provdided on the request).
  * @property int $withoutTax This price excludes taxes, but also includes all applicable reductions.
+ * If the order has an external price, this field becomes optional.
  * @property int $withTaxWithMembershipDiscountWithoutServiceCosts The price is calculated including taxes and all applicable reductions such as discounts for sale and campaigns (should a campaign key be provdided on the request), and membership discount.
  * @property int $withoutTaxWithMembershipDiscount This price excludes taxes, but also includes all applicable reductions and membership discount.
+ * If the order has an external price, this field will not be included in the response payload.
  * @property int $costCapture The exact cost captured: order total value - giftcard value - total membership discount
  * @property mixed $itemGroups
+ * @property bool $hasExternalPrices Indicates whether the order contains external prices.
  */
 class OrderCost extends ApiObject
 {
@@ -32,7 +35,7 @@ class OrderCost extends ApiObject
 
     /** @var array<string, string> */
     protected array $classMap = [
-        'tax' => OrderCostTax::class,
+        'tax' => OrderTax::class,
     ];
 
     /** @var array<string, string> */
