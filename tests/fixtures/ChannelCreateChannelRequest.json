@@ -1,0 +1,16 @@
+{
+    "key": "online-store-de",
+    "type": "marketplace",
+    "name": "Online Store (Germany)",
+    "description": "Primary sales channel for all German marketplace orders.",
+    "shopCountryId": 5,
+    "active": true,
+    "defaultPaymentMethod": {
+        "id": 22
+    },
+    "configs": {
+        "emailsEnabled": true,
+        "invoicesEnabled": true,
+        "externalPriceOverrideEnabled": false
+    }
+}

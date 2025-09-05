@@ -41,6 +41,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property OrderVoucher[] $vouchers Applicable voucher and its details
  * @property OrderVoucher $voucher Applicable voucher and its details
  * @property OrderLoyaltyCard $loyaltyCard
+ * @property OrderChannel $channel
  */
 class Order extends ApiObject
 {

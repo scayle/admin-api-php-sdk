@@ -303,6 +303,12 @@
                     "isActive": true,
                     "isGuestCustomer": false
                 }
+            },
+            "channel": {
+                "id": 123,
+                "key": "channel-key",
+                "name": "Channel name",
+                "type": "marketplace"
             }
         },
         {

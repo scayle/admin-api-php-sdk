@@ -227,5 +227,11 @@
         "active": true,
         "currencyCode": null,
         "deleted": false
+    },
+    "channel": {
+        "id": 123,
+        "key": "channel-key",
+        "name": "Channel name",
+        "type": "marketplace"
     }
 }

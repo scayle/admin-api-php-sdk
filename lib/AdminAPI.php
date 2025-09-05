@@ -24,6 +24,7 @@ use Scayle\Cloud\AdminApi\Services\BulkRequestStatusService;
 use Scayle\Cloud\AdminApi\Services\CampaignService;
 use Scayle\Cloud\AdminApi\Services\CancellationService;
 use Scayle\Cloud\AdminApi\Services\CarrierService;
+use Scayle\Cloud\AdminApi\Services\ChannelService;
 use Scayle\Cloud\AdminApi\Services\CompanyService;
 use Scayle\Cloud\AdminApi\Services\CustomDataConfigService;
 use Scayle\Cloud\AdminApi\Services\CustomerService;
@@ -118,6 +119,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property BulkRequestStatusService $bulkRequestStatuses
  * @property BulkOperationStatusService $bulkOperationStatuses
  * @property ProductSellableTimeframeService $productSellableTimeframes
+ * @property ChannelService $channels
  */
 class AdminAPI extends AbstractApi
 {

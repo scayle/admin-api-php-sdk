@@ -1,0 +1,32 @@
+{
+    "id": 101,
+    "key": "online-store-de",
+    "type": "marketplace",
+    "name": "Online Store (Germany)",
+    "description": "Primary sales channel for all German marketplace orders.",
+    "shopCountry": {
+        "id": 5502,
+        "shopKey": "msde",
+        "countryCode": "DE",
+        "defaultLanguageCode": "en_GB",
+        "supportedLanguageCodes": [],
+        "priceGroupKey": null,
+        "url": "www.example.com",
+        "active": true,
+        "currencyCode": null,
+        "deleted": false
+    },
+    "active": true,
+    "isUsedInOrders": false,
+    "defaultPaymentMethod": {
+        "id": 22,
+        "key": "credit-card"
+    },
+    "configs": {
+        "emailsEnabled": true,
+        "invoicesEnabled": true,
+        "externalPriceOverrideEnabled": false
+    },
+    "createdAt": "2023-05-10T10:00:00+00:00",
+    "updatedAt": "2023-05-10T10:00:00+00:00"
+}

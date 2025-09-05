@@ -67,5 +67,6 @@ class ServiceFactory extends AbstractServiceFactory
         'bulkRequestStatuses' => BulkRequestStatusService::class,
         'bulkOperationStatuses' => BulkOperationStatusService::class,
         'productSellableTimeframes' => ProductSellableTimeframeService::class,
+        'channels' => ChannelService::class,
     ];
 }
