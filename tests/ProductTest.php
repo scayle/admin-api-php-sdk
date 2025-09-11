@@ -27,6 +27,7 @@ use Scayle\Cloud\AdminApi\Models\ProductSellableTimeframe;
 use Scayle\Cloud\AdminApi\Models\ProductSorting;
 use Scayle\Cloud\AdminApi\Models\ProductState;
 use Scayle\Cloud\AdminApi\Models\ProductVariant;
+use Scayle\Cloud\AdminApi\Models\SimilarProducts;
 
 /**
  * @internal
@@ -355,6 +356,21 @@ final class ProductTest extends BaseApiTestCase
 
 
 
+    }
+
+    public function testPatchSimilarProducts(): void
+    {
+        $expectedRequestJson = $this->loadFixture('ProductPatchSimilarProductsRequest.json');
+
+        $requestEntity = [];
+        foreach ($expectedRequestJson as $entity) {
+            $requestEntity[] = new SimilarProducts($entity);
+        }
+
+        $this->api->products->patchSimilarProducts(Identifier::fromId(1), $requestEntity, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
     }
 
     public function testCreateBulkRequest(): void

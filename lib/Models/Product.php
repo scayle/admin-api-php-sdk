@@ -28,6 +28,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property ProductSellableTimeframe[] $sellableTimeframes A list of product sellable timeframes.
  * @property bool $isComposite Indicates whether the product is composite.
  * @property string[] $merchantReferenceKeys A list of merchant reference keys the product belongs to.
+ * @property SimilarProducts[] $similarProducts A list of similar products.
  */
 class Product extends ApiObject
 {

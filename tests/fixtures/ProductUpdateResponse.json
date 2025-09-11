@@ -207,5 +207,22 @@
             "sellableFrom": "2022-01-20T00:00:00+00:00",
             "sellableTo": "2022-02-20T00:00:00+00:00"
         }
+    ],
+    "similarProducts": [
+        {
+            "shopKey": "ay",
+            "countryCode": "DE",
+            "productIds": [
+                1,
+                2
+            ]
+        },
+        {
+            "shopKey": "ay",
+            "productIds": [
+                1,
+                2
+            ]
+        }
     ]
 }

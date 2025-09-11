@@ -24,6 +24,7 @@ use Scayle\Cloud\AdminApi\Models\Product;
 use Scayle\Cloud\AdminApi\Models\ProductCollection;
 use Scayle\Cloud\AdminApi\Models\ProductMasterCategories;
 use Scayle\Cloud\AdminApi\Models\ProductState;
+use Scayle\Cloud\AdminApi\Models\SimilarProducts;
 
 class ProductService extends AbstractService
 {
@@ -451,6 +452,28 @@ class ProductService extends AbstractService
             query: $options,
             headers: [],
             modelClass: ProductState::class,
+            body: $model
+        );
+    }
+
+    /**
+     * @param SimilarProducts[] $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function patchSimilarProducts(
+        Identifier $productIdentifier,
+        array $model,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'patch',
+            relativeUrl: $this->resolvePath('/products/%s/similar-products', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
             body: $model
         );
     }

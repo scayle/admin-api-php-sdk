@@ -1,0 +1,17 @@
+[
+    {
+        "shopKey": "ay",
+        "productIds": [
+            1,
+            2
+        ]
+    },
+    {
+        "shopKey": "ay",
+        "countryCode": "DE",
+        "productIds": [
+            1,
+            2
+        ]
+    }
+]
