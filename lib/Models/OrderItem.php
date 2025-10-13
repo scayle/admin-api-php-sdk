@@ -36,6 +36,10 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property OrderItemMerchant $merchant
  * @property string $createdAt Timestamp when the order item is created
  * @property string $updatedAt Timestamp when the order item is updated
+ * @property string $delegatedAt Timestamp when the order item was successfully delegated, in Iso8601 format.
+ * @property string $shippedAt Timestamp when the order item was shipped, in Iso8601 format.
+ * @property string $cancelledAt Timestamp when the order item was canceled, in Iso8601 format.
+ * @property string $returnedAt Timestamp when the order item was returned by the customer and recorded in the system, in Iso8601 format.
  */
 class OrderItem extends ApiObject
 {
