@@ -33,6 +33,7 @@ use Scayle\Cloud\AdminApi\Services\EmailService;
 use Scayle\Cloud\AdminApi\Services\MasterCategoryService;
 use Scayle\Cloud\AdminApi\Services\MasterService;
 use Scayle\Cloud\AdminApi\Services\MerchantService;
+use Scayle\Cloud\AdminApi\Services\OrderBillingStatusService;
 use Scayle\Cloud\AdminApi\Services\OrderItemService;
 use Scayle\Cloud\AdminApi\Services\OrderService;
 use Scayle\Cloud\AdminApi\Services\PackageGroupService;
@@ -95,6 +96,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property CustomerService $customers
  * @property OrderService $orders
  * @property OrderItemService $orderItems
+ * @property OrderBillingStatusService $orderBillingStatuses
  * @property ShipmentService $shipments
  * @property WebhookEventService $webhookEvents
  * @property WebhookSubscriptionService $webhookSubscriptions

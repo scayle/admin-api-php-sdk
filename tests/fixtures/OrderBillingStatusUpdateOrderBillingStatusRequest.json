@@ -1,0 +1,10 @@
+{
+    "code": "billing_partially_refunded",
+    "items": [
+        {
+            "id": 1,
+            "code": "billing_refunded"
+        }
+    ],
+    "reason": "Manual override to reflect external refund for item 98765."
+}

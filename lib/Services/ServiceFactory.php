@@ -43,6 +43,7 @@ class ServiceFactory extends AbstractServiceFactory
         'customers' => CustomerService::class,
         'orders' => OrderService::class,
         'orderItems' => OrderItemService::class,
+        'orderBillingStatuses' => OrderBillingStatusService::class,
         'shipments' => ShipmentService::class,
         'webhookEvents' => WebhookEventService::class,
         'webhookSubscriptions' => WebhookSubscriptionService::class,
