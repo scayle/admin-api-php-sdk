@@ -316,4 +316,72 @@ final class MerchantTest extends BaseApiTestCase
         // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertTrue(true, 'Reached end of test');
     }
+
+    public function testCreateOrUpdateCustomData(): void
+    {
+        $expectedRequestJson = $this->loadFixture('MerchantCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->merchants->createOrUpdateCustomData(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('MerchantCreateOrUpdateCustomDataResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
+
+    public function testDeleteCustomData(): void
+    {
+        $this->api->merchants->deleteCustomData(Identifier::fromId(1), []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testGetCustomData(): void
+    {
+        $responseEntity = $this->api->merchants->getCustomData(Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('MerchantGetCustomDataResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
+
+    public function testCreateOrUpdateCustomDataForKey(): void
+    {
+        $expectedRequestJson = $this->loadFixture('MerchantCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->merchants->createOrUpdateCustomDataForKey(Identifier::fromId(1), 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('MerchantCreateOrUpdateCustomDataForKeyResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
+
+    public function testDeleteCustomDataForKey(): void
+    {
+        $this->api->merchants->deleteCustomDataForKey(Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testGetCustomDataForKey(): void
+    {
+        $responseEntity = $this->api->merchants->getCustomDataForKey(Identifier::fromId(1), 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('MerchantGetCustomDataForKeyResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
 }

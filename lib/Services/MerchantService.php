@@ -428,4 +428,139 @@ class MerchantService extends AbstractService
             body: null
         );
     }
+
+    /**
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createOrUpdateCustomData(
+        Identifier $merchantIdentifier,
+        array $model,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'put',
+            relativeUrl: $this->resolvePath('/merchants/%s/custom-data', $merchantIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomData(
+        Identifier $merchantIdentifier,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/merchants/%s/custom-data', $merchantIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function getCustomData(
+        Identifier $merchantIdentifier,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'get',
+            relativeUrl: $this->resolvePath('/merchants/%s/custom-data', $merchantIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createOrUpdateCustomDataForKey(
+        Identifier $merchantIdentifier,
+        string $key,
+        array $model,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'put',
+            relativeUrl: $this->resolvePath('/merchants/%s/custom-data/%s', $merchantIdentifier, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomDataForKey(
+        Identifier $merchantIdentifier,
+        string $key,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/merchants/%s/custom-data/%s', $merchantIdentifier, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function getCustomDataForKey(
+        Identifier $merchantIdentifier,
+        string $key,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'get',
+            relativeUrl: $this->resolvePath('/merchants/%s/custom-data/%s', $merchantIdentifier, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
 }
