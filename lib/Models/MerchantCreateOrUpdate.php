@@ -20,6 +20,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property int $priority Priority of the merchant.
  * @property string $orderDelegationUrl URL to send order delegation requests to the merchants.
  * @property string $cancellationUrl URL to send order cancellation requests.
+ * @property mixed $customData
  */
 class MerchantCreateOrUpdate extends ApiObject
 {

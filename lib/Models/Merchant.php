@@ -24,6 +24,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property MerchantReturnAddress[] $returnAddresses A list of merchant return addresses.
  * @property MerchantCarrier[] $carriers A list of carriers attached to the merchant.
  * @property MerchantWarehouse[] $warehouses A list of warehouses attached to the merchant.
+ * @property mixed $customData
  */
 class Merchant extends ApiObject
 {
