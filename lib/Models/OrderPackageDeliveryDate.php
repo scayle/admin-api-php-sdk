@@ -16,6 +16,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 /**
  * @property string $maximum
  * @property string $minimum
+ * @property string $desired
  */
 class OrderPackageDeliveryDate extends ApiObject
 {
