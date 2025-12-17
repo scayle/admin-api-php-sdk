@@ -15,6 +15,8 @@ namespace Scayle\Cloud\AdminApi\Services;
 
 use Psr\Http\Client\ClientExceptionInterface;
 use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\BulkRequest;
+use Scayle\Cloud\AdminApi\Models\CreateBulkRequest;
 use Scayle\Cloud\AdminApi\Models\Identifier;
 use Scayle\Cloud\AdminApi\Models\ProductVariantStock;
 use Scayle\Cloud\AdminApi\Models\ProductVariantStockCollection;
@@ -60,6 +62,27 @@ class ProductVariantStockService extends AbstractService
             headers: [],
             modelClass: ProductVariantStockCollection::class,
             body: null
+        );
+    }
+
+    /**
+     * @param CreateBulkRequest $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createBulkRequest(
+        CreateBulkRequest $model,
+        array $options = []
+    ): BulkRequest {
+        return $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/variants/stocks/bulk-requests'),
+            query: $options,
+            headers: [],
+            modelClass: BulkRequest::class,
+            body: $model
         );
     }
 }

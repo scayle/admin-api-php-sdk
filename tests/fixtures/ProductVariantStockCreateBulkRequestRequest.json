@@ -1,0 +1,23 @@
+{
+    "callbacks": {
+        "requestUrl": "https:\/\/example.com\/api\/internal\/callback\/request",
+        "operationUrl": "https:\/\/client.aboutyou.cloud\/api\/internal\/callback\/operation",
+        "requestStatus": "complete"
+    },
+    "operations": [
+        {
+            "key": "create-product-variant-stock",
+            "url": "\/variants\/123\/stocks",
+            "method": "POST",
+            "headers": {
+                "X-Merchant-Key": "M0001-black"
+            },
+            "body": {
+                "warehouseReferenceKey": "warehouse-1",
+                "quantity": 100,
+                "changedAt": "2024-07-23T11:30:58+00:00",
+                "merchantReferenceKey": "merchant-stock-1"
+            }
+        }
+    ]
+}
