@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Scayle\Cloud\AdminApi\Models;
 
-class Identifier
+class Identifier implements \Stringable
 {
     private function __construct(private string $identifier) {}
 
