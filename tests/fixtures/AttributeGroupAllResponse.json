@@ -8,6 +8,7 @@
                 "en_GB": "Color"
             },
             "type": "simple",
+            "cluster": "material",
             "structure": null,
             "isShared": true,
             "level": "product",
@@ -24,6 +25,7 @@
                 "en_GB": "Season"
             },
             "type": "simpleList",
+            "cluster": "material",
             "structure": null,
             "isShared": true,
             "level": "product",
@@ -40,6 +42,7 @@
                 "en_GB": "Brand"
             },
             "type": "localizedString",
+            "cluster": "material",
             "structure": null,
             "isShared": true,
             "level": "product",
@@ -56,6 +59,7 @@
                 "en_GB": "Notes"
             },
             "type": "localizedStringList",
+            "cluster": "material",
             "structure": null,
             "isShared": false,
             "level": "product",
@@ -72,6 +76,7 @@
                 "en_GB": "Material Composition"
             },
             "type": "advanced",
+            "cluster": "material",
             "structure": {
                 "group": {
                     "type": "attributeGroup",

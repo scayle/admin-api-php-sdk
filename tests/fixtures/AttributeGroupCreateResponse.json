@@ -6,6 +6,7 @@
         "en_GB": "Color"
     },
     "type": "simple",
+    "cluster": "material",
     "structure": null,
     "isShared": true,
     "level": "product",

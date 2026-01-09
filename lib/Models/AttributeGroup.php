@@ -18,7 +18,8 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $name A name that uniquely identifies an attribute group.
  * Please ensure the input is URL-encoded, avoid using special characters like `%`, `&`, `#` directly.
  * @property array<string> $frontendName The localized attribute group name. It must include at least the default language that is configured in SCAYLE.
- * @property string $type An attribute group type.
+ * @property string $type The attribute type of the attribute group.
+ * @property string $cluster The attribute group type.
  * @property bool $isShared Specifies whether an attribute value is shared among multiple entities or if each entity has its own unique value.
  * It's important to note that attributes of advanced types cannot be shared, so 'isShared' must always be set to false in such cases.
  * @property string $simpleValueType Value type. It can only be set for non-shared simple attribute groups and defaults to 'text' if not specified.
