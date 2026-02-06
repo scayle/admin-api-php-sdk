@@ -23,7 +23,9 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property ProductVariantStock[] $stocks The product variant stock information.
  * @property mixed $customData
  * @property bool $isComposite Indicates whether the variant is composite.
- * @property RelatedProductVariant[] $relatedVariants A list of variants that belong to the composite variant.
+ * @property mixed|RelatedProductVariant[] $relatedVariants A list of variants that belong to the composite variant.
+ * All variants in the list must use the same identification method, either all use variantId or all use variantReferenceKey.
+ * Empty arrays are allowed in responses.
  */
 class ProductVariant extends ApiObject
 {

@@ -15,6 +15,8 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property string $variantReferenceKey A key that uniquely identifies the variant, which is a part of a composite variant.
+ * @property int $variantId The ID of the product variant created by SCAYLE.
+ * This can be retrieved from the product variant endpoint.
  * @property bool $isMainVariant Defines the main variant of a composite product. Each composite product must contain one and only one main variant.
  */
 class RelatedProductVariant extends ApiObject
