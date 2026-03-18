@@ -34,6 +34,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property OrderItemGroup $itemGroup
  * @property string $campaignKey Reference to the campaign applied to this order
  * @property OrderItemMerchant $merchant
+ * @property array<mixed> $merchantAdditionalData Bundle product information
  * @property string $createdAt Timestamp when the order item is created
  * @property string $updatedAt Timestamp when the order item is updated
  * @property string $delegatedAt Timestamp when the order item was successfully delegated, in Iso8601 format.

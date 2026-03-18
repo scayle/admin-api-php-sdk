@@ -2,6 +2,7 @@
     {
         "referenceKey": "order4711-item3",
         "warehouseReferenceKey": "myWarehouse",
+        "reservationTtl": 3600,
         "variant": {
             "id": 123,
             "merchantReferenceKey": "merchant-1"

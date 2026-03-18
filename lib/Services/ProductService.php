@@ -25,6 +25,7 @@ use Scayle\Cloud\AdminApi\Models\ProductCollection;
 use Scayle\Cloud\AdminApi\Models\ProductMasterCategories;
 use Scayle\Cloud\AdminApi\Models\ProductState;
 use Scayle\Cloud\AdminApi\Models\SimilarProducts;
+use Scayle\Cloud\AdminApi\Models\UnlockAssetSortingsRequest;
 
 class ProductService extends AbstractService
 {
@@ -538,6 +539,28 @@ class ProductService extends AbstractService
             headers: [],
             modelClass: null,
             body: null
+        );
+    }
+
+    /**
+     * @param UnlockAssetSortingsRequest $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function unlockAssetSortings(
+        Identifier $productIdentifier,
+        UnlockAssetSortingsRequest $model,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/%s/unlock-asset-sortings', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
         );
     }
 }

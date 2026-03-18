@@ -2,7 +2,8 @@
     "entities": [
         {
             "referenceKey": "order4711-item3",
-            "id": 123
+            "id": 123,
+            "reservationTtl": 3600
         },
         {
             "referenceKey": "order4711-item4",

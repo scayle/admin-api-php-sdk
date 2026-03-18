@@ -14,14 +14,10 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property int $id
- * @property string $referenceKey
- * @property string $warehouseReferenceKey
- * @property int $reservationTtl
- * @property ReservationVariant $variant
- * @property ReservationError $error
+ * @property bool $unlockGlobal When true, remove the global asset sorting lock (row with application_id = null). Optional; when omitted with shopCountrySpecific, semantics depend on the other field.
+ * @property ShopCountryToUnlock[] $shopCountrySpecific List of shop/country pairs for which to remove the asset sorting lock. Optional.
  */
-class Reservation extends ApiObject
+class UnlockAssetSortingsRequest extends ApiObject
 {
     /** @var array<string, bool|string> */
     protected array $defaultValues = [
@@ -29,12 +25,11 @@ class Reservation extends ApiObject
 
     /** @var array<string, string> */
     protected array $classMap = [
-        'variant' => ReservationVariant::class,
-        'error' => ReservationError::class,
     ];
 
     /** @var array<string, string> */
     protected array $collectionClassMap = [
+        'shopCountrySpecific' => ShopCountryToUnlock::class,
     ];
 
     /**

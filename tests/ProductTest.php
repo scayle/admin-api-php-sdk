@@ -28,6 +28,7 @@ use Scayle\Cloud\AdminApi\Models\ProductSorting;
 use Scayle\Cloud\AdminApi\Models\ProductState;
 use Scayle\Cloud\AdminApi\Models\ProductVariant;
 use Scayle\Cloud\AdminApi\Models\SimilarProducts;
+use Scayle\Cloud\AdminApi\Models\UnlockAssetSortingsRequest;
 
 /**
  * @internal
@@ -412,6 +413,19 @@ final class ProductTest extends BaseApiTestCase
     public function testUnlockAttributeGroup(): void
     {
         $this->api->products->unlockAttributeGroup(Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testUnlockAssetSortings(): void
+    {
+        $expectedRequestJson = $this->loadFixture('ProductUnlockAssetSortingsRequest.json');
+
+        $requestEntity = new UnlockAssetSortingsRequest($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $this->api->products->unlockAssetSortings(Identifier::fromId(1), $requestEntity, []);
 
         // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertTrue(true, 'Reached end of test');
