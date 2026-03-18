@@ -17,6 +17,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property int $id
  * @property string $referenceKey
  * @property string $warehouseReferenceKey
+ * @property int $reservationTtl
  * @property ReservationVariant $variant
  * @property ReservationError $error
  */
