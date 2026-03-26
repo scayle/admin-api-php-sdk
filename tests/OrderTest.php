@@ -22,6 +22,8 @@ use Scayle\Cloud\AdminApi\Models\OrderCollection;
 use Scayle\Cloud\AdminApi\Models\OrderContact;
 use Scayle\Cloud\AdminApi\Models\OrderCost;
 use Scayle\Cloud\AdminApi\Models\OrderDetailedStatus;
+use Scayle\Cloud\AdminApi\Models\OrderDocument;
+use Scayle\Cloud\AdminApi\Models\OrderDocumentCollection;
 use Scayle\Cloud\AdminApi\Models\OrderInvoice;
 use Scayle\Cloud\AdminApi\Models\OrderInvoiceCollection;
 use Scayle\Cloud\AdminApi\Models\OrderItem;
@@ -257,6 +259,46 @@ final class OrderTest extends BaseApiTestCase
     public function testGetOrderInvoice(): void
     {
         $responseEntity = $this->api->orders->getOrderInvoice('acme', 'acme', Identifier::fromId(1), 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertIsString($responseEntity);
+
+
+
+    }
+
+    public function testGetOrderDocuments(): void
+    {
+        $responseEntity = $this->api->orders->getOrderDocuments('acme', 'acme', Identifier::fromId(1), []);
+
+        $expectedResponseJson = $this->loadFixture('OrderGetOrderDocumentsResponse.json');
+        self::assertInstanceOf(OrderDocumentCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            self::assertInstanceOf(OrderDocument::class, $collectionEntity);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'vouchers', OrderVoucher::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shipping', OrderShipping::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'payment', OrderPayment::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'items', OrderItem::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'customer', Customer::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'contacts', OrderContact::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'cost', OrderCost::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'address', OrderAddress::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'membershipDiscount', OrderMembershipDiscount::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'packages', OrderPackage::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountry', ShopCountry::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'loyaltyCard', OrderLoyaltyCard::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'detailedStatus', OrderDetailedStatus::class);
+
+        }
+    }
+
+    public function testGetOrderDocument(): void
+    {
+        $responseEntity = $this->api->orders->getOrderDocument('acme', 'acme', Identifier::fromId(1), 1, []);
 
         // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertIsString($responseEntity);

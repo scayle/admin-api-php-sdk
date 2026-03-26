@@ -1,0 +1,21 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "availabilityStatus": true,
+            "createdAt": "2026-03-19T14:30:00+00:00",
+            "format": "pdf",
+            "type": "merchant_partial_invoice"
+        },
+        {
+            "id": 2,
+            "availabilityStatus": true,
+            "createdAt": "2026-03-19T14:30:00+00:00",
+            "format": "eml",
+            "type": "email_shipment"
+        }
+    ],
+    "cursor": {
+        "next": "Mgo="
+    }
+}
