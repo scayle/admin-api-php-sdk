@@ -18,7 +18,6 @@ use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
 use Scayle\Cloud\AdminApi\Models\Identifier;
 use Scayle\Cloud\AdminApi\Models\Order;
 use Scayle\Cloud\AdminApi\Models\OrderCollection;
-use Scayle\Cloud\AdminApi\Models\OrderDocumentCollection;
 use Scayle\Cloud\AdminApi\Models\OrderInvoiceCollection;
 use Scayle\Cloud\AdminApi\Models\OrderReferenceKey;
 use Scayle\Cloud\AdminApi\Models\OrderStatus;
@@ -221,51 +220,6 @@ class OrderService extends AbstractService
         return $this->request(
             method: 'get',
             relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/invoices/%s', $shopKey, $countryCode, $orderIdentifier, $invoiceId),
-            query: $options,
-            headers: [],
-            modelClass: null,
-            body: null
-        );
-    }
-
-    /**
-     * @param array<string, mixed> $options additional options like limit or filters
-     *
-     * @throws ClientExceptionInterface
-     * @throws ApiErrorException
-     */
-    public function getOrderDocuments(
-        string $shopKey,
-        string $countryCode,
-        Identifier $orderIdentifier,
-        array $options = []
-    ): OrderDocumentCollection {
-        return $this->request(
-            method: 'get',
-            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/documents', $shopKey, $countryCode, $orderIdentifier),
-            query: $options,
-            headers: [],
-            modelClass: OrderDocumentCollection::class,
-            body: null
-        );
-    }
-
-    /**
-     * @param array<string, mixed> $options additional options like limit or filters
-     *
-     * @throws ClientExceptionInterface
-     * @throws ApiErrorException
-     */
-    public function getOrderDocument(
-        string $shopKey,
-        string $countryCode,
-        Identifier $orderIdentifier,
-        int $documentId,
-        array $options = []
-    ): string {
-        return $this->request(
-            method: 'get',
-            relativeUrl: $this->resolvePath('/shops/%s/countries/%s/orders/%s/documents/%s/file', $shopKey, $countryCode, $orderIdentifier, $documentId),
             query: $options,
             headers: [],
             modelClass: null,
