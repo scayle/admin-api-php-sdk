@@ -32,8 +32,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 class ProductVariantPrice extends ApiObject
 {
     /** @var array<string, bool|string> */
-    protected array $defaultValues = [
-    ];
+    protected array $defaultValues = [];
 
     /** @var array<string, string> */
     protected array $classMap = [
@@ -41,18 +40,15 @@ class ProductVariantPrice extends ApiObject
     ];
 
     /** @var array<string, string> */
-    protected array $collectionClassMap = [
-    ];
+    protected array $collectionClassMap = [];
 
     /**
      * @var array<string, array{discriminator: string, mapping: array<string, string>}>
      */
-    protected array $polymorphic = [
-    ];
+    protected array $polymorphic = [];
 
     /**
      * @var array<string, array{discriminator: string, mapping: array<string, string>}>
      */
-    protected array $polymorphicCollections = [
-    ];
+    protected array $polymorphicCollections = [];
 }

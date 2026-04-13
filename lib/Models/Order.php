@@ -46,8 +46,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 class Order extends ApiObject
 {
     /** @var array<string, bool|string> */
-    protected array $defaultValues = [
-    ];
+    protected array $defaultValues = [];
 
     /** @var array<string, string> */
     protected array $classMap = [
@@ -73,12 +72,10 @@ class Order extends ApiObject
     /**
      * @var array<string, array{discriminator: string, mapping: array<string, string>}>
      */
-    protected array $polymorphic = [
-    ];
+    protected array $polymorphic = [];
 
     /**
      * @var array<string, array{discriminator: string, mapping: array<string, string>}>
      */
-    protected array $polymorphicCollections = [
-    ];
+    protected array $polymorphicCollections = [];
 }
