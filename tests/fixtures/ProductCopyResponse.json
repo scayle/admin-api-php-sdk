@@ -1,0 +1,34 @@
+{
+    "id": 10,
+    "referenceKey": "M0001-blue",
+    "state": "draft",
+    "master": {
+        "referenceKey": "M0001",
+        "categories": {
+            "isLocked": false,
+            "paths": [
+                [
+                    "Fashion",
+                    "Men",
+                    "Shirts"
+                ]
+            ]
+        }
+    },
+    "name": {
+        "de_DE": "Blaues Shirt",
+        "en_GB": "Blue Shirt"
+    },
+    "attributes": [],
+    "variants": [
+        {
+            "referenceKey": "M0001-blue-S"
+        },
+        {
+            "referenceKey": "M0001-blue-M"
+        }
+    ],
+    "images": [],
+    "isComposite": false,
+    "merchantReferenceKeys": []
+}

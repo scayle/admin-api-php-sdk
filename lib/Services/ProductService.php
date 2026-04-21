@@ -18,6 +18,7 @@ use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
 use Scayle\Cloud\AdminApi\Models\Attribute;
 use Scayle\Cloud\AdminApi\Models\AttributeCollection;
 use Scayle\Cloud\AdminApi\Models\BulkRequest;
+use Scayle\Cloud\AdminApi\Models\CopyProductRequest;
 use Scayle\Cloud\AdminApi\Models\CreateBulkRequest;
 use Scayle\Cloud\AdminApi\Models\Identifier;
 use Scayle\Cloud\AdminApi\Models\Product;
@@ -560,6 +561,28 @@ class ProductService extends AbstractService
             query: $options,
             headers: [],
             modelClass: null,
+            body: $model
+        );
+    }
+
+    /**
+     * @param CopyProductRequest $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function copy(
+        Identifier $productIdentifier,
+        CopyProductRequest $model,
+        array $options = []
+    ): Product {
+        return $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/%s/copy', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: Product::class,
             body: $model
         );
     }

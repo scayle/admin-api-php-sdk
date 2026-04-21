@@ -16,6 +16,7 @@ namespace Scayle\Cloud\AdminApi;
 use Scayle\Cloud\AdminApi\Models\Attribute;
 use Scayle\Cloud\AdminApi\Models\AttributeCollection;
 use Scayle\Cloud\AdminApi\Models\BulkRequest;
+use Scayle\Cloud\AdminApi\Models\CopyProductRequest;
 use Scayle\Cloud\AdminApi\Models\CreateBulkRequest;
 use Scayle\Cloud\AdminApi\Models\Identifier;
 use Scayle\Cloud\AdminApi\Models\Master;
@@ -429,5 +430,29 @@ final class ProductTest extends BaseApiTestCase
 
         // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testCopy(): void
+    {
+        $expectedRequestJson = $this->loadFixture('ProductCopyRequest.json');
+
+        $requestEntity = new CopyProductRequest($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->products->copy(Identifier::fromId(1), $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductCopyResponse.json');
+        self::assertInstanceOf(Product::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+
+
+
     }
 }

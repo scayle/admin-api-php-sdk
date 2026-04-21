@@ -1,0 +1,15 @@
+{
+    "referenceKey": "M0001-blue",
+    "variants": [
+        {
+            "sourceReferenceKey": "M0001-black-S",
+            "referenceKey": "M0001-blue-S"
+        },
+        {
+            "sourceReferenceKey": "M0001-black-M",
+            "referenceKey": "M0001-blue-M"
+        }
+    ],
+    "copyPrices": false,
+    "copyStocks": false
+}
