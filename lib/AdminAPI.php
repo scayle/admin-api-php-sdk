@@ -27,6 +27,7 @@ use Scayle\Cloud\AdminApi\Services\CarrierService;
 use Scayle\Cloud\AdminApi\Services\ChannelService;
 use Scayle\Cloud\AdminApi\Services\CompanyService;
 use Scayle\Cloud\AdminApi\Services\CustomDataConfigService;
+use Scayle\Cloud\AdminApi\Services\CustomerSegmentService;
 use Scayle\Cloud\AdminApi\Services\CustomerService;
 use Scayle\Cloud\AdminApi\Services\EmailKeyService;
 use Scayle\Cloud\AdminApi\Services\EmailService;
@@ -113,6 +114,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property PromotionV1Service $promotionV1s
  * @property PromotionService $promotions
  * @property AudienceService $audiences
+ * @property CustomerSegmentService $customerSegments
  * @property ReservationService $reservations
  * @property RedirectService $redirects
  * @property EmailKeyService $emailKeys

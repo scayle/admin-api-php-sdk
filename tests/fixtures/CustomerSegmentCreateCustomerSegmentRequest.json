@@ -1,0 +1,6 @@
+{
+    "criteriaDsl": "id > 10 && \"vip\" in groups",
+    "active": true,
+    "referenceKey": "segment_vip_001",
+    "name": "VIP Segment"
+}

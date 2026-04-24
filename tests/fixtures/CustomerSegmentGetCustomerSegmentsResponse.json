@@ -1,0 +1,17 @@
+{
+    "entities": [
+        {
+            "guid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "referenceKey": "segment_vip_001",
+            "name": "VIP Segment",
+            "criteriaDsl": "id > 10 && \"vip\" in groups",
+            "rules": 1,
+            "active": true,
+            "createdDate": "2026-04-14T09:31:06+00:00",
+            "updatedDate": "2026-04-14T09:31:06+00:00"
+        }
+    ],
+    "cursor": {
+        "next": "2"
+    }
+}

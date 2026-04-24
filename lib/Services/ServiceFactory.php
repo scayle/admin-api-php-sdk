@@ -60,6 +60,7 @@ class ServiceFactory extends AbstractServiceFactory
         'promotionV1s' => PromotionV1Service::class,
         'promotions' => PromotionService::class,
         'audiences' => AudienceService::class,
+        'customerSegments' => CustomerSegmentService::class,
         'reservations' => ReservationService::class,
         'redirects' => RedirectService::class,
         'emailKeys' => EmailKeyService::class,
