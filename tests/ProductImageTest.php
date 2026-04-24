@@ -20,6 +20,7 @@ use Scayle\Cloud\AdminApi\Models\Identifier;
 use Scayle\Cloud\AdminApi\Models\ProductImage;
 use Scayle\Cloud\AdminApi\Models\ProductImageCollection;
 use Scayle\Cloud\AdminApi\Models\ProductImagePosition;
+use Scayle\Cloud\AdminApi\Models\ProductImageShopCountryPosition;
 
 /**
  * @internal
@@ -41,6 +42,7 @@ final class ProductImageTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountrySpecific', ProductImageShopCountryPosition::class);
 
 
 
@@ -56,12 +58,14 @@ final class ProductImageTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountrySpecific', ProductImageShopCountryPosition::class);
 
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ProductImage::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', AssetSource::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountrySpecific', ProductImageShopCountryPosition::class);
 
         }
     }
@@ -81,6 +85,7 @@ final class ProductImageTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'source', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'shopCountrySpecific', ProductImageShopCountryPosition::class);
 
 
 
@@ -147,6 +152,7 @@ final class ProductImageTest extends BaseApiTestCase
             self::assertInstanceOf(Attribute::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'source', AssetSource::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'shopCountrySpecific', ProductImageShopCountryPosition::class);
 
         }
     }

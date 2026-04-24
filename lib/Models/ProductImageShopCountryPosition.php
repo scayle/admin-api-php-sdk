@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property int $position Position of the image. Counting starts with 0, so when a product image should be on the first position, you have to send 0.
- * @property ProductImageShopCountryPosition[] $shopCountrySpecific Optional per-shop-country positions. When present, must contain at least one entry.
- * @property mixed $customData
+ * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem.
+ * @property string $countryCode ISO 3166-1 alpha-2 country code.
+ * @property int $position Position of the image for this shop-country. Counting starts with 0.
  */
-class ProductImagePosition extends ApiObject
+class ProductImageShopCountryPosition extends ApiObject
 {
     /** @var array<string, bool|string> */
     protected array $defaultValues = [];
@@ -27,9 +27,7 @@ class ProductImagePosition extends ApiObject
     protected array $classMap = [];
 
     /** @var array<string, string> */
-    protected array $collectionClassMap = [
-        'shopCountrySpecific' => ProductImageShopCountryPosition::class,
-    ];
+    protected array $collectionClassMap = [];
 
     /**
      * @var array<string, array{discriminator: string, mapping: array<string, string>}>

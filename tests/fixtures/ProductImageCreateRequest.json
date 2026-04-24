@@ -2,6 +2,14 @@
     "referenceKey": "myReferenceKey",
     "name": "some_name",
     "assetUrl": "images\/my_image.jpg",
+    "position": 0,
+    "shopCountrySpecific": [
+        {
+            "shopKey": "ms",
+            "countryCode": "de",
+            "position": 2
+        }
+    ],
     "attributes": [
         {
             "name": "view",
