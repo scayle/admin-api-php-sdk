@@ -25,5 +25,13 @@
                 "color": "white"
             }
         }
+    },
+    "seo": {
+        "metaTitle": "My Shop Category",
+        "metaDescription": "Short description shown in search engine result snippets.",
+        "allowSearchEngineIndexing": true,
+        "seoHeadline": "Discover our new arrivals",
+        "seoDescription": "Handpicked selection of seasonal looks.",
+        "canonicalUrl": "https:\/\/shop.example.com\/my-shop-category"
     }
 }

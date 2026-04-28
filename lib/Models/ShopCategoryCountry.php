@@ -28,6 +28,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * - When the customSortingKey is updated for an existing shopCategoryCountry, the update will be propagated to all of its child shopCategoryCountry entries.
  * - When the customSortingKey is set to null or not provided, it will be removed from all of its child and ancestor shopCategoryCountry entries.
  * - When the parent of a shopCategoryCountry is updated, the customSortingKey will be propagated from the new parent to the updated shopCategoryCountry and its child shopCategoryCountries.
+ * @property mixed $seo
  */
 class ShopCategoryCountry extends ApiObject
 {
