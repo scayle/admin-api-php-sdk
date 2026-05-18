@@ -77,7 +77,7 @@ abstract class AbstractApi
     private function makeHeaders(array $headers, bool $withContentType)
     {
         $headers[self::AUTH_HEADER_NAME] = $this->getAccessToken();
-        $headers[self::SDK_VERSION] = 'dev-master-efe271a0';
+        $headers[self::SDK_VERSION] = 'v2.24.0';
         $headers['Accept'] = 'application/json, */*';
 
         if ($withContentType) {
