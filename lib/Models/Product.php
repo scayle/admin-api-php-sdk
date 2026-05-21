@@ -15,6 +15,9 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property int $id The ID of the product created by SCAYLE.
+ * @property string $createdAt Product creation timestamp in UTC.
+ * @property string $updatedAt Product last update timestamp in UTC.
+ * @property string $lastContentUpdatedAt Timestamp of the latest content-related product update in UTC.
  * @property string[] $problems If product is in problem state, the reasons are listed here.
  * @property string $referenceKey A key that uniquely identifies the product (e.g., a shirt in a specific color) within the tenant's ecosystem.
  * @property array<string> $name The localized product name. At least the base language that is configured in SCAYLE is mandatory.

@@ -20,6 +20,10 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $key If the order has an external price, this field becomes optional and can contain any string value defined by the client.
  * @property string $option
  * @property OrderTax $tax
+ * @property bool $invoiceTriggered Present on the webhook event in which the fee is being invoiced.
+ * Consumers should treat these as event signals, not persistent state.
+ * @property bool $refundTriggered Present on the webhook event in which the fee is being refunded.
+ * Consumers should treat these as event signals, not persistent state.
  */
 class OrderFee extends ApiObject
 {
