@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property string $shopKey The key of the shop created by SCAYLE.
+ * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem. Must be exactly 2 chars long.
  * @property string $countryCode ISO 3166 alpha 2 country code.
  * @property int $priority The priority of the warehouse. The higher the value, the higher the priority.
  * @property PackageGroup $packageGroup The assigned package group of the warehouse.
