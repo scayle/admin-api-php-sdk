@@ -1,0 +1,22 @@
+{
+    "id": 42,
+    "externalId": "ext-sub-1",
+    "eventName": "customer-created",
+    "url": "https:\/\/consumer.example.com\/webhooks\/scayle-v2",
+    "target": {
+        "companyId": 1,
+        "shopCountryId": 2
+    },
+    "enabled": true,
+    "disabledReason": null,
+    "auth": {
+        "username": "hook-user",
+        "password": "hook-secret"
+    },
+    "customHeaders": {
+        "X-Integration-Id": "acme-webhooks"
+    },
+    "rpm": 60,
+    "email": "ops@consumer.example",
+    "isInternal": false
+}

@@ -1,0 +1,19 @@
+{
+    "eventName": "customer-created",
+    "url": "https:\/\/consumer.example.com\/webhooks\/scayle",
+    "target": {
+        "companyId": 1,
+        "shopCountryId": 2
+    },
+    "enabled": true,
+    "rpm": 60,
+    "email": "ops@consumer.example",
+    "isInternal": false,
+    "auth": {
+        "username": "hook-user",
+        "password": "hook-secret"
+    },
+    "customHeaders": {
+        "X-Integration-Id": "acme-webhooks"
+    }
+}

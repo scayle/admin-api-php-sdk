@@ -66,6 +66,7 @@ use Scayle\Cloud\AdminApi\Services\ShopService;
 use Scayle\Cloud\AdminApi\Services\VoucherService;
 use Scayle\Cloud\AdminApi\Services\WarehouseService;
 use Scayle\Cloud\AdminApi\Services\WebhookEventService;
+use Scayle\Cloud\AdminApi\Services\WebhookProducerService;
 use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
 
 /**
@@ -99,6 +100,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property OrderItemService $orderItems
  * @property OrderBillingStatusService $orderBillingStatuses
  * @property ShipmentService $shipments
+ * @property WebhookProducerService $webhookProducers
  * @property WebhookEventService $webhookEvents
  * @property WebhookSubscriptionService $webhookSubscriptions
  * @property CancellationService $cancellations

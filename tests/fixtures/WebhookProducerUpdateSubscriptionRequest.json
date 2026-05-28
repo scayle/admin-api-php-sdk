@@ -1,0 +1,12 @@
+{
+    "eventName": "customer-created",
+    "url": "https:\/\/consumer.example.com\/webhooks\/scayle-v2",
+    "target": {
+        "companyId": 1,
+        "shopCountryId": 2
+    },
+    "enabled": false,
+    "rpm": 30,
+    "email": "ops@consumer.example",
+    "isInternal": false
+}

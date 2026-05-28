@@ -1,0 +1,27 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "name": "customer-created",
+            "description": "The event occurs whenever a new customer is registered or connected via a social network on the checkout application.",
+            "targetSchema": {
+                "type": "object",
+                "properties": {
+                    "companyId": {
+                        "type": "integer"
+                    },
+                    "shopCountryId": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "companyId",
+                    "shopCountryId"
+                ]
+            }
+        }
+    ],
+    "cursor": {
+        "next": "dGVzdDE"
+    }
+}

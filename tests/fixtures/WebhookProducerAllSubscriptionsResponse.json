@@ -1,0 +1,26 @@
+{
+    "entities": [
+        {
+            "id": 42,
+            "externalId": null,
+            "eventName": "customer-created",
+            "url": "https:\/\/consumer.example.com\/webhooks\/scayle",
+            "target": {
+                "companyId": 1,
+                "shopCountryId": 2
+            },
+            "enabled": true,
+            "disabledReason": null,
+            "auth": {
+                "username": "hook-user",
+                "password": "hook-secret"
+            },
+            "rpm": 60,
+            "email": "ops@consumer.example",
+            "isInternal": false
+        }
+    ],
+    "cursor": {
+        "next": "Mg"
+    }
+}
