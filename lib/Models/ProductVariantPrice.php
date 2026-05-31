@@ -28,6 +28,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $validFrom Controls when the price will be activated. If not present or null, the valid from is specified from now.
  * @property string $validTo Controls when the price will be deactivated. If not present or null, the price is valid forever.
  * @property string $merchantReferenceKey A merchant reference key the price belongs to.
+ * @property mixed $customData
  */
 class ProductVariantPrice extends ApiObject
 {

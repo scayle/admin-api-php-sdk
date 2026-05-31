@@ -18,6 +18,8 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $name Name of the campaign.
  * @property string $description Optional description of the campaign.
  * @property string[] $countryCodes List of country codes the campaign is valid for.
+ * If the same countryCode exists for multiple shop countries, you can target a specific shop country by passing its shopCountryId instead of the country code.
+ * Example: ["139"] instead of ["DE"].
  * @property float $reduction The reduction percentage applied to all variants, which do not have a specific reduction set.
  * @property string $startAt Start time of campaign in Iso8601 format.
  * @property string $endAt End time of campaign in Iso8601 format.

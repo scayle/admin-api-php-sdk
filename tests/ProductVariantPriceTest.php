@@ -70,6 +70,74 @@ final class ProductVariantPriceTest extends BaseApiTestCase
         self::assertTrue(true, 'Reached end of test');
     }
 
+    public function testCreateOrUpdateCustomData(): void
+    {
+        $expectedRequestJson = $this->loadFixture('ProductVariantPriceCreateOrUpdateCustomDataRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->productVariantPrices->createOrUpdateCustomData(Identifier::fromId(1), 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantPriceCreateOrUpdateCustomDataResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
+
+    public function testDeleteCustomData(): void
+    {
+        $this->api->productVariantPrices->deleteCustomData(Identifier::fromId(1), 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testGetCustomData(): void
+    {
+        $responseEntity = $this->api->productVariantPrices->getCustomData(Identifier::fromId(1), 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantPriceGetCustomDataResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
+
+    public function testCreateOrUpdateCustomDataForKey(): void
+    {
+        $expectedRequestJson = $this->loadFixture('ProductVariantPriceCreateOrUpdateCustomDataForKeyRequest.json');
+
+        $requestEntity = $expectedRequestJson;
+
+        $responseEntity = $this->api->productVariantPrices->createOrUpdateCustomDataForKey(Identifier::fromId(1), 'acme', 'acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantPriceCreateOrUpdateCustomDataForKeyResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
+
+    public function testDeleteCustomDataForKey(): void
+    {
+        $this->api->productVariantPrices->deleteCustomDataForKey(Identifier::fromId(1), 'acme', 'acme', []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testGetCustomDataForKey(): void
+    {
+        $responseEntity = $this->api->productVariantPrices->getCustomDataForKey(Identifier::fromId(1), 'acme', 'acme', []);
+
+        $expectedResponseJson = $this->loadFixture('ProductVariantPriceGetCustomDataForKeyResponse.json');
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), json_encode($responseEntity));
+
+
+
+    }
+
     public function testCreateBulkRequest(): void
     {
         $expectedRequestJson = $this->loadFixture('ProductVariantPriceCreateBulkRequestRequest.json');

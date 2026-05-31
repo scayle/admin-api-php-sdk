@@ -16,5 +16,9 @@
     },
     "validFrom": "2021-09-23T11:30:58+00:00",
     "validTo": null,
-    "merchantReferenceKey": "merchant-1"
+    "merchantReferenceKey": "merchant-1",
+    "customData": {
+        "pricingNote": "margin-protected",
+        "channel": "b2c"
+    }
 }

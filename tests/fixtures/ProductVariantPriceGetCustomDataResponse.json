@@ -1,0 +1,13 @@
+{
+    "isValid": true,
+    "name": "ayou",
+    "score": 100,
+    "some-json": {
+        "de_DE": {
+            "color": "weiss"
+        },
+        "en_GB": {
+            "color": "white"
+        }
+    }
+}

@@ -87,6 +87,147 @@ class ProductVariantPriceService extends AbstractService
     }
 
     /**
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createOrUpdateCustomData(
+        Identifier $variantIdentifier,
+        string $priceKey,
+        array $model,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'put',
+            relativeUrl: $this->resolvePath('/variants/%s/prices/%s/custom-data', $variantIdentifier, $priceKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomData(
+        Identifier $variantIdentifier,
+        string $priceKey,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/variants/%s/prices/%s/custom-data', $variantIdentifier, $priceKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function getCustomData(
+        Identifier $variantIdentifier,
+        string $priceKey,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'get',
+            relativeUrl: $this->resolvePath('/variants/%s/prices/%s/custom-data', $variantIdentifier, $priceKey),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param array<mixed> $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createOrUpdateCustomDataForKey(
+        Identifier $variantIdentifier,
+        string $priceKey,
+        string $key,
+        array $model,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'put',
+            relativeUrl: $this->resolvePath('/variants/%s/prices/%s/custom-data/%s', $variantIdentifier, $priceKey, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteCustomDataForKey(
+        Identifier $variantIdentifier,
+        string $priceKey,
+        string $key,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/variants/%s/prices/%s/custom-data/%s', $variantIdentifier, $priceKey, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @return array<mixed>
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function getCustomDataForKey(
+        Identifier $variantIdentifier,
+        string $priceKey,
+        string $key,
+        array $options = []
+    ): array {
+        return $this->request(
+            method: 'get',
+            relativeUrl: $this->resolvePath('/variants/%s/prices/%s/custom-data/%s', $variantIdentifier, $priceKey, $key),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
      * @param CreateBulkRequest $model the model to create or update
      * @param array<string, mixed> $options additional options like limit or filters
      *
