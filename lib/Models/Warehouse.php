@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property int $id The ID of the warehouse created by SCAYLE.
+ * @property int $id The ID of the warehouse created in SCAYLE.
  * @property string $referenceKey A key that uniquely identifies the warehouse within the tenant's ecosystem.
  * @property bool $isZeosWarehouse This flag should be set to true only when warehouse is a Zeos warehouse. It is not allowed to update this field after creation of the warehouse
  * @property Merchant[] $merchants A list of merchants the warehouse is attached to.
