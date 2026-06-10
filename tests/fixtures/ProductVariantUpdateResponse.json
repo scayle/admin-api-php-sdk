@@ -120,11 +120,13 @@
     "relatedVariants": [
         {
             "variantReferenceKey": "M0001-black-s",
-            "isMainVariant": true
+            "isMainVariant": true,
+            "unitCount": 1
         },
         {
             "variantReferenceKey": "L0001-meister",
-            "isMainVariant": false
+            "isMainVariant": false,
+            "unitCount": 1
         }
     ]
 }

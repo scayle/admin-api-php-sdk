@@ -18,11 +18,14 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property int $variantId The ID of the product variant created by SCAYLE.
  * This can be retrieved from the product variant endpoint.
  * @property bool $isMainVariant Defines the main variant of a composite product. Each composite product must contain one and only one main variant.
+ * @property int $unitCount The number of units of this variant in the composite product.
  */
 class RelatedProductVariant extends ApiObject
 {
     /** @var array<string, bool|string> */
-    protected array $defaultValues = [];
+    protected array $defaultValues = [
+        'unitCount' => '1',
+    ];
 
     /** @var array<string, string> */
     protected array $classMap = [];
