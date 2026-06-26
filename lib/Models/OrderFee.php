@@ -15,9 +15,29 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property OrderFeeAmount $amount If the order has an external price, this field becomes optional.
- * @property string $category Valid values in case of non-external order: [ payment, delivery, percentage_payment, return, additional]
+ * @property string $category Categorises the fee. Valid values in case of non-external orders:
+ * - `payment`
+ * - `percentage_payment`
+ * - `delivery`
+ * - `shipment`
+ * - `return`
+ * - `additional`
+ * - `conditional`
+ *
  * If the order has an external price, this field becomes optional and can contain any string value defined by the client.
- * @property string $key If the order has an external price, this field becomes optional and can contain any string value defined by the client.
+ * @property string $key Identifies the specific fee within its `category`. Valid values in case of non-external orders:
+ * - `base_payment_service_cost`
+ * - `deferred_payment_service_cost`
+ * - `instalment_payment_service_cost`
+ * - `custom_payment_service_cost`
+ * - `base_shipping_service_cost`
+ * - `express_shipping_service_cost`
+ * - `yearly_interest_rate`
+ * - `return_costs`
+ * - `not_refundable_cost`
+ * - `home_delivery_service_fee`
+ *
+ * If the order has an external price, this field becomes optional and can contain any string value defined by the client.
  * @property string $option
  * @property OrderTax $tax
  * @property bool $invoiceTriggered Present on the webhook event in which the fee is being invoiced.

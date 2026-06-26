@@ -105,6 +105,21 @@
                                 "rate": 1
                             }
                         }
+                    },
+                    {
+                        "amount": {
+                            "withTax": 190,
+                            "withoutTax": 153
+                        },
+                        "category": "delivery",
+                        "key": "home_delivery_service_fee",
+                        "option": "homeDeliveryServiceFee",
+                        "tax": {
+                            "vat": {
+                                "amount": 37,
+                                "rate": 0.24
+                            }
+                        }
                     }
                 ],
                 "appliedReductions": [
@@ -379,6 +394,21 @@
                             "vat": {
                                 "amount": 32,
                                 "rate": 0.19
+                            }
+                        }
+                    },
+                    {
+                        "amount": {
+                            "withTax": 190,
+                            "withoutTax": 153
+                        },
+                        "category": "delivery",
+                        "key": "home_delivery_service_fee",
+                        "option": "homeDeliveryServiceFee",
+                        "tax": {
+                            "vat": {
+                                "amount": 37,
+                                "rate": 0.24
                             }
                         }
                     }
