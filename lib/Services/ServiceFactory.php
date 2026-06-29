@@ -34,6 +34,7 @@ class ServiceFactory extends AbstractServiceFactory
         'shopCategoryPropertyKeys' => ShopCategoryPropertyKeyService::class,
         'shopCategoryProductSetUnlinkInstructions' => ShopCategoryProductSetUnlinkInstructionService::class,
         'shopCountries' => ShopCountryService::class,
+        'hostings' => HostingService::class,
         'brands' => BrandService::class,
         'productSortings' => ProductSortingService::class,
         'shopCountryWarehouses' => ShopCountryWarehouseService::class,

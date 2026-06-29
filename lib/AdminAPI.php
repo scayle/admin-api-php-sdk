@@ -31,6 +31,7 @@ use Scayle\Cloud\AdminApi\Services\CustomerSegmentService;
 use Scayle\Cloud\AdminApi\Services\CustomerService;
 use Scayle\Cloud\AdminApi\Services\EmailKeyService;
 use Scayle\Cloud\AdminApi\Services\EmailService;
+use Scayle\Cloud\AdminApi\Services\HostingService;
 use Scayle\Cloud\AdminApi\Services\MasterCategoryService;
 use Scayle\Cloud\AdminApi\Services\MasterService;
 use Scayle\Cloud\AdminApi\Services\MerchantService;
@@ -89,6 +90,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property ShopCategoryPropertyKeyService $shopCategoryPropertyKeys
  * @property ShopCategoryProductSetUnlinkInstructionService $shopCategoryProductSetUnlinkInstructions
  * @property ShopCountryService $shopCountries
+ * @property HostingService $hostings
  * @property BrandService $brands
  * @property ProductSortingService $productSortings
  * @property ShopCountryWarehouseService $shopCountryWarehouses
