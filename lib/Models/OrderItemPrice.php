@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property OrderReduction[] $appliedReductions If the order has an external price, this field will not be included in the response payload.
+ * @property mixed $appliedReductions If the order has an external price, this field will not be included in the response payload.
  * @property OrderItemAbsoluteVoucherReducedPrice $absoluteVoucherReducedPrice If the order has an external price, this field will not be included in the response payload.
  * @property OrderItemPriceReference $reference If the order has an external price, this field will not be included in the response payload.
  * @property OrderTax $tax

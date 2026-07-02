@@ -25,7 +25,8 @@
                 "category": "sale",
                 "type": "relative",
                 "code": "ayou123",
-                "displayName": "Summer Sale"
+                "displayName": "Summer Sale",
+                "isEffective": true
             }
         ],
         "absoluteVoucherReducedPrice": {
