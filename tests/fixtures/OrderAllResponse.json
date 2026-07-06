@@ -169,8 +169,7 @@
                                     "relative": 1
                                 },
                                 "category": "sale",
-                                "type": "relative",
-                                "isEffective": true
+                                "type": "relative"
                             }
                         ],
                         "reference": {
