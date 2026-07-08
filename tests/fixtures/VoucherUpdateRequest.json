@@ -1,5 +1,4 @@
 {
-    "code": "testcode",
     "constraints": {
         "date": {
             "max": "2021-12-23T11:30:58+00:00",

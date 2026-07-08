@@ -15,7 +15,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property int $id
- * @property string $code
+ * @property string $code The voucher code. Can be specified on creation only and cannot be updated for existing vouchers.
  * @property VoucherConstraints $constraints
  * @property VoucherCriterion[] $criteria
  * @property bool $isApplicableToPromotions
