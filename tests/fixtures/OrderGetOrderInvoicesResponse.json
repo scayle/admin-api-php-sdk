@@ -9,6 +9,16 @@
                 "fullNumber": "ayou-24-5"
             },
             "available": true
+        },
+        {
+            "id": 2,
+            "createdAt": "2025-01-29T16:40:53+00:00",
+            "type": "return_cost_corrective_invoice",
+            "invoice": {
+                "number": 6,
+                "fullNumber": "ayou-24-6"
+            },
+            "available": true
         }
     ],
     "cursor": {

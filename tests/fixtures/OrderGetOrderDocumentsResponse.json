@@ -11,6 +11,13 @@
             "id": 2,
             "availabilityStatus": true,
             "createdAt": "2026-03-19T14:30:00+00:00",
+            "format": "pdf",
+            "type": "return_cost_corrective_invoice"
+        },
+        {
+            "id": 3,
+            "availabilityStatus": true,
+            "createdAt": "2026-03-19T14:31:00+00:00",
             "format": "eml",
             "type": "email_shipment"
         }
