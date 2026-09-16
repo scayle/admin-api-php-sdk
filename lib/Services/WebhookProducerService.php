@@ -15,12 +15,32 @@ namespace Scayle\Cloud\AdminApi\Services;
 
 use Psr\Http\Client\ClientExceptionInterface;
 use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerCollection;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerEventCollection;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscription;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscriptionCollection;
 
 class WebhookProducerService extends AbstractService
 {
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function all(
+        array $options = []
+    ): WebhookProducerCollection {
+        return $this->request(
+            method: 'get',
+            relativeUrl: $this->resolvePath('/webhooks/producers'),
+            query: $options,
+            headers: [],
+            modelClass: WebhookProducerCollection::class,
+            body: null
+        );
+    }
+
     /**
      * @param array<string, mixed> $options additional options like limit or filters
      *

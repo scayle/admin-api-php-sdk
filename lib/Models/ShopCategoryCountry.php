@@ -20,6 +20,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property bool $isActive Declares whether the shop category is active or not.
  * @property bool $isVisible Declares whether the shop category is visible in the shop or not.
  * @property bool $isExcludedFromSearch Declares whether the shop category country should be excluded from search.
+ * @property bool $isIncludedInSearchWhenInvisible Declares whether the shop category country should still be included in search results while it is invisible.
  * @property ShopCategoryProperty[] $properties The properties assigned to the shop category.
  * @property mixed $customData
  * @property mixed $smartSortingKey

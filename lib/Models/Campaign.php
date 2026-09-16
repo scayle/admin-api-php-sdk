@@ -30,6 +30,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property array<string> $link The localized relative link.
  * @property array<string> $condition The localized condition. Recommended max length is up to 250 characters.
  * @property bool $hideCountdown Defines if the count down should be hidden or not. Displayed by default.
+ * @property bool $excludeFromLowestPriorPriceCalculation When true, this campaign's prices are excluded from the 30-day lowest prior price (LPP) calculation. Default false.
  * @property CampaignProduct $product The campaign information related to product, for example badge label.
  * @property CampaignColor $color The color of background and text in hex code with hash
  */

@@ -17,6 +17,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property int $position Position of the image. Counting starts with 0, so when a product image should be on the first position, you have to send 0.
  * @property ProductImageShopCountryPosition[] $shopCountrySpecific Optional per-shop-country positions. When present, must contain at least one entry.
  * @property mixed $customData
+ * @property ProductImageLocks $productLocks Image sorting locks for this product (`imagePositions` only).
  */
 class ProductImagePosition extends ApiObject
 {
@@ -24,7 +25,9 @@ class ProductImagePosition extends ApiObject
     protected array $defaultValues = [];
 
     /** @var array<string, string> */
-    protected array $classMap = [];
+    protected array $classMap = [
+        'productLocks' => ProductImageLocks::class,
+    ];
 
     /** @var array<string, string> */
     protected array $collectionClassMap = [

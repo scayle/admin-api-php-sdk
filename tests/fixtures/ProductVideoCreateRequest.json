@@ -1,0 +1,15 @@
+{
+    "referenceKey": "myReferenceKey",
+    "attributes": [
+        {
+            "name": "view",
+            "type": "simple",
+            "value": "front"
+        }
+    ],
+    "customData": {
+        "isValid": true,
+        "name": "ayou",
+        "score": 100
+    }
+}

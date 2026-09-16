@@ -168,6 +168,29 @@
                     ]
                 }
             ],
+            "videos": [
+                {
+                    "id": 1,
+                    "referenceKey": "my-video",
+                    "assetUrl": "videos\/my-video.mp4",
+                    "format": "mp4",
+                    "attributes": [
+                        {
+                            "name": "view",
+                            "type": "simple",
+                            "value": "360",
+                            "isLocked": false
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "referenceKey": "my-video-2",
+                    "assetUrl": "videos\/my-video-2.mp4",
+                    "format": "mp4",
+                    "attributes": []
+                }
+            ],
             "productSortings": [
                 {
                     "shopKey": "ks",

@@ -23,11 +23,13 @@ use Scayle\Cloud\AdminApi\Models\Master;
 use Scayle\Cloud\AdminApi\Models\Product;
 use Scayle\Cloud\AdminApi\Models\ProductCollection;
 use Scayle\Cloud\AdminApi\Models\ProductImage;
+use Scayle\Cloud\AdminApi\Models\ProductLocks;
 use Scayle\Cloud\AdminApi\Models\ProductMasterCategories;
 use Scayle\Cloud\AdminApi\Models\ProductSellableTimeframe;
 use Scayle\Cloud\AdminApi\Models\ProductSorting;
 use Scayle\Cloud\AdminApi\Models\ProductState;
 use Scayle\Cloud\AdminApi\Models\ProductVariant;
+use Scayle\Cloud\AdminApi\Models\ProductVideo;
 use Scayle\Cloud\AdminApi\Models\SimilarProducts;
 use Scayle\Cloud\AdminApi\Models\UnlockAssetSortingsRequest;
 
@@ -52,9 +54,11 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'videos', ProductVideo::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productLocks', ProductLocks::class);
 
 
 
@@ -71,9 +75,11 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'videos', ProductVideo::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productLocks', ProductLocks::class);
 
 
 
@@ -90,9 +96,11 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'videos', ProductVideo::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productLocks', ProductLocks::class);
 
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
@@ -100,9 +108,11 @@ final class ProductTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'master', Master::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'variants', ProductVariant::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', ProductImage::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'videos', ProductVideo::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSortings', ProductSorting::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'productLocks', ProductLocks::class);
 
         }
     }
@@ -123,9 +133,11 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'videos', ProductVideo::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productLocks', ProductLocks::class);
 
 
 
@@ -193,9 +205,11 @@ final class ProductTest extends BaseApiTestCase
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'master', Master::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'variants', ProductVariant::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'images', ProductImage::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'videos', ProductVideo::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'attributes', Attribute::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'productSortings', ProductSorting::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'productLocks', ProductLocks::class);
 
         }
     }
@@ -302,9 +316,11 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'videos', ProductVideo::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productLocks', ProductLocks::class);
 
 
 
@@ -326,9 +342,11 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'videos', ProductVideo::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productLocks', ProductLocks::class);
 
 
 
@@ -448,9 +466,11 @@ final class ProductTest extends BaseApiTestCase
         $this->assertPropertyHasTheCorrectType($responseEntity, 'master', Master::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'variants', ProductVariant::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'images', ProductImage::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'videos', ProductVideo::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'attributes', Attribute::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'productSortings', ProductSorting::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'sellableTimeframes', ProductSellableTimeframe::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'productLocks', ProductLocks::class);
 
 
 

@@ -119,6 +119,22 @@
             ]
         }
     ],
+    "videos": [
+        {
+            "referenceKey": "my-video",
+            "attributes": [
+                {
+                    "name": "view",
+                    "type": "simple",
+                    "value": "360"
+                }
+            ]
+        },
+        {
+            "referenceKey": "my-video-2",
+            "attributes": []
+        }
+    ],
     "customData": {
         "isValid": true,
         "name": "ayou",

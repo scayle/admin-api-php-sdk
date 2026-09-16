@@ -26,12 +26,16 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property Attribute[] $attributes A list of attributes attached to the product.
  * @property ProductVariant[] $variants A list of product variants attached to the product.
  * @property ProductImage[] $images A list of product images attached to the product.
+ * @property ProductVideo[] $videos A list of product videos attached to the product.
  * @property ProductSorting[] $productSortings A list of product sortings.
  * @property mixed $customData
  * @property ProductSellableTimeframe[] $sellableTimeframes A list of product sellable timeframes.
  * @property bool $isComposite Indicates whether the product is composite.
  * @property string[] $merchantReferenceKeys A list of merchant reference keys the product belongs to.
  * @property SimilarProducts[] $similarProducts A list of similar products.
+ * @property ProductLocks $productLocks Product-level locks. imagePositions controls asset sorting locks (global and shop-country).
+ * On create/update product: on product root.
+ * Create/PATCH image request and standalone image responses use ProductImageLocks (`imagePositions` only).
  */
 class Product extends ApiObject
 {
@@ -43,12 +47,14 @@ class Product extends ApiObject
     /** @var array<string, string> */
     protected array $classMap = [
         'master' => Master::class,
+        'productLocks' => ProductLocks::class,
     ];
 
     /** @var array<string, string> */
     protected array $collectionClassMap = [
         'variants' => ProductVariant::class,
         'images' => ProductImage::class,
+        'videos' => ProductVideo::class,
         'attributes' => Attribute::class,
         'productSortings' => ProductSorting::class,
         'sellableTimeframes' => ProductSellableTimeframe::class,
