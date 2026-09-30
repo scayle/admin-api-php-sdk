@@ -20,9 +20,10 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property bool $isActive Declares whether the shop category is active or not.
  * @property bool $isVisible Declares whether the shop category is visible in the shop or not.
  * @property bool $isExcludedFromSearch Declares whether the shop category country should be excluded from search.
+ * @property bool $isIncludedInSearchWhenInvisible Declares whether the shop category country should still be included in search results while it is invisible.
  * @property ShopCategoryProperty[] $properties The properties assigned to the shop category.
  * @property mixed $customData
- * @property mixed $smartSortingKey
+ * @property string $smartSortingKey System smart sorting key or custom smart sorting key from the catalog.
  * @property string $customSortingKey A custom sorting key that will be applied to sort the products displayed in a shopCategoryCountry.
  * - When a customSortingKey is not provided for a newly created shopCategoryCountry, it will be inherited from its parent shopCategoryCountry.
  * - When the customSortingKey is updated for an existing shopCategoryCountry, the update will be propagated to all of its child shopCategoryCountry entries.

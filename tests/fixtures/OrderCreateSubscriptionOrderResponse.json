@@ -17,6 +17,12 @@
             "street": "test",
             "zipCode": "1200"
         },
+        "forward": {
+            "collectionPoint": {
+                "type": "post_office"
+            },
+            "countryCode": "DEU"
+        },
         "shipping": {
             "city": "Hamburg",
             "collectionPoint": {

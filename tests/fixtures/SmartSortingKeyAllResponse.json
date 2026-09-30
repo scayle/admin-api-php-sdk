@@ -1,0 +1,26 @@
+{
+    "entities": [
+        {
+            "key": "scayle:v1:sales-push",
+            "isCustom": false,
+            "weights": {
+                "sales": 5,
+                "stock": 4
+            }
+        },
+        {
+            "key": "summer-priority",
+            "description": "summer priority CSSK",
+            "isCustom": true,
+            "weights": {
+                "stock": 5,
+                "sales": 3,
+                "salesInv": 1,
+                "variantAvailabilityAdjInv": 1
+            }
+        }
+    ],
+    "cursor": {
+        "next": "MQ=="
+    }
+}

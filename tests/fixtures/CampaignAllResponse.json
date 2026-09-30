@@ -16,7 +16,8 @@
                     "app",
                     "web"
                 ]
-            }
+            },
+            "excludeFromLowestPriorPriceCalculation": true
         }
     ],
     "cursor": {

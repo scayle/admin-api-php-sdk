@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property string $referenceKey External reference set by the client to integrate a third party system.
+ * @property string $referenceKey External reference set by the client to integrate a third party system. It can be set to NULL otherwise
  */
 class CustomerReferenceKey extends ApiObject
 {

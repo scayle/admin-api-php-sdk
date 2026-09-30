@@ -15,11 +15,14 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property string $name The name of the webhook producer.
+ * @property bool $isInternal When true, the producer is an internal SCAYLE system. When false, the producer is an add-on or external publisher.
  */
 class WebhookProducer extends ApiObject
 {
     /** @var array<string, bool|string> */
-    protected array $defaultValues = [];
+    protected array $defaultValues = [
+        'isInternal' => false,
+    ];
 
     /** @var array<string, string> */
     protected array $classMap = [];

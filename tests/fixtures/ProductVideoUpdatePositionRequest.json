@@ -1,0 +1,27 @@
+{
+    "position": 2,
+    "shopCountrySpecific": [
+        {
+            "shopKey": "ms",
+            "countryCode": "de",
+            "position": 1
+        }
+    ],
+    "productLocks": {
+        "videoPositions": {
+            "isLocked": true,
+            "shopCountrySpecific": [
+                {
+                    "shopKey": "ms",
+                    "countryCode": "de",
+                    "isLocked": true
+                }
+            ]
+        }
+    },
+    "customData": {
+        "isValid": true,
+        "name": "ayou",
+        "score": 100
+    }
+}

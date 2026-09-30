@@ -58,6 +58,7 @@
             "isActive": true,
             "isVisible": true,
             "isExcludedFromSearch": false,
+            "isIncludedInSearchWhenInvisible": false,
             "properties": [
                 {
                     "key": "myKey",

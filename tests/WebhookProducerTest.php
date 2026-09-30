@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Scayle\Cloud\AdminApi;
 
+use Scayle\Cloud\AdminApi\Models\WebhookProducer;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerCollection;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerEvent;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerEventCollection;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscription;
@@ -24,6 +26,22 @@ use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscriptionCollection;
  */
 final class WebhookProducerTest extends BaseApiTestCase
 {
+    public function testAll(): void
+    {
+        $responseEntity = $this->api->webhookProducers->all([]);
+
+        $expectedResponseJson = $this->loadFixture('WebhookProducerAllResponse.json');
+        self::assertInstanceOf(WebhookProducerCollection::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+        foreach ($responseEntity->getEntities() as $collectionEntity) {
+            self::assertInstanceOf(WebhookProducer::class, $collectionEntity);
+
+        }
+    }
+
     public function testAllEvents(): void
     {
         $responseEntity = $this->api->webhookProducers->allEvents('acme', []);

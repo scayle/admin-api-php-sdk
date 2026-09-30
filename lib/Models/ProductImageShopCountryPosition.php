@@ -15,7 +15,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property string $shopKey A key that uniquely identifies the shop within the tenant's ecosystem.
- * @property string $countryCode ISO 3166-1 alpha-2 country code.
+ * @property string $countryCode ISO 3166-1 alpha-2 country code
  * @property int $position Position of the image for this shop-country. Counting starts with 0.
  */
 class ProductImageShopCountryPosition extends ApiObject

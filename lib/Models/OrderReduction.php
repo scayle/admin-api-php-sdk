@@ -16,7 +16,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 /**
  * @property string $id Reduction identifier
  * @property OrderReductionAmount $amount
- * @property string $category Possible values: sale, campaign, voucher, promotion, and promotionCode
+ * @property string $category The category of the applied reduction. Possible values: sale, campaign, voucher, promotion, promotionCode.
  * @property string $type Possible values: relative, absolute
  * @property string $code Promotion or voucher code (for promotion / voucher reductions)
  * @property string $displayName Display name (for promotion reduction)

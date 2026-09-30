@@ -1,0 +1,10 @@
+{
+    "key": "summer-priority",
+    "description": "updated summer priority CSSK",
+    "weights": {
+        "stock": 4,
+        "sales": 5,
+        "salesInv": 2,
+        "variantAvailabilityAdjInv": 1
+    }
+}

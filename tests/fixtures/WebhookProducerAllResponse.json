@@ -1,0 +1,12 @@
+{
+    "entities": [
+        {
+            "name": "coba",
+            "isInternal": true
+        },
+        {
+            "name": "loyalty-addon",
+            "isInternal": false
+        }
+    ]
+}

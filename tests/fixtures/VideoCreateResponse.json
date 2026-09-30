@@ -1,0 +1,34 @@
+{
+    "entities": [
+        {
+            "referenceKey": "my-video",
+            "url": "http:\/\/api.video-storage-provider.com\/v1_1\/scayle\/video\/upload",
+            "parameters": [
+                {
+                    "name": "public_id",
+                    "value": "my_video"
+                },
+                {
+                    "name": "format",
+                    "value": "mp4"
+                },
+                {
+                    "name": "timestamp",
+                    "value": 1769705960
+                },
+                {
+                    "name": "upload_preset",
+                    "value": "scy-prev"
+                },
+                {
+                    "name": "signature",
+                    "value": "688129d94fc0ad7daebc5448b9d82c9205fbc702"
+                },
+                {
+                    "name": "api_key",
+                    "value": "423636955417464"
+                }
+            ]
+        }
+    ]
+}

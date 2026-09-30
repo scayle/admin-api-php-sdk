@@ -1,0 +1,43 @@
+{
+    "entities": [
+        {
+            "name": "size",
+            "type": "simple",
+            "value": "M",
+            "isLocked": false
+        },
+        {
+            "name": "season",
+            "type": "simpleList",
+            "value": [
+                "autumn",
+                "winter"
+            ],
+            "isLocked": false
+        },
+        {
+            "name": "collection",
+            "type": "localizedString",
+            "value": {
+                "de_DE": "einzigartig",
+                "en_GB": "unique"
+            },
+            "isLocked": false
+        },
+        {
+            "name": "color",
+            "type": "localizedStringList",
+            "value": [
+                {
+                    "de_DE": "weiß",
+                    "en_GB": "white"
+                },
+                {
+                    "de_DE": "schwarz",
+                    "en_GB": "black"
+                }
+            ],
+            "isLocked": false
+        }
+    ]
+}
