@@ -50,6 +50,7 @@
     "subscriptionId": "1234567abcdef",
     "carrier": {
         "carrierKey": "dhl",
+        "carrierGroup": "dhl",
         "deliveryDate": {
             "maximum": "2025-01-09",
             "minimum": "2025-01-15"

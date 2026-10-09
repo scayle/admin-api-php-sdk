@@ -16,7 +16,9 @@ namespace Scayle\Cloud\AdminApi\Models;
 /**
  * @property string $customerKey
  * @property string $description
- * @property string $key
+ * @property string $key Identity of a specific collection point (for example a Packstation or ParcelShop).
+ * Required for billing and shipping pickup addresses. Omitted on order `address.forward`,
+ * where the carrier chooses the branch at delivery.
  * @property string $type
  */
 class CustomerAddressCollectionPoint extends ApiObject

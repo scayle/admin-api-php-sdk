@@ -566,6 +566,28 @@ class ProductService extends AbstractService
     }
 
     /**
+     * @param UnlockAssetSortingsRequest $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function unlockVideoSortings(
+        Identifier $productIdentifier,
+        UnlockAssetSortingsRequest $model,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/products/%s/unlock-video-sortings', $productIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: $model
+        );
+    }
+
+    /**
      * @param CopyProductRequest $model the model to create or update
      * @param array<string, mixed> $options additional options like limit or filters
      *

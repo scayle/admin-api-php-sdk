@@ -47,6 +47,7 @@ use Scayle\Cloud\AdminApi\Services\ProductSortingService;
 use Scayle\Cloud\AdminApi\Services\ProductVariantPriceService;
 use Scayle\Cloud\AdminApi\Services\ProductVariantService;
 use Scayle\Cloud\AdminApi\Services\ProductVariantStockService;
+use Scayle\Cloud\AdminApi\Services\ProductVideoService;
 use Scayle\Cloud\AdminApi\Services\PromotionCodesService;
 use Scayle\Cloud\AdminApi\Services\PromotionItemSetService;
 use Scayle\Cloud\AdminApi\Services\PromotionService;
@@ -64,6 +65,8 @@ use Scayle\Cloud\AdminApi\Services\ShopCountryPriceRoundingService;
 use Scayle\Cloud\AdminApi\Services\ShopCountryService;
 use Scayle\Cloud\AdminApi\Services\ShopCountryWarehouseService;
 use Scayle\Cloud\AdminApi\Services\ShopService;
+use Scayle\Cloud\AdminApi\Services\SmartSortingKeyService;
+use Scayle\Cloud\AdminApi\Services\VideoService;
 use Scayle\Cloud\AdminApi\Services\VoucherService;
 use Scayle\Cloud\AdminApi\Services\WarehouseService;
 use Scayle\Cloud\AdminApi\Services\WebhookEventService;
@@ -77,12 +80,14 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property ProductsFirstLiveAtService $productsFirstLiveAts
  * @property MasterService $masters
  * @property ProductImageService $productImages
+ * @property ProductVideoService $productVideos
  * @property ProductVariantService $productVariants
  * @property ProductVariantPriceService $productVariantPrices
  * @property AttributeTranslationService $attributeTranslations
  * @property ProductVariantStockService $productVariantStocks
  * @property SellableWithoutStockService $sellableWithoutStocks
  * @property ShopService $shops
+ * @property SmartSortingKeyService $smartSortingKeys
  * @property AttributeGroupService $attributeGroups
  * @property CampaignService $campaigns
  * @property MasterCategoryService $masterCategories
@@ -110,6 +115,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property VoucherService $vouchers
  * @property CompanyService $companies
  * @property AssetService $assets
+ * @property VideoService $videos
  * @property CarrierService $carriers
  * @property MerchantService $merchants
  * @property WarehouseService $warehouses

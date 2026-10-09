@@ -1,0 +1,13 @@
+{
+    "unlockGlobal": true,
+    "shopCountrySpecific": [
+        {
+            "shopKey": "ms",
+            "countryCode": "de"
+        },
+        {
+            "shopKey": "ms",
+            "countryCode": "at"
+        }
+    ]
+}

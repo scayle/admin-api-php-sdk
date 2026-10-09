@@ -15,7 +15,7 @@ namespace Scayle\Cloud\AdminApi\Models;
 
 /**
  * @property string $type Type of the promotion
- * @property PromotionEffectAutomaticDiscount|PromotionEffectBuyXGetY|PromotionEffectComboDeal $additionalData Additional data of the promotion effect, maxCountType and eligibleItemsQuantity are optional
+ * @property PromotionEffectAutomaticDiscount|PromotionEffectBuyXGetY|PromotionEffectComboDeal|PromotionEffectFreeShipping $additionalData Additional data of the promotion effect, maxCountType and eligibleItemsQuantity are optional
  */
 class PromotionEffect extends ApiObject
 {

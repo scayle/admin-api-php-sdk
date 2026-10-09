@@ -169,7 +169,8 @@
                                     "relative": 1
                                 },
                                 "category": "sale",
-                                "type": "relative"
+                                "type": "relative",
+                                "isEffective": true
                             }
                         ],
                         "reference": {
@@ -255,6 +256,10 @@
             "publicKey": "666",
             "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJHH0",
             "shipping": {
+                "deliveryCosts": 200,
+                "deliveryCostsWithoutDiscount": 200,
+                "expressDeliveryCosts": 0,
+                "expressDeliveryCostsWithoutDiscount": 0,
                 "policy": "least_packages"
             },
             "status": "invoice_completed",
@@ -533,6 +538,10 @@
             "publicKey": "666",
             "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJU1",
             "shipping": {
+                "deliveryCosts": 200,
+                "deliveryCostsWithoutDiscount": 200,
+                "expressDeliveryCosts": 0,
+                "expressDeliveryCostsWithoutDiscount": 0,
                 "policy": "least_packages"
             },
             "status": "payment_reserved",

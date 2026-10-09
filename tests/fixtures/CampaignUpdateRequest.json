@@ -14,5 +14,6 @@
             "app",
             "web"
         ]
-    }
+    },
+    "excludeFromLowestPriorPriceCalculation": true
 }

@@ -1,0 +1,28 @@
+{
+    "id": 123,
+    "referenceKey": "myReferenceKey",
+    "format": "mp4",
+    "assetUrl": "videos\/myReferenceKey.mp4",
+    "isUploaded": true,
+    "position": 2,
+    "shopCountrySpecific": [
+        {
+            "shopKey": "ms",
+            "countryCode": "de",
+            "position": 1
+        }
+    ],
+    "attributes": [
+        {
+            "name": "view",
+            "type": "simple",
+            "value": "front",
+            "isLocked": false
+        }
+    ],
+    "customData": {
+        "isValid": true,
+        "name": "ayou",
+        "score": 100
+    }
+}

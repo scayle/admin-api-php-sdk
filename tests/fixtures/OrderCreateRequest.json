@@ -114,7 +114,8 @@
                             "relative": 0.5
                         },
                         "category": "sale",
-                        "type": "relative"
+                        "type": "relative",
+                        "isEffective": true
                     }
                 ],
                 "tax": {

@@ -14,9 +14,10 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi\Models;
 
 /**
- * @property CustomerAddress $billing
- * @property CustomerAddress $forward
- * @property CustomerAddress $shipping
+ * @property mixed $billing
+ * @property CustomerAddress $forward Carrier-chosen fallback if the parcel cannot be handed over (forward to a collection point).
+ * Not a physical address; street, city, zipCode, recipient names, and collectionPoint.key may be absent.
+ * @property mixed $shipping
  */
 class OrderAddress extends ApiObject
 {

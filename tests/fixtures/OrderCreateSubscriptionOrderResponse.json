@@ -17,6 +17,12 @@
             "street": "test",
             "zipCode": "1200"
         },
+        "forward": {
+            "collectionPoint": {
+                "type": "post_office"
+            },
+            "countryCode": "DEU"
+        },
         "shipping": {
             "city": "Hamburg",
             "collectionPoint": {
@@ -213,8 +219,11 @@
     "publicKey": "666",
     "referenceKey": "InGidcPDmL8fGkv02a3sSAgAr7ySMBfa66iw4MriYgUNI3Boq369rBOZW3stlKLWSqIjB2dXCGNbCxoM5Xww4cI8cULUoGBFJU2",
     "shipping": {
+        "carrierGroup": "dhl",
         "deliveryCosts": 200,
+        "deliveryCostsWithoutDiscount": 200,
         "expressDeliveryCosts": 0,
+        "expressDeliveryCostsWithoutDiscount": 0,
         "policy": "least_packages"
     },
     "status": "payment_reserved",
