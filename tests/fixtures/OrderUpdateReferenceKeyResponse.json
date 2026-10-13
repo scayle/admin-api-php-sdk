@@ -221,9 +221,7 @@
     "shipping": {
         "carrierGroup": "dhl",
         "deliveryCosts": 200,
-        "deliveryCostsWithoutDiscount": 200,
         "expressDeliveryCosts": 0,
-        "expressDeliveryCostsWithoutDiscount": 0,
         "policy": "least_packages"
     },
     "status": "payment_reserved",
