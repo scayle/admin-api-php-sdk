@@ -15,6 +15,7 @@ namespace Scayle\Cloud\AdminApi;
 
 use Scayle\Cloud\AdminApi\Models\Assortment;
 use Scayle\Cloud\AdminApi\Models\AttributeAssortmentConfiguration;
+use Scayle\Cloud\AdminApi\Models\CustomerSegmentOverride;
 use Scayle\Cloud\AdminApi\Models\MasterCategoryAssortmentConfiguration;
 use Scayle\Cloud\AdminApi\Models\MerchantAssortmentConfiguration;
 use Scayle\Cloud\AdminApi\Models\PartialAssortment;
@@ -43,6 +44,7 @@ final class ShopCountryTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', Assortment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', ShopCountryWarehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
 
@@ -58,12 +60,14 @@ final class ShopCountryTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', Assortment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', ShopCountryWarehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(ShopCountry::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'assortment', Assortment::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'warehouses', ShopCountryWarehouse::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
         }
     }
@@ -78,6 +82,7 @@ final class ShopCountryTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', Assortment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', ShopCountryWarehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
 
@@ -98,6 +103,7 @@ final class ShopCountryTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'assortment', Assortment::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'warehouses', ShopCountryWarehouse::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
 

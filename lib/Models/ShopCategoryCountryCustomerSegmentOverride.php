@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of the AdminAPI PHP SDK provided by SCAYLE GmbH.
+ *
+ * (c) SCAYLE GmbH <https://www.scayle.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Scayle\Cloud\AdminApi\Models;
+
+/**
+ * @property string $customerSegmentId GUID of the customer segment.
+ * @property string $smartSortingKey System smart sorting key or custom smart sorting key from the catalog.
+ * Optional when `customSortingKey` is set. Shop and shop country overrides still require `smartSortingKey`.
+ * @property string $customSortingKey Custom sorting key applied for this customer segment. Null when no custom sorting key is set.
+ * @property int $priority Priority of this override relative to other segment overrides on the same shop category country. Must be unique within the array.
+ * @property bool $isActive Whether the customer segment is currently active. Present on read responses only.
+ */
+class ShopCategoryCountryCustomerSegmentOverride extends ApiObject
+{
+    /** @var array<string, bool|string> */
+    protected array $defaultValues = [];
+
+    /** @var array<string, string> */
+    protected array $classMap = [];
+
+    /** @var array<string, string> */
+    protected array $collectionClassMap = [];
+
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphic = [];
+
+    /**
+     * @var array<string, array{discriminator: string, mapping: array<string, string>}>
+     */
+    protected array $polymorphicCollections = [];
+}

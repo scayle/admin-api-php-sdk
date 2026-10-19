@@ -29,6 +29,13 @@ namespace Scayle\Cloud\AdminApi\Models;
  * - When the customSortingKey is updated for an existing shopCategoryCountry, the update will be propagated to all of its child shopCategoryCountry entries.
  * - When the customSortingKey is set to null or not provided, it will be removed from all of its child and ancestor shopCategoryCountry entries.
  * - When the parent of a shopCategoryCountry is updated, the customSortingKey will be propagated from the new parent to the updated shopCategoryCountry and its child shopCategoryCountries.
+ * @property ShopCategoryCountryCustomerSegmentOverride[] $customerSegmentOverrides Customer segment sorting overrides for this shop category country.
+ * Each item must include at least one of `smartSortingKey` or `customSortingKey`, and a priority. An item with neither key is rejected.
+ * Returned on shop category reads when `with=countries.customerSegmentOverrides` is set, and on shop category country reads when `with=customerSegmentOverrides` is set.
+ * On write, omit the property to leave existing assignments unchanged, send an empty array to remove them, or send items to replace the full set.
+ * Each `customerSegmentId` and each `priority` must be unique. At most 30 overrides are accepted.
+ * Only active customer segments can be attached.
+ * Overrides are accepted only when `smartSortingKey` or `customSortingKey` is also present in the same request.
  * @property mixed $seo
  */
 class ShopCategoryCountry extends ApiObject
@@ -42,6 +49,7 @@ class ShopCategoryCountry extends ApiObject
     /** @var array<string, string> */
     protected array $collectionClassMap = [
         'properties' => ShopCategoryProperty::class,
+        'customerSegmentOverrides' => ShopCategoryCountryCustomerSegmentOverride::class,
     ];
 
     /**

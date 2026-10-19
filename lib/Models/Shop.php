@@ -27,6 +27,9 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property ShopCountry[] $countries The countries assigned to the shop. Can be set only on creation.
  * @property mixed $customData Arbitrary fields assigned to Shop
  * @property string $smartSortingKey System smart sorting key or custom smart sorting key from the catalog.
+ * @property CustomerSegmentOverride[] $customerSegmentOverrides Customer segment sorting overrides for this shop. Returned when `with=customerSegmentOverrides` is set.
+ * On write, omit the property to leave existing assignments unchanged, send an empty array to remove them, or send items to replace the full set.
+ * Each `customerSegmentId` and each `priority` must be unique. At most 30 overrides are accepted.
  */
 class Shop extends ApiObject
 {
@@ -41,6 +44,7 @@ class Shop extends ApiObject
     /** @var array<string, string> */
     protected array $collectionClassMap = [
         'countries' => ShopCountry::class,
+        'customerSegmentOverrides' => CustomerSegmentOverride::class,
     ];
 
     /**

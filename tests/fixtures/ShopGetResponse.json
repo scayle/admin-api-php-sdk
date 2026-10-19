@@ -73,6 +73,14 @@
                         "id": 3
                     }
                 }
+            ],
+            "customerSegmentOverrides": [
+                {
+                    "customerSegmentId": "4c9a1e2f-0f1b-4c8e-9a3d-7b5e2f1a8c40",
+                    "smartSortingKey": "scayle:v1:trending",
+                    "priority": 100,
+                    "isActive": true
+                }
             ]
         }
     ],
@@ -90,5 +98,13 @@
             }
         }
     },
-    "smartSortingKey": "scayle:v1:inventory-optimization"
+    "smartSortingKey": "scayle:v1:inventory-optimization",
+    "customerSegmentOverrides": [
+        {
+            "customerSegmentId": "4c9a1e2f-0f1b-4c8e-9a3d-7b5e2f1a8c40",
+            "smartSortingKey": "scayle:v1:trending",
+            "priority": 100,
+            "isActive": true
+        }
+    ]
 }

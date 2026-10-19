@@ -16,6 +16,7 @@ namespace Scayle\Cloud\AdminApi;
 use Scayle\Cloud\AdminApi\Models\ShopCategory;
 use Scayle\Cloud\AdminApi\Models\ShopCategoryCollection;
 use Scayle\Cloud\AdminApi\Models\ShopCategoryCountry;
+use Scayle\Cloud\AdminApi\Models\ShopCategoryCountryCustomerSegmentOverride;
 use Scayle\Cloud\AdminApi\Models\ShopCategoryProductSet;
 use Scayle\Cloud\AdminApi\Models\ShopCategoryProperty;
 use Scayle\Cloud\AdminApi\Models\ShopCategoryPropertyCollection;
@@ -316,6 +317,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', ShopCategoryCountryCustomerSegmentOverride::class);
 
 
 
@@ -335,6 +337,7 @@ final class ShopCategoryTest extends BaseApiTestCase
         self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'properties', ShopCategoryProperty::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', ShopCategoryCountryCustomerSegmentOverride::class);
 
 
 

@@ -61,6 +61,15 @@
                     "isVisible": true,
                     "isExcludedFromSearch": null,
                     "isIncludedInSearchWhenInvisible": false,
+                    "customerSegmentOverrides": [
+                        {
+                            "customerSegmentId": "4c9a1e2f-0f1b-4c8e-9a3d-7b5e2f1a8c40",
+                            "smartSortingKey": "scayle:v1:new-arrivals",
+                            "customSortingKey": "deals",
+                            "priority": 100,
+                            "isActive": true
+                        }
+                    ],
                     "properties": [
                         {
                             "key": "myKey",

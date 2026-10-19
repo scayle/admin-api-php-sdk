@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Scayle\Cloud\AdminApi;
 
 use Scayle\Cloud\AdminApi\Models\AssetSource;
+use Scayle\Cloud\AdminApi\Models\CustomerSegmentOverride;
 use Scayle\Cloud\AdminApi\Models\Shop;
 use Scayle\Cloud\AdminApi\Models\ShopCollection;
 use Scayle\Cloud\AdminApi\Models\ShopCountry;
@@ -38,6 +39,7 @@ final class ShopTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
 
@@ -53,12 +55,14 @@ final class ShopTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
         foreach ($responseEntity->getEntities() as $collectionEntity) {
             self::assertInstanceOf(Shop::class, $collectionEntity);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'logoSource', AssetSource::class);
             $this->assertPropertyHasTheCorrectType($collectionEntity, 'countries', ShopCountry::class);
+            $this->assertPropertyHasTheCorrectType($collectionEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
         }
     }
@@ -73,6 +77,7 @@ final class ShopTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
 
@@ -93,6 +98,7 @@ final class ShopTest extends BaseApiTestCase
 
         $this->assertPropertyHasTheCorrectType($responseEntity, 'logoSource', AssetSource::class);
         $this->assertPropertyHasTheCorrectType($responseEntity, 'countries', ShopCountry::class);
+        $this->assertPropertyHasTheCorrectType($responseEntity, 'customerSegmentOverrides', CustomerSegmentOverride::class);
 
 
 
