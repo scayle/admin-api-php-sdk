@@ -1,0 +1,16 @@
+{
+    "id": 1,
+    "name": "customer-created",
+    "description": "The event occurs whenever a new customer is registered on the checkout application.",
+    "targetSchema": {
+        "type": "object",
+        "properties": {
+            "shopCountryId": {
+                "type": "integer"
+            }
+        },
+        "required": [
+            "shopCountryId"
+        ]
+    }
+}

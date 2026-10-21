@@ -16,9 +16,13 @@ namespace Scayle\Cloud\AdminApi\Services;
 use Psr\Http\Client\ClientExceptionInterface;
 use Scayle\Cloud\AdminApi\Exceptions\ApiErrorException;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerCollection;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerEvent;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerEventCollection;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerRegistration;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscription;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscriptionCollection;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerWebhook;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerWebhookIdentity;
 
 class WebhookProducerService extends AbstractService
 {
@@ -42,6 +46,27 @@ class WebhookProducerService extends AbstractService
     }
 
     /**
+     * @param WebhookProducerRegistration $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function create(
+        WebhookProducerRegistration $model,
+        array $options = []
+    ): WebhookProducerRegistration {
+        return $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/webhooks/producers'),
+            query: $options,
+            headers: [],
+            modelClass: WebhookProducerRegistration::class,
+            body: $model
+        );
+    }
+
+    /**
      * @param array<string, mixed> $options additional options like limit or filters
      *
      * @throws ClientExceptionInterface
@@ -58,6 +83,94 @@ class WebhookProducerService extends AbstractService
             headers: [],
             modelClass: WebhookProducerEventCollection::class,
             body: null
+        );
+    }
+
+    /**
+     * @param WebhookProducerEvent $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createEvent(
+        string $producerIdentifier,
+        WebhookProducerEvent $model,
+        array $options = []
+    ): WebhookProducerEvent {
+        return $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/webhooks/producers/%s/events', $producerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: WebhookProducerEvent::class,
+            body: $model
+        );
+    }
+
+    /**
+     * @param WebhookProducerEvent $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function updateEvent(
+        string $producerIdentifier,
+        int $eventId,
+        WebhookProducerEvent $model,
+        array $options = []
+    ): WebhookProducerEvent {
+        return $this->request(
+            method: 'put',
+            relativeUrl: $this->resolvePath('/webhooks/producers/%s/events/%s', $producerIdentifier, $eventId),
+            query: $options,
+            headers: [],
+            modelClass: WebhookProducerEvent::class,
+            body: $model
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function deleteEvent(
+        string $producerIdentifier,
+        int $eventId,
+        array $options = []
+    ): void {
+        $this->request(
+            method: 'delete',
+            relativeUrl: $this->resolvePath('/webhooks/producers/%s/events/%s', $producerIdentifier, $eventId),
+            query: $options,
+            headers: [],
+            modelClass: null,
+            body: null
+        );
+    }
+
+    /**
+     * @param WebhookProducerWebhook $model the model to create or update
+     * @param array<string, mixed> $options additional options like limit or filters
+     *
+     * @throws ClientExceptionInterface
+     * @throws ApiErrorException
+     */
+    public function createWebhook(
+        string $producerIdentifier,
+        WebhookProducerWebhook $model,
+        array $options = []
+    ): WebhookProducerWebhookIdentity {
+        return $this->request(
+            method: 'post',
+            relativeUrl: $this->resolvePath('/webhooks/producers/%s/webhooks', $producerIdentifier),
+            query: $options,
+            headers: [],
+            modelClass: WebhookProducerWebhookIdentity::class,
+            body: $model
         );
     }
 

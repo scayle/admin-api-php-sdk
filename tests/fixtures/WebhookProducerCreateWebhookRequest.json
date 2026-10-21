@@ -1,0 +1,13 @@
+{
+    "eventName": "loyalty.tier_upgraded",
+    "payload": {
+        "customerId": 78234,
+        "newTier": "gold"
+    },
+    "target": {
+        "shopCountryId": 3
+    },
+    "customHeaders": {
+        "X-Source": "loyalty-addon"
+    }
+}

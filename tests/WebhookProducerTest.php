@@ -17,9 +17,12 @@ use Scayle\Cloud\AdminApi\Models\WebhookProducer;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerCollection;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerEvent;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerEventCollection;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerRegistration;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscription;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscriptionBasicAuth;
 use Scayle\Cloud\AdminApi\Models\WebhookProducerSubscriptionCollection;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerWebhook;
+use Scayle\Cloud\AdminApi\Models\WebhookProducerWebhookIdentity;
 
 /**
  * @internal
@@ -42,6 +45,24 @@ final class WebhookProducerTest extends BaseApiTestCase
         }
     }
 
+    public function testCreate(): void
+    {
+        $expectedRequestJson = $this->loadFixture('WebhookProducerCreateRequest.json');
+
+        $requestEntity = new WebhookProducerRegistration($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->webhookProducers->create($requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('WebhookProducerCreateResponse.json');
+        self::assertInstanceOf(WebhookProducerRegistration::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
+    }
+
     public function testAllEvents(): void
     {
         $responseEntity = $this->api->webhookProducers->allEvents('acme', []);
@@ -56,6 +77,68 @@ final class WebhookProducerTest extends BaseApiTestCase
             self::assertInstanceOf(WebhookProducerEvent::class, $collectionEntity);
 
         }
+    }
+
+    public function testCreateEvent(): void
+    {
+        $expectedRequestJson = $this->loadFixture('WebhookProducerCreateEventRequest.json');
+
+        $requestEntity = new WebhookProducerEvent($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->webhookProducers->createEvent('acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('WebhookProducerCreateEventResponse.json');
+        self::assertInstanceOf(WebhookProducerEvent::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
+    }
+
+    public function testUpdateEvent(): void
+    {
+        $expectedRequestJson = $this->loadFixture('WebhookProducerUpdateEventRequest.json');
+
+        $requestEntity = new WebhookProducerEvent($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->webhookProducers->updateEvent('acme', 1, $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('WebhookProducerUpdateEventResponse.json');
+        self::assertInstanceOf(WebhookProducerEvent::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
+    }
+
+    public function testDeleteEvent(): void
+    {
+        $this->api->webhookProducers->deleteEvent('acme', 1, []);
+
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
+        self::assertTrue(true, 'Reached end of test');
+    }
+
+    public function testCreateWebhook(): void
+    {
+        $expectedRequestJson = $this->loadFixture('WebhookProducerCreateWebhookRequest.json');
+
+        $requestEntity = new WebhookProducerWebhook($expectedRequestJson);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedRequestJson), $requestEntity->toJson());
+
+        $responseEntity = $this->api->webhookProducers->createWebhook('acme', $requestEntity, []);
+
+        $expectedResponseJson = $this->loadFixture('WebhookProducerCreateWebhookResponse.json');
+        self::assertInstanceOf(WebhookProducerWebhookIdentity::class, $responseEntity);
+        self::assertJsonStringEqualsJsonString(json_encode($expectedResponseJson), $responseEntity->toJson());
+
+
+
+
     }
 
     public function testAllSubscriptions(): void
