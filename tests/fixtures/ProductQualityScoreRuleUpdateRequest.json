@@ -1,0 +1,11 @@
+{
+    "rules": [
+        {
+            "attributeGroupName": "sizeFlag",
+            "weight": 6
+        }
+    ],
+    "masterCategoryIds": [
+        1
+    ]
+}

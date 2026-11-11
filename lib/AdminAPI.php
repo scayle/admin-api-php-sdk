@@ -40,6 +40,7 @@ use Scayle\Cloud\AdminApi\Services\OrderItemService;
 use Scayle\Cloud\AdminApi\Services\OrderService;
 use Scayle\Cloud\AdminApi\Services\PackageGroupService;
 use Scayle\Cloud\AdminApi\Services\ProductImageService;
+use Scayle\Cloud\AdminApi\Services\ProductQualityScoreRuleService;
 use Scayle\Cloud\AdminApi\Services\ProductSellableTimeframeService;
 use Scayle\Cloud\AdminApi\Services\ProductService;
 use Scayle\Cloud\AdminApi\Services\ProductsFirstLiveAtService;
@@ -91,6 +92,7 @@ use Scayle\Cloud\AdminApi\Services\WebhookSubscriptionService;
  * @property AttributeGroupService $attributeGroups
  * @property CampaignService $campaigns
  * @property MasterCategoryService $masterCategories
+ * @property ProductQualityScoreRuleService $productQualityScoreRules
  * @property ShopCategoryService $shopCategories
  * @property ShopCategoryPropertyKeyService $shopCategoryPropertyKeys
  * @property ShopCategoryProductSetUnlinkInstructionService $shopCategoryProductSetUnlinkInstructions
