@@ -32,7 +32,6 @@ class ServiceFactory extends AbstractServiceFactory
         'attributeGroups' => AttributeGroupService::class,
         'campaigns' => CampaignService::class,
         'masterCategories' => MasterCategoryService::class,
-        'productQualityScoreRules' => ProductQualityScoreRuleService::class,
         'shopCategories' => ShopCategoryService::class,
         'shopCategoryPropertyKeys' => ShopCategoryPropertyKeyService::class,
         'shopCategoryProductSetUnlinkInstructions' => ShopCategoryProductSetUnlinkInstructionService::class,
