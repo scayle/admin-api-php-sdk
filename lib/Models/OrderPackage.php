@@ -19,6 +19,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $carrierKey
  * @property OrderPackageDeliveryDate $deliveryDate
  * @property string $deliveryStatus
+ * @property string $globalShipmentId Globally unique identifier of the shipment for this package. Omitted until a shipment exists for the package.
  * @property string $shippedAt Timestamp when the order item was shipped, in Iso8601 format.
  * @property OrderPackageTracking $tracking
  * @property string $returnIdentCode

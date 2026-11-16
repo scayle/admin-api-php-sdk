@@ -29,6 +29,7 @@ namespace Scayle\Cloud\AdminApi\Models;
  * @property string $key
  * @property string $reservationKey
  * @property string $status Possible values: available, unavailable, deliverable, undeliverable, cancelled, returned.
+ * @property string $cancellationReason Free-text reason this item was not shipped. Omitted when the item has no shipment cancellation reason.
  * @property OrderItemVariant $variant
  * @property int $warehouseId
  * @property OrderItemGroup $itemGroup
